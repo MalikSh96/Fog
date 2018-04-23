@@ -24,7 +24,7 @@ public class UserMapper
         //Temporary code, not correct and not working
         try 
         {
-            Connection con = DBAccess.Connector.connection();
+            Connection con = dbaccess.Connector.connection();
             String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getEmail());
@@ -46,7 +46,7 @@ public class UserMapper
         //Temporary code, not correct and not working
         try 
         {
-            Connection con = DBAccess.Connector.connection();
+            Connection con = dbaccess.Connector.connection();
             String SQL = "SELECT id, role FROM users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
