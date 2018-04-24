@@ -4,7 +4,7 @@ package functionlayer;
  *
  * @author malik
  */
-public class Order 
+public class Orders 
 {
     private int orderId; //id of order
     private int userId; //id of the user
@@ -13,14 +13,17 @@ public class Order
     private int height; //height of the house
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
 
-    public Order(int userId, int length, int width, int height) {
+    public Orders() {
+    }
+
+    public Orders(int userId, int length, int width, int height) {
         this.userId = userId;
         this.length = length;
         this.width = width;
         this.height = height;
     }
 
-    public Order(int length, int width, int height) {
+    public Orders(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;

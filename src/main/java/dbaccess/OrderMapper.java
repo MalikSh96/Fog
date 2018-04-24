@@ -5,7 +5,7 @@
  */
 package dbaccess;
 
-import functionlayer.Order;
+import functionlayer.Orders;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +18,7 @@ import java.sql.Statement;
  */
 public class OrderMapper {
     
-    public void createPreOrder(Order ord) //To test in main
+    public void createPreOrder(Orders ord) //To test in main
     {
         int orderId = 0;
         try 

@@ -1,7 +1,7 @@
 package maintest;
 
 import dbaccess.OrderMapper;
-import functionlayer.Order;
+import functionlayer.Orders;
 
 /**
  *
@@ -12,7 +12,7 @@ public class Main
     public static void main(String[] args) 
     {
         OrderMapper om = new OrderMapper();
-        Order o = new Order(4, 10, 10, 2);
+        Orders o = new Orders(4, 10, 10, 2);
         om.createPreOrder(o);
         System.out.println("Check: " + o);
     }
