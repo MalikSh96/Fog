@@ -12,7 +12,7 @@
         <title>Help</title>
     </head>
     <body>
-        <h1>How to order a lego house</h1>
+        <h1>AAA</h1>
         If you want to place an order, please login to your account.<br>
        If you do not have an account, please register as a user.<br>
        When you've logged in, you'll be prompted to input: Length, Width and Height of the house you want.<br>

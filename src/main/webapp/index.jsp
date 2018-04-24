@@ -12,7 +12,7 @@
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Lego</h1>
+        <h1>Fog</h1>
         
         <table>
             <tr><td>Login</td>
@@ -20,7 +20,7 @@
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">
                         Email:<br>
-                        <input type="text" name="email" value="malik@sharfo.com">
+                        <input type="text" name="email" value="maliksharfo@hotmail.com">
                         <br>
                         Password:<br>
                         <input type="password" name="password" value="batman">

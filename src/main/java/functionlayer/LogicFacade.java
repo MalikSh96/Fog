@@ -1,4 +1,4 @@
-package FunctionLayer;
+package functionlayer;
 
 import dbaccess.OrderMapper;
 import dbaccess.UserMapper;

@@ -5,8 +5,9 @@
  */
 package dbaccess;
 
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
+
+import functionlayer.LoginSampleException;
+import functionlayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

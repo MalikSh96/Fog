@@ -1,6 +1,7 @@
-package PresentationLayer;
+package presentationlayer;
 
-import FunctionLayer.LoginSampleException;
+
+import functionlayer.LoginSampleException;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.ServletException;
