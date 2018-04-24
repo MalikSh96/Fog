@@ -1,0 +1,25 @@
+@startuml
+
+
+
+title = "Fog Customer"
+
+
+[*] --> index.jsp
+index.jsp --> login
+index.jsp --> products
+login --> registration
+login --> loggedInHidden
+loggedInHidden --> index.jsp
+registration --> loggedInHidden
+loggedInHidden --> index.jsp
+products --> index.jsp
+index.jsp --> cart
+products --> cart
+cart --> loggedInHidden
+loggedInHidden --> login
+loggedInHidden --> checkout
+checkout --> orderConfirmation
+orderConfirmation --> index.jsp
+orderConfirmation -->[*]
+@enduml
