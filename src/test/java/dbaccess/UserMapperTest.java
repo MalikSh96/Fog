@@ -5,6 +5,7 @@
  */
 package dbaccess;
 
+import functionlayer.User;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,10 +25,17 @@ public class UserMapperTest {
 
     @Test
     public void testCreateUser() throws Exception {
+        User original = new User( "king@kong.com", "uhahvorhemmeligt", "konge" );
+        UserMapper.createUser( original );
+        User retrieved = UserMapper.login( "king@kong.com", "uhahvorhemmeligt" );
+        assertEquals( "konge", retrieved.getRole() );
+        
     }
 
     @Test
     public void testLogin() throws Exception {
+        User user = UserMapper.login( "maliksharfo@hotmail.com", "1234" );
+        assertTrue( user != null );
     }
     
 }

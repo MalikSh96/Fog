@@ -27,8 +27,9 @@ public class OrderMapperTest {
     public void testCreatePreOrder() 
     {
         OrderMapper om = new OrderMapper();
-        Orders ord = new Orders();
+        Orders ord = new Orders(4, 20, 20, 4);
         
+        om.createPreOrder(ord);
         
     }
     
