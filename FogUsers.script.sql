@@ -41,11 +41,3 @@ insert into users(`email`, `password`, `role`) values('maliksharfo@hotmail.com',
 
 -- test test test 
 
-CREATE TABLE `FogUsers`.`carports` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `model` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
-  UNIQUE INDEX `model_UNIQUE` (`model` ASC));
