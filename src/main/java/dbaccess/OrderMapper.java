@@ -18,7 +18,7 @@ import java.sql.Statement;
  */
 public class OrderMapper {
     
-    public void createPreOrder(Orders ord) //To test in main
+    public int createPreOrder(Orders ord) //To test in main
     {
         int orderId = 0;
         try 
@@ -40,12 +40,47 @@ public class OrderMapper {
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 orderId = ids.getInt( 1 );
-
                 System.out.println("Debug " + orderId);
+                return orderId;
 
             }
         } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
             throw new Error( ex.getMessage() );
         }
+        return orderId;
+    }
+
+    public Orders getOrder(int orderId) 
+    {
+ 
+
+        Orders ord = null;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "select * from orders where orderid = ?";
+
+            PreparedStatement ps = con.prepareStatement( SQL); 
+            ps.setInt(1, orderId); //user id
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                int userID = rs.getInt("userID");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                ord  = new Orders(userID, length, width, height);
+                System.out.println("Debug " + orderId);
+                return ord;
+
+            }
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        return ord;
     }
 }

@@ -35,7 +35,7 @@ public class UserMapperTest {
     @Test
     public void testLogin() throws Exception {
         User user = UserMapper.login( "maliksharfo@hotmail.com", "1234" );
-        assertTrue( user != null );
+        assertEquals(user.getEmail(), "maliksharfo@hotmail.com" );
     }
     
 }

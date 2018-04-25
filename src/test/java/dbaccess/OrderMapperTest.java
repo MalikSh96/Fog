@@ -6,6 +6,7 @@
 package dbaccess;
 
 import functionlayer.Orders;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +30,12 @@ public class OrderMapperTest {
         OrderMapper om = new OrderMapper();
         Orders ord = new Orders(4, 20, 20, 4);
         
-        om.createPreOrder(ord);
+        int orderId = om.createPreOrder(ord);
+        
+        Orders checkOrder = om.getOrder(orderId);
+        assertNotNull(checkOrder);
+        // Select * from orders where orderid = 
+        
         
     }
     

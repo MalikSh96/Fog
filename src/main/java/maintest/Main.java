@@ -13,7 +13,10 @@ public class Main
     {
         OrderMapper om = new OrderMapper();
         Orders o = new Orders(4, 10, 10, 2);
-        om.createPreOrder(o);
-        System.out.println("Check: " + o);
+        int orderNumber = om.createPreOrder(o);
+        System.out.println("Check: " + o + "....orderNumber" + orderNumber);
+        Orders checkOrder = om.getOrder(orderNumber);
+        System.out.println("\nCheck2: " + checkOrder + "....orderNumber" + orderNumber);
+        
     }
 }
