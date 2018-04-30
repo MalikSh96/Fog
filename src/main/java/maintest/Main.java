@@ -12,13 +12,15 @@ public class Main
     public static void main(String[] args) 
     {
         OrderMapper om = new OrderMapper();
-        Orders o = new Orders(4, 80, 90, 4);
+        Orders o = new Orders(4, 1, 1, 1);
 //        int orderNumber = om.createPreOrder(o);
 //        System.out.println("Check: " + o + "....orderNumber" + orderNumber);
-//        Orders checkOrder = om.getOrder(orderNumber);
-//        System.out.println("\nCheck2: " + checkOrder + "....orderNumber" + orderNumber);
+//        Orders checkOrder = om.getOrder(orderNumber); //works
+//        System.out.println("\nCheck2: " + checkOrder + "....orderNumber" + orderNumber); //works
         
-        System.out.println("All orders: " + om.allOrders(o));
+//        System.out.println("All orders: " + om.allOrders(o)); //works
+
+        System.out.println("Confirmed orders: " + om.confirmedOrders(o));
         
     }
 }
