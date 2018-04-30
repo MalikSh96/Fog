@@ -16,6 +16,16 @@ public class Orders
     public Orders() {
     }
 
+    public Orders(int orderId, int userId, int length, int width, int height) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    
+    
     public Orders(int userId, int length, int width, int height) {
         this.userId = userId;
         this.length = length;

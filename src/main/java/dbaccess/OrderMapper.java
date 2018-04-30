@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -52,8 +54,6 @@ public class OrderMapper {
 
     public Orders getOrder(int orderId) 
     {
- 
-
         Orders ord = null;
         try 
         {
@@ -82,5 +82,40 @@ public class OrderMapper {
             throw new Error( ex.getMessage() );
         }
         return ord;
+    }
+    
+    public List<Orders> allOrders(Orders order)
+    {
+        List<Orders> orders = new ArrayList<>();
+        Orders ord = null;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders order by orderId desc";
+            
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            
+            while(resultset.next())
+            {   
+                int id = resultset.getInt("orderId");
+                int userID = resultset.getByte("userID");
+                int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
+                
+                if(userID == order.getUserId())
+                {
+                    ord = new Orders(id, userID, length, width, height);
+                    orders.add(ord);
+                }
+            }
+            System.out.println("sql syntax ok? " + SQL);
+            
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        
+        return orders;
     }
 }
