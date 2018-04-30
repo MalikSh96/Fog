@@ -20,7 +20,9 @@ public class Main
         
 //        System.out.println("All orders: " + om.allOrders(o)); //works
 
-        System.out.println("Confirmed orders: " + om.confirmedOrders(o));
+//        System.out.println("Confirmed orders: " + om.confirmedOrders(o)); //works
+
+        System.out.println("Pending orders: " + om.pendingOrders(o));
         
     }
 }
