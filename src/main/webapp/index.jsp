@@ -12,11 +12,11 @@
         <title>Welcome page</title>
     </head>
     <body>
-<<<<<<< HEAD
+
         <h1>Fog</h1>
-=======
+
        <%@include file="navigation/menu.jsp" %>
->>>>>>> f22a7a87d0124ccdd7fe0ebf069428d949731b2d
+
         
         <table>
             <tr><td>Login</td>
