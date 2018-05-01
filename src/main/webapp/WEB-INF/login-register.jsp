@@ -12,6 +12,7 @@
         <title>Welcome page</title>
     </head>
     <body>
+        <%@include file="navigation/menu.jsp" %>
         <h1>Fog</h1>
         
         <table>

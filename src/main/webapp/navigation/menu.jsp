@@ -3,7 +3,8 @@
         <div class="container resposize header">
             <div class="navwrapper">
                 <div class="logo">
-                    <h2>LOGO</h2>
+                    <img src="Image/logo.png" class="img-responsive">
+                    
                 </div>
                 <div class="nav">
 
@@ -11,7 +12,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <ul>
-                                    <li><a href="WEB-INF/Login-Register.jsp">Login-Register</a></li>
+                                    <li><a href="WEB-INF/login-register.jsp">Login-Register</a></li>
                                 </ul> 
 
                             </div>  
