@@ -9,17 +9,12 @@ title = "Fog Customer"
 index.jsp --> login
 index.jsp --> products
 login --> registration
-login --> loggedInHidden
-loggedInHidden --> index.jsp
-registration --> loggedInHidden
-loggedInHidden --> index.jsp
-products --> index.jsp
-index.jsp --> cart
-products --> cart
-cart --> loggedInHidden
-loggedInHidden --> login
-loggedInHidden --> checkout
-checkout --> orderConfirmation
+products --> orderForm
+orderForm --> orderConfirmation
 orderConfirmation --> index.jsp
 orderConfirmation -->[*]
+index.jsp --> myPage
+myPage --> myOrders
+myPage --> changeInfo
+registration --> index.jsp
 @enduml
