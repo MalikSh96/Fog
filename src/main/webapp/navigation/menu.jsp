@@ -19,12 +19,11 @@
                         </div>
 
 
-<<<<<<< HEAD
+
         </ul>
     </nav>
     </div>
-</div>
-=======
+
                         <ul>
                             <li><a href="index.jsp">Forside</a></li>
 
@@ -36,4 +35,3 @@
         </div>
     </nav>
 </header>
->>>>>>> 457cba97668e95dc1a7c917d2219ff026a26ca0a
