@@ -10,6 +10,6 @@
             <li><a href="WEB-INF/Login-Register.jsp">Login-Register</a>
 
         </ul>
-
     </nav>
+    </div>
 </div>

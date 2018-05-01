@@ -13,26 +13,26 @@
     </head>
     <body>
         <h1>Order page</h1>
-        
-        
-        input order info here!
-        
-                <table border="1">
+
+
+        <h2>Din ordre blev gennemført!</h2><br>
+
+        <table border="1">
             <tr>
                 <th><p>Længde</th>
                 <th><p>Vidde</th>
-                <th><p>Bredde</th>
+                <th><p>Højde</th>
             </tr>
             <tr>
-                <th><p>1x2</th>
-                <td><p>lolo</td>
-                <td><p>bernie</td>
-                <td><p>haha</td>
+                <td><p><%out.print(session.getAttribute("længde")); %></td>
+                <td><p><%out.print(session.getAttribute("vidde")); %></td>
+                <td><p><%out.print(session.getAttribute("højde"));%></td>
+
 
             </tr>
-             </table>
+        </table>
 
-        
-        
+
+
     </body>
 </html>
