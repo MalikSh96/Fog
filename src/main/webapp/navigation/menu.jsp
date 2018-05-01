@@ -17,13 +17,6 @@
 
                             </div>  
                         </div>
-
-
-
-        </ul>
-    </nav>
-    </div>
-
                         <ul>
                             <li><a href="index.jsp">Forside</a></li>
 
