@@ -13,11 +13,15 @@
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+<<<<<<< HEAD
 
        
 
        <%@include file="navigation/menu.jsp" %>
 
+=======
+        <h1>Fog</h1>
+>>>>>>> bb25d1ae87cc43a92df39b41c88220d525f91a89
         
         <table>
             <tr><td>Login</td>
@@ -62,5 +66,4 @@
         <% }
         %>    
     </body>
-    
 </html>
