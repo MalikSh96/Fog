@@ -24,19 +24,19 @@ public class OrderMapperTest {
     public void setUp() {
     }
 
-    @Test
-    public void testCreatePreOrder() 
-    {
-        OrderMapper om = new OrderMapper();
-        Orders ord = new Orders(4, 20, 20, 4);
-        
-        int orderId = om.createPreOrder(ord);
-        
-        Orders checkOrder = om.getOrder(orderId);
-        assertNotNull(checkOrder);
-        // Select * from orders where orderid = 
-        
-        
-    }
+//    @Test
+//    public void testCreatePreOrder() 
+//    {
+//        OrderMapper om = new OrderMapper();
+//        Orders ord = new Orders(4, 20, 20, 4);
+//        
+//        int orderId = om.createPreOrder(ord);
+//        
+//        Orders checkOrder = om.getOrder(orderId);
+//        assertNotNull(checkOrder);
+//        // Select * from orders where orderid = 
+//        
+//        
+//    }
     
 }
