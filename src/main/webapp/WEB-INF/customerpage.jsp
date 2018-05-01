@@ -19,7 +19,7 @@
         This is where you will input order
 
         <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="ordered">
+            <input type="hidden" name="command" value="order">
             <div class="height">
                 <label> Length</label><input type="number" name="length" max="99" required value="1"/>
             </div>            
