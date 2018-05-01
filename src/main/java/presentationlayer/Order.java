@@ -5,7 +5,9 @@
  */
 package presentationlayer;
 
+import dbaccess.OrderMapper;
 import functionlayer.LoginSampleException;
+import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,7 +22,8 @@ public class Order extends Command {
     int length = 0;
     int width = 0;
     int height = 0;
-
+    OrderMapper om = new OrderMapper();
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
@@ -33,6 +36,8 @@ public class Order extends Command {
         session.setAttribute("længde", length);
         session.setAttribute("vidde", width);
         session.setAttribute("højde", height);
+        Orders ord = new Orders(userID, length, width, height);
+        om.createPreOrder(ord);
       
               return "order";
     }
