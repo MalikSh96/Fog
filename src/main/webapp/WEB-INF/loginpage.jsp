@@ -12,7 +12,7 @@
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Fog</h1>
+        <h1>Login</h1>
         
         <table>
             <tr><td>Login</td>
