@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <ul>
-                                    <li>        <a href="FrontController?command=loginpage">Login and Register</a></li>
+                                    <li>        <a href="FrontController?command=loginpage">Login</a></li>
                                 </ul> 
 
                             </div>  
@@ -23,6 +23,9 @@
 
                         </ul>
 
+                        <ul>
+                                    <li>        <a href="FrontController?command=registration">Register</a></li>
+                                </ul> 
                     </div>
                 </div>
             </div>

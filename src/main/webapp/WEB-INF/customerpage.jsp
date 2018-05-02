@@ -10,10 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer home page</title>
+        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
-        
+        <%@include file="../navigation/menu.jsp" %>
         <h3>Hello <%= request.getParameter("email")%> </h3>
 
         This is where you will input order
@@ -31,9 +33,5 @@
             </div>                        
                 <input type="submit" value="Order">
             </form>
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="help">
-            <input type="submit" value="Help">
-        </form>
     </body>
 </html>
