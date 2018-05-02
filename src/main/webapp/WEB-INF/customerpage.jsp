@@ -31,6 +31,9 @@
             </div>                        
                 <input type="submit" value="Order">
             </form>
-
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="help">
+            <input type="submit" value="Help">
+        </form>
     </body>
 </html>

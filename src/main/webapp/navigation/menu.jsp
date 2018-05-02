@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <ul>
-                                    <li><a href="WEB-INF/login-register.jsp">Login-Register</a></li>
+                                    <li>        <a href="FrontController?command=loginpage">Login and Register</a></li>
                                 </ul> 
 
                             </div>  
