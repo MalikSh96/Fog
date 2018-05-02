@@ -13,19 +13,18 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <ul>
-                                    <li>        <a href="FrontController?command=loginpage">Login</a></li>
+                                    <li><a href="index.jsp">Forside</a></li>
                                 </ul> 
 
                             </div>  
                         </div>
                         <ul>
-                            <li><a href="index.jsp">Forside</a></li>
-
+                            
+                            <li>        <a href="FrontController?command=loginpage">Login</a></li>
+                            <li>        <a href="FrontController?command=registration">Register</a></li>
                         </ul>
 
-                        <ul>
-                                    <li>        <a href="FrontController?command=registration">Register</a></li>
-                                </ul> 
+                        
                     </div>
                 </div>
             </div>
