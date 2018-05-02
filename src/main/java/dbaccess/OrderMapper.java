@@ -73,7 +73,7 @@ public class OrderMapper {
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
-                ord  = new Orders(userID, length, width, height);
+                ord  = new Orders(orderId, userID, length, width, height);
                 System.out.println("Debug " + orderId);
                 return ord;
 
@@ -84,7 +84,7 @@ public class OrderMapper {
         return ord;
     }
     
-    public List<Orders> allOrders(Orders order)
+    public List<Orders> allOrders()
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -104,11 +104,10 @@ public class OrderMapper {
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 
-                if(userID == order.getUserId())
-                {
+                
                     ord = new Orders(id, userID, length, width, height);
                     orders.add(ord);
-                }
+               
             }
             System.out.println("sql syntax ok? " + SQL);
             
