@@ -1,10 +1,11 @@
-<header class="bannershow hidden-print">
+<header>
     <nav>
-        <div class="container resposize header">
+        <div class="container-resposize-header">
             <div class="navwrapper">
+
                 <div class="logo">
                     <img src="Image/logo.png" class="img-responsive">
-                    
+
                 </div>
                 <div class="nav">
 

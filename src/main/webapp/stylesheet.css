@@ -1,54 +1,12 @@
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: 90px;
-}
+body{
 
-img {
-    vertical-align: middle;
+    font-family: fantasy;  
+    /*font-family: Roboto;*/
 }
-img {
-    border: 0;
-}
-
-.logo {
+.loginregister {
     float: left;
-    width: 126px;
+    padding-left: 50px;
+    padding-right: 15px;
+
 }
 
-div{
-    display: block;
-    
-}
-h2{
-    color: white
-    
-}
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #FFF0AA;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    
-}
-.navwrapper{
-    background-color: #00008B;
-    
-    
-}

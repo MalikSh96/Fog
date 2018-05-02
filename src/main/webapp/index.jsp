@@ -10,15 +10,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome page</title>
+        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>       
 
-       <%@include file="navigation/menu.jsp" %>
-       
-       
-        
-        <table>
+        <%@include file="navigation/menu.jsp" %>
+
+
+
+
+        <table class="loginregister">
             <tr><td>Login</td>
                 <td>
                     <form name="login" action="FrontController" method="POST">
@@ -49,17 +51,23 @@
                     </form>
                 </td>
             </tr>
-        </table>
-        
-
-        <a href="FrontController?command=help">Need help? Press here!</a>
-
-
-        <% String error = (String) request.getAttribute( "error");
+            <tr>
+                <td colspan="3">
+                    <a href="FrontController?command=help">Need help? Press here!</a> 
+                    <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
-           <H2>Error!!</h2>
-           <p><%= error %>
-        <% }
-        %>    
+                    <H2>Error!!</h2>
+                    <p><%= error %>
+                        <% }
+                        %>   
+                </td>
+            </tr>
+        </table>
+
+
+
+
+
+
     </body>
 </html>
