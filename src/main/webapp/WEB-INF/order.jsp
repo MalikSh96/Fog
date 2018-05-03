@@ -67,20 +67,16 @@
                   width="<%out.print(session.getAttribute("længde"));%>" 
                   style="stroke:black; fill: none"/>
             
+            <line stroke-dasharray="5 5" x1="3"  y1="3" 
+                  x2="<%out.print(session.getAttribute("længdespær"));%>"   
+                  y2="<%out.print(session.getAttribute("højdespær"));%>"
+                  style="stroke:#006600;"/>
+                <line stroke-dasharray="5 5" x1="3"  
+                      y1="<%out.print(session.getAttribute("højdespær"));%>" 
+                      x2="<%out.print(session.getAttribute("længdespær"));%>" 
+                      y2="3" style="stroke:#006600;"/>
         </svg>
-        <br>
-        <br>
-        <br>
         
-       <SVG width="780" height="600" style="stroke:black; fill: none">
-                <rect x="0" y="0" height="600" width="780" style="stroke:black; fill: none"/>
-                <rect x="0" y="0" height="600" width="3" style="stroke:black; fill: none"/>
-                <rect x=777 y="0" height="600" width="3" style="stroke:black; fill: none"/>
-                <rect x="0" y="0" height="3" width="780" style="stroke:black; fill: none"/>
-                <rect x="0" y="597" height="3" width="780" style="stroke:black; fill: none"/>
-                <line stroke-dasharray="5 5" x1="3"  y1="45" x2="777"   y2="555" style="stroke:#006600;"/>
-                <line stroke-dasharray="5 5" x1="3"  y1="555" x2="777"   y2="45" style="stroke:#006600;"/>
-        </SVG>
         
     </body>
 </html>
