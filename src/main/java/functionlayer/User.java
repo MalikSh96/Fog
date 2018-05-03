@@ -10,7 +10,27 @@ import java.util.List;
 public class User 
 {
 
+    private int id; // just used to demo retrieval of autogen keys in UserMapper
+    private String name;
+    private String address;
+    private int postalcode;
+    private int phone;
+    private String email;
+    private String password; // Should be hashed and all
+    private String role;    
+
+    
     public User( String email, String password, String role ) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+    
+    public User( String name, String address, int postalcode, int phone, String email, String password, String role ) {
+        this.name = name;
+        this.address = address;
+        this.postalcode = postalcode;
+        this.phone = phone;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -23,10 +43,6 @@ public class User
         this.role = role;
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private String password; // Should be hashed and all
-    private String role;    
 
 
     public String getEmail() 
@@ -69,6 +85,37 @@ public class User
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getPostalcode() {
+        return postalcode;
+    }
+
+    public void setPostalcode(int postalcode) {
+        this.postalcode = postalcode;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
     @Override
     public String toString() 
     {

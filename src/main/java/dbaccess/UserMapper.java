@@ -26,11 +26,17 @@ public class UserMapper
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
+            String postal = ""+user.getPostalcode();
+            String phone = ""+ user.getPhone();
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getAddress());
+            ps.setString(3, postal);
+            ps.setString(4, phone);
+            ps.setString(5, user.getEmail());
+            ps.setString(6, user.getPassword());
+            ps.setString(7, user.getRole());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
