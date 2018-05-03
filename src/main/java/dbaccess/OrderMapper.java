@@ -156,8 +156,41 @@ public class OrderMapper {
     }
     
 
-   // public List<Orders> pendingOrders()
+public List<Orders> pendingOrders()
+    {
+        List<Orders> orders = new ArrayList<>();
+        Orders ord = null;
 
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "select * from FogUsers.orders where orderConfirmed "
+                    + "= '0' order by orderId desc;";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while(resultset.next())
+            {
+                int id = resultset.getInt("orderId");
+                int userID = resultset.getByte("userID");
+                int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
+                boolean conf = resultset.getBoolean("orderConfirmed");
+
+                ord = new Orders(id, userID, length, width, height, conf);
+                orders.add(ord);
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+
+        return orders;
+    }
 
     public List<Orders> allCustomerOrders(int id)
 
