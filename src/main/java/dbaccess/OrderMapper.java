@@ -61,7 +61,7 @@ public class OrderMapper {
             String SQL = "select * from orders where orderid = ?";
 
             PreparedStatement ps = con.prepareStatement( SQL); 
-            ps.setInt(1, orderId); //user id
+            ps.setInt(1, orderId);
 
             System.out.println("Check sql order " + SQL);
 
