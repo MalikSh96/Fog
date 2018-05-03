@@ -155,12 +155,12 @@ public class OrderMapper {
         return orders;
     }
     
-<<<<<<< HEAD
-    public List<Orders> pendingOrders()
-=======
+
+   // public List<Orders> pendingOrders()
+
 
     public List<Orders> allCustomerOrders(int id)
->>>>>>> customerorders
+
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -181,19 +181,17 @@ public class OrderMapper {
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
-<<<<<<< HEAD
+
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-
-=======
-                
+             
                 if(userID == id)
                 {
                     ord = new Orders(orderId, userID, length, width, height, conf);
                     orders.add(ord);
                 }
->>>>>>> customerorders
+
             }
             System.out.println("sql syntax ok? " + SQL);
             

@@ -72,7 +72,7 @@ public class Orders
 
     @Override
     public String toString() {
-        return "<br>Order:<br>" + "<br>orderId: " + orderId + "<br>userId: " + userId + "<br>length: " + length 
+        return "<br>orderId: " + orderId + "<br><br>userId: " + userId + "<br>length: " + length 
                 + "<br>width: " + width + "<br>height: " + height + "<br>orderConfirmed: " + orderConfirmed + "<br>";
     }
 }
