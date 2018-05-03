@@ -216,8 +216,8 @@ public List<Orders> pendingOrders()
                 boolean conf = resultset.getBoolean("orderConfirmed");
 
 
-                ord = new Orders(id, userID, length, width, height, conf);
-                orders.add(ord);
+//                ord = new Orders(id, userID, length, width, height, conf);
+//                orders.add(ord);
              
                 if(userID == id)
                 {
