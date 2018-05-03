@@ -22,6 +22,8 @@ public class Order extends Command {
     int length = 0;
     int width = 0;
     int height = 0;
+    int lengthrafter = 0;
+    int heightrafter = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -32,10 +34,14 @@ public class Order extends Command {
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
         height = Integer.parseInt(request.getParameter("height"));
+        lengthrafter = Integer.parseInt(request.getParameter("length")) - 3;
+        heightrafter = Integer.parseInt(request.getParameter("height")) - 3;
      //   PreOrder pre = new PreOrder(userID, length, width, height);
         session.setAttribute("længde", length);
         session.setAttribute("vidde", width);
         session.setAttribute("højde", height);
+        session.setAttribute("længdespær", lengthrafter);
+        session.setAttribute("højdespær", heightrafter);
         Orders ord = new Orders(userID, length, width, height);
         om.createPreOrder(ord);
       

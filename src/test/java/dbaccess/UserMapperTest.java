@@ -31,11 +31,11 @@ public class UserMapperTest {
 //        assertEquals( "konge", retrieved.getRole() );
 //        
 //    }
-//
-//    @Test
-//    public void testLogin() throws Exception {
-//        User user = UserMapper.login( "maliksharfo@hotmail.com", "1234" );
-//        assertEquals(user.getEmail(), "maliksharfo@hotmail.com" );
-//    }
+
+    @Test
+    public void testLogin() throws Exception {
+        User user = UserMapper.login( "maliksharfo@hotmail.com", "1234" );
+        assertEquals(user.getEmail(), "maliksharfo@hotmail.com" );
+    }
     
 }
