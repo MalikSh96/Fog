@@ -6,6 +6,7 @@
 package dbaccess;
 
 import functionlayer.Orders;
+import functionlayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -154,7 +155,12 @@ public class OrderMapper {
         return orders;
     }
     
+<<<<<<< HEAD
     public List<Orders> pendingOrders()
+=======
+
+    public List<Orders> allCustomerOrders(int id)
+>>>>>>> customerorders
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -162,24 +168,32 @@ public class OrderMapper {
         try 
         {
             Connection con = Connector.connection();
-            String SQL = "select * from FogUsers.orders where orderConfirmed "
-                    + "= '0' order by orderId desc;";
+            String SQL = "SELECT * FROM FogUsers.orders where userID = " + id;
             
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
             
             while(resultset.next())
             {   
-                int id = resultset.getInt("orderId");
+                int orderId = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
+<<<<<<< HEAD
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
 
+=======
+                
+                if(userID == id)
+                {
+                    ord = new Orders(orderId, userID, length, width, height, conf);
+                    orders.add(ord);
+                }
+>>>>>>> customerorders
             }
             System.out.println("sql syntax ok? " + SQL);
             
