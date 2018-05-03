@@ -22,15 +22,20 @@ public class UserMapper
 {
     public static void createUser(User user) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
+            String postal = ""+user.getPostalcode();
+            String phone = ""+ user.getPhone();
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getAddress());
+            ps.setString(3, postal);
+            ps.setString(4, phone);
+            ps.setString(5, user.getEmail());
+            ps.setString(6, user.getPassword());
+            ps.setString(7, user.getRole());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -44,7 +49,6 @@ public class UserMapper
     
     public static User login(String email, String password) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -69,9 +73,8 @@ public class UserMapper
         }
     }
     
-        public static void getUserId(User user) throws LoginSampleException 
+    public static void getUserId(User user) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -89,6 +92,6 @@ public class UserMapper
         {
             throw new LoginSampleException(ex.getMessage());
         }
-    }
+    }      
 }
 

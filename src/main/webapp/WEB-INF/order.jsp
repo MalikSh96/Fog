@@ -20,7 +20,7 @@
 
 
         <h3>Din ordre blev gennemført!</h3><br>
-
+        <a href="FrontController?command=customerpage">Need help? Press here!</a>
         <table border="1">
             <tr>
                 <th><p>Længde</th>
