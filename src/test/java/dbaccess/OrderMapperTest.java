@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
@@ -71,7 +71,7 @@
 //    
 //    
 //}
-=======
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -156,4 +156,3 @@ public class OrderMapperTest {
         assertEquals(expected, ord.isOrderConfirmed());
     }
 }
->>>>>>> 93d763fa961bc72d59dabe9ec9b753b5b9d2cc20
