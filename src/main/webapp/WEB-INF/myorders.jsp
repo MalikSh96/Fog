@@ -4,6 +4,8 @@
     Author     : Joklin
 --%>
 
+<%@page import="dbaccess.OrderMapper"%>
+<%@page import="functionlayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,11 +19,13 @@
                 <%@include file="../navigation/menu.jsp" %>
         <h1>Kunde Ordre Liste</h1>
         
-        vis alle kunde ordrer
+                        <%
+            User user = (User)session.getAttribute("user");
+            OrderMapper om = new OrderMapper();
+            %>
         
-        WIP
-        
-        
+ <%=om.allCustomerOrders(user.getId()).toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
+                
         
     </body>
 </html>

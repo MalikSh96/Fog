@@ -95,6 +95,6 @@ public class UserMapper
         {
             throw new LoginSampleException(ex.getMessage());
         }
-    }
+    }      
 }
 

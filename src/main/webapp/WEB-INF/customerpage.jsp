@@ -18,8 +18,8 @@
         <%@include file="../navigation/menu.jsp" %>
         <h3>Hello <%= request.getParameter("name")%> </h3>
 
-        <a href="FrontController?command=customorder">Make custom order</a>
-        <a href="FrontController?command=myorders">My Orders</a>
+        <a href="FrontController?command=customorder">Make custom order</a><br><br>
+        <a href="FrontController?command=myorders">My Orders</a><br><br>
         <a href="FrontController?command=updateinfo">Update User Info</a>
     </body>
 </html>
