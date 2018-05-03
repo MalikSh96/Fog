@@ -105,8 +105,8 @@ public class OrderMapper {
                 int height = resultset.getInt("height");
                 
                 
-                    ord = new Orders(id, userID, length, width, height);
-                    orders.add(ord);
+                ord = new Orders(id, userID, length, width, height);
+                orders.add(ord);
                
             }
             System.out.println("sql syntax ok? " + SQL);
@@ -118,7 +118,7 @@ public class OrderMapper {
         return orders;
     }
     
-    public List<Orders> confirmedOrders(Orders order)
+    public List<Orders> confirmedOrders()
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -140,12 +140,10 @@ public class OrderMapper {
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
+
+                ord = new Orders(id, userID, length, width, height, conf);
+                orders.add(ord);
                 
-                if(userID == order.getUserId())
-                {
-                    ord = new Orders(id, userID, length, width, height, conf);
-                    orders.add(ord);
-                }
             }
             System.out.println("sql syntax ok? " + SQL);
             
@@ -156,7 +154,7 @@ public class OrderMapper {
         return orders;
     }
     
-    public List<Orders> pendingOrders(Orders order)
+    public List<Orders> pendingOrders()
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -178,12 +176,10 @@ public class OrderMapper {
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
-                
-                if(userID == order.getUserId())
-                {
-                    ord = new Orders(id, userID, length, width, height, conf);
-                    orders.add(ord);
-                }
+
+                ord = new Orders(id, userID, length, width, height, conf);
+                orders.add(ord);
+
             }
             System.out.println("sql syntax ok? " + SQL);
             

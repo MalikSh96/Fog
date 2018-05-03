@@ -31,7 +31,7 @@ public class OrderMapperTest {
     public void testCreatePreOrder() 
     {
         OrderMapper om = new OrderMapper();
-        Orders ord = new Orders(4, 20, 20, 4);
+        Orders ord = new Orders(1, 20, 20, 4);
         
         int orderId = om.createPreOrder(ord);
         
@@ -53,7 +53,7 @@ public class OrderMapperTest {
     {
         OrderMapper om = new OrderMapper();
         int expected = om.allOrders().size()+1;
-        Orders ord = new Orders(4, 99, 99, 9);
+        Orders ord = new Orders(1, 99, 99, 9);
         om.createPreOrder(ord);
         int actual = om.allOrders().size();
         

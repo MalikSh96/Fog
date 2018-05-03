@@ -22,7 +22,6 @@ public class UserMapper
 {
     public static void createUser(User user) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -50,7 +49,6 @@ public class UserMapper
     
     public static User login(String email, String password) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -75,9 +73,8 @@ public class UserMapper
         }
     }
     
-        public static void getUserId(User user) throws LoginSampleException 
+    public static void getUserId(User user) throws LoginSampleException 
     {
-        //Temporary code, not correct and not working
         try 
         {
             Connection con = dbaccess.Connector.connection();
