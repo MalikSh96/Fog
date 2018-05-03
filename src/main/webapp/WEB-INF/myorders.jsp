@@ -20,7 +20,7 @@
         <h1>Kunde Ordre Liste</h1>
         
                         <%
-            User user = (User)session.getAttribute("user");
+           
             OrderMapper om = new OrderMapper();
             %>
         
