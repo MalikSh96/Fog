@@ -24,9 +24,10 @@
                             </div>  
                         </div>
                         <ul>
-                            
+                            <% if(user == null){ %>
                             <li>        <a href="FrontController?command=loginpage">Login</a></li>
                             <li>        <a href="FrontController?command=registration">Register</a></li>
+                            <%} %>
                         </ul>
 
                         
