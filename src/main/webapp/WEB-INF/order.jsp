@@ -18,7 +18,7 @@
         <h1>Order page</h1>
 
 
-        <h2>Din ordre blev gennemført!</h2><br>
+        <h3>Din ordre blev gennemført!</h3><br>
 
         <table border="1">
             <tr>

@@ -16,22 +16,10 @@
     <body>
 
         <%@include file="../navigation/menu.jsp" %>
-        <h3>Hello <%= request.getParameter("email")%> </h3>
+        <h3>Hello <%= request.getParameter("name")%> </h3>
 
-        This is where you will input order
-
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="order">
-            <div class="height">
-                <label> Length</label><input type="number" name="length" max="99" required value="1"/>
-            </div>            
-            <div class="length">
-                <label> Width</label><input type="number" name="width" max="999" required value="1"/>
-            </div>            
-            <div class="width">
-                <label> Height</label><input type="number" name="height" max="999" required value="1"/>
-            </div>                        
-                <input type="submit" value="Order">
-            </form>
+        <a href="FrontController?command=customorder">Make custom order</a>
+        <a href="FrontController?command=myorders">My Orders</a>
+        <a href="FrontController?command=updateinfo">Update User Info</a>
     </body>
 </html>
