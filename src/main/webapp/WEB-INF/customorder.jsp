@@ -23,13 +23,13 @@
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="order">
             <div class="height">
-                <label> Length</label><input type="number" name="length" max="99" required value="1"/>
+                <label> Length</label><input type="number" name="length" max="999" required value="240" min="240"/>
             </div>            
             <div class="length">
-                <label> Width</label><input type="number" name="width" max="999" required value="1"/>
+                <label> Width</label><input type="number" name="width" max="999" required value="240" min="240"/>
             </div>            
             <div class="width">
-                <label> Height</label><input type="number" name="height" max="999" required value="1"/>
+                <label> Height</label><input type="number" name="height" max="999" required value="240" min="240"/>
             </div>                        
                 <input type="submit" value="Order">
             </form>

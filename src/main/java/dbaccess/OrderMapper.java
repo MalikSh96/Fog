@@ -6,6 +6,7 @@
 package dbaccess;
 
 import functionlayer.Orders;
+import functionlayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,7 +62,7 @@ public class OrderMapper {
             String SQL = "select * from orders where orderid = ?";
 
             PreparedStatement ps = con.prepareStatement( SQL); 
-            ps.setInt(1, orderId); //user id
+            ps.setInt(1, orderId);
 
             System.out.println("Check sql order " + SQL);
 
@@ -154,22 +155,23 @@ public class OrderMapper {
         return orders;
     }
     
-    public List<Orders> pendingOrders()
+
+public List<Orders> pendingOrders()
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-        
+
         try 
         {
             Connection con = Connector.connection();
             String SQL = "select * from FogUsers.orders where orderConfirmed "
                     + "= '0' order by orderId desc;";
-            
+
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            
+
             while(resultset.next())
-            {   
+            {
                 int id = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
@@ -179,6 +181,49 @@ public class OrderMapper {
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+
+        return orders;
+    }
+
+    public List<Orders> allCustomerOrders(int id)
+
+    {
+        List<Orders> orders = new ArrayList<>();
+        Orders ord = null;
+        
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.orders where userID = " + id;
+            
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            
+            while(resultset.next())
+            {   
+                int orderId = resultset.getInt("orderId");
+                int userID = resultset.getByte("userID");
+                int length = resultset.getInt("length");
+                int width = resultset.getInt("width");
+                int height = resultset.getInt("height");
+                boolean conf = resultset.getBoolean("orderConfirmed");
+
+
+//                ord = new Orders(id, userID, length, width, height, conf);
+//                orders.add(ord);
+             
+                if(userID == id)
+                {
+                    ord = new Orders(orderId, userID, length, width, height, conf);
+                    orders.add(ord);
+                }
 
             }
             System.out.println("sql syntax ok? " + SQL);

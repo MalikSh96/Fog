@@ -1,6 +1,8 @@
-<header>
-    <nav>
+<nav>
         <div class="container-resposize-header">
+<header>
+    <%@page import="functionlayer.User"%>
+        <%User user = (User) session.getAttribute("user");%>
             <div class="navwrapper">
 
                 <div class="logo">
@@ -14,6 +16,9 @@
                             <div class="col-xs-12">
                                 <ul>
                                     <li><a href="index.jsp">Forside</a></li>
+                                    <% if (user != null)  { %>
+                                    <li><a href="FrontController?command=customerpage">min side</a></li>
+                                    <%}%>
                                 </ul> 
 
                             </div>  

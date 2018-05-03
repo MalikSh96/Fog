@@ -24,6 +24,14 @@ public class Orders
         this.height = height;
     }
 
+    public Orders(int userId, int length, int width, int height, boolean orderConfirmed) {
+        this.userId = userId;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.orderConfirmed = orderConfirmed;
+    }
+
     public Orders(int orderId, int userId, int length, int width, int height, boolean orderConfirmed) {
         this.orderId = orderId;
         this.userId = userId;
@@ -72,7 +80,7 @@ public class Orders
 
     @Override
     public String toString() {
-        return "Order:\n" + "orderId: " + orderId + "\nuserId: " + userId + "\nlength: " + length 
-                + "\nwidth: " + width + "\nheight: " + height + "\norderConfirmed: " + orderConfirmed;
+        return "<br>orderId: " + orderId + "<br><br>userId: " + userId + "<br>length: " + length 
+                + "<br>width: " + width + "<br>height: " + height + "<br>orderConfirmed: " + orderConfirmed + "<br>";
     }
 }

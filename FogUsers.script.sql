@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS `FogUsers`;
 CREATE DATABASE `FogUsers`;
 
 USE `FogUsers`;
-
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `orders`;
 DROP TABLE IF EXISTS `carports`;
@@ -12,7 +12,7 @@ create table `users` (
 `name` varchar(90),
 `address` varchar(90),
 `postalnumber` int null,
-`phone` int null,
+`phone` int(8) not null,
 `email` varchar(90),
 `id` int auto_increment primary key,
 `password` varchar(45),
@@ -41,7 +41,8 @@ CREATE TABLE `carports` (
   UNIQUE INDEX `model_UNIQUE` (`model` ASC)
   );
 
-insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('malik sharfo','Somewherevej 25',1455,45227792,'maliksharfo@hotmail.com', 1234, 'admin');
-
+insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('malik sharfo','Somewherevej 25',1455,123456781,'maliksharfo@hotmail.com', 1234, 'admin');
+insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Holm','Somewherevej 26',1455,123456781,'holm@live.dk', 1234, 'customer');
+SET FOREIGN_KEY_CHECKS=1;
 -- test test test 
 
