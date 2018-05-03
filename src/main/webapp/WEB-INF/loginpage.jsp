@@ -18,7 +18,7 @@
         <h1>Login</h1>
         
         <table>
-            <tr><td>Login</td>
+            <tr>
                 <td>
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">

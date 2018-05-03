@@ -25,6 +25,7 @@ abstract class Command extends HttpServlet{
         commands.put( "myorders", new MyOrders());
         commands.put( "updateinfo", new UpdateInfo());
         commands.put( "customerpage", new CustomerPage());
+        commands.put("logout", new Logout());
 
     }
 

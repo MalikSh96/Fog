@@ -16,18 +16,22 @@
                             <div class="col-xs-12">
                                 <ul>
                                     <li><a href="index.jsp">Forside</a></li>
-                                    <% if (user != null)  { %>
-                                    <li><a href="FrontController?command=customerpage">min side</a></li>
-                                    <%}%>
+                                    <li><a href="FrontController?command=customorder">Bygselv Carport</a></li>
+                                    
                                 </ul> 
-
+                                    
                             </div>  
                         </div>
                         <ul>
+                            <% if (user != null)  { %>
+                                    <li><a href="FrontController?command=customerpage">Min Side</a></li>
+                                    <% }%>
                             <% if(user == null){ %>
                             <li>        <a href="FrontController?command=loginpage">Login</a></li>
                             <li>        <a href="FrontController?command=registration">Register</a></li>
-                            <%} %>
+                            <% } else { %>
+                            <li> <a href="FrontController?command=logout">Logout</a></li>
+                            <% }%>
                         </ul>
 
                         

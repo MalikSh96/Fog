@@ -11,7 +11,7 @@ import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import functionlayer.User;
 /**
  *
  * @author Joklin
@@ -28,8 +28,12 @@ public class Order extends Command {
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-
+        
         HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+        return "registration";
+        }
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
