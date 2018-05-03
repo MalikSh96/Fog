@@ -27,8 +27,11 @@ public class UserMapper
             Connection con = dbaccess.Connector.connection();
             String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            
+            
             String postal = ""+user.getPostalcode();
             String phone = ""+ user.getPhone();
+
             ps.setString(1, user.getName());
             ps.setString(2, user.getAddress());
             ps.setString(3, postal);
@@ -40,7 +43,8 @@ public class UserMapper
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
             int id = ids.getInt(1);
-            user.setId(id);
+            user.setId(id);      
+            
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new LoginSampleException(ex.getMessage());
