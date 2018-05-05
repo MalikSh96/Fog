@@ -24,6 +24,15 @@ public class Order extends Command {
     int height = 0;
     int lengthrafter = 0;
     int heightrafter = 0;
+    int widthrafter = 0;
+    int widthSVG = 0;
+    int lengthSVG = 0;
+    int widthline = 0;
+    
+    int lengthline = 0;
+    int lengthtextmiddle = 0;
+    int widthtextmiddle = 0;
+    int roof_tiles = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -40,25 +49,39 @@ public class Order extends Command {
         height = Integer.parseInt(request.getParameter("height"));
         lengthrafter = Integer.parseInt(request.getParameter("length")) - 3;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 3;
+        widthrafter = Integer.parseInt(request.getParameter("width")) - 23;
+        widthSVG = Integer.parseInt(request.getParameter("width")) + 30;
+        lengthSVG = Integer.parseInt(request.getParameter("length")) + 30;
+        widthline = Integer.parseInt(request.getParameter("width")) + 15;
+        lengthline = Integer.parseInt(request.getParameter("length")) + 15;
+        lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
+        widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2;
+        roof_tiles = 35;
+        
      //   PreOrder pre = new PreOrder(userID, length, width, height);
+        session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("længde", length);
-        session.setAttribute("vidde", width);
+        session.setAttribute("bredde", width);
         session.setAttribute("højde", height);
         session.setAttribute("længdespær", lengthrafter);
         session.setAttribute("højdespær", heightrafter);
-        Orders ord = new Orders(userID, length, width, height);
-        om.createPreOrder(ord);
+        session.setAttribute("breddespær", widthrafter);
+        session.setAttribute("breddeSVG", widthSVG);
+        session.setAttribute("længdeSVG", lengthSVG);
+        session.setAttribute("breddelinje", widthline);
+        session.setAttribute("længdelinje", lengthline);
+        
+        session.setAttribute("længdemidtentekst", lengthtextmiddle);
+        session.setAttribute("breddemidtentekst", widthtextmiddle);
+        
+//        Orders ord = new Orders(userID, length, width, height);
+//        om.createPreOrder(ord);
       
               return "order";
     }
 
 }
 
-/*        til order jsp
 
-<th><p>1x2</th>
-<td><p><%out.print(session.getAttribute("længde")); %></td>
-<td><p><%out.print(session.getAttribute("vidde")); %></td>
-<td><p><%out.print(session.getAttribute("bredde")); %></td>
 
-*/
+
