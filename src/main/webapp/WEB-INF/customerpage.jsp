@@ -23,9 +23,7 @@
         <%= request.getParameter("address")%><br>
         <%= request.getParameter("postal")%><br>
         <%= request.getParameter("phone")%><br>
-        <%= request.getParameter("email")%><br>
-
-        
+        <%= request.getParameter("email")%><br>        
     </center>
 
     <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
