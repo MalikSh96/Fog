@@ -23,9 +23,8 @@ abstract class Command extends HttpServlet{
         commands.put( "registration", new Registration());
         commands.put( "customorder", new CustomOrder());
         commands.put( "myorders", new MyOrders());
-<<<<<<< HEAD
         commands.put( "userInfo", new UserInfo());
-        commands.put( "updateinfo", new UpdateInfo());
+        commands.put( "updateinfopage", new UpdateInfoPage());
         commands.put( "customerpage", new CustomerPage());
         commands.put("logout", new Logout());
         commands.put("inventory", new Inventory());
@@ -33,13 +32,11 @@ abstract class Command extends HttpServlet{
         commands.put("allOrders", new AllOrders());
         commands.put("specificOrder", new SpecificOrder());
         commands.put("updateInventory", new UpdateInventory());
-        commands.put("updateInfo", new UpdateInfo());
+        commands.put("updateInfo", new UpdateUserInfo());
         commands.put("userList", new UserList());
-=======
         commands.put( "updateinfopage", new UpdateInfoPage());
         commands.put( "customerpage", new CustomerPage());
         commands.put( "updateinfo", new UpdateUserInfo());
->>>>>>> UpdateUserInfo
 
     }
 

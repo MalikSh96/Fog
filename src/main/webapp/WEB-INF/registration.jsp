@@ -42,7 +42,8 @@
                         <input type="text" name="address" value="" placeholder="Addresse">
                         <br>
                         Postnr.<br>
-                        <input type="number" name="postalcode" placeholder="Postnr.">
+                        <input type="tel" name="postalcode" placeholder="Postnr." 
+                               size="20" minlength="4" maxlength="4">
                         <br>
                         By <br>
                         <input type="text" name="by" value="" placeholder="By">
