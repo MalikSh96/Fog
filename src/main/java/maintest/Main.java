@@ -16,6 +16,7 @@ public class Main
 {
     public static void main(String[] args) throws LoginSampleException 
     {
+<<<<<<< HEAD
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();       
 
@@ -28,6 +29,18 @@ public class Main
 
 //        Orders o = new Orders(4, 1, 1, 1);
   //      System.out.println(om.allCustomerOrders(2).toString());
+=======
+//        OrderMapper om = new OrderMapper();
+//        UserMapper um = new UserMapper();
+//        System.out.println(um.getUser(3));
+//        um.updateUserInfo(3, "flash", "brandi", 1234, 17565631,"Flækse@flas.dk", "98765");
+//        
+//        System.out.println("\n"+um.getUser(3));
+//        Orders o = new Orders(1, 2, 2, 2);
+
+//        Orders o = new Orders(4, 1, 1, 1);
+//        System.out.println(om.allCustomerOrders(2).toString());
+>>>>>>> UpdateUserInfo
 
 //        Orders ord = new Orders(1, 10, 8, 6, true);
 //        int o = om.createPreOrder(ord);
