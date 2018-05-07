@@ -98,7 +98,7 @@ public class UserMapper
         }
     }
     
-        public static void updateUserInfo(User user) throws LoginSampleException {
+        public static void updateUserInfo(int id, String name, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException {
         try 
         {
             Connection con = dbaccess.Connector.connection();
