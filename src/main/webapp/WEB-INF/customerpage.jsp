@@ -18,8 +18,18 @@
         <%@include file="../navigation/menu.jsp" %>
         <h3>Hello <%= request.getParameter("name")%> </h3>
 
-        <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
-        <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
-        <a href="FrontController?command=updateinfopage">Opdater personlige informationer</a>
-    </body>
+    <center> Dine informationer: <br><br>
+        <%= request.getParameter("name")%><br>
+        <%= request.getParameter("address")%><br>
+        <%= request.getParameter("postal")%><br>
+        <%= request.getParameter("phone")%><br>
+        <%= request.getParameter("email")%><br>
+
+        
+    </center>
+
+    <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
+    <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
+    <a href="FrontController?command=updateinfopage">Opdater personlige informationer</a>
+</body>
 </html>

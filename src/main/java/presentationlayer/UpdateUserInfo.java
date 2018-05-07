@@ -8,6 +8,7 @@ package presentationlayer;
 import dbaccess.UserMapper;
 import functionlayer.LoginSampleException;
 import functionlayer.Orders;
+import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,11 +29,11 @@ public class UpdateUserInfo extends Command {
 
         HttpSession session = request.getSession();
         userID = (int) session.getAttribute("id");
-        postal = Integer.parseInt(request.getParameter("postal"));
-        phone = Integer.parseInt(request.getParameter("phone"));
         name = request.getParameter("name");
-        address = request.getParameter("address");
-        email = request.getParameter("email");
+        address = request.getParameter("address"); 
+        email = request.getParameter("email"); 
+        postal = Integer.parseInt(request.getParameter("postal")); 
+        phone = Integer.parseInt(request.getParameter("phone")); 
         password = request.getParameter("password");
         
         um.UpdateUserInfo(userID, name, address, postal, phone, email, password);
