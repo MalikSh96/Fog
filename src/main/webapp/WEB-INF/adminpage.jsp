@@ -19,7 +19,7 @@
 <%@include file="../navigation/menu.jsp" %>
         
         <h1>Hello <%= request.getParameter("email")%> </h1>
-        You are now logged in as a EMPLOYEE of our wonderful site.
+       Admin page
         
                     <form name="employeepage" action="FrontController" method="POST">
                         orderId<input type="number" name="orderID" placeholder="Order ID" required value="1"/>
