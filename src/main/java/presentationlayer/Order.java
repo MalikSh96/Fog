@@ -49,13 +49,13 @@ public class Order extends Command {
         height = Integer.parseInt(request.getParameter("height"));
         lengthrafter = Integer.parseInt(request.getParameter("length")) - 3;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 3;
-        widthrafter = Integer.parseInt(request.getParameter("width")) - 23;
-        widthSVG = Integer.parseInt(request.getParameter("width")) + 30;
-        lengthSVG = Integer.parseInt(request.getParameter("length")) + 30;
-        widthline = Integer.parseInt(request.getParameter("width")) + 15;
+        widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
+        widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
+        lengthSVG = Integer.parseInt(request.getParameter("length")) + 60;
+        widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
         lengthline = Integer.parseInt(request.getParameter("length")) + 15;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
-        widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2;
+        widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 35;
         
      //   PreOrder pre = new PreOrder(userID, length, width, height);
