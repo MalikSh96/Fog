@@ -102,7 +102,10 @@ public class UserMapper
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "UPDATE FogUsers.users SET name =' " +name +
+            "', address = '"+address+"', postalnumber = '"+postalnumber+
+                    "', phone = "+phone+"', email = '"+email+
+                    "', password = '"+password+ "WHERE `id`='3';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getPassword());
@@ -110,7 +113,6 @@ public class UserMapper
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
-            int id = ids.getInt(1);
             user.setId(id);
         } catch (SQLException | ClassNotFoundException ex) 
         {
