@@ -43,6 +43,7 @@ CREATE TABLE `carports` (
 
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('malik sharfo','Somewherevej 25',1455,123456781,'maliksharfo@hotmail.com', 1234, 'admin');
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Holm','Somewherevej 26',1455,123456781,'holm@live.dk', 1234, 'customer');
+insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('bambi','Bambivej',1455,123456781,'bambi@bambi.dk', 1234, 'customer');
 SET FOREIGN_KEY_CHECKS=1;
 -- test test test 
 
