@@ -20,6 +20,6 @@
 
         <a href="FrontController?command=customorder">Make custom order</a><br><br>
         <a href="FrontController?command=myorders">My Orders</a><br><br>
-        <a href="FrontController?command=updateinfo">Update User Info</a>
+        <a href="FrontController?command=updateinfopage">Update User Info</a>
     </body>
 </html>

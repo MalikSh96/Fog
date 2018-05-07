@@ -125,7 +125,7 @@ public class UserMapper
         return u;
     }
     
-        public static void updateUserInfo(int id, String name, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException 
+        public static void UpdateUserInfo(int id, String name, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException 
         {
         try 
         {
@@ -133,7 +133,7 @@ public class UserMapper
             String SQL = "UPDATE FogUsers.users SET name = '" +name +
             "', address = '"+address+"', postalnumber = '"+postalnumber+
                     "', phone = '"+phone+"', email = '"+email+
-                    "', password = '"+password+ "' WHERE id='3';";
+                    "', password = '"+password+ "' WHERE id='" + id +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
             ps.executeUpdate();
