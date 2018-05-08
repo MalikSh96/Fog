@@ -75,7 +75,7 @@
                 <rect x="0" y="30" height="<%= width%>" 
                       width="3" style="stroke:black; fill: none"/>
 
-                <rect x="0" y="50" height="3" 
+                <rect x="0" y="48" height="5" 
                       width="<%=length%>"
                       style="stroke:black; fill: none"/>
 
@@ -88,7 +88,7 @@
 
 
                 <rect x="0" y="<%out.print(session.getAttribute("breddespær"));%>"
-                      height="3" 
+                      height="5" 
                       width="<%= length%>" 
                       style="stroke:black; fill: none"/>
 

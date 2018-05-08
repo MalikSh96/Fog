@@ -48,7 +48,7 @@ public class Order extends Command {
         width = Integer.parseInt(request.getParameter("width"));
         height = Integer.parseInt(request.getParameter("height"));
         lengthrafter = Integer.parseInt(request.getParameter("length")) - 3;
-        heightrafter = Integer.parseInt(request.getParameter("height")) - 3;
+        heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
         widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
         lengthSVG = Integer.parseInt(request.getParameter("length")) + 60;
@@ -58,8 +58,7 @@ public class Order extends Command {
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 35;
         
-     //   PreOrder pre = new PreOrder(userID, length, width, height);
-        session.setAttribute("tagsten", roof_tiles);
+     //   PreOrder pre = new PreOrder(userID, length, width, height); 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("højde", height);
@@ -73,10 +72,9 @@ public class Order extends Command {
         
         session.setAttribute("længdemidtentekst", lengthtextmiddle);
         session.setAttribute("breddemidtentekst", widthtextmiddle);
-        
+        session.setAttribute("tagsten", roof_tiles);
 //        Orders ord = new Orders(userID, length, width, height);
-//        om.createPreOrder(ord);
-      
+//        om.createPreOrder(ord);  
               return "order";
     }
 
