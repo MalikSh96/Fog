@@ -14,7 +14,7 @@ import functionlayer.User;
  */
 public class Main 
 {
-    public static void main(String[] args) throws LoginSampleException 
+    public static void main(String[] args) throws LoginSampleException, ClassNotFoundException 
     {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();       
@@ -27,6 +27,7 @@ public class Main
 //        Orders o = new Orders(1, 2, 2, 2);
 
 //        Orders o = new Orders(4, 1, 1, 1);
+
   //      System.out.println(om.allCustomerOrders(2).toString());
 
 //        OrderMapper om = new OrderMapper();
@@ -38,6 +39,9 @@ public class Main
 //        Orders o = new Orders(1, 2, 2, 2);
 
 //        Orders o = new Orders(4, 1, 1, 1);
+//        System.out.println(om.allCustomerOrders(2).toString());
+
+
 //        System.out.println(om.allCustomerOrders(2).toString());
 
 
@@ -59,6 +63,11 @@ public class Main
 //        User u = new User("Lang", "man", 1111, 1111111111, "mer.com", "1234", "customer");
 //        um.createUser(u);
 //        System.out.println("T " + u);
-        
+
+        System.out.println("Send?? " + om.isOrderSent(1));
+        System.out.println("\nSending order");
+        om.sendOrder(1);
+        System.out.println("\n");
+        System.out.println("Is order send now?? " + om.isOrderSent(1));
     }
 }
