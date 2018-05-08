@@ -41,7 +41,7 @@ public class Order extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if(user == null){
-        return "registration";
+        return "loginpage";
         }
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));

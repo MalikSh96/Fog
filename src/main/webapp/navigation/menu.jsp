@@ -28,7 +28,6 @@
                                     <% }%>
                             <% if(user == null){ %>
                             <li>        <a href="FrontController?command=loginpage">Login</a></li>
-                            <li>        <a href="FrontController?command=registration">Register</a></li>
                             <% } else { %>
                             <li> <a href="FrontController?command=logout">Logout</a></li>
                             <% }%>

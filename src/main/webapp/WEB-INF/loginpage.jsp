@@ -33,8 +33,8 @@
                 </td>                
             </tr>
         </table>
-        
-        <a href="FrontController?command=help">Need help? Press here!</a>
+        <br>
+        <a href="FrontController?command=registration">Opret bruger</a>
 
 
         <% String error = (String) request.getAttribute( "error");

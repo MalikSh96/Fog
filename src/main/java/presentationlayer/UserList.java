@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Joklin
  */
-public class UpdateInfo extends Command {
+public class UserList extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
-        return "updateinfo";    
+        return "userList";    
     }
     
 }

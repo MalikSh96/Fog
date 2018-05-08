@@ -43,6 +43,15 @@ public class User
         this.role = role;
     }
 
+    public User(String name, String address, int postal, int phone, String email, String password) {
+        this.name = name;
+        this.address = address;
+        this.postalcode = postal;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
 
 
     public String getEmail() 
@@ -119,6 +128,6 @@ public class User
     @Override
     public String toString() 
     {
-        return "User\nId: " + id + "\nemail: " + email + "\nPassword: " + password + "\nrole: " + role;
+        return "User\nId: " + id + "\nemail: " + email + "\nPassword: " + password + "\nrole: " + role + "\naddress: " + address + "\nname: " + name + "\npostal: " + postalcode + "\nphone: " + phone;
     }    
 }
