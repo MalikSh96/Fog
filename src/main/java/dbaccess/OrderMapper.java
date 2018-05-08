@@ -19,7 +19,8 @@ import java.util.List;
  *
  * @author malik
  */
-public class OrderMapper {
+public class OrderMapper 
+{
     
     public int createPreOrder(Orders ord) 
     {
@@ -156,7 +157,7 @@ public class OrderMapper {
     }
     
 
-public List<Orders> pendingOrders()
+    public List<Orders> pendingOrders()
     {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -214,10 +215,6 @@ public List<Orders> pendingOrders()
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
-
-
-//                ord = new Orders(id, userID, length, width, height, conf);
-//                orders.add(ord);
              
                 if(userID == id)
                 {
@@ -234,4 +231,51 @@ public List<Orders> pendingOrders()
         
         return orders;
     }
+    
+    public boolean isOrderSent(int orderID) throws ClassNotFoundException 
+    {
+        int sent = 0;
+        try 
+        {
+            Connection con = Connector.connection();
+            String sql = "Select orderConfirmed from orders where orderId= '" + orderID +"'"; 
+
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultset = ps.executeQuery(sql);
+
+            while(resultset.next()) 
+            {
+                sent = resultset.getInt("orderConfirmed");                
+            }
+            if(sent == 1) return true;
+                            
+        } 
+        catch (SQLException e) 
+        {
+             e.printStackTrace();
+        }        
+         return false;
+    } 
+    
+     
+    public void sendOrder(int orderID) 
+    {    
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "update orders set orderConfirmed= '1' where orderId= '" + orderID +"'";
+            
+            PreparedStatement ps = con.prepareStatement( SQL ); 
+
+            
+            System.out.println("Check sql order " + SQL);
+            
+            ps.executeUpdate();
+        }
+        catch( SQLException | ClassNotFoundException ex) 
+        {
+            throw new Error( ex.getMessage() );
+        } 
+     }
 }
