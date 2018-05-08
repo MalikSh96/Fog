@@ -30,14 +30,10 @@ public class UserMapper
             String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
-            
-            String postal = ""+user.getPostalcode();
-            String phone = ""+ user.getPhone();
-
             ps.setString(1, user.getName());
             ps.setString(2, user.getAddress());
-            ps.setString(3, postal);
-            ps.setString(4, phone);
+            ps.setString(3, ""+user.getPostalcode());
+            ps.setString(4, ""+user.getPhone());
             ps.setString(5, user.getEmail());
             ps.setString(6, user.getPassword());
             ps.setString(7, user.getRole());

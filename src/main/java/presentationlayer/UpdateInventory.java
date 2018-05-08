@@ -5,10 +5,13 @@
  */
 package presentationlayer;
 
-
+import dbaccess.InventoryMapper;
+import dbaccess.UserMapper;
 import functionlayer.LoginSampleException;
+import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -16,10 +19,33 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class UpdateInventory extends Command {
 
+    int userID = 0;
+    String name, desc, unit;
+    int status, length;
+    InventoryMapper im = new InventoryMapper();
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-    
-        return "updateinventory";    
+
+        if (request.getParameter("name") != null) {
+            name = request.getParameter("name");
+        }
+        if (request.getParameter("description") != null) {
+            desc = request.getParameter("description");
+        }
+        if (request.getParameter("status") != null) {
+            status = Integer.parseInt(request.getParameter("status"));
+        }
+        if (request.getParameter("length") != null) {
+            length = Integer.parseInt(request.getParameter("length"));
+        }
+        if (request.getParameter("unit") != null) {
+            unit = request.getParameter("unit");
+        }
+
+        im.addToInventory(name, desc, length, unit, status);
+
+        return "updateinventorypage";
     }
-    
+
 }
