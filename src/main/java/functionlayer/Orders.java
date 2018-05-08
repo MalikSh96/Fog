@@ -80,7 +80,7 @@ public class Orders
 
     @Override
     public String toString() {
-        return "<br>orderId: " + orderId + "<br><br>userId: " + userId + "<br>length: " + length 
-                + "<br>width: " + width + "<br>height: " + height + "<br>orderConfirmed: " + orderConfirmed + "<br>";
+        if(orderConfirmed) return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";
+        return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: ikke sendt<br>";
     }
 }

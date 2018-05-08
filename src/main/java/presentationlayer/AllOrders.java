@@ -19,7 +19,7 @@ public class AllOrders extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
-        return "allOrders";    
+        return "allorders";    
     }
     
 }

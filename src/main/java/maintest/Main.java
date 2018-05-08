@@ -7,6 +7,8 @@ import functionlayer.Inventory;
 import functionlayer.LoginSampleException;
 import functionlayer.Orders;
 import functionlayer.User;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,8 +20,16 @@ public class Main
     {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();       
+        UserMapper um = new UserMapper();
+        
+//        List<User> userlist = new ArrayList<>();
+//        
+//        userlist = um.getAllUsers();
+//        
+//        System.out.println(userlist.toString());
 
-
+        
+          
 //        System.out.println(im.getDescription(4));
 //        System.out.println(im.completeInventory().toString());
         

@@ -4,6 +4,7 @@
     Author     : Joklin
 --%>
 
+<%@page import="dbaccess.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Alle ordrer</h1>
+        
+        <% OrderMapper om = new OrderMapper();%>
+        
+        <%=om.allOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
     </body>
 </html>

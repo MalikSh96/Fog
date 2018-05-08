@@ -26,10 +26,10 @@
                 <input type="hidden" name="command" value="employeepage" />
                 <input type="submit" value="Confirm Order" />
                 
-                <a href="FrontController?command=allcurrentorders">Alle nuværende ordre</a><br><br>
+                <br><br><a href="FrontController?command=allcurrentorders">Alle nuværende ordre</a><br><br>
                 <a href="FrontController?command=allorders">Alle ordrer</a><br><br>
                 <a href="FrontController?command=inventory">Lagerstatus</a><br><br>
-                <a href="FrontController?command=userList">Bruger liste</a><br><br>
+                <a href="FrontController?command=userlist">Bruger liste</a><br><br>
                 
                 
                 
