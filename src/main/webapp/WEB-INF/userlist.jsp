@@ -20,5 +20,7 @@
         <% UserMapper um = new UserMapper();%>
         
         <%=um.getAllUsers().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
+        
+                <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>

@@ -20,6 +20,7 @@
         
             <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
    
+                    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
         
     </body>
 </html>

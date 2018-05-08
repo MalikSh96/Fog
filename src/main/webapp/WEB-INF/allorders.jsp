@@ -18,5 +18,7 @@
         <% OrderMapper om = new OrderMapper();%>
         
         <%=om.allOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
+        
+                <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>
