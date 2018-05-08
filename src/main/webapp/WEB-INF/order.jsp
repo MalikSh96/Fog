@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <%  int length = (int) session.getAttribute("længde"); %>
