@@ -7,6 +7,7 @@ package dbaccess;
 
 import functionlayer.Orders;
 import java.util.List;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -30,7 +31,7 @@ public class OrderMapperTest {
 
     private OrderMapper om = new OrderMapper();
     
-    @Test
+    @Test //works
     @Disabled
     public void testCreatePreOrder() 
     {      
@@ -42,7 +43,8 @@ public class OrderMapperTest {
         assertNotNull(checkOrder);        
     }
 
-    @Test
+    @Test //works
+    @Disabled
     public void testGetOrder() 
     {
         Orders checkId = om.getOrder(2);
@@ -50,7 +52,7 @@ public class OrderMapperTest {
         assertEquals(expected, checkId.getOrderId());
     }
 
-    @Test
+    @Test //works
     @Disabled
     public void testAllOrders() 
     {       
@@ -62,7 +64,7 @@ public class OrderMapperTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @Test //works
     @Disabled
     public void testConfirmedOrders() 
     {
@@ -75,7 +77,7 @@ public class OrderMapperTest {
         assertEquals(expected, ord.isOrderConfirmed());
     }
 
-    @Test
+    @Test //works
     @Disabled
     public void testPendingOrders() 
     {
@@ -86,5 +88,42 @@ public class OrderMapperTest {
         System.out.println("Check " + expected);
         System.out.println("Actual " + ord.isOrderConfirmed());
         assertEquals(expected, ord.isOrderConfirmed());
+    }
+
+    @Test
+    @Disabled
+    public void testAllCustomerOrders() 
+    {
+    }
+
+    @Test //works
+    @Disabled
+    public void testIsOrderSentTrue() throws Exception 
+    {
+        boolean actual = om.isOrderSent(1);
+        
+        assertTrue(actual);
+    }
+    
+    @Test //works
+    @Disabled
+    public void testIsOrderSentFalse() throws Exception 
+    {
+        boolean actual = om.isOrderSent(2);
+        assertFalse(actual);      
+    }
+
+    @Test
+    @Disabled
+    public void testSendOrderYes() 
+    {
+        
+        
+    }
+    
+    @Test
+    @Disabled
+    public void testSendOrderNo() 
+    {
     }
 }
