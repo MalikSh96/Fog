@@ -22,8 +22,8 @@ public class Main
         InventoryMapper im = new InventoryMapper();       
         UserMapper um = new UserMapper();
         
-//        List<User> userlist = new ArrayList<>();
-//        
+//       List<User> userlist = new ArrayList<>();
+        om.sendOrder(1);
 //        userlist = um.getAllUsers();
 //        
 //        System.out.println(userlist.toString());
