@@ -58,7 +58,7 @@ public class Order extends Command {
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 35;
         
-     //   PreOrder pre = new PreOrder(userID, length, width, height); 
+   //     PreOrder pre = new PreOrder(userID, length, width, height); 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("højde", height);
@@ -73,8 +73,8 @@ public class Order extends Command {
         session.setAttribute("længdemidtentekst", lengthtextmiddle);
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
-//        Orders ord = new Orders(userID, length, width, height);
-//        om.createPreOrder(ord);  
+        Orders ord = new Orders(userID, length, width, height);
+        om.createPreOrder(ord);  
               return "order";
     }
 
