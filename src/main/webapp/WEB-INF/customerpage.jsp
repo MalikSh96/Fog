@@ -4,6 +4,7 @@
     Author     : kasper
 --%>
 
+<%@page import="dbaccess.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,8 +17,10 @@
     <body>
         
         <%@include file="../navigation/menu.jsp" %>
-        
-        <% User us = (User)session.getAttribute("user");
+        <%
+        int id = (int)session.getAttribute("id");
+        UserMapper um = new UserMapper();
+        User us = um.getUser(id);
         %>
         <h3>Hello <%= us.getName() %> </h3>
 
