@@ -26,10 +26,10 @@
                 <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
             </div>            
             <div class="width">
-                <label> Postnummer</label><br><input type="number" name="postal" max="9999" placeholder="Postnummer"/>
+                <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnummer"/>
             </div>            
             <div class="width">
-                <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" placeholder="Telefon nr."/>
+                <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefon nr."/>
             </div>                               
             <div class="width">
                 <label> Email</label><br><input type="text" name="email" placeholder="Email"/>
