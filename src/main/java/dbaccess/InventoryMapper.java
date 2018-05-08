@@ -35,9 +35,10 @@ public class InventoryMapper {
                 int id = resultset.getInt("id");
                 String name = resultset.getString("name");
                 int length = resultset.getInt("length");
+                String unit = resultset.getString("unit");
                 String desc = resultset.getString("description");
 
-                inv = new Inventory(id, name, length, desc);
+                inv = new Inventory(id, name, length, unit, desc);
                 inventory.add(inv);
 
             }

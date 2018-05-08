@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -142,5 +144,34 @@ public class UserMapper
             throw new LoginSampleException(ex.getMessage());
         }
     }
+        
+        public static List<User> getAllUsers() throws LoginSampleException {
+            List<User> userlist = new ArrayList<>();
+            
+            try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.users";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                int postal = rs.getInt("postalnumber");
+                int phone = rs.getInt("phone");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                
+                userlist.add(new User(id, name, address, postal, phone, email, password));
+            } 
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+            
+            return userlist;
+        }
 }
 

@@ -43,7 +43,8 @@ public class User
         this.role = role;
     }
 
-    public User(String name, String address, int postal, int phone, String email, String password) {
+    public User(int id, String name, String address, int postal, int phone, String email, String password) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.postalcode = postal;
@@ -52,6 +53,14 @@ public class User
         this.password = password;
     }
 
+        public User(String name, String address, int postal, int phone, String email, String password) {
+        this.name = name;
+        this.address = address;
+        this.postalcode = postal;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
 
 
     public String getEmail() 
@@ -128,6 +137,6 @@ public class User
     @Override
     public String toString() 
     {
-        return "User\nId: " + id + "\nemail: " + email + "\nPassword: " + password + "\nrole: " + role + "\naddress: " + address + "\nname: " + name + "\npostal: " + postalcode + "\nphone: " + phone;
+        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password + "<br>Adresse: " + address + "<br>Navn: " + name + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
     }    
 }

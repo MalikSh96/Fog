@@ -4,6 +4,7 @@
     Author     : Joklin
 --%>
 
+<%@page import="dbaccess.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,13 @@
         <title>Inventory</title>
     </head>
     <body>
-        <h1>Inventory List</h1>
+        <h1>Lagerstatus</h1>
+        
+        <% InventoryMapper im = new InventoryMapper();%>
+        
+        
+            <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
+   
+        
     </body>
 </html>

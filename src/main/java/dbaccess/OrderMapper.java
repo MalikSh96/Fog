@@ -105,9 +105,11 @@ public class OrderMapper
                 int length = resultset.getInt("length");
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
+                boolean conf = resultset.getBoolean("orderConfirmed");
                 
                 
-                ord = new Orders(id, userID, length, width, height);
+                
+                ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
                
             }
