@@ -47,6 +47,7 @@ CREATE TABLE `storage` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `length` INT,
+  `unit` VARCHAR(45),   
   `description` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
@@ -68,35 +69,35 @@ insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Holm','Somewherevej 26',1455,123456781,'holm@live.dk', 1234, 'customer');
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('bambi','Bambivej',1455,123456781,'bambi@bambi.dk', 1234, 'customer');
 
-insert into storage(`name`, `length`, `description`) values('25x200 mm. trykimp. bræt', '360', 'Understernsbrædder til for & bag ende');
-insert into storage(`name`, `length`, `description`) values('25x200 mm. trykimp. bræt', '540', 'Understernsbrædder til siderne');
-insert into storage(`name`, `length`, `description`) values('25x125 mm. trykimp. bræt', '360', 'Oversternsbrædder til forenden');
-insert into storage(`name`, `length`, `description`) values('25x125 mm. trykimp. bræt', '540', 'Understernsbrædder til siderne');
-insert into storage(`name`, `length`, `description`) values('38x73	mm.	Lægte	ubh.', '420', 'Til	z	på	bagside	af	dør');
-insert into storage(`name`, `length`, `description`) values('45x95 mm. Reglar ub.', '270', 'Løsholter til skur gavle');
-insert into storage(`name`, `length`, `description`) values('45x95 mm. Reglar ub.', '240', 'Løsholter til skur sider');
-insert into storage(`name`, `length`, `description`) values('45x195 mm. spærtræ ubh.', '600', 'Remme i sider, sadles ned i stolper');
-insert into storage(`name`, `length`, `description`) values('45x195 mm. spærtræ ubh.', '480', 'Remme i sider, sadles ned i stolper ( skur del, deles)');
-insert into storage(`name`, `length`, `description`) values('45x195 mm. spærtræ ubh.', '600', 'Spær, monteres på rem');
-insert into storage(`name`, `length`, `description`) values('97x97 mm. trykimp. Stolpe', '300', 'Stolper, nedgraves 90 cm. i jord');
-insert into storage(`name`, `length`, `description`) values('19x100 mm. trykimp. bræt', '210', 'Til beklædning af skur 1 på 2');
-insert into storage(`name`, `length`, `description`) values('19x100 mm. trykimp. bræt', '540', 'Vandbræt på stern i sider');
-insert into storage(`name`, `length`, `description`) values('19x100 mm. trykimp. bræt', '360', 'Vandbræt på stern i forende');
-insert into storage(`name`, `length`, `description`) values('Plastmo Ecolite blåtonet', '600', 'Tagplader monteres på spær');
-insert into storage(`name`, `length`, `description`) values('Plastmo Ecolite blåtonet', '360', 'Tagplader monteres på spær');
-insert into storage(`name`, `description`) values('Plastmo bundskruer 200 stk.','Skruer til tagplader');
-insert into storage(`name`, `description`) values('Hulbånd 1x20 mm. 10 mtr.','Til vindkryds på spær');
-insert into storage(`name`, `description`) values('Universal 190 mm. højre','Til montering af spær på rem');
-insert into storage(`name`, `description`) values('Universal 190 mm. venstre','Til montering af spær på rem');
-insert into storage(`name`, `description`) values('4.5x60 mm. skruer 200 stk.','Til montering på stern & vandbræt');
-insert into storage(`name`, `description`) values('4.0x50 mm. beslagskruer 250 stk.','Til montering af universalbeslag + hulbånd');
-insert into storage(`name`, `description`) values('Bræddebolt 10x120 mm.','Til montering af rem og stolper');
-insert into storage(`name`, `description`) values('Firkantskiver 40x40x11 mm.','Til montering af rem og stolper');
-insert into storage(`name`, `description`) values('4.5x70 mm. skruer 400 stk.','Til montering af yderste beklædning');
-insert into storage(`name`, `description`) values('4.5x50 mm. Skruer 300 stk.','Til montering af inderste beklædning');
-insert into storage(`name`, `description`) values('Stalddørsgreb 50x75','Til lås på dør i skur');
-insert into storage(`name`, `description`) values('T hængsel 390 mm.','Til skurdør');
-insert into storage(`name`, `description`) values('Vinkelbeslag 35','Til montering af løsholter i skur');
+insert into storage(`name`, `length`, `unit`, `description`) values('25x200 mm. trykimp. bræt', '360', 'stk.', 'Understernsbrædder til for & bag ende');
+insert into storage(`name`, `length`, `unit`, `description`) values('25x200 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne');
+insert into storage(`name`, `length`, `unit`, `description`) values('25x125 mm. trykimp. bræt', '360', 'stk', 'Oversternsbrædder til forenden');
+insert into storage(`name`, `length`, `unit`, `description`) values('25x125 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne');
+insert into storage(`name`, `length`, `unit`, `description`) values('38x73	mm.	Lægte	ubh.', '420', 'stk', 'Til	z	på	bagside	af	dør');
+insert into storage(`name`, `length`, `unit`, `description`) values('45x95 mm. Reglar ub.', '270', 'stk', 'Løsholter til skur gavle');
+insert into storage(`name`, `length`, `unit`, `description`) values('45x95 mm. Reglar ub.', '240', 'stk', 'Løsholter til skur sider');
+insert into storage(`name`, `length`, `unit`, `description`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Remme i sider, sadles ned i stolper');
+insert into storage(`name`, `length`, `unit`, `description`) values('45x195 mm. spærtræ ubh.', '480', 'stk', 'Remme i sider, sadles ned i stolper ( skur del, deles)');
+insert into storage(`name`, `length`, `unit`, `description`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Spær, monteres på rem');
+insert into storage(`name`, `length`, `unit`, `description`) values('97x97 mm. trykimp. Stolpe', '300', 'stk', 'Stolper, nedgraves 90 cm. i jord');
+insert into storage(`name`, `length`, `unit`, `description`) values('19x100 mm. trykimp. bræt', '210', 'stk', 'Til beklædning af skur 1 på 2');
+insert into storage(`name`, `length`, `unit`, `description`) values('19x100 mm. trykimp. bræt', '540', 'stk', 'Vandbræt på stern i sider');
+insert into storage(`name`, `length`, `unit`, `description`) values('19x100 mm. trykimp. bræt', '360', 'stk', 'Vandbræt på stern i forende');
+insert into storage(`name`, `length`, `unit`, `description`) values('Plastmo Ecolite blåtonet', '600', 'stk', 'Tagplader monteres på spær');
+insert into storage(`name`, `length`, `unit`, `description`) values('Plastmo Ecolite blåtonet', '360', 'stk', 'Tagplader monteres på spær');
+insert into storage(`name`, `unit`, `description`) values('Plastmo bundskruer 200 stk.', 'pakke', 'Skruer til tagplader');
+insert into storage(`name`, `unit`, `description`) values('Hulbånd 1x20 mm. 10 mtr.', 'rulle', 'Til vindkryds på spær');
+insert into storage(`name`, `unit`, `description`) values('Universal 190 mm. højre', 'stk', 'Til montering af spær på rem');
+insert into storage(`name`, `unit`, `description`) values('Universal 190 mm. venstre', 'stk', 'Til montering af spær på rem');
+insert into storage(`name`, `unit`, `description`) values('4.5x60 mm. skruer 200 stk.', 'pakke', 'Til montering på stern & vandbræt');
+insert into storage(`name`, `unit`, `description`) values('4.0x50 mm. beslagskruer 250 stk.', 'pakke','Til montering af universalbeslag + hulbånd');
+insert into storage(`name`, `unit`, `description`) values('Bræddebolt 10x120 mm.', 'stk', 'Til montering af rem og stolper');
+insert into storage(`name`, `unit`, `description`) values('Firkantskiver 40x40x11 mm.', 'stk', 'Til montering af rem og stolper');
+insert into storage(`name`, `unit`, `description`) values('4.5x70 mm. skruer 400 stk.', 'pakke', 'Til montering af yderste beklædning');
+insert into storage(`name`, `unit`, `description`) values('4.5x50 mm. Skruer 300 stk.', 'pakke', 'Til montering af inderste beklædning');
+insert into storage(`name`, `unit`, `description`) values('Stalddørsgreb 50x75', 'sæt', 'Til lås på dør i skur');
+insert into storage(`name`, `unit`, `description`) values('T hængsel 390 mm.', 'stk', 'Til skurdør');
+insert into storage(`name`, `unit`, `description`) values('Vinkelbeslag 35', 'stk', 'Til montering af løsholter i skur');
 SET FOREIGN_KEY_CHECKS=1;
 
 -- test test test 

@@ -21,7 +21,7 @@ import java.sql.Statement;
 public class UserMapper 
 {
     public static void createUser(User user) throws LoginSampleException 
-    {
+     {
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -96,6 +96,51 @@ public class UserMapper
         {
             throw new LoginSampleException(ex.getMessage());
         }
-    }      
+    }
+    
+    public static User getUser(int id) throws LoginSampleException {
+        User u = null;
+        try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.users where id = '" + id + "'";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while(rs.next()) {
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                int postal = rs.getInt("postalnumber");
+                int phone = rs.getInt("phone");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                
+                u = new User(name, address, postal, phone, email, password);
+            } 
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+        
+        return u;
+    }
+    
+        public static void UpdateUserInfo(int id, String name, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException 
+        {
+        try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "UPDATE FogUsers.users SET name = '" +name +
+            "', address = '"+address+"', postalnumber = '"+postalnumber+
+                    "', phone = '"+phone+"', email = '"+email+
+                    "', password = '"+password+ "' WHERE id='" + id +"';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }
 

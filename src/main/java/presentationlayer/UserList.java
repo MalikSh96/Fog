@@ -19,7 +19,11 @@ public class UserList extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
+<<<<<<< HEAD
         return "userlist";    
+=======
+        return "userList";    
+>>>>>>> development
     }
     
 }

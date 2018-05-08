@@ -11,10 +11,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
-        
+
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
-        
-        
+        <%  int length = (int) session.getAttribute("længde"); %>
+        <%  int width = (int) session.getAttribute("bredde");%>
+        <%  int roof_tiles = (int) session.getAttribute("tagsten");
+            %>
     </head>
     <body>
 
@@ -29,12 +31,12 @@
         <table border="1">
             <tr>
                 <th><p>Længde</th>
-                <th><p>Vidde</th>
+                <th><p>Bredde</th>
                 <th><p>Højde</th>
             </tr>
             <tr>
                 <td><p><%out.print(session.getAttribute("længde"));%></td>
-                <td><p><%out.print(session.getAttribute("vidde")); %></td>
+                <td><p><%out.print(session.getAttribute("bredde")); %></td>
                 <td><p><%out.print(session.getAttribute("højde"));%></td>
 
 
@@ -47,43 +49,70 @@
         <div id="myFogSVG" class="modal">
 
             <div class="modal-content">
-
+                <% int x = 0; %>
                 <span class="close">&times;</span>
-                <SVG height="<%out.print(session.getAttribute("højde"));%>" 
-                     width="<%out.print(session.getAttribute("længde"));%>">
+                <SVG height="<%out.print(session.getAttribute("breddeSVG"));%>" 
+                     width="<%out.print(session.getAttribute("længdeSVG"));%>">
 
-                <rect x="0" y="0"  height="<%out.print(session.getAttribute("højde"));%>"
-                      width="<%out.print(session.getAttribute("længde"));%>"         
+                <% for (int i = 0; i < length; i += roof_tiles) {%>
+                
+                <rect x="<% out.print(i);%>" 
+                      y="30" height="<%out.print(session.getAttribute("bredde"));%>" 
+                      width="<% if (length >= i + roof_tiles) { out.print(roof_tiles);
+                          } else {
+                              roof_tiles = length % i;
+                              out.print(roof_tiles);
+                          }%>"
+                      style="stroke:black; fill: none"/>  
+                <text x="<%=i + (roof_tiles / 2)%>" y="15" font-size="8px"
+                      text-anchor="middle"><% out.print(roof_tiles); %>cm</text>
+                <% }%>
+
+                <rect x="0" y="30"  height="<%= width%>"
+                      width="<%= length%>"         
                       style = "stroke: black; fill: none;" />
 
-                <rect x="0" y="0" height="<%out.print(session.getAttribute("højde"));%>" 
+                <rect x="0" y="30" height="<%= width%>" 
                       width="3" style="stroke:black; fill: none"/>
 
-                <rect x="0" y="0" height="3" 
-                      width="<%out.print(session.getAttribute("længde"));%>"
+                <rect x="0" y="48" height="5" 
+                      width="<%=length%>"
                       style="stroke:black; fill: none"/>
 
-                <rect x="<%out.print(session.getAttribute("længdespær"));%>" y="0" 
-                      height="<%out.print(session.getAttribute("højde"));%>" 
+                <rect x="<%out.print(session.getAttribute("længdespær"));%>" 
+                      y="30" 
+                      height="<%= width%>" 
                       width="3" 
                       style="stroke:black; fill: none"/>
 
 
 
-                <rect x="0" y="<%out.print(session.getAttribute("højdespær"));%>"
-                      height="3" 
-                      width="<%out.print(session.getAttribute("længde"));%>" 
+                <rect x="0" y="<%out.print(session.getAttribute("breddespær"));%>"
+                      height="5" 
+                      width="<%= length%>" 
                       style="stroke:black; fill: none"/>
 
-                <line stroke-dasharray="5 5" x1="3"  y1="3" 
+                <line stroke-dasharray="5 5" x1="3"  y1="53" 
                       x2="<%out.print(session.getAttribute("længdespær"));%>"   
-                      y2="<%out.print(session.getAttribute("højdespær"));%>"
+                      y2="<%out.print(session.getAttribute("breddespær"));%>"
                       style="stroke:#006600;"/>
                 <line stroke-dasharray="5 5" x1="3"  
-                      y1="<%out.print(session.getAttribute("højdespær"));%>" 
+                      y1="<%out.print(session.getAttribute("breddespær"));%>" 
                       x2="<%out.print(session.getAttribute("længdespær"));%>" 
-                      y2="3" style="stroke:#006600;"/>
+                      y2="53" style="stroke:#006600;"/>
+
+                <text x="<%out.print(session.getAttribute("længdelinje"));%>" y="<%out.print(session.getAttribute("breddemidtentekst"));%>"
+                      font-size="10px"
+                      text-anchor="middle"
+                      style="writing-mode: tb;">Bredde <%= width%> cm</text>
+
+                <text x="<%out.print(session.getAttribute("længdemidtentekst"));%>" 
+                      y="<%out.print(session.getAttribute("breddelinje"));%>"
+                      font-size="10px"
+                      text-anchor="middle">Længde <%= length%> cm</text>
+
                 </svg>
+
             </div>
         </div>
 
