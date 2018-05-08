@@ -4,6 +4,7 @@ import dbaccess.InventoryMapper;
 import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
 import functionlayer.Inventory;
+import functionlayer.ItemList;
 import functionlayer.LoginSampleException;
 import functionlayer.Orders;
 import functionlayer.User;
@@ -64,10 +65,15 @@ public class Main
 //        um.createUser(u);
 //        System.out.println("T " + u);
 
-        System.out.println("Send?? " + om.isOrderSent(1));
-        System.out.println("\nSending order");
-        om.sendOrder(1);
-        System.out.println("\n");
-        System.out.println("Is order send now?? " + om.isOrderSent(1));
+//        System.out.println("Send?? " + om.isOrderSent(1));
+//        System.out.println("\nSending order");
+//        om.sendOrder(1);
+//        System.out.println("\n");
+//        System.out.println("Is order send now?? " + om.isOrderSent(1));
+
+        ItemList i = new ItemList();
+        
+        System.out.println("... " + i.raftAmount(9, 3));
+        System.out.println("test " + 7 / 0.55);
     }
 }
