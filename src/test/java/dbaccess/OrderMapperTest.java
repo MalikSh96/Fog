@@ -1,8 +1,19 @@
+<<<<<<< HEAD
+=======
+//<<<<<<< HEAD
+//
+//
+//=======
+>>>>>>> 464d166efb79cdc1f398083c2f48ca97631c761a
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates
 // * and open the template in the editor.
 // */
+<<<<<<< HEAD
+=======
+//>>>>>>> 6b435231e6417109989f6933495e48faa7e1e0ad
+>>>>>>> 464d166efb79cdc1f398083c2f48ca97631c761a
 //package dbaccess;
 //
 //import functionlayer.Orders;
@@ -11,9 +22,14 @@
 //import static org.junit.Assert.assertNotNull;
 //import static org.junit.Assert.assertTrue;
 //import org.junit.Before;
+<<<<<<< HEAD
 //
 //import org.junit.jupiter.api.Disabled;
 //import org.junit.jupiter.api.Test;
+=======
+////import org.junit.jupiter.api.Disabled;
+////import org.junit.jupiter.api.Test;
+>>>>>>> 464d166efb79cdc1f398083c2f48ca97631c761a
 //
 ///**
 // *

@@ -34,14 +34,16 @@ Felter markeret * SKAL udfyldes!<br><br>
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="order">
-            <div class="height">                
-                <br><label> Længde</label><br><input type="number" name="length" max="999" required value="240" min="240"/>
-            </div>            
             <div class="length">
-                <br><label> bredde</label><br><input type="number" name="width" max="999" required value="240" min="240"/>
+                <label>Vælg Længde</label><br>
+                <input type="number" name="length" max="999" required value="240" min="240"/>
             </div>            
             <div class="width">
-                <br><label> højde</label><br><input type="number" name="height" max="999" required value="240" min="240"/>
+                <label>Vælg Bredde</label><br>
+                 <input type="number" name="width" max="999" required value="240" min="240"/>
+            </div>            
+            <div class="height">
+                <label> Vælg Højde</label><br><input type="number" name="height" max="999" required value="240" min="240"/>
             </div>
                 
                 <input type="submit" value="Order">
