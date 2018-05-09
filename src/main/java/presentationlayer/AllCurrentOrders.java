@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Joklin
  */
-public class UserList extends Command {
+public class AllCurrentOrders extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
-        return "userlist";    
+        return "allcurrentorders";    
     }
     
 }

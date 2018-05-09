@@ -9,9 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Specific Order</title>
+        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../navigation/menu.jsp" %>
+        <h1>Order nr: </h1>
     </body>
 </html>

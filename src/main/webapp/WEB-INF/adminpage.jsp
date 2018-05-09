@@ -16,21 +16,23 @@
     </head>
     <body>
     <center>
-<%@include file="../navigation/menu.jsp" %>
-        
-        <h1>Hello <%= request.getParameter("email")%> </h1>
-        You are now logged in as a EMPLOYEE of our wonderful site.
-        
-                    <form name="employeepage" action="FrontController" method="POST">
-                        orderId<input type="number" name="orderID" placeholder="Order ID" required value="1"/>
-                <input type="hidden" name="command" value="employeepage" />
-                <input type="submit" value="Confirm Order" />
-                
-                
-            </form>
-        
+        <%@include file="../navigation/menu.jsp" %>
+
+        <h1> Admin page </h1>
+
+        <form name="employeepage" action="FrontController" method="POST">
+
+            <br><br><a href="FrontController?command=allcurrentorders">Alle nuværende ordre</a><br><br>
+            <a href="FrontController?command=allorders">Alle ordrer</a><br><br>
+            <a href="FrontController?command=inventory">Lagerstatus</a><br><br>
+            <a href="FrontController?command=userlist">Bruger liste</a><br><br>
+
+
+
+        </form>
+
         <br>
 
     </center>
-    </body>
+</body>
 </html>

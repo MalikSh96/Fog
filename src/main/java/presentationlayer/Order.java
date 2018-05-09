@@ -60,10 +60,12 @@ public class Order extends Command {
         lengthline = Integer.parseInt(request.getParameter("length")) + 15;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
+
         roof_tiles = 110;
         heightpost = Integer.parseInt(request.getParameter("height")) - 25;
                 heightground = Integer.parseInt(request.getParameter("height"));
      //   PreOrder pre = new PreOrder(userID, length, width, height); 
+
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("højde", height);

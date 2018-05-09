@@ -4,14 +4,30 @@
     Author     : Joklin
 --%>
 
+<%@page import="dbaccess.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>nuværende ordre</title>
+        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@include file="../navigation/menu.jsp" %>
+        <h1>Alle nuværende ordrer</h1>
+        
+                <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="sendorder">
+        <label>Ordre id</label><br><input type="number" name="id" placeholder="Order ID" required value="1"/>
+                <input type="submit" value="Send ordre" />
+                </form>
+        
+        <% OrderMapper om = new OrderMapper();%>
+        
+        <%=om.pendingOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
+   
+        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>
