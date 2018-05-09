@@ -21,7 +21,28 @@ body{
 
 
 }
+
+.modalone {
+    display: none;
+    position: fixed;
+    left: 0;
+
+    width: 80%;
+    top: 0;
+    text-align: center;
+    overflow: auto;
+
+
+}
 .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-contentone {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -38,6 +59,20 @@ body{
 
 .close:hover,
 .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeone {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeone:hover,
+.closeone:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;

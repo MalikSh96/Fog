@@ -18,11 +18,6 @@
         
         <%@include file="../navigation/menu.jsp" %>
         <h1>Input order</h1>
-        
-                
-                
-                
-
 Med et specialudviklet computerprogram kan vi lynhurtigt beregne prisen og udskrive en skitsetegning på
 <br>en carport indenfor vores standardprogram, der tilpasses dine specifikke ønsker.
 <br><br>
@@ -43,7 +38,7 @@ Felter markeret * SKAL udfyldes!<br><br>
                  <input type="number" name="width" max="999" required value="240" min="240"/>
             </div>            
             <div class="height">
-                <label> Vælg Højde</label><br><input type="number" name="height" max="999" required value="240" min="240"/>
+                <label> Vælg Højde</label><br><input type="number" name="height" max="400" required value="160" min="160"/>
             </div>
                 
                 <input type="submit" value="Order">

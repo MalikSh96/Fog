@@ -33,6 +33,9 @@ public class Order extends Command {
     int lengthtextmiddle = 0;
     int widthtextmiddle = 0;
     int roof_tiles = 0;
+    int heightSVG = 0;
+    int heightground = 0;
+    int heightpost = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -47,17 +50,19 @@ public class Order extends Command {
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
         height = Integer.parseInt(request.getParameter("height"));
-        lengthrafter = Integer.parseInt(request.getParameter("length")) - 3;
-        heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
+        lengthrafter = Integer.parseInt(request.getParameter("length")) - 6;
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
+        heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
         widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
         lengthSVG = Integer.parseInt(request.getParameter("length")) + 60;
+        heightSVG = Integer.parseInt(request.getParameter("height")) + 60;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
         lengthline = Integer.parseInt(request.getParameter("length")) + 15;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
-        roof_tiles = 35;
-        
+        roof_tiles = 110;
+        heightpost = Integer.parseInt(request.getParameter("height")) - 25;
+                heightground = Integer.parseInt(request.getParameter("height"));
      //   PreOrder pre = new PreOrder(userID, length, width, height); 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
@@ -67,12 +72,14 @@ public class Order extends Command {
         session.setAttribute("breddespær", widthrafter);
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
+        session.setAttribute("højdeSVG", heightSVG);
         session.setAttribute("breddelinje", widthline);
         session.setAttribute("længdelinje", lengthline);
-        
+        session.setAttribute("højdestolpe", heightpost);
         session.setAttribute("længdemidtentekst", lengthtextmiddle);
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
+        session.setAttribute("højdejord", heightground);
 //        Orders ord = new Orders(userID, length, width, height);
 //        om.createPreOrder(ord);  
               return "order";
