@@ -18,8 +18,7 @@
         <% InventoryMapper im = new InventoryMapper();%>
         
         
-            <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
-   
+        <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>  
         
     </body>
 </html>

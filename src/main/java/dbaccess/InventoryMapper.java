@@ -26,7 +26,7 @@ public class InventoryMapper {
         Inventory inv = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM storage order by id";
+            String SQL = "SELECT * FROM inventory order by id";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -56,7 +56,7 @@ public class InventoryMapper {
         String name = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT name FROM storage where id = '" + id + "';";
+            String SQL = "SELECT name FROM inventory where id = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -79,7 +79,7 @@ public class InventoryMapper {
         int length = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT length FROM storage where id = '" + id + "';";
+            String SQL = "SELECT length FROM inventory where id = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -102,7 +102,7 @@ public class InventoryMapper {
         String desc = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT description FROM storage where id = '" + id + "';";
+            String SQL = "SELECT description FROM inventory where id = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
