@@ -1,7 +1,7 @@
 <%-- 
     Document   : inventory
     Created on : 07-05-2018, 10:46:01
-    Author     : Joklin
+    Author     : Joklin --
 --%>
 
 <%@page import="dbaccess.InventoryMapper"%>
