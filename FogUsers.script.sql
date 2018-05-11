@@ -68,7 +68,11 @@ CREATE TABLE `inventory` (
   
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('malik sharfo','Somewherevej 25',1455,12345678,'maliksharfo@hotmail.com', 1234, 'admin');
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Holm','Somewherevej 26',1455,24681357,'holm@live.dk', 1234, 'customer');
+<<<<<<< HEAD
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Holm','Somewherevej 26',1455,24681357,'holm@holm.dk', 1234, 'admin');
+=======
+insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('holm','flem',1455,87654321,'holm@holm.dk', 1234, 'admin');
+>>>>>>> inventory
 insert into users(`name`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('bambi','Bambivej',1455,87654321,'bambi@bambi.dk', 1234, 'customer');
 
 insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('25x200 mm. trykimp. bræt', '360', 'stk.', 'Understernsbrædder til for & bag ende', '20');
