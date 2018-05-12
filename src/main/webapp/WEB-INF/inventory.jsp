@@ -21,10 +21,14 @@
         <% InventoryMapper im = new InventoryMapper();%>
         
         
+<<<<<<< HEAD
         <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
    
                     <a href="FrontController?command=updateinventorypage">Tilføj til Lagerdatabase</a><br><br>
                     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+=======
+        <%=im.completeInventory().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>  
+>>>>>>> adminPage
         
     </body>
 </html>
