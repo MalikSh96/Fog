@@ -3,14 +3,22 @@ package functionlayer;
 
 public class Inventory {
     
-    int id = 0;
-    String name;
-    int length;
-    String unit;
-    String desc;
-    int status;
+    private int id;
+    private String name;
+    private int length;
+    private String unit;
+    private String desc;
+    private int status;
 
-
+    public Inventory(int id, String name, int length, String unit, String desc, int status) {
+        this.id = id;
+        this.name = name;
+        this.length = length;
+        this.unit = unit;
+        this.desc = desc;
+        this.status = status;
+    }
+    
     public Inventory(int id, String name, int length, String desc) 
     {
         this.id = id;
