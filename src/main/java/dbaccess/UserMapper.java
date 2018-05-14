@@ -13,6 +13,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -28,14 +30,10 @@ public class UserMapper
             String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
-            
-            String postal = ""+user.getPostalcode();
-            String phone = ""+ user.getPhone();
-
             ps.setString(1, user.getName());
             ps.setString(2, user.getAddress());
-            ps.setString(3, postal);
-            ps.setString(4, phone);
+            ps.setString(3, ""+user.getPostalcode());
+            ps.setString(4, ""+user.getPhone());
             ps.setString(5, user.getEmail());
             ps.setString(6, user.getPassword());
             ps.setString(7, user.getRole());
@@ -142,5 +140,34 @@ public class UserMapper
             throw new LoginSampleException(ex.getMessage());
         }
     }
+        
+        public static List<User> getAllUsers() throws LoginSampleException {
+            List<User> userlist = new ArrayList<>();
+            
+            try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.users";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                int postal = rs.getInt("postalnumber");
+                int phone = rs.getInt("phone");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                
+                userlist.add(new User(id, name, address, postal, phone, email, password));
+            } 
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+            
+            return userlist;
+        }
 }
 

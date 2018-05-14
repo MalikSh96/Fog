@@ -12,12 +12,17 @@
         <title>Welcome page</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
-        <h1>Login</h1>
-        
-        <table>
+        <table class="middle">
+            <tr>
+                <td>
+                    <h1>Login</h1>
+                </td>
+            </tr>
+
             <tr>
                 <td>
                     <form name="login" action="FrontController" method="POST">
@@ -32,16 +37,24 @@
                     </form>
                 </td>                
             </tr>
+            <tr>
+                <td>
+                    <br>
+
+                    <a href="FrontController?command=registration">Opret bruger</a>
+
+
+                    <% String error = (String) request.getAttribute("error");
+                if (error != null) {%>
+                    <H2>Error!!</h2>
+                    <p><%= error%>
+                        <% }
+                        %>  
+                </td>
+
+            </tr>
         </table>
-        <br>
-        <a href="FrontController?command=registration">Opret bruger</a>
-
-
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-           <H2>Error!!</h2>
-           <p><%= error %>
-        <% }
-        %>    
+                
+                <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

@@ -12,6 +12,7 @@
         <title>Welcome page</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>       
 
@@ -23,7 +24,6 @@
         <table class="loginregister">
             <tr>
                 <td colspan="3">
-                    <a href="FrontController?command=help">Need help? Press here!</a> 
                     <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
                     <H2>Error!!</h2>
@@ -33,9 +33,9 @@
                 </td>
             </tr>
         </table>
-
-
-
+                
+               
+                <%@include file="footer/footer.jsp" %>
 
 
 
