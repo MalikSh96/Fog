@@ -22,7 +22,7 @@
         UserMapper um = new UserMapper();
         User us = um.getUser(id);
         %>
-        <h3>Hello <%= us.getName() %> </h3>
+        <br><h3>Hello <%= us.getName() %> </h3>
 
     <center> Dine informationer: <br><br>
         <%= us.getName()%><br>
