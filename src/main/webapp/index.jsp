@@ -12,6 +12,7 @@
         <title>Welcome page</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>       
 
@@ -32,9 +33,9 @@
                 </td>
             </tr>
         </table>
-
-
-
+                
+               
+                <%@include file="footer/footer.jsp" %>
 
 
 

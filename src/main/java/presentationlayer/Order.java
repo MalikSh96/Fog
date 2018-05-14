@@ -36,6 +36,8 @@ public class Order extends Command {
     int heightSVG = 0;
     int heightground = 0;
     int heightpost = 0;
+    int toolshedlength = 0;
+    int toolshedwidth = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -60,18 +62,24 @@ public class Order extends Command {
         lengthline = Integer.parseInt(request.getParameter("length")) + 15;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
-
         roof_tiles = 110;
         heightpost = Integer.parseInt(request.getParameter("height")) - 25;
-                heightground = Integer.parseInt(request.getParameter("height"));
+        heightground = Integer.parseInt(request.getParameter("height"));
+        
+        toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
+        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));        
      //   PreOrder pre = new PreOrder(userID, length, width, height); 
 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
+        session.setAttribute("redskabsrumlængde", toolshedlength);
+        session.setAttribute("redskabsrumbredde", toolshedwidth);
         session.setAttribute("højde", height);
+        
         session.setAttribute("længdespær", lengthrafter);
         session.setAttribute("højdespær", heightrafter);
         session.setAttribute("breddespær", widthrafter);
+        
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);
@@ -82,8 +90,8 @@ public class Order extends Command {
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
-        Orders ord = new Orders(userID, length, width, height);
-        om.createPreOrder(ord);  
+//        Orders ord = new Orders(userID, length, width, height);
+//        om.createPreOrder(ord);  
               return "order";
     }
 

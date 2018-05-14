@@ -16,11 +16,16 @@
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <%  int length = (int) session.getAttribute("længde"); %>
+
         <%  int width = (int) session.getAttribute("bredde");%>
         <%  int height = (int) session.getAttribute("højde"); %>
         <%  int roof_tiles = (int) session.getAttribute("tagsten");%>
         <% int roof_raft = 55;%>
         <% int heightground = (int) session.getAttribute("højdejord");%>
+        <% int toolshedlength = (int) session.getAttribute("redskabsrumlængde");%>
+        <% int toolshedwidth = (int) session.getAttribute("redskabsrumbredde");%>
+        <% int lengthrafter = (int)session.getAttribute("længdespær");%>
+        <% int widthrafter = (int)session.getAttribute("breddespær");%>
     </head>
     <body>
 
@@ -37,12 +42,19 @@
                 <th><p>Længde</th>
                 <th><p>Bredde</th>
                 <th><p>Højde</th>
+                <%if((0 != toolshedlength) && (0 != toolshedwidth)){ %>
+                <th><p>Redskabsrum længde</th>
+                <th><p>Redskabsrum bredde</th>
+                <% } %>
             </tr>
             <tr>
                 <td><p><%out.print(session.getAttribute("længde"));%></td>
                 <td><p><%out.print(session.getAttribute("bredde")); %></td>
                 <td><p><%out.print(session.getAttribute("højde"));%></td>
-
+                <%if((0 != toolshedlength) && (0 != toolshedwidth)){ %>
+                <td><p><%out.print(session.getAttribute("redskabsrumlængde"));%></td>
+                <td><p><%out.print(session.getAttribute("redskabsrumbredde"));%></td>
+                <% } %>
 
             </tr>
         </table>
@@ -53,25 +65,87 @@
         <div id="myFogSVGbirdseye" class="modal">
 
             <div class="modal-content">
-                <% int x = 0; %>
+                
+                <!-- Picture size of SVG  -->
                 <span class="close">&times;</span>
                 <SVG height="<%out.print(session.getAttribute("breddeSVG"));%>" 
                      width="<%out.print(session.getAttribute("længdeSVG"));%>">
-
-                <% for (int i = 17; i < length; i += 200) {%>
-                <rect x="<% out.print(i);%>" 
-                      y="48" height="6" 
-                      width="8"
-                      style="stroke:black; fill: none"/>
+                <!---------------> 
+                <!-- length and width of picture -->
+                <rect x="0" y="30"  height="<%= width%>"
+                      width="<%= length%>"         
+                      style = "stroke: black; fill: none;" />
+                <!--------------->    
+                <!-- first and last pole on top -->
+                <rect x="25" y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                <rect x="<%out.print(length - 31);%>"    
+                      y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                <!--------------->
+                <rect x="<%out.print(length - 10 - toolshedlength);%>" y="54" height="<% out.print(toolshedwidth); %>"
+                      width="<% out.print(toolshedlength); %>" style="stroke:black; fill: none"/>
+                
+                <!--first and last pole on bottom-->
+                <rect x="25" y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                <rect x="<%out.print(length - 31);%>" 
+                        y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+               <!--------------->
+               <!-- length 225 to 450 come there middle pole on top -->
+               <% if ((225 < length) && (450 > length)) {%>
+                <rect x="<%out.print(length / 2);%>" 
+                      y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>                
+                
+                <!--------------->
+               <!-- length 225 to 450 come there middle pole on bottom -->
+               
+                <rect x="<%out.print(length / 2);%>" 
+                      y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>                
                 <% }%>
-
-                <% for (int i = 17; i < length; i += 200) {%>
-                <rect x="<% out.print(i);%>" 
-                      y="<%out.print(session.getAttribute("breddespær"));%>" height="6" 
-                      width="8"
-                      style="stroke:black; fill: none"/>
+                <!--------------->
+                <!--if length 450 then come 4 pole on top to 675 -->
+                <% if ((450 <= length) && (675 > length)) {%>
+                <rect x="<%out.print(length / 3);%>" 
+                      y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                <rect x="<%out.print(length / 1.5);%>" 
+                      y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>        
+                <!--------------->
+                <!--if length 450 then come 4 pole on bottom to 675 --> 
+                <rect x="<%out.print(length / 3);%>" 
+                      y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                <rect x="<%out.print(length / 1.5);%>" 
+                      y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>
                 <% }%>
-
+                <!--------------->
+                <!--if length 675 then come 6 pole to top 1000  -->    
+                <% if ((675 <= length) && (1000 > length)) {%>
+                <% for (int n = 1; n < 5; n++) { %>
+                <rect x="<%out.print(length / 5 * n);%>" 
+                      y="48" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                    <% }%>
+                <% }%>
+                <!--------------->
+                <!--if length 675 then come 6 pole to bottom 1000  -->    
+                <% if ((675 <= length) && (1000 > length)) {%>
+                <% for (int n = 1; n < 5; n++) { %>
+                <rect x="<%out.print(length / 5 * n);%>" 
+                      y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
+                      width="8" style="stroke:black; fill: black"/>
+                    <% }%>
+                <% }%>
+                
+                
+                <!--------------->
+                <!-- roof_raft 55 cm. going to length of picture  -->
                 <% for (int i = 3; i < length; i += roof_raft) {%>
                 <rect x="<% out.print(i);%>" 
                       y="30" height="<%out.print(session.getAttribute("bredde"));%>" 
@@ -84,10 +158,13 @@
                               out.print(roof_raft);
                           }%>"
                       style="stroke:black; fill: none"/>
+                <!--------------->
+                <!-- Text to roof_raft 55 cm. -->
                 <text x="<%=i + (roof_raft / 2)%>" y="25" font-size="8px"
                       text-anchor="middle"><% out.print(roof_raft); %>cm</text>
-                <% }%>
-
+                <% }%>  
+                <!--------------->
+                <!-- roof_tiles 110 cm. going to length of picture  -->
 
                 <% for (int i = 0; i < length; i += roof_tiles) {%>
 
@@ -100,71 +177,78 @@
                               out.print(roof_tiles);
                           }%>"
                       style="stroke:black; fill: none"/>  
+                <!--------------->
+                <!--Text to roof-tiles 110 cm. -->
                 <text x="<%=i + (roof_tiles / 2)%>" y="10" font-size="8px"
                       text-anchor="middle"><% out.print(roof_tiles); %>cm</text>
                 <% }%>
-
-                <rect x="0" y="30"  height="<%= width%>"
-                      width="<%= length%>"         
-                      style = "stroke: black; fill: none;" />
-
+                <!--------------->
+                <!--left rafter of 6 cm -->
                 <rect x="0" y="30" height="<%= width%>" 
                       width="6" style="stroke:black; fill: none"/>
-
-                <rect x="0" y="48" height="5" 
+                <!--------------->
+                <!--top rafter of 6 cm -->
+                <rect x="0" y="48" height="6" 
                       width="<%=length%>"
                       style="stroke:black; fill: none"/>
-
+                <!--------------->
+                <!--right rafter of 6 cm -->
                 <rect x="<%out.print(session.getAttribute("længdespær"));%>" 
                       y="30" 
                       height="<%= width%>" 
                       width="3" 
                       style="stroke:black; fill: none"/>
-
-
-
-
+                <!--------------->
+                <!--bottom rafter of 6 cm -->
                 <rect x="0" y="<%out.print(session.getAttribute("breddespær"));%>"
-                      height="5" 
+                      height="6" 
                       width="<%= length%>" 
                       style="stroke:black; fill: none"/>
-
-                <line stroke-dasharray="5 5" x1="6"  y1="53" 
-                      x2="<%out.print(session.getAttribute("længdespær"));%>"   
+                <!--------------->
+                <!--cross on middle start top left ends bottom right -->
+                <line stroke-dasharray="5 5" x1="52"  y1="53" 
+                      x2="<%= lengthrafter - toolshedlength - 4%>"   
                       y2="<%out.print(session.getAttribute("breddespær"));%>"
                       style="stroke:#006600;"/>
-                <line stroke-dasharray="5 5" x1="6"  
+                <!--------------->
+                <!--cross on middle start bottom left ends top right  -->
+                <line stroke-dasharray="5 5" x1="52"  
                       y1="<%out.print(session.getAttribute("breddespær"));%>" 
-                      x2="<%out.print(session.getAttribute("længdespær"));%>" 
+                      x2="<%= lengthrafter - toolshedlength - 4 %>" 
                       y2="53" style="stroke:#006600;"/>
-
+                <!--------------->
+                <!-- text width of picture -->
                 <text x="<%out.print(session.getAttribute("længdelinje"));%>" y="<%out.print(session.getAttribute("breddemidtentekst"));%>"
                       font-size="10px"
                       text-anchor="middle"
                       style="writing-mode: tb;">Bredde <%= width%> cm</text>
-
+                
+                <!--------------->
+                <!-- text length of picture -->
                 <text x="<%out.print(session.getAttribute("længdemidtentekst"));%>" 
                       y="<%out.print(session.getAttribute("breddelinje"));%>"
                       font-size="10px"
                       text-anchor="middle">Længde <%= length%> cm</text>
-
+                <!--------------->
                 </SVG>
-                <% roof_raft = 55; %>
             </div>
         </div>
         <br/>
         <br/>
         <h3>Sidebillede</h3>
+        <!-- how big roof_raft are -->
+                <% roof_raft = 55; %>
+                <!----------->
         <button id="myBtnsideview">Åben model</button>
         <div id="myFogSVGsideview" class="modalone">
+           
             <div class="modal-contentone">
                 <span class="closeone">&times;</span>
+                <!-- Picture size of SVG  -->
                 <SVG width="<%out.print(session.getAttribute("længdeSVG"));%>" 
                      height="<%out.print(session.getAttribute("højdeSVG"));%>" style="stroke:black; fill: none">
-
-                
-                
-                
+                 <!------------->
+                 <!-- roof 55 cm. + extra on roof --->
                 <% for (int i = 0; i < length; i += roof_raft) { %>
                 <rect x="<% out.print(i);%>" y="0" height="10" width="<%if (length >= i + roof_raft) {
                         out.print(roof_raft);
@@ -174,29 +258,45 @@
                     }%>" 
                       style="stroke:black; fill: none"/>       
                 <% }%>
-
+                <!------------>
+                <!--rafter under roof -->
                 <rect x="0" y="10" height="15" width="<% out.print(length); %>" style="stroke:black; fill: none"/>
-
-
-                <% for (int i = 25; i < length; i += 200) {%>
-
-                <rect x="<%= i%>" 
-
-                      y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
-
+                <!--------->
+                <!--first pole and last pole -->
+                <rect x="25" y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                       width="8" style="stroke:black; fill: none"/>
-                
-                <%if ((length > 300) && (i > length - 100)){%>
-                <rect x="<%
-                    int lastpole = length - 25;
-                    out.print(lastpole); %>"
+                <rect x="<%out.print(length - 25);%>" 
                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
-
+                      width="8" style="stroke:black; fill: none"/>
+                <!-------------->
+                <!--middle pole for 225 to 450 -->
+                <% if ((225 < length) && (450 > length)) {%>
+                <rect x="<%out.print(length / 2);%>" 
+                      y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
+                      width="8" style="stroke:black; fill: none"/>                
+                <% }%>
+                <!------------->
+                <!--if length 450 then come 4 pole to 675  -->
+                <% if ((450 <= length) && (675 > length)) {%>
+                <rect x="<%out.print(length / 3);%>" 
+                      y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
+                      width="8" style="stroke:black; fill: none"/>
+                <rect x="<%out.print(length / 1.5);%>" 
+                      y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                       width="8" style="stroke:black; fill: none"/>
                 <% }%>
-
-                
+                <!------------->
+                <!--if length 675 then come 6 pole to 1000  -->    
+                <% if ((675 <= length) && (1000 > length)) {%>
+                <% for (int n = 1; n < 5; n++) { %>
+                <rect x="<%out.print(length / 5 * n);%>" 
+                      y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
+                      width="8" style="stroke:black; fill: none"/>
+                    <% }%>
                 <% }%>
+
+
+
                 <line x1="0" x2="<%= length%>" y1="<% out.print(heightground); %>" y2="<% out.print(heightground);%>" />
 
 
