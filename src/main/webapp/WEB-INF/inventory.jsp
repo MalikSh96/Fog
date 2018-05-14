@@ -1,7 +1,7 @@
 <%-- 
     Document   : inventory
     Created on : 07-05-2018, 10:46:01
-    Author     : Joklin
+    Author     : Joklin --
 --%>
 
 <%@page import="dbaccess.InventoryMapper"%>
@@ -25,6 +25,7 @@
    
                     <a href="FrontController?command=updateinventorypage">Tilføj til Lagerdatabase</a><br><br>
                     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+
         
     </body>
 </html>

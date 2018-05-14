@@ -102,5 +102,5 @@ insert into inventory(`name`, `unit`, `description`, `status`) values('T hængse
 insert into inventory(`name`, `unit`, `description`, `status`) values('Vinkelbeslag 35', 'stk', 'Til montering af løsholter i skur', '20');
 SET FOREIGN_KEY_CHECKS=1;
 
--- test test test 
+
 
