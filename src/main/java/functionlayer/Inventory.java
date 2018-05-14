@@ -1,14 +1,6 @@
 package functionlayer;
 
-public class Inventory 
-{    
-    private int id;
-    private String name;
-    private int length;
-    private String unit;
-    private String desc;
 
-<<<<<<< HEAD
 public class Inventory {
     
     int id = 0;
@@ -18,8 +10,7 @@ public class Inventory {
     String desc;
     int status;
 
-    public Inventory(int id, String name, int length, String unit, String desc, int status) {
-=======
+
     public Inventory(int id, String name, int length, String desc) 
     {
         this.id = id;
@@ -30,7 +21,7 @@ public class Inventory {
 
     public Inventory(int id, String name, int length, String unit, String desc) 
     {
->>>>>>> itemList
+
         this.id = id;
         this.name = name;
         this.length = length;
@@ -61,11 +52,9 @@ public class Inventory {
 
     @Override
     public String toString() {
-<<<<<<< HEAD
+
         if(length == 0) { return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>";}
         return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Længde: " + length + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>";
-=======
-        return "Inventory{" + "id=" + id + ", name=" + name + ", length=" + length + ", unit=" + unit + ", desc=" + desc + '}';
->>>>>>> itemList
+
     }
 }
