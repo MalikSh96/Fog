@@ -15,8 +15,14 @@
     </head>
     <body>
                         <%@include file="../navigation/menu.jsp" %>
+                                <table class="middle">
+            <tr>
+                <td>
         <h1>Update User Info</h1>
-        
+                        </td>
+            </tr>
+                        <tr>
+                <td>
        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinfo">
             <div class="height">
@@ -37,9 +43,11 @@
             <div class="width">
                 <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
             </div>
-                <input type="submit" value="Gem Ændringer">
+            <br><input type="submit" value="Gem Ændringer">
             </form>
-        
+                        </td>                
+            </tr>
+        </table>
         
     </body>
 </html>
