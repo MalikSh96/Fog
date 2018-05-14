@@ -10,9 +10,14 @@ public class Inventory
     private int status;
 
     public Inventory(int id, String name, int length, String unit, String desc, int status) {
-        
+        this.id = id;
+        this.name = name;
+        this.length = length;
+        this.unit = unit;
+        this.desc = desc;
+        this.status = status;
     }
-
+    
     public Inventory(int id, String name, int length, String desc) 
     {
         this.id = id;

@@ -5,7 +5,6 @@
  */
 package functionlayer;
 
-import com.oracle.jrockit.jfr.DataType;
 import dbaccess.InventoryMapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class ItemList
         int postRow = 0;
         postRow = (carportLength / 2);
         
-        if(carportWidth < 6)
+        if(carportWidth < 8)
         {
             postTotal = postRow * 2;
         } 
@@ -52,13 +51,13 @@ public class ItemList
         
         int raftRowInt = raftRow.intValue();
         
-        if(carportWidth < 6)
+        if(carportWidth < 8)
         {
             raftTotal = raftRowInt +2;
         }
         else
         {
-            int numberOfRows = (carportWidth/6);
+            int numberOfRows = (carportWidth/8);
             numberOfRows++;
             raftTotal = numberOfRows * raftRowInt;
         }
@@ -69,7 +68,7 @@ public class ItemList
     
     public List<Integer> remAmount(int carportLength, int carportWidth)
     {
-        int remTotal = 0;
+        int remTotal = 2;
         rem.add(remTotal);
         return rem;
     }

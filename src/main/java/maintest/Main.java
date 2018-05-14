@@ -77,7 +77,6 @@ public class Main {
 //        System.out.println("\n");
 //        System.out.println("Is order send now?? " + om.isOrderSent(1));
 
-
         ItemList i = new ItemList();
         
         System.out.println("... " + i.raftAmount(9, 3));
