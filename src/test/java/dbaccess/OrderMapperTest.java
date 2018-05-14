@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+>>>>>>> 4ba59d143a75bf8a7821ce0ed8006fecb4bac883
 package dbaccess;
         
 import functionlayer.Orders;
