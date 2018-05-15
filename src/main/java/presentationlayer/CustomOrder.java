@@ -38,6 +38,8 @@ public class CustomOrder extends Command {
 //            session.setAttribute("width", width);
 //            session.setAttribute("height", height);
 //        }
+
+
         return "customorder";
     }
 

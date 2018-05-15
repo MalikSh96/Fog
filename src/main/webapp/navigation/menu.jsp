@@ -13,14 +13,14 @@
 
                     <div class="topnavgation">
                         <div>
-                            <div>
+                            
                                 <ul>
                                     <li><a href="index.jsp">Forside</a></li>
                                     <li><a href="FrontController?command=customorder">Bygselv Carport</a></li>
 
                                 </ul> 
 
-                            </div>  
+                             
                         </div>
                         <ul>
                             <% if (user != null) { %>

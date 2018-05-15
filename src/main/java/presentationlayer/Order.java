@@ -63,7 +63,7 @@ public class Order extends Command {
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 110;
-        heightpost = Integer.parseInt(request.getParameter("height")) - 25;
+        heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
         
         toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));

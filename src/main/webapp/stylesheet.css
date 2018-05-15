@@ -1,8 +1,98 @@
+
+/*--- body ---*/
 body{
 
-    font-family: fantasy;  
-    /*font-family: Roboto;*/
+    font-family: initial;  
+    margin:0;
+    padding:0;
+    height:100%;
+    
+  
 }
+
+/*----- index --------*/
+.indexheading{
+    
+    vertical-align: central;
+    text-align: center;
+    padding-top: 125px;
+}
+.indextext{
+    vertical-align: central;
+    text-align: center;
+    
+    
+}
+
+/*---- customerpage ----*/
+
+.customerpagepicture{
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 100px;
+}
+
+.customerpageinfomationer{
+    background-color: #f1eeee;
+    
+    padding-right: 15px;
+    
+    padding-left: 30px;
+    margin-left: 45px;
+    padding-bottom: 30px;
+    text-align: left;
+    vertical-align: central;
+    float: left;
+    border-style: none;
+    
+}
+
+.cusomerpagetextinformationer{
+    text-decoration:underline;
+    word-spacing:10px;
+}
+.customerpageoverskrift{
+     text-align: center;
+    vertical-align: central;
+    padding-right: 80px;
+    
+    
+}
+.customerpageahref{
+    padding-left: auto;
+    padding-right: 325px;
+   padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: central;
+}
+
+
+
+/*--- regstration ------- */
+
+.Regstrationtext{
+
+
+    float: top;  
+}
+
+.Regstrationmiddle{
+    vertical-align: center;
+    margin-left:auto; 
+    margin-right:auto;
+
+}
+
+/*------ h1,h2,h3,h4 -------*/
+h1,h2,h3,h4{
+    margin: 0; 
+    padding: 0;
+}
+
+/*-----  -------*/
 .loginregister {
     float: left;
     padding-left: 50px;
@@ -10,11 +100,11 @@ body{
 
 }
 .middle{
-    
-    
-     margin-left:auto; 
+    vertical-align: center;
+
+    margin-left:auto; 
     margin-right:auto;
-    
+
 }
 
 .modal {
@@ -56,6 +146,7 @@ body{
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    
 }
 
 .close {

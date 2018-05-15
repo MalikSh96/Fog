@@ -15,6 +15,7 @@
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+       
 
         <%@include file="../navigation/menu.jsp" %>
         <h1>Input order</h1>
@@ -31,43 +32,102 @@
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="order">
             <div class="length">
-                <label>Vælg Længde*</label><br>
-                <input type="number" name="length" max="999" required value="240" min="240"/>
+                <label>Carport længde*</label><br>
+                <select class="form-control" name="length">
+                    <option value="240">Vælg længde</option>
+                    <option value="240">240 cm</option>   
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>   
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>   
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>   
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>   
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>   
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
+                    <option value="630">630 cm</option>   
+                    <option value="660">660 cm</option>
+                    <option value="690">690 cm</option>   
+                    <option value="720">720 cm</option>
+                    <option value="750">750 cm</option>
+                </select>
+
             </div>            
             <div class="width">
-                <label>Vælg Bredde*</label><br>
-                <input type="number" name="width" max="999" required value="240" min="240"/>
+                <label>Carport bredde*</label><br>
+                <select class="form-control" name="width">
+                    <option value="240">Vælg bredde</option>
+                    <option value="240">240 cm</option>   
+                    <option value="270">270 cm</option>
+                    <option value="300">300 cm</option>   
+                    <option value="330">330 cm</option>
+                    <option value="360">360 cm</option>   
+                    <option value="390">390 cm</option>
+                    <option value="420">420 cm</option>   
+                    <option value="450">450 cm</option>
+                    <option value="480">480 cm</option>   
+                    <option value="510">510 cm</option>
+                    <option value="540">540 cm</option>   
+                    <option value="570">570 cm</option>
+                    <option value="600">600 cm</option>
+                    <option value="630">630 cm</option>   
+                    <option value="660">660 cm</option>
+                    <option value="690">690 cm</option>   
+                    <option value="720">720 cm</option>
+                    <option value="750">750 cm</option>
+                </select>
+
             </div>            
             <div class="height">
-                <label> Vælg Højde</label><br><input type="number" name="height" max="250" required value="200" min="200"/>
+                <label> Vælg Højde</label><br>
+                <select class="form-control" name="height">
+                    <option value="200">Vælg højde</option>
+                    <option value="200">200 cm</option>   
+                    <option value="210">210 cm</option>
+                    <option value="220">220 cm</option>   
+                    <option value="230">230 cm</option>
+                    <option value="240">240 cm</option>   
+                    <option value="250">250 cm</option>
+                </select>
             </div> 
 
-            <% // int length = (int) session.getAttribute("længde");%> 
+
             <br/>
             <div class="toolshedlength">
-                <label>Carport længde</label><br/>
+                <label>Redskabsskur længde</label><br/>
                 <select class="form-control" name="toolshedlength">
                     <option value="0">Ønske ikke redskabsrum</option>
-                    <%//if(length > 459){ %><option value="160">160 cm</option> <%// }%>
-                    <option value="170">170 cm</option>
-                    <option value="180">180 cm</option>
-                    <option value="190">190 cm</option>
-                    <option value="200">200 cm</option>
-                    <option value="210">210 cm</option>
-                </select>              
-            </div>
-            <br/>
-            <div class="toolshedwidth">
-                <label>Carport bredde</label><br/>
-                <select class="form-control" name="toolshedwidth">
-                    <option value="0">Ønske ikke redskabsrum</option>
-                    <option value="150">160 cm</option>
                     <option value="160">160 cm</option>
                     <option value="170">170 cm</option>
                     <option value="180">180 cm</option>
                     <option value="190">190 cm</option>
                     <option value="200">200 cm</option>
                     <option value="210">210 cm</option>
+                    <option value="220">220 cm</option>
+                    <option value="230">230 cm</option>
+                    <option value="240">240 cm</option>
+                    
+                </select>              
+            </div>
+            <br/>
+            <div class="toolshedwidth">
+                <label>Redskabsskur bredde</label><br/>
+                <select class="form-control" name="toolshedwidth">
+                    <option value="0">Ønske ikke redskabsrum</option>                 
+                    <option value="160">160 cm</option>
+                    <option value="170">170 cm</option>
+                    <option value="180">180 cm</option>
+                    <option value="190">190 cm</option>
+                    <option value="200">200 cm</option>
+                    <option value="210">210 cm</option>
+                    <option value="220">220 cm</option>
+                    <option value="230">230 cm</option>
+                    <option value="240">240 cm</option>
+                    
+                    
                 </select>
             </div>
             <div>
@@ -75,10 +135,9 @@
             </div>
             <div>
                 * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.
-                
+
             </div>
-            
-        </form>
-                    
+
+        </form>     
     </body>
 </html>

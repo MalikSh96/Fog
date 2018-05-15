@@ -1,21 +1,22 @@
-.footer{
-    position: fixed;
+#footer{ 
     left: 40px;
-    bottom: 0;
-    width: 100%;
+    
     background-color: #0c2069;
     color: white;
     text-align: center;
     width: 1000px;
   height: 40px;
+   bottom: 0;
+ position: fixed; 
+ 
 }
 
 .less{
-    margin-left: 50 px;
+    margin: 50px;
     
 }
 
-.footertext{
+#footertext{
     
     
 }

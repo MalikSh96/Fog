@@ -15,27 +15,19 @@
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>       
+        <%@include file="/navigation/menu.jsp" %>
 
-        <%@include file="navigation/menu.jsp" %>
+        <div class="indexheading">
+            <h1>FOG TRÆLAST & BYGGECENTER</h1>
+<h1>VELKOMMEN TIL QUICK–SELVBYG CARPORTE.</h1>
+        </div>
+<div class="indextext">
+<p>På denne side kan du selv tilpasse 
+din carport og redskabsskur med dine specifikke ønsker om størrelse. </p>
+        </div>
+         
 
-
-
-
-        <table class="loginregister">
-            <tr>
-                <td colspan="3">
-                    <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-                    <H2>Error!!</h2>
-                    <p><%= error %>
-                        <% }
-                        %>   
-                </td>
-            </tr>
-        </table>
-                
-               
-                <%@include file="footer/footer.jsp" %>
+        <%@include file="/footer/footer.jsp" %>
 
 
 

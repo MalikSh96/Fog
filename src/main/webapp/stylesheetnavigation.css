@@ -17,21 +17,17 @@ img {
 
 
 
+
 .container-resposize-header {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
     width: auto;
+    
 }
-div{
-    display: block;
 
-}
-h2{
-    color: white
 
-}
 li {
     float: left;
 }
@@ -60,6 +56,7 @@ ul {
     width: 100%;
     display: block;
     float: left;
+    top: 0;
     
 }
 
