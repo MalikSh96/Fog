@@ -23,5 +23,14 @@
         <%=um.getAllUsers().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
     </center>
                         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+                        
+                        
+                        User ids:<br><br>
+                        
+                        <%for(int i = 0; i < um.getAllUserIds().size(); i++) {
+                            session.setAttribute("id", um.getAllUserIds().get(i));
+                            out.println("<a href=\"FrontController?command=specificuser\">"+
+                                    um.getAllUserIds().get(i).toString().replace("[","").replace("]","").replace(",","")+"</a><br><br>");
+                        }%>
     </body>
 </html>

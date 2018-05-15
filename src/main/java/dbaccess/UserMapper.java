@@ -169,5 +169,28 @@ public class UserMapper
             
             return userlist;
         }
+        
+                public static List<Integer> getAllUserIds() throws LoginSampleException {
+            List<Integer> idList = new ArrayList<>();
+            
+            try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT id FROM FogUsers.users order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while(rs.next()) {
+                int id = rs.getInt("id");                
+                
+                idList.add(id);
+            } 
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+            
+            return idList;
+        }
 }
 
