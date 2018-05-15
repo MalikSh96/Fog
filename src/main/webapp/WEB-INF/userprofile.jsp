@@ -1,9 +1,3 @@
-<%-- 
-    Document   : userprofile
-    Created on : 15-05-2018, 10:08:52
-    Author     : Joklin
---%>
-
 <%@page import="functionlayer.User"%>
 <%@page import="dbaccess.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

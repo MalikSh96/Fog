@@ -1,9 +1,3 @@
-<%-- 
-    Document   : myorders
-    Created on : 02-05-2018, 13:01:24
-    Author     : Joklin
---%>
-
 <%@page import="dbaccess.OrderMapper"%>
 <%@page import="functionlayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>orderlist</title>
+        <title>Mine Ordre</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>

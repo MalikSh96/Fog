@@ -1,9 +1,3 @@
-<%-- 
-    Document   : userlist
-    Created on : 08-05-2018, 10:51:47
-    Author     : Joklin
---%>
-
 <%@page import="functionlayer.User"%>
 <%@page import="java.util.List"%>
 <%@page import="dbaccess.UserMapper"%>

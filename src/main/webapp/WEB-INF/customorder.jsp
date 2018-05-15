@@ -1,15 +1,9 @@
-<%-- 
-    Document   : customorder
-    Created on : 02-05-2018, 12:44:54
-    Author     : Joklin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Custom Ordre</title>
+        <title>Custom Order</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>

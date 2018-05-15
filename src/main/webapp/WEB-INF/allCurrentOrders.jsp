@@ -1,9 +1,3 @@
-<%-- 
-    Document   : allCurrentOrders
-    Created on : 07-05-2018, 10:45:50
-    Author     : Joklin
---%>
-
 <%@page import="dbaccess.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : updateInventory
-    Created on : 07-05-2018, 10:46:33
-    Author     : Joklin
---%>
-
 <%@page import="presentationlayer.Inventory"%>
 <%@page import="dbaccess.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>OpdaterLager</title>
+        <title>Opdater Lager</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>

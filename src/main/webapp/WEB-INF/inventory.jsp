@@ -1,9 +1,3 @@
-<%-- 
-    Document   : inventory
-    Created on : 07-05-2018, 10:46:01
-    Author     : Joklin --
---%>
-
 <%@page import="dbaccess.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : specificOrder
-    Created on : 07-05-2018, 10:47:07
-    Author     : Joklin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

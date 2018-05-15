@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registration
-    Created on : 02-05-2018, 12:16:42
-    Author     : Joklin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
