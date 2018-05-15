@@ -26,7 +26,7 @@
     <center>
         <br><h1>Dine informationer:</h1><br><br>       
 
-
+        Kunde nr: <%= us.getId()%><br>
         Navn: <%= us.getName()%><br>
         Adresse:  <%= us.getAddress()%><br>
         Post nr: <%= us.getPostalcode()%><br>

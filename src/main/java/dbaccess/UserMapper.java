@@ -6,6 +6,7 @@
 package dbaccess;
 
 
+import com.mysql.cj.api.mysqla.result.Resultset;
 import functionlayer.LoginSampleException;
 import functionlayer.User;
 import java.sql.Connection;
@@ -84,7 +85,10 @@ public class UserMapper
             String SQL = "SELECT id FROM FogUsers.users where email = '" + email +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            id = ps.executeUpdate();
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                id = rs.getInt("id");
+            }
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new LoginSampleException(ex.getMessage());
