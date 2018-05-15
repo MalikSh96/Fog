@@ -22,18 +22,12 @@
         UserMapper um = new UserMapper();
         User us = um.getUser(id);
         %>
-        <br><h3>Hello <%= us.getName() %> </h3>
+    <center>
+        <br> <br><h3>Hello <%= us.getName() %> </h3>
 
-    <center> Dine informationer: <br><br>
-        <%= us.getName()%><br>
-        <%= us.getAddress()%><br>
-        <%= us.getPostalcode()%><br>
-        <%= us.getPhone()%><br>
-        <%= us.getEmail()%><br>        
-    </center>
-
+        <a href="FrontController?command=userprofile">Min Profil</a><br><br>
     <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
     <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
-    <a href="FrontController?command=updateinfopage">Opdater personlige informationer</a>
+    </center>
 </body>
 </html>

@@ -17,7 +17,8 @@
     </head>
     <body>
                 <%@include file="../navigation/menu.jsp" %>
-        <h1>Kunde Ordre Liste</h1>
+    <center>
+        <h1>Dine Ordrer</h1>
         
                         <%
            
@@ -26,6 +27,6 @@
         
  <%=om.allCustomerOrders(user.getId()).toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
                 
-        
+    </center>
     </body>
 </html>

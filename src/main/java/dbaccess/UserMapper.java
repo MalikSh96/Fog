@@ -75,25 +75,21 @@ public class UserMapper
         }
     }
     
-    public static void getUserId(User user) throws LoginSampleException 
+    public static int getUserId(String email) throws LoginSampleException 
     {
+        int id = 0;
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "SELECT id FROM FogUsers.users where email = '" + email +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            user.setId(id);
+
+            id = ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new LoginSampleException(ex.getMessage());
         }
+        return id;
     }
     
     public static User getUser(int id) throws LoginSampleException {

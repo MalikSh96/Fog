@@ -15,12 +15,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+    <center>
         <h1>Bruger liste</h1>
         
         <% UserMapper um = new UserMapper();%>
         
         <%=um.getAllUsers().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
-        
+    </center>
                         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>

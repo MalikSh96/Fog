@@ -17,6 +17,7 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+    <center>
         <h1>Opdater Lager</h1>
 
 <form action="FrontController" method="POST">
@@ -36,9 +37,9 @@
             <div class="width">
                 <label> Status</label><br><input type="number" name="status" placeholder="status"/><br>
             </div>                 
-             <input type="submit" value="Tilføj til Lageret"><br>
+            <br> <input type="submit" value="Tilføj til Lageret"><br>
             </form>
-        
+        </center>
         <br><br> <a href="FrontController?command=adminpage">Tilbage</a>
 
     </body>
