@@ -37,5 +37,7 @@
   
         
     </center>
+    
+                    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>
