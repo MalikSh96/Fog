@@ -23,7 +23,7 @@
         User us = um.getUser(id);
         %>
     <center>
-        <br> <br><h3>Hello <%= us.getName()%> </h3>
+        <br> <br><h3>Logget ind som: <%= us.getName()%> </h3>
         <a href="FrontController?command=userprofile">Min Profil</a><br><br>
     <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
     <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
