@@ -38,6 +38,7 @@
                         <td class="Regstrationtext">
 
                             <input type="hidden" name="command" value="register">
+
                             Navn<br>
                             <input type="text" name="name" value="" placeholder="Navn" required>
                             <br>
@@ -72,10 +73,7 @@
                         <td colspan="2">
                             <input type="submit" value="Opret Bruger">
 
-                        </td>
-
-
-                    </tr>
+                        </td>                  
                 </form>
             </table>
             <%@include file="../footer/footer.jsp" %>

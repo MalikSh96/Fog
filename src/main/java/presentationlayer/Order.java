@@ -38,6 +38,7 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
+    int heightline = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -56,16 +57,16 @@ public class Order extends Command {
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
         widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
-        lengthSVG = Integer.parseInt(request.getParameter("length")) + 60;
-        heightSVG = Integer.parseInt(request.getParameter("height")) + 60;
+        lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
+        heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
-        lengthline = Integer.parseInt(request.getParameter("length")) + 15;
+        lengthline = Integer.parseInt(request.getParameter("length")) + 15 ;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 110;
         heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
-        
+        heightline = Integer.parseInt(request.getParameter("height"));
         toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
         toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));        
      //   PreOrder pre = new PreOrder(userID, length, width, height); 
@@ -83,6 +84,7 @@ public class Order extends Command {
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);
+        session.setAttribute("højdelinje", heightline);
         session.setAttribute("breddelinje", widthline);
         session.setAttribute("længdelinje", lengthline);
         session.setAttribute("højdestolpe", heightpost);

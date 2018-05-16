@@ -12,7 +12,12 @@ public class Register extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+<<<<<<< HEAD
         UserMapper um = new UserMapper();
+=======
+       
+        
+>>>>>>> ordreSVG
         String name = request.getParameter( "name" );
         String address = request.getParameter( "address" );
         String postnr = request.getParameter( "postalcode" );
@@ -24,6 +29,7 @@ public class Register extends Command {
         int phone = Integer.parseInt(phonenr);
         if ( password1.equals( password2 ) ) {
             User user = LogicFacade.createUser( name, address, postal, phone, email, password1 );
+           
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute("id", user.getId());
@@ -32,6 +38,7 @@ public class Register extends Command {
         } else {
             throw new LoginSampleException( "the two passwords did not match" );
         }
+        
     }
 
 }

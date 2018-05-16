@@ -39,7 +39,7 @@
                     </div>
             </div>
             <div class="customerpagepicture">
-                <img src="Image/flattag.png" class="srccustomerpage"/>             
+                <img src="Image/flattag.png" class="customerpagesrc"/>             
             </div>
             <div class="customerpageahref">
                 <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
