@@ -4,6 +4,7 @@
     Author     : Joklin
 --%>
 
+<%@page import="dbaccess.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,30 +17,36 @@
     <body>
                         <%@include file="../navigation/menu.jsp" %>
         <h1>Update User Info</h1>
-        
+       <%
+            int id = (int) session.getAttribute("id");
+            UserMapper um = new UserMapper();
+            User us = um.getUser(id);
+        %>
        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinfo">
-            <div class="height">
-                <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
+            <div class="name">
+                <label> Navn</label><br><input value="<% out.print(us.getName()); %>" type="text" name="name" placeholder="Navn"/>
             </div>            
-            <div class="length">
-                <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
+            <div class="adresse">
+                <label> Adresse</label><br><input value="<% out.print(us.getAddress()); %>" type="text" name="address" placeholder="Adresse"/>
             </div>            
-            <div class="width">
-                <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnummer"/>
+            <div class="postalnummer">
+                <label> Postnummer</label><br><input value="" type="number" name="postal" max="9999" min="1111" placeholder="<% out.print(us.getPostalcode());%>"/>
             </div>            
-            <div class="width">
-                <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefon nr."/>
+            <div class="phone">
+                <label> Telefon nummer</label><br><input  type="number" name="phone" max="99999999" min="11111111" placeholder="<% out.print(us.getPhone()); %>"/>
             </div>                               
-            <div class="width">
-                <label> Email</label><br><input type="text" name="email" placeholder="Email"/>
+            <div class="Email">
+                <label> Email</label><br><input value="<% out.print(us.getEmail()); %>" type="text" name="email" placeholder="Email"/>
             </div>                 
-            <div class="width">
-                <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
+            <div class="password">
+                <label> Password</label><br><input value="<% out.print(us.getPassword()); %>" type="text" name="password" placeholder="Password"/><br>
             </div>
                 <input type="submit" value="Gem Ændringer">
             </form>
         
+            <p> du mangler en felt </p>
+        <% }%>
         
     </body>
 </html>

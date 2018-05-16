@@ -38,8 +38,9 @@ public class FrontController extends HttpServlet {
             String view = action.execute( request, response );
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
         } catch ( LoginSampleException ex ) {
-            request.setAttribute( "error", ex.getMessage() );
-            request.getRequestDispatcher( "index.jsp" ).forward( request, response );
+            
+            request.setAttribute( "error", "du skrevet noget forkert" );
+            request.getRequestDispatcher( "/WEB-INF/loginpage.jsp" ).forward( request, response );
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }

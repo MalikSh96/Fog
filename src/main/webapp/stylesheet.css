@@ -23,13 +23,23 @@ body{
     
     
 }
-
-
-.indeximage img{
-    height: 200px;
+.indeximagesidepersketiv img{
+    height: 150px ;
+    
   display: block;
-    margin-left: auto;
+  margin-left: auto;
+    margin-right: 200px;
+    float: right;
+}
+
+
+.indeximagefuglpersketiv img{
+    float: left;
+    height: 150px;
+  display: block;
+  margin-left: 200px;
     margin-right: auto;
+    
 }
 /*---- customerpage ----*/
 
@@ -81,8 +91,6 @@ body{
 /*--- regstration ------- */
 
 .Regstrationtext{
-
-
     float: top;  
 }
 
@@ -106,6 +114,15 @@ h1,h2,h3,h4{
     padding-right: 15px;
 
 }
+/*--- loginpage ---*/
+.loginpagecenter{
+    vertical-align: center;
+
+    margin-left:auto; 
+    margin-right:auto;
+
+}
+
 .middle{
     vertical-align: center;
 

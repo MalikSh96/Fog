@@ -32,16 +32,17 @@
 
         <div class="body">
             <table class="Regstrationmiddle">
-                <tr>
-                    <td colspan="2">
-                        <h1>Registration</h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="Regstrationtext">
+                
+                <form name="register" action="FrontController" method="POST">
+                    <input type="hidden" name="command" value="register">
+                    <tr>
+                        <td colspan="2">
+                            <h1>Registration</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="Regstrationtext">
 
-                        <form name="register" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="register">
                             Navn<br>
                             <input type="text" name="name" value="" placeholder="Navn">
                             <br>
@@ -54,30 +55,42 @@
                             <br>
                             By <br>
                             <input type="text" name="by" value="" placeholder="By">
-                            </td>
-                            <td class="Regstrationtext">
+                        </td>
+                        <td class="Regstrationtext">
 
-                                Telefon nr.<br>
-                                <input type="tel" name="phonenumber" placeholder="Telefon nr."
-                                       size="20"  minlength="8" maxlength="8"  >
-                                <br/>
-                                Email<br/>
-                                <input type="email" name="email" value="" placeholder="Email">
-                                <br>
-                                Password<br>
-                                <input type="password" name="password1" value="" placeholder="Password">
-                                <br>
-                                Bekræft Password<br>
-                                <input type="password" name="password2" value="" placeholder="Password">
-                                </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <input type="submit" value="Opret Bruger">
-                                </td>
-                        </form>
-                    </td>
-                </tr>
+                            Telefon nr.<br>
+                            <input type="tel" name="phonenumber" placeholder="Telefon nr."
+                                   size="20"  minlength="8" maxlength="8"  >
+                            <br/>
+                            Email<br/>
+                            <input type="email" name="email" value="" placeholder="Email">
+                            <br>
+                            Password<br>
+                            <input type="password" name="password1" value="" placeholder="Password">
+                            <br>
+                            Bekræft Password<br>
+                            <input type="password" name="password2" value="" placeholder="Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Opret Bruger">
+                        </td>
 
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <% String error = (String) request.getAttribute("error");
+                if (error != null) {%>
+                    <H2>Error!!</h2>
+                    <p><%= error%>
+                        <% }
+                        %>  
+                            
+                        </td>
+                        
+                    </tr>
+                </form>
             </table>
         </div>
         <%@include file="../footer/footer.jsp" %>

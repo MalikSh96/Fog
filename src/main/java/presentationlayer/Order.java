@@ -38,6 +38,7 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
+    int heightline = 0;
     OrderMapper om = new OrderMapper();
     
     @Override
@@ -65,7 +66,7 @@ public class Order extends Command {
         roof_tiles = 110;
         heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
-        
+        heightline = Integer.parseInt(request.getParameter("height"));
         toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
         toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));        
      //   PreOrder pre = new PreOrder(userID, length, width, height); 
@@ -83,6 +84,7 @@ public class Order extends Command {
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);
+        session.setAttribute("højdelinje", heightline);
         session.setAttribute("breddelinje", widthline);
         session.setAttribute("længdelinje", lengthline);
         session.setAttribute("højdestolpe", heightpost);

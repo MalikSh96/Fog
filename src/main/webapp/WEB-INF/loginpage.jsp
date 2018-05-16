@@ -16,7 +16,7 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
-        <table class="middle">
+        <table class="loginpagecenter">
             <tr>
                 <td>
                     <h1>Login</h1>
@@ -33,7 +33,7 @@
                         Password:<br>
                         <input type="password" name="password" value="" placeholder="Password">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="LOG IND">
                     </form>
                 </td>                
             </tr>
@@ -42,11 +42,14 @@
                     <br>
 
                     <a href="FrontController?command=registration">Opret bruger</a>
-
-
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <% String error = (String) request.getAttribute("error");
                 if (error != null) {%>
-                    <H2>Error!!</h2>
+                    <H2>Fejl!!</h2>
                     <p><%= error%>
                         <% }
                         %>  
@@ -54,6 +57,7 @@
 
             </tr>
         </table>
+                
                 
                 <%@include file="../footer/footer.jsp" %>
     </body>

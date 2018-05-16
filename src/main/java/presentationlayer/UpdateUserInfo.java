@@ -37,10 +37,13 @@ public class UpdateUserInfo extends Command {
         phone = user.getPhone();
         password = user.getPassword();
         
+        
+        
         if(request.getParameter("name") != null) name = request.getParameter("name");
         if(request.getParameter("address") != null) address = request.getParameter("address"); 
         if(request.getParameter("email") != null) email = request.getParameter("email"); 
-        if(request.getParameter("postal") != null) postal = Integer.parseInt(request.getParameter("postal")); 
+        if(request.getParameter("postal") != null) 
+         postal = Integer.parseInt(request.getParameter("postal")); 
         if(request.getParameter("phone") != null) phone = Integer.parseInt(request.getParameter("phone")); 
         if(request.getParameter("password") != null) password = request.getParameter("password");
         

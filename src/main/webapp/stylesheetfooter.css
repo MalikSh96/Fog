@@ -4,7 +4,9 @@
     background-color: #0c2069;
     color: white;
     text-align: center;
-    width: 1000px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   height: 40px;
    bottom: 0;
  position: fixed; 
