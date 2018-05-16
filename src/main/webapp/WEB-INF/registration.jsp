@@ -30,30 +30,30 @@
                     <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="register">
                         Navn<br>
-                        <input type="text" name="name" value="" placeholder="Navn">
+                        <input type="text" name="name" value="" placeholder="Navn" required>
                         <br>
                         Addresse<br>
-                        <input type="text" name="address" value="" placeholder="Addresse">
+                        <input type="text" name="address" value="" placeholder="Addresse" required>
                         <br>
                         Postnr.<br>
                         <input type="tel" name="postalcode" placeholder="Postnr." 
-                               size="20" minlength="4" maxlength="4">
+                               size="20" minlength="4" maxlength="4" required>
                         <br>
                         By <br>
-                        <input type="text" name="by" value="" placeholder="By">
+                        <input type="text" name="by" value="" placeholder="By" required>
                         <br>
                         Telefon nr.<br>
                         <input type="tel" name="phonenumber" placeholder="Telefon nr."
-                              size="20"  minlength="8" maxlength="8"  >
+                              size="20"  minlength="8" maxlength="8"  required>
                         <br>
                         Email<br>
-                        <input type="email" name="email" value="" placeholder="Email">
+                        <input type="email" name="email" value="" placeholder="Email" required>
                         <br>
                         Password<br>
-                        <input type="password" name="password1" value="" placeholder="Password">
+                        <input type="password" name="password1" value="" placeholder="Password" required>
                         <br>
                         Bekræft Password<br>
-                        <input type="password" name="password2" value="" placeholder="Password">
+                        <input type="password" name="password2" value="" placeholder="Password" required>
                         <br>
                         <input type="submit" value="Opret Bruger">
                     </form>
