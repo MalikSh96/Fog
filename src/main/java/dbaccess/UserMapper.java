@@ -6,6 +6,7 @@
 package dbaccess;
 
 
+import com.mysql.cj.api.mysqla.result.Resultset;
 import functionlayer.LoginSampleException;
 import functionlayer.User;
 import java.sql.Connection;
@@ -75,25 +76,24 @@ public class UserMapper
         }
     }
     
-    public static void getUserId(User user) throws LoginSampleException 
+    public static int getUserId(String email) throws LoginSampleException 
     {
+        int id = 0;
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "SELECT id FROM FogUsers.users where email = '" + email +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            user.setId(id);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                id = rs.getInt("id");
+            }
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new LoginSampleException(ex.getMessage());
         }
+        return id;
     }
     
     public static User getUser(int id) throws LoginSampleException {
@@ -168,6 +168,29 @@ public class UserMapper
         }
             
             return userlist;
+        }
+        
+                public static List<Integer> getAllUserIds() throws LoginSampleException {
+            List<Integer> idList = new ArrayList<>();
+            
+            try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT id FROM FogUsers.users order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while(rs.next()) {
+                int id = rs.getInt("id");                
+                
+                idList.add(id);
+            } 
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+            
+            return idList;
         }
 }
 

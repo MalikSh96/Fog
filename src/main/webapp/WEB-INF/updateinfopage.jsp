@@ -1,22 +1,22 @@
-<%-- 
-    Document   : updateinfo
-    Created on : 02-05-2018, 13:06:48
-    Author     : Joklin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>OpdaterInfo</title>
+        <title>Opdater Info</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
                         <%@include file="../navigation/menu.jsp" %>
+                                <table class="middle">
+            <tr>
+                <td>
         <h1>Update User Info</h1>
-        
+                        </td>
+            </tr>
+                        <tr>
+                <td>
        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinfo">
             <div class="height">
@@ -37,9 +37,11 @@
             <div class="width">
                 <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
             </div>
-                <input type="submit" value="Gem Ændringer">
+            <br><input type="submit" value="Gem Ændringer">
             </form>
-        
+                        </td>                
+            </tr>
+        </table>
         
     </body>
 </html>

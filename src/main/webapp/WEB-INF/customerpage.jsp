@@ -1,9 +1,3 @@
-<%-- 
-    Document   : customerpage
-    Created on : Aug 22, 2017, 2:33:37 PM
-    Author     : kasper
---%>
-
 <%@page import="dbaccess.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,12 +18,15 @@
             User us = um.getUser(id);
         %>
 
+
         <br/>
         <div class="customerpage">
             <div class="customerpageoverskrift">
-                <h1>
-                    Velkommen
-                </h1>
+                
+                    <h3>
+                        Logget ind som: <%= us.getName()%> 
+                    </h3>
+                
             </div>
             <div class="customerpageinfomationer"> 
                 <h3>Dine informationer:</h3> <br/>

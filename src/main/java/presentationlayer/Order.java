@@ -90,8 +90,8 @@ public class Order extends Command {
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
-//        Orders ord = new Orders(userID, length, width, height);
-//        om.createPreOrder(ord);  
+        Orders ord = new Orders(userID, length, width, height);
+        om.createPreOrder(ord);  
               return "order";
     }
 

@@ -37,12 +37,12 @@ public class UpdateUserInfo extends Command {
         phone = user.getPhone();
         password = user.getPassword();
         
-        if(request.getParameter("name") != null) name = request.getParameter("name");
-        if(request.getParameter("address") != null) address = request.getParameter("address"); 
-        if(request.getParameter("email") != null) email = request.getParameter("email"); 
-        if(request.getParameter("postal") != null) postal = Integer.parseInt(request.getParameter("postal")); 
-        if(request.getParameter("phone") != null) phone = Integer.parseInt(request.getParameter("phone")); 
-        if(request.getParameter("password") != null) password = request.getParameter("password");
+        if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
+        if(request.getParameter("address").length() > 0){ address = request.getParameter("address");} 
+        if(request.getParameter("email").length() > 0) { email = request.getParameter("email"); }
+        if(request.getParameter("postal").length() > 0) { postal = Integer.parseInt(request.getParameter("postal")); }
+        if(request.getParameter("phone").length() > 0) {phone = Integer.parseInt(request.getParameter("phone")); }
+        if(request.getParameter("password").length() > 0){ password = request.getParameter("password");}
         
         um.UpdateUserInfo(userID, name, address, postal, phone, email, password);
               return "customerpage";

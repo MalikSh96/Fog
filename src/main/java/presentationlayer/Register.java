@@ -1,5 +1,6 @@
 package presentationlayer;
 
+import dbaccess.UserMapper;
 import functionlayer.LogicFacade;
 import functionlayer.LoginSampleException;
 import functionlayer.User;
@@ -11,6 +12,7 @@ public class Register extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+        UserMapper um = new UserMapper();
         String name = request.getParameter( "name" );
         String address = request.getParameter( "address" );
         String postnr = request.getParameter( "postalcode" );

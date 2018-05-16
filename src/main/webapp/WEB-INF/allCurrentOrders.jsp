@@ -1,9 +1,3 @@
-<%-- 
-    Document   : allCurrentOrders
-    Created on : 07-05-2018, 10:45:50
-    Author     : Joklin
---%>
-
 <%@page import="dbaccess.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +10,7 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+    <center>
         <h1>Alle nuværende ordrer</h1>
         
                 <form action="FrontController" method="POST">
@@ -28,6 +23,7 @@
         
         <%=om.pendingOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
    
+    </center>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
 </html>

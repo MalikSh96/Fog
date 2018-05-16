@@ -1,9 +1,3 @@
-<%-- 
-    Document   : updateInventory
-    Created on : 07-05-2018, 10:46:33
-    Author     : Joklin
---%>
-
 <%@page import="presentationlayer.Inventory"%>
 <%@page import="dbaccess.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,12 +5,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>OpdaterLager</title>
+        <title>Opdater Lager</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+    <center>
         <h1>Opdater Lager</h1>
 
 <form action="FrontController" method="POST">
@@ -36,9 +31,9 @@
             <div class="width">
                 <label> Status</label><br><input type="number" name="status" placeholder="status"/><br>
             </div>                 
-             <input type="submit" value="Tilføj til Lageret"><br>
+            <br> <input type="submit" value="Tilføj til Lageret"><br>
             </form>
-        
+        </center>
         <br><br> <a href="FrontController?command=adminpage">Tilbage</a>
 
     </body>
