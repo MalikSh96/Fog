@@ -56,10 +56,10 @@ public class Order extends Command {
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
         widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
-        lengthSVG = Integer.parseInt(request.getParameter("length")) + 60;
-        heightSVG = Integer.parseInt(request.getParameter("height")) + 60;
+        lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
+        heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
-        lengthline = Integer.parseInt(request.getParameter("length")) + 15;
+        lengthline = Integer.parseInt(request.getParameter("length")) + 15 ;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 110;
