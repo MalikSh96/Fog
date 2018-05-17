@@ -19,34 +19,23 @@
         %>
 
 
-        <br/>
-        <div class="customerpage">
-            <div class="customerpageoverskrift">
+
+                    <center>
                 
                     <h3>
                         Logget ind som: <%= us.getName()%> 
                     </h3>
                 
-            </div>
-            <div class="customerpageinfomationer"> 
-                <h3>Dine informationer:</h3> <br/>
-                <div class="cusomerpagetextinformationer">
-                    <%= us.getName()%><br/>
-                    <%= us.getAddress()%><br/>
-                    <%= us.getPostalcode()%><br/>
-                    <%= us.getPhone()%><br/>
-                    <%= us.getEmail()%><br/>   
-                    </div>
-            </div>
-            <div class="customerpagepicture">
-                <img src="Image/flattag.png" class="customerpagesrc"/>             
-            </div>
-            <div class="customerpageahref">
+
+                <a href="FrontController?command=userprofile">Min Profil</a><br><br>
                 <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
                 <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
-                <a href="FrontController?command=updateinfopage">Opdater personlige informationer</a>
             </div>
         </div>
-                    <%@include file="../footer/footer.jsp" %>
-    </body>
+
+        </center>    
+        <%@include file="../footer/footer.jsp" %>
+</body>
 </html>
+
+

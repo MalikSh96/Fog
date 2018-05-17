@@ -21,8 +21,7 @@
             <tr>
                 <td>
                     <form action="FrontController" method="POST">
-        <%@include file="../footer/footer.jsp" %>
-
+                        <input type="hidden" name="command" value="updateinfo">
                         <div>
                             <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
                         </div>  
@@ -50,5 +49,6 @@
             </tr>
         </table>
 
+        <%@include file="../footer/footer.jsp" %>
     </body>
 </html>
