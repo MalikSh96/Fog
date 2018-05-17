@@ -77,10 +77,10 @@ public class Main {
 //        System.out.println("\n");
 //        System.out.println("Is order send now?? " + om.isOrderSent(1));
 
-        ItemList i = new ItemList();
-        System.out.println("Post " + i.postAmount(600, 600));
-        System.out.println("Raft " + i.raftAmount(600, 600));
-        System.out.println("Rem " + i.remAmount());
-        System.out.println("Roof " + i.roofAmount(600, 600));
+//        ItemList i = new ItemList();
+//        System.out.println("Post " + i.postAmount(800, 800));
+//        System.out.println("Raft " + i.raftAmount(900, 900));
+//        System.out.println("Rem " + i.remAmount());
+//        System.out.println("Roof " + i.roofAmount(700, 700));
     }
 }

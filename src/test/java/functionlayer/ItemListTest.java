@@ -28,29 +28,52 @@ public class ItemListTest {
     @Test
     public void testPostAmount() 
     {
-        int width = 600;
-        int length = 600;
+        int width = 800;
+        int length = 800;
         int expected;
         int actual;
         if(width < 800)
         {
-            expected = li.getPost().size() + 1; //0
+            expected = 8;
             
             li.postAmount(length, width);
-            //actual = li.getPost();
+            actual = li.getPostTotal();
             
             assertEquals(expected, actual);
         }
         else
         {
+            expected = 12;
+            li.postAmount(length, width);
+            actual = li.getPostTotal();
             
+            assertEquals(expected, actual);
         }
-        
     }
 
     @Test
-    @Disabled
-    public void testRaftAmount() {
+    public void testRaftAmount() 
+    {
+        int width = 800;
+        int length = 800;
+        int expected;
+        int actual;
+        if(width < 800)
+        {
+            expected = 12;
+            li.raftAmount(length, width);
+            actual = li.getRaftTotal();
+            
+            assertEquals(expected, actual);         
+        }
+        else
+        {
+            expected = 28;
+            li.raftAmount(length, width);
+            actual = li.getRaftTotal();
+            
+            assertEquals(expected, actual);
+        }
     }
 
     @Test
@@ -59,8 +82,28 @@ public class ItemListTest {
     }
 
     @Test
-    @Disabled
-    public void testRoofAmount() {
+    public void testRoofAmount() 
+    {
+        int width = 700;
+        int length = 700;
+        int expected;
+        int actual;
+        if(width > 600)
+        {
+            expected = 14;
+            li.roofAmount(length, width);
+            actual = li.getRoofTotal();
+            
+            assertEquals(expected, actual);            
+        }
+        else
+        {
+            expected = 4;
+            li.roofAmount(length, width);
+            actual = li.getRoofTotal();
+            
+            assertEquals(expected, actual);
+        }
     }
 
     @Test

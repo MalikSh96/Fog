@@ -94,6 +94,10 @@ public class OrderMapperTest {
     @Disabled
     public void testAllCustomerOrders() 
     {
+        int expected = 3;
+        int actual;
+        actual = om.allCustomerOrders(3).size();
+        assertEquals(expected, actual);
     }
 
     @Test //works
@@ -115,16 +119,20 @@ public class OrderMapperTest {
 
     @Test
     @Disabled
-    public void testSendOrderYes() 
+    public void testSendOrderYes() throws ClassNotFoundException 
     {
-        
+        om.sendOrder(9);
+        assertTrue(om.isOrderSent(9));
         
     }
     
     @Test
     @Disabled
-    public void testSendOrderNo() 
+    public void testSendOrderNo() throws ClassNotFoundException 
     {
+        assertFalse(om.isOrderSent(10));
+        om.sendOrder(10);
+        assertTrue(om.isOrderSent(10));
     }
 }
 
