@@ -24,7 +24,12 @@
         </style>
         <%@include file="../navigation/menu.jsp" %>
 
-
+        <div class="registrationimagefuglpersketiv">
+            <img src="Image/fuglpersketiv.png"/>
+        </div>
+        <div class="registrationimagesidepersketiv">
+            <img src="Image/sidepersketiv.png" alt=""/>
+        </div>
 
         <form class="Restrationform" name="register" action="FrontController" method="POST">
             <input type="hidden" name="command" value="register">
@@ -81,6 +86,7 @@
 
             </table>
         </form>
+        
         <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

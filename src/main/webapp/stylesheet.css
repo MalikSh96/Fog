@@ -23,17 +23,9 @@ body{
 
 
 }
-.indeximagesidepersketiv img{
-    height: 150px ;
-
-    display: block;
-    margin-left: auto;
-    margin-right: 200px;
-    float: right;
-}
 
 
-.indeximagefuglpersketiv img{
+.indeximagecarportquickbyg img{
     float: left;
     height: 150px;
     display: block;
@@ -131,6 +123,26 @@ body{
     vertical-align: center;
     margin-left:auto; 
     margin-right:auto;
+
+}
+
+.registrationimagesidepersketiv img{
+    height: 125px;
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: 50px;
+    float: right;
+    
+}
+
+
+.registrationimagefuglpersketiv img{
+    float: left;
+    height: 125px;
+    display: block;
+    margin-left: 50px;
+    margin-top: 100px;
 
 }
 
