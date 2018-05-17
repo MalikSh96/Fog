@@ -93,7 +93,7 @@
 
             <button id="toolshed">Redskabsskur</button>  
             <br/>
-            
+
             <div id="customordrertoolshed">
                 <div>
                     <label>Redskabsskur længde</label><br/>
@@ -132,14 +132,20 @@
                 </div>
             </div>
             <div>
-                
-                <br> <input type="submit" value="Order">
+
+                <br/> 
+                <input id="orderSubmit" type="submit" value="Order">
             </div>
             <div>
                 * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.
 
             </div>
-        </form>     
+        </form> 
+
+
+        
+        
         <script src="./javascriptcustomordre.js" type="text/javascript"></script>
+
     </body>
 </html>

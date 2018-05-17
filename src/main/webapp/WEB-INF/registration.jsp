@@ -24,13 +24,21 @@
         </style>
         <%@include file="../navigation/menu.jsp" %>
 
-            <%@include file="../footer/footer.jsp" %>
 
-        <table>
-            <tr>
-                <td>
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="register">
+
+        <form class="Restrationform" name="register" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="register">
+            <table class="Regstrationmiddle">
+                <tr>
+                    <td colspan="2">
+                        <h1>
+                            Opret bruger
+                        </h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Regstrationtext">
+
                         Navn<br>
                         <input type="text" name="name" value="" placeholder="Navn" required>
                         <br>
@@ -46,7 +54,9 @@
                         <br>
                         By <br>
                         <input type="text" name="by" value="" placeholder="By" required>
-                        <br>
+
+                    </td>
+                    <td class="Regstrationtext">
                         Telefon nr.<br>
                         <input type="tel" name="phonenumber" placeholder="Telefon nr."
                                size="20"  minlength="8" maxlength="8"  required>
@@ -59,11 +69,18 @@
                         <br>
                         Bekræft Password<br>
                         <input type="password" name="password2" value="" placeholder="Password" required>
-                        <br>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
                         <input type="submit" value="Opret Bruger">
-                    </form>
-                </td>
-            </tr>
-        </table>
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+        <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

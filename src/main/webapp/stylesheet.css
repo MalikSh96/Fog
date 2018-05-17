@@ -6,13 +6,13 @@ body{
     margin:0;
     padding:0;
     height:100%;
-    
-  
+
+
 }
 
 /*----- index --------*/
 .indexheading{
-    
+
     vertical-align: central;
     text-align: center;
     padding-top: 125px;
@@ -20,14 +20,14 @@ body{
 .indextext{
     vertical-align: central;
     text-align: center;
-    
-    
+
+
 }
 .indeximagesidepersketiv img{
     height: 150px ;
-    
-  display: block;
-  margin-left: auto;
+
+    display: block;
+    margin-left: auto;
     margin-right: 200px;
     float: right;
 }
@@ -36,25 +36,45 @@ body{
 .indeximagefuglpersketiv img{
     float: left;
     height: 150px;
-  display: block;
-  margin-left: 200px;
+    display: block;
+    margin-left: 200px;
     margin-right: auto;
-    
+
 }
+
+/*--- Updateinfopage ---*/
+
+
+.updateinfopagetable{
+
+
+    vertical-align: center;
+
+    margin-left:auto; 
+    margin-right:auto;
+
+} 
+
+
+
 /*---- customerpage ----*/
 
 .customerpagepicture{
-    float: right;
+
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: auto;
     margin-left: auto;
     margin-right: auto;
-    padding-right: 100px;
+    text-align: center;
+    vertical-align: central;
 }
 
 .customerpageinfomationer{
     background-color: #f1eeee;
-    
+
     padding-right: 15px;
-    
+
     padding-left: 30px;
     margin-left: 45px;
     padding-bottom: 30px;
@@ -62,7 +82,7 @@ body{
     vertical-align: central;
     float: left;
     border-style: none;
-    
+
 }
 
 .cusomerpagetextinformationer{
@@ -70,28 +90,41 @@ body{
     word-spacing:10px;
 }
 .customerpageoverskrift{
-     text-align: center;
+    text-align: center;
     vertical-align: central;
-    padding-right: 80px;
-    
-    
+    padding-bottom: 10px;
+
+
+
 }
 .customerpageahref{
     padding-left: auto;
-    padding-right: 325px;
-   padding-top: 40px;
+    padding-right: auto;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     vertical-align: central;
 }
 
+/*--- order -------*/
 
+.ordretableitemlist{
+
+
+    height: 300px;
+}
 
 /*--- regstration ------- */
 
+.Restrationform{
+    margin: 0;
+    padding: 0;
+    
+}
 .Regstrationtext{
-    float: top;  
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .Regstrationmiddle{
@@ -124,12 +157,12 @@ h1,h2,h3,h4{
 }
 
 .loginpageimg img{
-     float: left;
+    float: left;
     height: 150px;
-  display: block;
-  margin-left: 200px;
+    display: block;
+    margin-left: 200px;
     margin-right: auto;
-    
+
 }
 
 
