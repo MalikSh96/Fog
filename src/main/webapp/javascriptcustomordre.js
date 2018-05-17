@@ -17,12 +17,12 @@ var btn_orderSubmit = document.getElementById('orderSubmit');
 
 var user = '<%(User) session.getAttribute("user"); %>';
 
-btn_orderSubmit.onclick = function () {
-    if (user !== null) {
-        alert("Du skal logge ind for at lave en ordre!");
-    }
-
-}
+//btn_orderSubmit.onclick = function () {
+//    if (user !== null) {
+//        alert("Du skal logge ind for at lave en ordre!");
+//    }
+//
+//}
 
 
 
