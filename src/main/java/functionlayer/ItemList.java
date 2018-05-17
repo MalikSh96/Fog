@@ -94,21 +94,17 @@ public class ItemList
     }
     
     //Work in progress
-    public boolean buildShed(int carportWidth)
+    public void Shed(int carportWidth, int shedWidth)
     {
-        boolean shed = false;
-        int shedWidth = 0;
-        if(!shed && carportWidth == shedWidth)
+        if(carportWidth == shedWidth)
         {
             int extraPost = 2;
-            post.add(extraPost);           
+            post.add(extraPost);  
         }
-        if(!shed && carportWidth > shedWidth)
+        if(carportWidth > shedWidth)
         {
             int extraPost = 3;
             post.add(extraPost);
         }
-        
-        return false;
     }
 }
