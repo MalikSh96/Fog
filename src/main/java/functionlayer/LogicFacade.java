@@ -1,8 +1,6 @@
 package functionlayer;
 
-import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
-import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
