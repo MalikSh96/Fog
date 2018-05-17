@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public class UpdateUserInfo extends Command {
 
     int userID = 0;
-    String name, address, email, password;
+    String name, lastname, address, email, password;
     int postal, phone;
     UserMapper um = new UserMapper();
     
@@ -31,6 +31,7 @@ public class UpdateUserInfo extends Command {
         userID = (int) session.getAttribute("id");
         User user = um.getUser(userID);
         name = user.getName();
+        lastname = user.getLastname();
         address = user.getAddress();
         email = user.getEmail();
         postal = user.getPostalcode();
@@ -39,6 +40,7 @@ public class UpdateUserInfo extends Command {
         
 
         if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
+        if(request.getParameter("lastname").length() > 0 ){ lastname = request.getParameter("lastname");}
         if(request.getParameter("address").length() > 0){ address = request.getParameter("address");} 
         if(request.getParameter("email").length() > 0) { email = request.getParameter("email"); }
         if(request.getParameter("postal").length() > 0) { postal = Integer.parseInt(request.getParameter("postal")); }
@@ -46,7 +48,7 @@ public class UpdateUserInfo extends Command {
         if(request.getParameter("password").length() > 0){ password = request.getParameter("password");}
 
         
-        um.UpdateUserInfo(userID, name, address, postal, phone, email, password);
+        um.UpdateUserInfo(userID, name, lastname, address, postal, phone, email, password);
               return "customerpage";
     }
 

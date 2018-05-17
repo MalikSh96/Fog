@@ -1,8 +1,10 @@
+<%@page import="dbaccess.UserMapper"%>
 <nav>
     <div class="container-resposize-header">
         <header>
             <%@page import="functionlayer.User"%>
-            <%User user = (User) session.getAttribute("user");%>
+            <%User user = (User) session.getAttribute("user");
+            UserMapper u = new UserMapper();%>
             <div class="navwrapper">
 
                 <div class="logo">
@@ -23,7 +25,10 @@
                              
                         </div>
                         <ul>
-                            <% if (user != null) { %>
+                            <% if (user != null && user.isAdmin(u.getUserRole(user.getId()))) { %>
+                            <li><a href="FrontController?command=adminpage">admin</a></li>
+                                <% }%>
+                            <% if (user != null && !user.isAdmin(u.getUserRole(user.getId()))) { %>
                             <li><a href="FrontController?command=customerpage">Min Side</a></li>
                                 <% }%>
                                 <% if (user == null) { %>

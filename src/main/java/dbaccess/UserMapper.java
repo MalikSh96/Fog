@@ -28,16 +28,17 @@ public class UserMapper
         try 
         {
             Connection con = dbaccess.Connector.connection();
-            String SQL = "INSERT INTO users (name, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO users (name, lastname, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
             ps.setString(1, user.getName());
-            ps.setString(2, user.getAddress());
-            ps.setString(3, ""+user.getPostalcode());
-            ps.setString(4, ""+user.getPhone());
-            ps.setString(5, user.getEmail());
-            ps.setString(6, user.getPassword());
-            ps.setString(7, user.getRole());
+            ps.setString(2, user.getLastname());
+            ps.setString(3, user.getAddress());
+            ps.setString(4, ""+user.getPostalcode());
+            ps.setString(5, ""+user.getPhone());
+            ps.setString(6, user.getEmail());
+            ps.setString(7, user.getPassword());
+            ps.setString(8, user.getRole());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -96,7 +97,8 @@ public class UserMapper
         return id;
     }
     
-    public static User getUser(int id) throws LoginSampleException {
+    public static User getUser(int id) throws LoginSampleException 
+    {
         User u = null;
         try 
         {
@@ -107,13 +109,14 @@ public class UserMapper
             ResultSet rs = ps.executeQuery(SQL);
             while(rs.next()) {
                 String name = rs.getString("name");
+                String lastname = rs.getString("lastname");
                 String address = rs.getString("address");
                 int postal = rs.getInt("postalnumber");
                 int phone = rs.getInt("phone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 
-                u = new User(name, address, postal, phone, email, password);
+                u = new User(name, lastname, address, postal, phone, email, password);
             } 
         } catch (SQLException | ClassNotFoundException ex) 
         {
@@ -123,13 +126,13 @@ public class UserMapper
         return u;
     }
     
-        public static void UpdateUserInfo(int id, String name, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException 
+        public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws LoginSampleException 
         {
         try 
         {
             Connection con = dbaccess.Connector.connection();
             String SQL = "UPDATE FogUsers.users SET name = '" +name +
-            "', address = '"+address+"', postalnumber = '"+postalnumber+
+            "', lastname = '" + lastname + "', address = '"+address+"', postalnumber = '"+postalnumber+
                     "', phone = '"+phone+"', email = '"+email+
                     "', password = '"+password+ "' WHERE id='" + id +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -140,57 +143,79 @@ public class UserMapper
             throw new LoginSampleException(ex.getMessage());
         }
     }
-        
-        public static List<User> getAllUsers() throws LoginSampleException {
-            List<User> userlist = new ArrayList<>();
-            
-            try 
-        {
+
+    public static List<User> getAllUsers() throws LoginSampleException 
+    {
+        List<User> userlist = new ArrayList<>();
+
+        try {
             Connection con = dbaccess.Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             ResultSet rs = ps.executeQuery(SQL);
-            while(rs.next()) {
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
+                String lastname = rs.getString("lastname");
                 String address = rs.getString("address");
                 int postal = rs.getInt("postalnumber");
                 int phone = rs.getInt("phone");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 
-                userlist.add(new User(id, name, address, postal, phone, email, password));
+                userlist.add(new User(id, name, lastname, address, postal, phone, email, password));
             } 
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new LoginSampleException(ex.getMessage());
         }
-            
-            return userlist;
-        }
+
+        return userlist;
+    }
         
-                public static List<Integer> getAllUserIds() throws LoginSampleException {
-            List<Integer> idList = new ArrayList<>();
-            
-            try 
-        {
+    public static List<Integer> getAllUserIds() throws LoginSampleException 
+    {
+        List<Integer> idList = new ArrayList<>();
+
+        try {
             Connection con = dbaccess.Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users order by id asc";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             ResultSet rs = ps.executeQuery(SQL);
-            while(rs.next()) {
-                int id = rs.getInt("id");                
-                
+            while (rs.next()) {
+                int id = rs.getInt("id");
+
                 idList.add(id);
-            } 
-        } catch (SQLException | ClassNotFoundException ex) 
-        {
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
             
             return idList;
         }
+                
+                public static String getUserRole(int id) throws LoginSampleException {
+                    {
+        String role = null;
+        try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT role FROM FogUsers.users where id = '" + id +"';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                role = rs.getString("role");
+            }
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+        return role;
+                }
+                }
+
 }
 

@@ -24,59 +24,46 @@
         </style>
         <%@include file="../navigation/menu.jsp" %>
 
-
-        <div class="body">
-            <table class="Regstrationmiddle">
-                <form name="register" action="FrontController" method="POST">
-                    <tr>
-                        <td colspan="2">
-                            <h1>Registrering</h1>
-                        </td>
-                    </tr>
-                    <tr>
-
-                        <td class="Regstrationtext">
-
-                            <input type="hidden" name="command" value="register">
-
-                            Navn<br>
-                            <input type="text" name="name" value="" placeholder="Navn" required>
-                            <br>
-                            Addresse<br>
-                            <input type="text" name="address" value="" placeholder="Addresse" required>
-                            <br>
-                            Postnr.<br>
-                            <input type="tel" name="postalcode" placeholder="Postnr." 
-                                   size="20" minlength="4" maxlength="4" required>
-                            <br>
-
-                            By <br>
-                            <input type="text" name="by" value="" placeholder="By" required>
-
-                        </td>
-                        <td class="Regstrationtext">
-                            Telefon nr.<br>
-                            <input type="tel" name="phonenumber" placeholder="Telefon nr."
-                                   size="20"  minlength="8" maxlength="8"  required>
-                            <br>
-
-                            Email<br>
-                            <input type="email" name="email" value="" placeholder="Email" required>
-                            <br>
-                            Password<br>
-                            <input type="password" name="password1" value="" placeholder="Password" required>
-                            <br>
-                            Bekræft Password<br>
-                            <input type="password" name="password2" value="" placeholder="Password" required>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" value="Opret Bruger">
-
-                        </td>                  
-                </form>
-            </table>
             <%@include file="../footer/footer.jsp" %>
 
+        <table>
+            <tr>
+                <td>
+                    <form name="register" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="register">
+                        Navn<br>
+                        <input type="text" name="name" value="" placeholder="Navn" required>
+                        <br>
+                        Efternavn<br>
+                        <input type="text" name="lastname" value="" placeholder="Efternavn" required>
+                        <br>
+                        Addresse<br>
+                        <input type="text" name="address" value="" placeholder="Addresse" required>
+                        <br>
+                        Postnr.<br>
+                        <input type="tel" name="postalcode" placeholder="Postnr." 
+                               size="20" minlength="4" maxlength="4" required>
+                        <br>
+                        By <br>
+                        <input type="text" name="by" value="" placeholder="By" required>
+                        <br>
+                        Telefon nr.<br>
+                        <input type="tel" name="phonenumber" placeholder="Telefon nr."
+                               size="20"  minlength="8" maxlength="8"  required>
+                        <br>
+                        Email<br>
+                        <input type="email" name="email" value="" placeholder="Email" required>
+                        <br>
+                        Password<br>
+                        <input type="password" name="password1" value="" placeholder="Password" required>
+                        <br>
+                        Bekræft Password<br>
+                        <input type="password" name="password2" value="" placeholder="Password" required>
+                        <br>
+                        <input type="submit" value="Opret Bruger">
+                    </form>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>

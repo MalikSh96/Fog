@@ -16,37 +16,39 @@
             <tr>
                 <td>
                     <h1>Update User Info</h1>
-
                 </td>
             </tr>
             <tr>
                 <td>
                     <form action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="updateinfo">
-                        <div class="name">
-                            <label> Navn</label><br><input  type="text" name="name" placeholder="Navn"/>
+        <%@include file="../footer/footer.jsp" %>
+
+                        <div>
+                            <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
+                        </div>  
+                        <div>
+                            <label> Efternavn</label><br><input type="text" name="lastname" placeholder="Efternavn"/>
+                        </div>     
+                        <div>
+                            <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
+                        </div> 
+                        <div>
+                            <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnummer"/>
                         </div>            
-                        <div class="adresse">
-                            <label> Adresse</label><br><input  type="text" name="address" placeholder="Adresse"/>
-                        </div>            
-                        <div class="postalnummer">
-                            <label> Postnummer</label><br><input value="" type="number" name="postal" max="9999" min="1111" placeholder="Post nr."/>
-                        </div>            
-                        <div class="phone">
-                            <label> Telefon nummer</label><br><input  type="number" name="phone" max="99999999" min="11111111" placeholder="Telefon"/>
+                        <div>
+                            <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefon nr."/>
                         </div>                               
-                        <div class="Email">
-                            <label> Email</label><br><input  type="text" name="email" placeholder="Email"/>
+                        <div>
+                            <label> Email</label><br><input type="text" name="email" placeholder="Email"/>
                         </div>                 
-                        <div class="password">
-                            <label> Password</label><br><input  type="text" name="password" placeholder="Password"/><br>
+                        <div>
+                            <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
                         </div>
                         <br><input type="submit" value="Gem Ændringer">
                     </form>
-
                 </td>                
             </tr>
         </table>
-        <%@include file="../footer/footer.jsp" %>
+
     </body>
 </html>

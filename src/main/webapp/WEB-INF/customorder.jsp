@@ -77,7 +77,7 @@
 
             </div>            
             <div class="height">
-                <label> Vælg Højde</label><br>
+                <label> Carport højde</label><br>
                 <select class="form-control" name="height">
                     <option value="200">Vælg højde</option>
                     <option value="200">200 cm</option>   
@@ -89,6 +89,7 @@
                 </select>
             </div> 
             <br/> 
+
 
             <button id="toolshed">Redskabsskur</button>  
             <br/>
@@ -128,9 +129,7 @@
 
 
                     </select>
-                </div>
-            </div>
-
+                </div>s           
             <div>
                 <input type="submit" value="Order">
             </div>

@@ -21,6 +21,8 @@ public class Main {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
+        User us = um.getUser(1);
+//        System.out.println(um.getUserRole(2));
         
 //        im.addToInventory("lars", "er", 4, "tyk", 100);
 //
@@ -77,9 +79,10 @@ public class Main {
 //        System.out.println("\n");
 //        System.out.println("Is order send now?? " + om.isOrderSent(1));
 
-        ItemList i = new ItemList();
-        
-        System.out.println("... " + i.raftAmount(9, 3));
-        System.out.println("test " + 7 / 0.55);
+//        ItemList i = new ItemList();
+//        System.out.println("Post " + i.postAmount(800, 800));
+//        System.out.println("Raft " + i.raftAmount(900, 900));
+//        System.out.println("Rem " + i.remAmount());
+//        System.out.println("Roof " + i.roofAmount(700, 700));
     }
 }
