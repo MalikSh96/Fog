@@ -21,7 +21,9 @@ public class ItemList
     private List<Integer> raft = new ArrayList<>();
     private List<Integer> rem = new ArrayList<>();
     private List<Integer> roof = new ArrayList<>();
-        
+    
+    //Obs, calculations is based of the biggest items of each
+    
     public List<Integer> postAmount(int carportLength, int carportWidth)
     {
         int postTotal = 0;
