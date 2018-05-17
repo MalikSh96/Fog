@@ -79,7 +79,8 @@ public class Main {
 
         ItemList i = new ItemList();
         
-        System.out.println("... " + i.raftAmount(9, 3));
-        System.out.println("test " + 7 / 0.55);
+//        System.out.println("... " + i.raftAmount(9, 3));
+//        System.out.println("test " + 7 / 0.55);
+//        System.out.println("Roof " + i.roofAmount(9, 8));
     }
 }

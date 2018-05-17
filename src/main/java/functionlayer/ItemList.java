@@ -26,19 +26,18 @@ public class ItemList
     {
         int postTotal = 0;
         int postRow = 0;
-        postRow = (carportLength / 2);
+        postRow = (carportLength / 2); //divide by 2 because we want a post for every 2m
         
-        if(carportWidth < 8)
+        if(carportWidth < 8) //max carport width is 8
         {
             postTotal = postRow * 2;
         } 
         else 
         {
-            int numberOfRows = (carportWidth/6);
+            int numberOfRows = (carportWidth / 8);
             numberOfRows++;
             postTotal =  numberOfRows * postRow;
-        }
-        
+        }        
         post.add(postTotal);
         return post;
     }
@@ -47,7 +46,7 @@ public class ItemList
     {
         int raftTotal = 0;
         Double raftRow = 0.00;
-        raftRow = (carportLength / 0.55);
+        raftRow = (carportLength / 0.55); //0.55 is length of gap between the rafts
         
         int raftRowInt = raftRow.intValue();
         
@@ -57,7 +56,7 @@ public class ItemList
         }
         else
         {
-            int numberOfRows = (carportWidth/8);
+            int numberOfRows = (carportWidth / 8);
             numberOfRows++;
             raftTotal = numberOfRows * raftRowInt;
         }
@@ -68,7 +67,7 @@ public class ItemList
     
     public List<Integer> remAmount(int carportLength, int carportWidth)
     {
-        int remTotal = 2;
+        int remTotal = 2; //Carport only have 2 sides, no middle posts
         rem.add(remTotal);
         return rem;
     }
@@ -76,7 +75,40 @@ public class ItemList
     public List<Integer> roofAmount(int carportLength, int carportWidth)
     {
         int roofTotal = 0;
+        Double roofPlate = 0.00;
+        roofPlate = (carportLength / 1.1); //1.1 is width of roof plate
+        
+        int roofPlateInt = roofPlate.intValue();
+        
+        if(carportWidth > 6)
+        {
+            roofTotal = (roofPlateInt + 1) * 2; //
+        } 
+        else 
+        {
+            roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals
+        }        
+        
         roof.add(roofTotal);
         return roof;
+    }
+    
+    //Work in progress
+    public boolean buildShed(int carportWidth)
+    {
+        boolean shed = false;
+        int shedWidth = 0;
+        if(!shed && carportWidth == shedWidth)
+        {
+            int extraPost = 2;
+            post.add(extraPost);           
+        }
+        if(!shed && carportWidth > shedWidth)
+        {
+            int extraPost = 3;
+            post.add(extraPost);
+        }
+        
+        return false;
     }
 }
