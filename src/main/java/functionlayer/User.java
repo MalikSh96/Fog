@@ -146,6 +146,12 @@ public class User
     public void setPhone(int phone) {
         this.phone = phone;
     }
+    
+    public boolean isAdmin(String role) {
+        if (role.equals("admin")) { return true; }
+        return false;
+              
+    }
     @Override
     public String toString() 
     {
