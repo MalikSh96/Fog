@@ -195,5 +195,26 @@ public class UserMapper
             
             return idList;
         }
+                
+                public static String getUserRole(int id) throws LoginSampleException {
+                    {
+        String role = null;
+        try 
+        {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "SELECT role FROM FogUsers.users where id = '" + id +"';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                role = rs.getString("role");
+            }
+        } catch (SQLException | ClassNotFoundException ex) 
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+        return role;
+                }
+                }
 }
 
