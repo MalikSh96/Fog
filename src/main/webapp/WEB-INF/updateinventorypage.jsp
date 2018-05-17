@@ -16,19 +16,19 @@
 
 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventory">
-            <div class="height">
+            <div>
                 <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/><br>
             </div>            
-            <div class="length">
+            <div>
                 <label> Beskrivelse</label><br><input type="text" name="description" placeholder="Beskrivelse"/><br>
             </div>            
-            <div class="width">
+            <div>
                 <label> Længde</label><br><input type="number" name="length" placeholder="Længde"/><br>
             </div>            
-            <div class="width">
+            <div>
                 <label> Enhed</label><br><input type="text" name="unit" placeholder="Enhed"/><br>
             </div>                               
-            <div class="width">
+            <div>
                 <label> Status</label><br><input type="number" name="status" placeholder="status"/><br>
             </div>                 
             <br> <input type="submit" value="Tilføj til Lageret"><br>

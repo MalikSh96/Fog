@@ -24,23 +24,23 @@
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="order">
-            <div class="length">
+            <div>
                 <label>Vælg Længde*</label><br>
                 <input type="number" name="length" max="999" required value="240" min="240"/>
             </div>            
-            <div class="width">
+            <div>
                 <label>Vælg Bredde*</label><br>
                 <input type="number" name="width" max="999" required value="240" min="240"/>
             </div>            
-            <div class="height">
+            <div>
                 <label> Vælg Højde</label><br><input type="number" name="height" max="250" required value="200" min="200"/>
             </div> 
 
             <% // int length = (int) session.getAttribute("længde");%> 
             <br/>
-            <div class="toolshedlength">
+            <div>
                 <label>Carport længde</label><br/>
-                <select class="form-control" name="toolshedlength">
+                <select name="toolshedlength">
                     <option value="0">Ønske ikke redskabsrum</option>
                     <%//if(length > 459){ %><option value="160">160 cm</option> <%// }%>
                     <option value="170">170 cm</option>
@@ -51,9 +51,9 @@
                 </select>              
             </div>
             <br/>
-            <div class="toolshedwidth">
+            <div>
                 <label>Carport bredde</label><br/>
-                <select class="form-control" name="toolshedwidth">
+                <select name="toolshedwidth">
                     <option value="0">Ønske ikke redskabsrum</option>
                     <option value="150">160 cm</option>
                     <option value="160">160 cm</option>
