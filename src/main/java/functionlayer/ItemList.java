@@ -23,7 +23,7 @@ public class ItemList
     private List<Integer> roof = new ArrayList<>();
     private int postTotal = 0;
     private int raftTotal = 0;
-    private int remTotal = 2;
+    private int remTotal = 0;
     private int roofTotal = 0;
     
     //Obs, calculations is based of the biggest items of each category
@@ -69,9 +69,11 @@ public class ItemList
         return raft;
     }
     
-    public List<Integer> remAmount() 
+    public List<Integer> remAmount(int carportLength) 
     {
         //Carport only have 2 sides, no middle posts
+        if(carportLength <= 6) { remTotal = 2;}
+        else { remTotal = 4;}
         rem.add(remTotal);
         return rem;
     }

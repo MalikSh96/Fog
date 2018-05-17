@@ -141,7 +141,7 @@ public class Order extends Command {
         session.setAttribute("remName", im.getName(8));
         session.setAttribute("remDesc", im.getDescription(8));
         session.setAttribute("remLength", im.getLength(8));
-        session.setAttribute("remAmount" , itemList.remAmount().get(0));
+        session.setAttribute("remAmount" , itemList.remAmount(length).get(0));
       //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
      
         session.setAttribute("roofName", im.getName(15));
