@@ -22,22 +22,22 @@ public class ItemList
     private List<Integer> rem = new ArrayList<>();
     private List<Integer> roof = new ArrayList<>();
     
-    //Obs, calculations is based of the biggest items of each
+    //Obs, calculations is based of the biggest items of each category
     
     public List<Integer> postAmount(int carportLength, int carportWidth)
     {
         int postTotal = 0;
         int postRow = 0;
-        postRow = (carportLength / 2); //divide by 2 because we want a post for every 2m
-        
-        if(carportWidth < 8) //max carport width is 8
+        postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm
+
+        if(carportWidth < 800) //max carport width is 8m or 800cm
         {
-            postTotal = postRow * 2;
+            postTotal = (postRow * 2) + 2;
         } 
         else 
         {
-            int numberOfRows = (carportWidth / 8);
-            numberOfRows++;
+            int numberOfRows = (carportWidth / 800); 
+            numberOfRows += 2; //adds 2, because once the width is over 8, middle posts is needed
             postTotal =  numberOfRows * postRow;
         }        
         post.add(postTotal);
@@ -48,26 +48,28 @@ public class ItemList
     {
         int raftTotal = 0;
         Double raftRow = 0.00;
-        raftRow = (carportLength / 0.55); //0.55 is length of gap between the rafts
+        raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
         
         int raftRowInt = raftRow.intValue();
         
-        if(carportWidth < 8)
+        if(carportWidth < 800)
         {
             raftTotal = raftRowInt +2;
+//            raftTotal /= 100;
         }
         else
         {
-            int numberOfRows = (carportWidth / 8);
+            int numberOfRows = (carportWidth / 800);
             numberOfRows++;
             raftTotal = numberOfRows * raftRowInt;
+//            raftTotal /= 100;
         }
         
         raft.add(raftTotal);
         return raft;
     }
     
-    public List<Integer> remAmount(int carportLength, int carportWidth)
+    public List<Integer> remAmount() 
     {
         int remTotal = 2; //Carport only have 2 sides, no middle posts
         rem.add(remTotal);
@@ -78,17 +80,18 @@ public class ItemList
     {
         int roofTotal = 0;
         Double roofPlate = 0.00;
-        roofPlate = (carportLength / 1.1); //1.1 is width of roof plate
+        roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
         
         int roofPlateInt = roofPlate.intValue();
         
-        if(carportWidth > 6)
+        if(carportWidth > 600)
         {
-            roofTotal = (roofPlateInt + 1) * 2; //
+            roofTotal = (roofPlateInt + 1) * 2; 
         } 
         else 
         {
             roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals
+            
         }        
         
         roof.add(roofTotal);
@@ -108,5 +111,21 @@ public class ItemList
             int extraPost = 3;
             post.add(extraPost);
         }
+    }
+
+    public List<Integer> getPost() {
+        return post;
+    }
+
+    public List<Integer> getRaft() {
+        return raft;
+    }
+
+    public List<Integer> getRem() {
+        return rem;
+    }
+
+    public List<Integer> getRoof() {
+        return roof;
     }
 }

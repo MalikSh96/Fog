@@ -1,3 +1,4 @@
+<%@page import="functionlayer.ItemList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -299,6 +300,13 @@
 
             </div>
         </div>
+                
+               <% ItemList il = new ItemList(); %>
+
+               <% out.print(il.postAmount(length, width)); %>
+               <% out.print(il.raftAmount(length, width)); %>
+               <% out.print(il.remAmount()); %>
+               <% out.print(il.roofAmount(length, width)); %>
 
         <script>
             var modal = document.getElementById('myFogSVGbirdseye');
