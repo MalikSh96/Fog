@@ -5,7 +5,9 @@
  */
 package presentationlayer;
 
+import dbaccess.InventoryMapper;
 import dbaccess.OrderMapper;
+import functionlayer.ItemList;
 import functionlayer.LoginSampleException;
 import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,10 @@ import functionlayer.User;
  */
 public class Order extends Command {
 
+    OrderMapper om = new OrderMapper();
+        ItemList itemList = new ItemList();
+        InventoryMapper im = new InventoryMapper();
+        
     int userID = 0;
     int length = 0;
     int width = 0;
@@ -38,8 +44,36 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
-    OrderMapper om = new OrderMapper();
+    //hardcoding of misc carport stuff
+    String roofScrewName = im.getName(17);
+    String roofScrewDesc = im.getDescription(17);
+    int roofScrewAmount = 2;
     
+    String universalRightName = im.getName(19);
+    String universalRightDesc = im.getDescription(19);
+    int universalRightAmount = 20;
+    
+    String universalLeftName = im.getName(20);
+    String universalLeftDesc = im.getDescription(20);
+    int universalLeftAmount = 20;
+    
+    
+    String bracketScrewName = im.getName(22);
+    String bracketScrewDesc = im.getDescription(22);
+    int bracketScrewAmount = 2;
+            
+            
+    String carriageBoltName = im.getName(23);
+    String carriageBoltDesc = im.getDescription(23);
+    int carriageBoltAmount = 14;
+            
+            
+    String squareSlicesName = im.getName(24);
+    String squareSlicesDesc = im.getDescription(24);
+    int squareSlicesAmount = 14;
+            
+            
+   
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
@@ -92,6 +126,55 @@ public class Order extends Command {
         session.setAttribute("højdejord", heightground);
         Orders ord = new Orders(userID, length, width, height);
         om.createPreOrder(ord);  
+                
+     
+        session.setAttribute("postName", im.getName(11));
+        session.setAttribute("postDesc", im.getDescription(11));
+        session.setAttribute("postLength", im.getLength(11));
+        session.setAttribute("postAmount" , itemList.postAmount(length, width).get(0));
+     
+        session.setAttribute("raftName", im.getName(10));
+        session.setAttribute("raftDesc", im.getDescription(10));
+        session.setAttribute("raftLength", im.getLength(10));
+        session.setAttribute("raftAmount" , itemList.raftAmount(length, width).get(0));
+     
+        session.setAttribute("remName", im.getName(8));
+        session.setAttribute("remDesc", im.getDescription(8));
+        session.setAttribute("remLength", im.getLength(8));
+        session.setAttribute("remAmount" , itemList.remAmount().get(0));
+      //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
+     
+        session.setAttribute("roofName", im.getName(15));
+        session.setAttribute("roofDesc", im.getDescription(15));
+        session.setAttribute("roofLength", im.getLength(15));
+        session.setAttribute( "roofAmount" , itemList.roofAmount(length, width).get(0));
+        
+        session.setAttribute("roofScrewName", im.getName(17));
+        session.setAttribute("roofScrewDesc", im.getDescription(17));
+        session.setAttribute("roofScrewAmount", roofScrewAmount);
+        
+        session.setAttribute("universalRightName", im.getName(19));
+        session.setAttribute("universalRightDesc", im.getDescription(19));
+        session.setAttribute("universalRightAmount", universalRightAmount);
+        
+        session.setAttribute("universalLeftName", im.getName(20));
+        session.setAttribute("universalLeftDesc", im.getDescription(20));
+        session.setAttribute("universalLeftAmount", universalLeftAmount);
+        
+        session.setAttribute("bracketScrewName", im.getName(22));
+        session.setAttribute("bracketScrewDesc", im.getDescription(22));
+        session.setAttribute("bracketScrewAmount", bracketScrewAmount);
+        
+        session.setAttribute("carriageBoltName", im.getName(23));
+        session.setAttribute("carriageBoltDesc", im.getDescription(23));
+        session.setAttribute("carriageBoltAmount", carriageBoltAmount);
+        
+        session.setAttribute("squareSlicesName", im.getName(24));
+        session.setAttribute("squareSlicesDesc", im.getDescription(24));
+        session.setAttribute("squareSlicesAmount", squareSlicesAmount);
+        
+        
+        
               return "order";
     }
 
