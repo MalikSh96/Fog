@@ -8,7 +8,7 @@
         <title>Registration</title>
     </head>
     <body>
-        
+
         <style>
             input[type=number]::-webkit-inner-spin-button, 
             input[type=number]::-webkit-outer-spin-button { 
@@ -32,6 +32,9 @@
                         Navn<br>
                         <input type="text" name="name" value="" placeholder="Navn" required>
                         <br>
+                        Efternavn<br>
+                        <input type="text" name="lastname" value="" placeholder="Efternavn" required>
+                        <br>
                         Addresse<br>
                         <input type="text" name="address" value="" placeholder="Addresse" required>
                         <br>
@@ -44,7 +47,7 @@
                         <br>
                         Telefon nr.<br>
                         <input type="tel" name="phonenumber" placeholder="Telefon nr."
-                              size="20"  minlength="8" maxlength="8"  required>
+                               size="20"  minlength="8" maxlength="8"  required>
                         <br>
                         Email<br>
                         <input type="email" name="email" value="" placeholder="Email" required>

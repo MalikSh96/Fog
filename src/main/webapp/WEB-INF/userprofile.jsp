@@ -21,7 +21,7 @@
         <br><h1>Dine informationer:</h1><br><br>       
 
         Kunde nr: <%= um.getUserId(user.getEmail())%><br>
-        Navn: <%= us.getName()%><br>
+        Navn: <%= us.getName() + " " +us.getLastname()%><br>
         Adresse:  <%= us.getAddress()%><br>
         Post nr: <%= us.getPostalcode()%><br>
         Telefon nr: <%= us.getPhone()%><br>

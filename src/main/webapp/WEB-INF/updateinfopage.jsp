@@ -21,10 +21,13 @@
             <input type="hidden" name="command" value="updateinfo">
             <div class="height">
                 <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
-            </div>            
+            </div>  
             <div class="length">
+                <label> Efternavn</label><br><input type="text" name="lastname" placeholder="Efternavn"/>
+            </div>     
+                        <div class="length">
                 <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
-            </div>            
+            </div> 
             <div class="width">
                 <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnummer"/>
             </div>            

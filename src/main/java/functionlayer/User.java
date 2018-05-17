@@ -12,6 +12,7 @@ public class User
 
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String name;
+    private String lastname;
     private String address;
     private int postalcode;
     private int phone;
@@ -26,8 +27,9 @@ public class User
         this.role = role;
     }
     
-    public User( String name, String address, int postalcode, int phone, String email, String password, String role ) {
+    public User( String name, String lastname, String address, int postalcode, int phone, String email, String password, String role ) {
         this.name = name;
+        this.lastname = lastname;
         this.address = address;
         this.postalcode = postalcode;
         this.phone = phone;
@@ -43,9 +45,10 @@ public class User
         this.role = role;
     }
 
-    public User(int id, String name, String address, int postal, int phone, String email, String password) {
+    public User(int id, String name, String lastname, String address, int postal, int phone, String email, String password) {
         this.id = id;
         this.name = name;
+        this.lastname = lastname;
         this.address = address;
         this.postalcode = postal;
         this.phone = phone;
@@ -53,13 +56,22 @@ public class User
         this.password = password;
     }
 
-        public User(String name, String address, int postal, int phone, String email, String password) {
+        public User(String name, String lastname, String address, int postal, int phone, String email, String password) {
         this.name = name;
+        this.lastname = lastname;
         this.address = address;
         this.postalcode = postal;
         this.phone = phone;
         this.email = email;
         this.password = password;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
 
@@ -137,6 +149,6 @@ public class User
     @Override
     public String toString() 
     {
-        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password + "<br>Adresse: " + address + "<br>Navn: " + name + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
+        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password + "<br>Adresse: " + address + "<br>Navn: " + name + " " + lastname + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
     }    
 }
