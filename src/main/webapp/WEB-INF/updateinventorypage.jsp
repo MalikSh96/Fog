@@ -11,6 +11,19 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+        
+        <style>
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+
+        </style>
     <center>
         <h1>Opdater Lager</h1>
 

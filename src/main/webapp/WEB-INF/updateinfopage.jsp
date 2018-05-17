@@ -11,6 +11,19 @@
 
     </head>
     <body>
+        
+        <style>
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+
+        </style>
         <%@include file="../navigation/menu.jsp" %>
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinfo">
