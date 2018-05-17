@@ -301,12 +301,7 @@
             </div>
         </div>
                 
-               <% ItemList il = new ItemList(); %>
-
-               <% out.print(il.postAmount(length, width)); %>
-               <% out.print(il.raftAmount(length, width)); %>
-               <% out.print(il.remAmount()); %>
-               <% out.print(il.roofAmount(length, width)); %>
+              
 
         <script>
             var modal = document.getElementById('myFogSVGbirdseye');
@@ -355,5 +350,95 @@
                 }
             }
         </script>
+        
+        <table border = 1>
+            <tr>
+                <th><p>Navn</p></th>
+                <th><p>Beskrivelse</p></th>
+                <th><p>Længe i cm</p></th>
+                <th><p>Antal</p></th>
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("postName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("postDesc"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("postLength"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("postAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("raftName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("raftDesc"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("raftLength"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("raftAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("remName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("remDesc"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("remLength"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("remAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("roofName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("roofDesc"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("roofLength"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("roofAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("roofScrewName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("roofScrewDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("roofScrewAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("universalRightName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("universalRightDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("universalRightAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("universalLeftName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("universalLeftDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("universalLeftAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("bracketScrewName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("bracketScrewDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("bracketScrewAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("carriageBoltName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("carriageBoltDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("carriageBoltAmount"));%></p> </td>
+                
+            </tr>
+            <tr>
+                
+                <td><p> <%out.println(session.getAttribute("squareSlicesName"));%></p> </td>
+                <td><p> <%out.println(session.getAttribute("squareSlicesDesc"));%></p> </td>
+                <td><p> <%out.println(0);%></p> </td>
+                <td><p> <%out.println(session.getAttribute("squareSlicesAmount"));%></p> </td>
+                
+            </tr>
+        </table>
+        
     </body>
 </html>
