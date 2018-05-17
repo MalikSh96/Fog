@@ -7,9 +7,10 @@
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetjavascript.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-       
+
 
         <%@include file="../navigation/menu.jsp" %>
         <h1>Input order</h1>
@@ -87,43 +88,49 @@
                     <option value="250">250 cm</option>
                 </select>
             </div> 
+            <br/> 
+
+            <button id="toolshed">Redskabsskur</button>  
+            <br/>
+            
+            <div id="customordrertoolshed">
+                <div>
+                    <label>Redskabsskur længde</label><br/>
+                    <select class="form-control" name="toolshedlength">
+                        <option value="0">Ønske ikke redskabsrum</option>
+                        <option value="160">160 cm</option>
+                        <option value="170">170 cm</option>
+                        <option value="180">180 cm</option>
+                        <option value="190">190 cm</option>
+                        <option value="200">200 cm</option>
+                        <option value="210">210 cm</option>
+                        <option value="220">220 cm</option>
+                        <option value="230">230 cm</option>
+                        <option value="240">240 cm</option>
+
+                    </select>
+                </div>
+
+                <br/>
+                <div>
+                    <label>Redskabsskur bredde</label><br/>
+                    <select class="form-control" name="toolshedwidth">
+                        <option value="0">Ønske ikke redskabsrum</option>                 
+                        <option value="160">160 cm</option>
+                        <option value="170">170 cm</option>
+                        <option value="180">180 cm</option>
+                        <option value="190">190 cm</option>
+                        <option value="200">200 cm</option>
+                        <option value="210">210 cm</option>
+                        <option value="220">220 cm</option>
+                        <option value="230">230 cm</option>
+                        <option value="240">240 cm</option>
 
 
-            <br/>
-            <div class="toolshedlength">
-                <label>Redskabsskur længde</label><br/>
-                <select class="form-control" name="toolshedlength">
-                    <option value="0">Ønske ikke redskabsrum</option>
-                    <option value="160">160 cm</option>
-                    <option value="170">170 cm</option>
-                    <option value="180">180 cm</option>
-                    <option value="190">190 cm</option>
-                    <option value="200">200 cm</option>
-                    <option value="210">210 cm</option>
-                    <option value="220">220 cm</option>
-                    <option value="230">230 cm</option>
-                    <option value="240">240 cm</option>
-                    
-                </select>              
+                    </select>
+                </div>
             </div>
-            <br/>
-            <div class="toolshedwidth">
-                <label>Redskabsskur bredde</label><br/>
-                <select class="form-control" name="toolshedwidth">
-                    <option value="0">Ønske ikke redskabsrum</option>                 
-                    <option value="160">160 cm</option>
-                    <option value="170">170 cm</option>
-                    <option value="180">180 cm</option>
-                    <option value="190">190 cm</option>
-                    <option value="200">200 cm</option>
-                    <option value="210">210 cm</option>
-                    <option value="220">220 cm</option>
-                    <option value="230">230 cm</option>
-                    <option value="240">240 cm</option>
-                    
-                    
-                </select>
-            </div>
+
             <div>
                 <input type="submit" value="Order">
             </div>
@@ -131,7 +138,7 @@
                 * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.
 
             </div>
-
         </form>     
+        <script src="./javascriptcustomordre.js" type="text/javascript"></script>
     </body>
 </html>

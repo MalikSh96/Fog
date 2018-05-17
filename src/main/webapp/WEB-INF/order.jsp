@@ -6,7 +6,7 @@
         <title>Order</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
-
+        <link href="stylesheetjavascript.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 
         <%  int length = (int) session.getAttribute("længde"); %>
@@ -431,52 +431,6 @@
             </div>
         </div>
 
-        <script>
-            var modal = document.getElementById('myFogSVGbirdseye');
-            var modalone = document.getElementById('myFogSVGsideview');
-
-            var btn_birds_eye = document.getElementById("myBtnbirdseye");
-            var btn_side_view = document.getElementById("myBtnsideview");
-
-
-
-
-            var span_birds_eye = document.getElementsByClassName("close")[0];
-            var span_side_view = document.getElementsByClassName("closeone")[0];
-
-            btn_birds_eye.onclick = function () {
-                modal.style.display = "block";
-
-            }
-
-            btn_side_view.onclick = function () {
-                modalone.style.display = "block";
-
-            }
-
-            span_birds_eye.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            span_side_view.onclick = function () {
-                modalone.style.display = "none";
-            }
-
-
-
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-
-                }
-            }
-
-            window.onclick = function (eventone) {
-                if (eventone.target == modalone) {
-                    modalone.style.display = "none";
-
-                }
-            }
-        </script>
+                      <script src="./javascriptordre.js" type="text/javascript"></script>
     </body>
 </html>

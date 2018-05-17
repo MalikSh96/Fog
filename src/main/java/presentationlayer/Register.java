@@ -12,12 +12,7 @@ public class Register extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
-<<<<<<< HEAD
-        UserMapper um = new UserMapper();
-=======
-       
-        
->>>>>>> ordreSVG
+
         String name = request.getParameter( "name" );
         String address = request.getParameter( "address" );
         String postnr = request.getParameter( "postalcode" );
