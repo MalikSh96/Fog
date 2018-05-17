@@ -129,7 +129,8 @@
 
 
                     </select>
-                </div>s           
+                </div>
+            </div>
             <div>
                 <input type="submit" value="Order">
             </div>

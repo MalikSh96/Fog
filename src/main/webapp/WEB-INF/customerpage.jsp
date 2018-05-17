@@ -19,8 +19,10 @@
         %>
 
 
-
-                    <center>
+        <div class="customerpagepicture">
+            <img src="Image/flattag.png"/>
+        </div>
+        <div class="customerpageahref">
                 
                     <h3>
                         Logget ind som: <%= us.getName()%> 
@@ -30,10 +32,10 @@
                 <a href="FrontController?command=userprofile">Min Profil</a><br><br>
                 <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
                 <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
-            </div>
-        </div>
+           
 
-        </center>    
+        </div>
+                 
         <%@include file="../footer/footer.jsp" %>
 </body>
 </html>
