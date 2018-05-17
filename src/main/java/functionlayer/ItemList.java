@@ -21,12 +21,15 @@ public class ItemList
     private List<Integer> raft = new ArrayList<>();
     private List<Integer> rem = new ArrayList<>();
     private List<Integer> roof = new ArrayList<>();
+    private int postTotal = 0;
+    private int raftTotal = 0;
+    private int remTotal = 2;
+    private int roofTotal = 0;
     
     //Obs, calculations is based of the biggest items of each category
     
     public List<Integer> postAmount(int carportLength, int carportWidth)
     {
-        int postTotal = 0;
         int postRow = 0;
         postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm
 
@@ -46,7 +49,6 @@ public class ItemList
     
     public List<Integer> raftAmount(int carportLength, int carportWidth)
     {
-        int raftTotal = 0;
         Double raftRow = 0.00;
         raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
         
@@ -55,14 +57,12 @@ public class ItemList
         if(carportWidth < 800)
         {
             raftTotal = raftRowInt +2;
-//            raftTotal /= 100;
         }
         else
         {
             int numberOfRows = (carportWidth / 800);
             numberOfRows++;
             raftTotal = numberOfRows * raftRowInt;
-//            raftTotal /= 100;
         }
         
         raft.add(raftTotal);
@@ -71,14 +71,13 @@ public class ItemList
     
     public List<Integer> remAmount() 
     {
-        int remTotal = 2; //Carport only have 2 sides, no middle posts
+        //Carport only have 2 sides, no middle posts
         rem.add(remTotal);
         return rem;
     }
     
     public List<Integer> roofAmount(int carportLength, int carportWidth)
     {
-        int roofTotal = 0;
         Double roofPlate = 0.00;
         roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
         
@@ -127,5 +126,22 @@ public class ItemList
 
     public List<Integer> getRoof() {
         return roof;
+    }
+
+    //Getters for the purpose of j-unit testing
+    public int getPostTotal() {
+        return postTotal;
+    }
+
+    public int getRaftTotal() {
+        return raftTotal;
+    }
+
+    public int getRemTotal() {
+        return remTotal;
+    }
+
+    public int getRoofTotal() {
+        return roofTotal;
     }
 }
