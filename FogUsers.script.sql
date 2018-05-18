@@ -51,6 +51,7 @@ CREATE TABLE `inventory` (
   `length` INT,
   `unit` VARCHAR(45),  
   `status` INT,
+  `price` INT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
@@ -72,35 +73,35 @@ insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `p
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'holm@holm.dk', 1234, 'admin');
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Bambo','Bambi','Bambivej',1455,87654321,'bambi@bambi.dk', 1234, 'customer');
 
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('25x200 mm. trykimp. bræt', '360', 'stk.', 'Understernsbrædder til for & bag ende', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('25x200 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('25x125 mm. trykimp. bræt', '360', 'stk', 'Oversternsbrædder til forenden', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('25x125 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('38x73	mm.	Lægte	ubh.', '420', 'stk', 'Til	z	på	bagside	af	dør', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('45x95 mm. Reglar ub.', '270', 'stk', 'Løsholter til skur gavle', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('45x95 mm. Reglar ub.', '240', 'stk', 'Løsholter til skur sider', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Remme i sider, sadles ned i stolper', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('45x195 mm. spærtræ ubh.', '480', 'stk', 'Remme i sider, sadles ned i stolper ( skur del, deles)', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Spær, monteres på rem', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('97x97 mm. trykimp. Stolpe', '300', 'stk', 'Stolper, nedgraves 90 cm. i jord', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('19x100 mm. trykimp. bræt', '210', 'stk', 'Til beklædning af skur 1 på 2', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('19x100 mm. trykimp. bræt', '540', 'stk', 'Vandbræt på stern i sider', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('19x100 mm. trykimp. bræt', '360', 'stk', 'Vandbræt på stern i forende', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('Plastmo Ecolite blåtonet', '600', 'stk', 'Tagplader monteres på spær', '20');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`) values('Plastmo Ecolite blåtonet', '360', 'stk', 'Tagplader monteres på spær', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Plastmo bundskruer 200 stk.', 'pakke', 'Skruer til tagplader', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Hulbånd 1x20 mm. 10 mtr.', 'rulle', 'Til vindkryds på spær', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Universal 190 mm. højre', 'stk', 'Til montering af spær på rem', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Universal 190 mm. venstre', 'stk', 'Til montering af spær på rem', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('4.5x60 mm. skruer 200 stk.', 'pakke', 'Til montering på stern & vandbræt', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('4.0x50 mm. beslagskruer 250 stk.', 'pakke','Til montering af universalbeslag + hulbånd', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Bræddebolt 10x120 mm.', 'stk', 'Til montering af rem og stolper', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Firkantskiver 40x40x11 mm.', 'stk', 'Til montering af rem og stolper', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('4.5x70 mm. skruer 400 stk.', 'pakke', 'Til montering af yderste beklædning', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('4.5x50 mm. Skruer 300 stk.', 'pakke', 'Til montering af inderste beklædning', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Stalddørsgreb 50x75', 'sæt', 'Til lås på dør i skur', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('T hængsel 390 mm.', 'stk', 'Til skurdør', '20');
-insert into inventory(`name`, `unit`, `description`, `status`) values('Vinkelbeslag 35', 'stk', 'Til montering af løsholter i skur', '20');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt', '360', 'stk.', 'Understernsbrædder til for & bag ende', '20', '1000');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '20', '500');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt', '360', 'stk', 'Oversternsbrædder til forenden', '20', '600');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '20', '1250');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('38x73	mm.	Lægte	ubh.', '420', 'stk', 'Til	z	på	bagside	af	dør', '20', '1500');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub.', '270', 'stk', 'Løsholter til skur gavle', '20', '100');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub.', '240', 'stk', 'Løsholter til skur sider', '20', '700');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Remme i sider, sadles ned i stolper', '20', '2000');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '480', 'stk', 'Remme i sider, sadles ned i stolper ( skur del, deles)', '20', '125');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Spær, monteres på rem', '20', '765');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('97x97 mm. trykimp. Stolpe', '300', 'stk', 'Stolper, nedgraves 90 cm. i jord', '20', '890');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '210', 'stk', 'Til beklædning af skur 1 på 2', '20', '442');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '540', 'stk', 'Vandbræt på stern i sider', '20', '623');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '360', 'stk', 'Vandbræt på stern i forende', '20', '325');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet', '600', 'stk', 'Tagplader monteres på spær', '20', '1467');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet', '360', 'stk', 'Tagplader monteres på spær', '20', '2165');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Plastmo bundskruer 200 stk.', 'pakke', 'Skruer til tagplader', '20', '200');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Hulbånd 1x20 mm. 10 mtr.', 'rulle', 'Til vindkryds på spær', '20', '220');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Universal 190 mm. højre', 'stk', 'Til montering af spær på rem', '20', '212');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Universal 190 mm. venstre', 'stk', 'Til montering af spær på rem', '20', '900');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('4.5x60 mm. skruer 200 stk.', 'pakke', 'Til montering på stern & vandbræt', '20', '50');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('4.0x50 mm. beslagskruer 250 stk.', 'pakke','Til montering af universalbeslag + hulbånd', '20', '350');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Bræddebolt 10x120 mm.', 'stk', 'Til montering af rem og stolper', '20', '640');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Firkantskiver 40x40x11 mm.', 'stk', 'Til montering af rem og stolper', '20', '932');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('4.5x70 mm. skruer 400 stk.', 'pakke', 'Til montering af yderste beklædning', '20', '155');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('4.5x50 mm. Skruer 300 stk.', 'pakke', 'Til montering af inderste beklædning', '20', '37');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Stalddørsgreb 50x75', 'sæt', 'Til lås på dør i skur', '20', '180');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('T hængsel 390 mm.', 'stk', 'Til skurdør', '20', '10');
+insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Vinkelbeslag 35', 'stk', 'Til montering af løsholter i skur', '20', '7');
 SET FOREIGN_KEY_CHECKS=1;
 
 
