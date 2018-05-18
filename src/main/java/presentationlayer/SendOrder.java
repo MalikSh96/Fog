@@ -19,17 +19,18 @@ import javax.servlet.http.HttpSession;
  */
 public class SendOrder extends Command {
 
+    int id = 0;
+    OrderMapper om = new OrderMapper();
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {    
-        
+
         HttpSession session = request.getSession();
-        OrderMapper om = new OrderMapper();
-        
-        int id = Integer.parseInt(request.getParameter("id"));
+        id = (int)session.getAttribute("ordernumber");
                 
         om.sendOrder(id);       
         
-        return "allCurrentOrders";    
+        return "adminpage";    
     }
     
 }

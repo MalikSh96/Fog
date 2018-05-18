@@ -15,7 +15,7 @@
         <%
             int id = (int) session.getAttribute("id");
             UserMapper um = new UserMapper();
-            User us = um.getUser(id);
+            User usr = um.getUser(id);
         %>
 
 
@@ -23,7 +23,7 @@
         
         <div class="customerpageoverskrift">
             <h3>
-                Logget ind som: <%= us.getName()%> 
+                Logget ind som: <%= usr.getName()%> 
             </h3>
     </div>
             <div class="customerpageahref">

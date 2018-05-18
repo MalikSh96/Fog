@@ -15,7 +15,13 @@
         
         <% OrderMapper om = new OrderMapper();%>
         
-        <%=om.allOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
+        <%=om.getAllOrderIds().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
+        
+                        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="specificOrder">
+        <br><input type="number" name="chosenid" placeholder="Order ID"/>
+        <input type="submit" value="Se ordre" /><br>
+                </form>
     </center>
                 <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>

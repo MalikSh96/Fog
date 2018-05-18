@@ -13,16 +13,16 @@
     <center>
         <h1>Alle nuværende ordrer</h1>
         
-                <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="sendorder">
-        <label>Ordre id</label><br><input type="number" name="id" placeholder="Order ID" required value="1"/>
-                <input type="submit" value="Send ordre" />
-                </form>
         
         <% OrderMapper om = new OrderMapper();%>
         
-        <%=om.pendingOrders().toString().replace("[","").replace("]","").replace(",","")+"<br>"%><br>
+        <br><%=om.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
    
+                <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="specificOrder">
+        <br><input type="number" name="chosenid" placeholder="Order ID"/>
+        <input type="submit" value="Se ordre" /><br>
+                </form>
     </center>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     </body>
