@@ -153,7 +153,7 @@ public class Order extends Command {
             List<String> content = ilm.getFullItemlist(om.getOrderId());
 
             
-            
+            //filewriter virker når programmet køres lokalt. virker ikke via DO Droplet
         try {           
 
           // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
