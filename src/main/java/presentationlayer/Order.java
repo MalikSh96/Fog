@@ -157,8 +157,8 @@ public class Order extends Command {
         try {           
 
           // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
-           File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
            File path = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
+           File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
            
            if(!path.exists()) {
                try {

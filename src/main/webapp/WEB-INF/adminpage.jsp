@@ -20,7 +20,6 @@
             <a href="FrontController?command=allorders">Alle ordrer</a><br><br>
             <a href="FrontController?command=inventory">Lagerstatus</a><br><br>
             <a href="FrontController?command=userlist">Bruger liste</a><br><br>
-            <a href="FrontController?command=specificOrder">WIP-Specific order-WIP</a><br><br>
 
 
         </form>

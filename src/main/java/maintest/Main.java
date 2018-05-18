@@ -25,8 +25,9 @@ public class Main {
         UserMapper um = new UserMapper();
         ItemlistMapper ilm = new ItemlistMapper();
         User us = um.getUser(1);
-
-        System.out.println(ilm.getFullItemlist(5));        
+        System.out.println(om.getUserId(5));
+//        System.out.println(om.getNonSentOrderId());
+//        System.out.println(ilm.getFullItemlist(5));        
 //        System.out.println(System.getProperty("user.home"));
 //        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
 //        System.out.println(om.getOrderId());

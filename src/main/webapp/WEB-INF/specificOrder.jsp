@@ -1,5 +1,6 @@
 <%@page import="dbaccess.ItemlistMapper"%>
 <%@page import="dbaccess.OrderMapper"%>
+<%@page import="dbaccess.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,20 +10,31 @@
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <%@include file="../navigation/menu.jsp" %>
-        <h1>Order nr: </h1>
-        
-        
-                  <%
-           int id = (int)session.getAttribute("orderid");
-            OrderMapper om = new OrderMapper();
-            ItemlistMapper ilm = new ItemlistMapper();
-            %>
-        
-        
-            <%=om.getOrder(id).toString().replace("[","").replace("]","").replace(",","<br>")+"<br>"%><br>
-            <%=ilm.getFullItemlist(id).toString().replace("[","").replace("]","").replace(",","<br>")+"<br>"%><br>
-        
-    </body>
+
+    <%@include file="../navigation/menu.jsp" %>
+    <h1>Order nr: </h1>
+
+
+    <%
+        int id = (int) session.getAttribute("orderid");
+        session.setAttribute("ordernumber", id);
+        UserMapper um = new UserMapper();
+        OrderMapper om = new OrderMapper();
+        ItemlistMapper ilm = new ItemlistMapper();
+        User us = (User) session.getAttribute("user");
+    %>
+
+
+    <%=om.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
+    
+    <%if(!us.isAdmin(um.getUserRole(us.getId())) && om.getOrder(id).isOrderConfirmed()|| us.isAdmin(um.getUserRole(us.getId()))) {
+    out.println(ilm.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
+
+    <% if (us.isAdmin(um.getUserRole(us.getId())) && !om.getOrder(id).isOrderConfirmed()) {%>
+    <form action="FrontController" method="POST">
+        <input type="hidden" name="command" value="sendorder">
+        <input type="submit" name="ordernumber" value="Send ordre" />
+    </form>
+    <%}%>
+
 </html>
