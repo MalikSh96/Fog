@@ -8,6 +8,7 @@ import functionlayer.ItemList;
 import functionlayer.LoginSampleException;
 import functionlayer.Orders;
 import functionlayer.User;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class Main {
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
         User us = um.getUser(1);
+        //System.out.println(System.getProperty("user.home"));
+        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+//        System.out.println(om.getOrderId());
 //        System.out.println(um.getUserRole(2));
         
 //        im.addToInventory("lars", "er", 4, "tyk", 100);
