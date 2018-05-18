@@ -15,14 +15,15 @@ import javax.servlet.http.HttpSession;
  *
  * @author Joklin
  */
-public class SpecificOrder extends Command {
+public class ShowItemlist extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
-                HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         session.setAttribute("orderid", 4);
-        return "specificOrder";    
+        return "showItemlist";    
     }
     
 }
+

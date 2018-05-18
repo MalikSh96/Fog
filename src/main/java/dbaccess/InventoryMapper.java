@@ -113,6 +113,29 @@ public class InventoryMapper {
 
         return length;
     }
+    
+    public String getUnit(String name) {
+
+        String unit = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT unit FROM inventory where name = '" + name + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                unit = resultset.getString("unit");
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return unit;
+    }    
 
     public String getDescription(int id) {
 

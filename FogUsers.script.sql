@@ -58,13 +58,13 @@ CREATE TABLE `inventory` (
   CREATE TABLE `itemlist` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `length` INT,
-  `amount` INT,
-  `unit` VARCHAR(45),
   `description` VARCHAR(100) NOT NULL,
+  `length` INT,
+  `unit` VARCHAR(45),
+  `amount` INT,
+  `orderid` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC)
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
   
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Malik','Sharfo','Somewherevej 25',1455,12345678,'maliksharfo@hotmail.com', 1234, 'admin');

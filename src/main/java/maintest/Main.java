@@ -1,6 +1,7 @@
 package maintest;
 
 import dbaccess.InventoryMapper;
+import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
 import functionlayer.Inventory;
@@ -22,12 +23,14 @@ public class Main {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
+        ItemlistMapper ilm = new ItemlistMapper();
         User us = um.getUser(1);
-        //System.out.println(System.getProperty("user.home"));
-        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+
+        System.out.println(ilm.getFullItemlist(5));        
+//        System.out.println(System.getProperty("user.home"));
+//        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
 //        System.out.println(om.getOrderId());
 //        System.out.println(um.getUserRole(2));
-        
 //        im.addToInventory("lars", "er", 4, "tyk", 100);
 //
 //        List<User> userlist = new ArrayList<>();
@@ -76,13 +79,11 @@ public class Main {
 //        User u = new User("Lang", "man", 1111, 1111111111, "mer.com", "1234", "customer");
 //        um.createUser(u);
 //        System.out.println("T " + u);
-
 //        System.out.println("Send?? " + om.isOrderSent(1));
 //        System.out.println("\nSending order");
 //        om.sendOrder(1);
 //        System.out.println("\n");
 //        System.out.println("Is order send now?? " + om.isOrderSent(1));
-
 //        ItemList i = new ItemList();
 //        System.out.println("Post " + i.postAmount(800, 800));
 //        System.out.println("Raft " + i.raftAmount(900, 900));

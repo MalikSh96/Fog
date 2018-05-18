@@ -6,6 +6,7 @@
 package presentationlayer;
 
 import dbaccess.InventoryMapper;
+import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
 import functionlayer.ItemList;
 import functionlayer.LoginSampleException;
@@ -31,6 +32,7 @@ public class Order extends Command {
     OrderMapper om = new OrderMapper();
     ItemList itemList = new ItemList();
     InventoryMapper im = new InventoryMapper();
+    ItemlistMapper ilm = new ItemlistMapper();
     
     int userID = 0;
     int length = 0;
@@ -135,7 +137,61 @@ public class Order extends Command {
         Orders ord = new Orders(userID, length, width, height);
         om.createPreOrder(ord);        
         
-            List<String> content = new ArrayList<>();
+            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId());
+            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId());
+            ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId());
+            ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId());
+            ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId());
+            ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId());
+            ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId());
+            ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId());
+            ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId());
+            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId());
+            
+            
+            
+            List<String> content = ilm.getFullItemlist(om.getOrderId());
+
+            
+            
+        try {           
+
+          // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
+           File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+           File path = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
+           
+           if(!path.exists()) {
+               try {
+                   path.mkdir();
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+           }
+           if(!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            }
+           
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            
+            for (int i = 0; i < content.size(); i++) {
+                bw.write(content.get(i));
+                bw.newLine();
+            }            
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+         
+        return "order";
+    }
+    
+}
+
+/*            List<String> content = new ArrayList<>();
         
             content.add("Navn: "+im.getName(11));
             content.add("Beskrivelse: "+ im.getDescription(11));
@@ -189,41 +245,4 @@ public class Order extends Command {
             content.add("Navn: "+im.getName(24));
             content.add("Beskrivelse: "+ im.getDescription(24));
             content.add("Antal: "+ squareSlicesAmount);
-            content.add("");
-            
-        try {           
-
-          // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
-           File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
-           File path = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
-           
-           if(!path.exists()) {
-               try {
-                   path.mkdir();
-               } catch (Exception e) {
-                   e.printStackTrace();
-               }
-           }
-           if(!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-            }
-           
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            
-            for (int i = 0; i < content.size(); i++) {
-                bw.write(content.get(i));
-                bw.newLine();
-            }            
-            bw.close();
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-         
-        return "order";
-    }
-    
-}
+            content.add("");*/
