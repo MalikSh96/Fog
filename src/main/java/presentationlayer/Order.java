@@ -18,6 +18,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,50 +135,6 @@ public class Order extends Command {
         Orders ord = new Orders(userID, length, width, height);
         om.createPreOrder(ord);        
         
-        session.setAttribute("postName", im.getName(11));
-        session.setAttribute("postDesc", im.getDescription(11));
-        session.setAttribute("postLength", im.getLength(11));
-        session.setAttribute("postAmount", itemList.postAmount(length, width).get(0));
-        
-        session.setAttribute("raftName", im.getName(10));
-        session.setAttribute("raftDesc", im.getDescription(10));
-        session.setAttribute("raftLength", im.getLength(10));
-        session.setAttribute("raftAmount", itemList.raftAmount(length, width).get(0));
-        
-        session.setAttribute("remName", im.getName(8));
-        session.setAttribute("remDesc", im.getDescription(8));
-        session.setAttribute("remLength", im.getLength(8));
-        session.setAttribute("remAmount", itemList.remAmount(length).get(0));
-        //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
-        
-        session.setAttribute("roofName", im.getName(15));
-        session.setAttribute("roofDesc", im.getDescription(15));
-        session.setAttribute("roofLength", im.getLength(15));
-        session.setAttribute("roofAmount", itemList.roofAmount(length, width).get(0));
-        
-        session.setAttribute("roofScrewName", im.getName(17));
-        session.setAttribute("roofScrewDesc", im.getDescription(17));
-        session.setAttribute("roofScrewAmount", roofScrewAmount);
-        
-        session.setAttribute("universalRightName", im.getName(19));
-        session.setAttribute("universalRightDesc", im.getDescription(19));
-        session.setAttribute("universalRightAmount", universalRightAmount);
-        
-        session.setAttribute("universalLeftName", im.getName(20));
-        session.setAttribute("universalLeftDesc", im.getDescription(20));
-        session.setAttribute("universalLeftAmount", universalLeftAmount);
-        
-        session.setAttribute("bracketScrewName", im.getName(22));
-        session.setAttribute("bracketScrewDesc", im.getDescription(22));
-        session.setAttribute("bracketScrewAmount", bracketScrewAmount);
-        
-        session.setAttribute("carriageBoltName", im.getName(23));
-        session.setAttribute("carriageBoltDesc", im.getDescription(23));
-        session.setAttribute("carriageBoltAmount", carriageBoltAmount);
-        
-        session.setAttribute("squareSlicesName", im.getName(24));
-        session.setAttribute("squareSlicesDesc", im.getDescription(24));
-        session.setAttribute("squareSlicesAmount", squareSlicesAmount);
             List<String> content = new ArrayList<>();
         
             content.add("Navn: "+im.getName(11));
@@ -206,50 +163,66 @@ public class Order extends Command {
             
             content.add("Navn: "+im.getName(17));
             content.add("Beskrivelse: "+ im.getDescription(17));
-            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("Antal: "+ roofScrewAmount);
             content.add("");
             
             content.add("Navn: "+im.getName(19));
             content.add("Beskrivelse: "+ im.getDescription(19));
-            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("Antal: "+ universalRightAmount);
             content.add("");
             
             content.add("Navn: "+im.getName(20));
             content.add("Beskrivelse: "+ im.getDescription(20));
-            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("Antal: "+ universalLeftAmount);
             content.add("");
             
             content.add("Navn: "+im.getName(22));
             content.add("Beskrivelse: "+ im.getDescription(22));
-            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("Antal: "+ bracketScrewAmount);
             content.add("");
             
             content.add("Navn: "+im.getName(23));
             content.add("Beskrivelse: "+ im.getDescription(23));
-            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("Antal: "+ carriageBoltAmount);
             content.add("");
             
             content.add("Navn: "+im.getName(24));
             content.add("Beskrivelse: "+ im.getDescription(24));
             content.add("Antal: "+ squareSlicesAmount);
             content.add("");
+            
         try {           
-            
-            File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr - temp - Stykliste.txt");
-            //File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr: " + om.getOrderId() + " - Stykliste.txt");
-            
-            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
-            BufferedWriter bw = new BufferedWriter(fw);
+
+          // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
+           File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+           File path = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
+           
+           if(!path.exists()) {
+               try {
+                   path.mkdir();
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+           }
+           if(!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            }
+           
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             
             for (int i = 0; i < content.size(); i++) {
                 bw.write(content.get(i));
                 bw.newLine();
-            }
+            }            
             bw.close();
         } catch (IOException e) {
             System.out.println(e);
         }
-        
+         
         return "order";
     }
     

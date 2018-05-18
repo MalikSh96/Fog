@@ -92,7 +92,7 @@ public class OrderMapper
         try 
         {
             Connection con = Connector.connection();
-            String SQL = "select MAX(orderId) from orders";
+            String SQL = "SELECT MAX(orderId) FROM FogUsers.orders;";
 
             PreparedStatement ps = con.prepareStatement( SQL);             
 
@@ -102,7 +102,7 @@ public class OrderMapper
             
             if(rs.next())
             {
-                id = rs.getInt("orderId");
+                id = rs.getInt("MAX(orderId)");
                 return id;
 
             }
