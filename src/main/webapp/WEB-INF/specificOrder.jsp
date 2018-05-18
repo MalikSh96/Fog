@@ -10,8 +10,9 @@
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
-
+    <body>
     <%@include file="../navigation/menu.jsp" %>
+    <center>
     <h1>Order nr: </h1>
 
 
@@ -36,5 +37,9 @@
         <input type="submit" name="ordernumber" value="Send ordre" />
     </form>
     <%}%>
-
+    </center>
+    <% if(us.isAdmin(um.getUserRole(us.getId()))) { %>
+            <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+            <% }%>
+</body>
 </html>

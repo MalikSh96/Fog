@@ -30,7 +30,7 @@ public class SendOrder extends Command {
                 
         om.sendOrder(id);       
         
-        return "allCurrentOrders";    
+        return "adminpage";    
     }
     
 }

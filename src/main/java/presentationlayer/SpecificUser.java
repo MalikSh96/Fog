@@ -5,10 +5,13 @@
  */
 package presentationlayer;
 
-
+import dbaccess.OrderMapper;
+import dbaccess.UserMapper;
 import functionlayer.LoginSampleException;
+import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -16,10 +19,20 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SpecificUser extends Command {
 
+    int chosenId = 0;
+    UserMapper um = new UserMapper();
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-    
-        return "specificuser";    
+
+        HttpSession session = request.getSession();
+
+        chosenId = Integer.parseInt(request.getParameter("chosenuserid"));
+        if(um.findUserId(chosenId)) {
+        session.setAttribute("specificUserid", chosenId);
+        return "specificuser"; }
+        
+        return "userlist";
     }
-    
 }
+

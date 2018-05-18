@@ -216,6 +216,32 @@ public class UserMapper
         return role;
                 }
                 }
+                
+                    public boolean findUserId(int userId) 
+    {
+        boolean exists = false;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.users where id = '"+userId+"';";
+
+            PreparedStatement ps = con.prepareStatement( SQL);             
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                exists = true;
+                return exists;
+
+            }
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        return exists;
+    }
 
 }
 
