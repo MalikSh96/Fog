@@ -87,6 +87,7 @@ public class Order extends Command {
             request.getParameter("needuser");
             return "loginpage";
         }
+        
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
