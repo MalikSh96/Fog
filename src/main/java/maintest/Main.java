@@ -23,8 +23,10 @@ public class Main {
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
         User us = um.getUser(1);
+        File file = new File("");
+        System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
         //System.out.println(System.getProperty("user.home"));
-        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+        //System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
 //        System.out.println(om.getOrderId());
 //        System.out.println(um.getUserRole(2));
         

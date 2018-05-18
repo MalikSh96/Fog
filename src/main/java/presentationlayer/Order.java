@@ -194,25 +194,28 @@ public class Order extends Command {
         try {           
 
           // File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr " + om.getOrderId() + " - Stykliste.txt");
+         //  File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+           File path = new File("");
            File file = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
-           File path = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
+           File file3 = new File(path.getAbsolutePath() + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+           File dir = new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Styklister"); 
            
-           if(!path.exists()) {
+           if(!dir.exists()) {
                try {
-                   path.mkdir();
+                   dir.mkdir();
                } catch (Exception e) {
                    e.printStackTrace();
                }
            }
-           if(!file.exists()) {
+           if(!file3.exists()) {
             try {
-                file.createNewFile();
+                file3.createNewFile();
             } catch(Exception e) {
                 e.printStackTrace();
             }
             }
            
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file3));
             
             for (int i = 0; i < content.size(); i++) {
                 bw.write(content.get(i));
