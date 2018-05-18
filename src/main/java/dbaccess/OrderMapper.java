@@ -86,6 +86,32 @@ public class OrderMapper
         return ord;
     }
     
+    public int getOrderId() 
+    {
+        int id = 0;
+        try 
+        {
+            Connection con = Connector.connection();
+            String SQL = "select MAX(orderId) from orders";
+
+            PreparedStatement ps = con.prepareStatement( SQL);             
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                id = rs.getInt("orderId");
+                return id;
+
+            }
+        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
+            throw new Error( ex.getMessage() );
+        }
+        return id;
+    }
+    
     public List<Orders> allOrders()
     {
         List<Orders> orders = new ArrayList<>();

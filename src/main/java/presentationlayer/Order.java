@@ -14,16 +14,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import functionlayer.User;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Joklin
  */
 public class Order extends Command {
-
+    
     OrderMapper om = new OrderMapper();
-        ItemList itemList = new ItemList();
-        InventoryMapper im = new InventoryMapper();
-        
+    ItemList itemList = new ItemList();
+    InventoryMapper im = new InventoryMapper();
+    
     int userID = 0;
     int length = 0;
     int width = 0;
@@ -45,7 +52,7 @@ public class Order extends Command {
     int toolshedlength = 0;
     int toolshedwidth = 0;
     int heightline = 0;
-    
+
     //hardcoding of misc carport stuff
     String roofScrewName = im.getName(17);
     String roofScrewDesc = im.getDescription(17);
@@ -59,31 +66,28 @@ public class Order extends Command {
     String universalLeftDesc = im.getDescription(20);
     int universalLeftAmount = 20;
     
-    
     String bracketScrewName = im.getName(22);
     String bracketScrewDesc = im.getDescription(22);
     int bracketScrewAmount = 2;
-            
-            
+    
     String carriageBoltName = im.getName(23);
     String carriageBoltDesc = im.getDescription(23);
     int carriageBoltAmount = 14;
-            
-            
+    
     String squareSlicesName = im.getName(24);
     String squareSlicesDesc = im.getDescription(24);
     int squareSlicesAmount = 14;
-            
-            
-   
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        if(user == null){ 
-        return "loginpage";
+        if (user == null) {
+            request.getParameter("needuser");
+            return "loginpage";
         }
+        
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
@@ -95,7 +99,7 @@ public class Order extends Command {
         lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
         heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
-        lengthline = Integer.parseInt(request.getParameter("length")) + 15 ;
+        lengthline = Integer.parseInt(request.getParameter("length")) + 15;
         lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
         widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
         roof_tiles = 110;
@@ -103,8 +107,8 @@ public class Order extends Command {
         heightground = Integer.parseInt(request.getParameter("height"));
         heightline = Integer.parseInt(request.getParameter("height"));
         toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
-        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));        
-     //   PreOrder pre = new PreOrder(userID, length, width, height); 
+        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
+        //   PreOrder pre = new PreOrder(userID, length, width, height); 
 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
@@ -128,29 +132,28 @@ public class Order extends Command {
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
         Orders ord = new Orders(userID, length, width, height);
-        om.createPreOrder(ord);  
-                
-     
+        om.createPreOrder(ord);        
+        
         session.setAttribute("postName", im.getName(11));
         session.setAttribute("postDesc", im.getDescription(11));
         session.setAttribute("postLength", im.getLength(11));
-        session.setAttribute("postAmount" , itemList.postAmount(length, width).get(0));
-     
+        session.setAttribute("postAmount", itemList.postAmount(length, width).get(0));
+        
         session.setAttribute("raftName", im.getName(10));
         session.setAttribute("raftDesc", im.getDescription(10));
         session.setAttribute("raftLength", im.getLength(10));
-        session.setAttribute("raftAmount" , itemList.raftAmount(length, width).get(0));
-     
+        session.setAttribute("raftAmount", itemList.raftAmount(length, width).get(0));
+        
         session.setAttribute("remName", im.getName(8));
         session.setAttribute("remDesc", im.getDescription(8));
         session.setAttribute("remLength", im.getLength(8));
-        session.setAttribute("remAmount" , itemList.remAmount(length).get(0));
-      //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
-     
+        session.setAttribute("remAmount", itemList.remAmount(length).get(0));
+        //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
+        
         session.setAttribute("roofName", im.getName(15));
         session.setAttribute("roofDesc", im.getDescription(15));
         session.setAttribute("roofLength", im.getLength(15));
-        session.setAttribute( "roofAmount" , itemList.roofAmount(length, width).get(0));
+        session.setAttribute("roofAmount", itemList.roofAmount(length, width).get(0));
         
         session.setAttribute("roofScrewName", im.getName(17));
         session.setAttribute("roofScrewDesc", im.getDescription(17));
@@ -175,14 +178,79 @@ public class Order extends Command {
         session.setAttribute("squareSlicesName", im.getName(24));
         session.setAttribute("squareSlicesDesc", im.getDescription(24));
         session.setAttribute("squareSlicesAmount", squareSlicesAmount);
+            List<String> content = new ArrayList<>();
         
+            content.add("Navn: "+im.getName(11));
+            content.add("Beskrivelse: "+ im.getDescription(11));
+            content.add("Længde: " + im.getLength(11));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(10));
+            content.add("Beskrivelse: "+ im.getDescription(10));
+            content.add("Længde: " + im.getLength(10));
+            content.add("Antal: "+ itemList.raftAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(8));
+            content.add("Beskrivelse: "+ im.getDescription(8));
+            content.add("Længde: " + im.getLength(8));
+            content.add("Antal: "+ itemList.remAmount(length).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(15));
+            content.add("Beskrivelse: "+ im.getDescription(15));
+            content.add("Længde: " + im.getLength(15));
+            content.add("Antal: "+ itemList.roofAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(17));
+            content.add("Beskrivelse: "+ im.getDescription(17));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(19));
+            content.add("Beskrivelse: "+ im.getDescription(19));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(20));
+            content.add("Beskrivelse: "+ im.getDescription(20));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(22));
+            content.add("Beskrivelse: "+ im.getDescription(22));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(23));
+            content.add("Beskrivelse: "+ im.getDescription(23));
+            content.add("Antal: "+ itemList.postAmount(length, width).get(0));
+            content.add("");
+            
+            content.add("Navn: "+im.getName(24));
+            content.add("Beskrivelse: "+ im.getDescription(24));
+            content.add("Antal: "+ squareSlicesAmount);
+            content.add("");
+        try {           
+            
+            File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr - temp - Stykliste.txt");
+            //File file = new File("C:/Users/Jokli/Documents/repos/Fog/Styklister/order nr: " + om.getOrderId() + " - Stykliste.txt");
+            
+            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for (int i = 0; i < content.size(); i++) {
+                bw.write(content.get(i));
+                bw.newLine();
+            }
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
         
-        
-              return "order";
+        return "order";
     }
-
+    
 }
-
-
-
-
