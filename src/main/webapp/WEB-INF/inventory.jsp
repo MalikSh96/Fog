@@ -21,7 +21,7 @@
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventorypage">
-            <br><input type="number" name="inventoryid" placeholder="Vare id"/>
+            <br><input type="number" name="choseninventoryid" placeholder="Vare id"/>
             <br><br><input type="submit" value="Opdater lagerbeholdning" /><br>
         </form>
 

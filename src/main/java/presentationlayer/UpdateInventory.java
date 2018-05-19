@@ -45,3 +45,5 @@ public class UpdateInventory extends Command {
     }
 
 }
+   //<%=//im.getSpecificItem((int)session.getAttribute("inventoryid")).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+       
