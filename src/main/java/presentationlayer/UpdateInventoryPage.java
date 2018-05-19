@@ -22,7 +22,9 @@ public class UpdateInventoryPage extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
                 HttpSession session = request.getSession();
-               id = (int)session.getAttribute("choseninventoryid");
+                
+               id = Integer.parseInt(request.getParameter("choseninventoryid"));
+               
                 session.setAttribute("inventoryid", id);
         return "updateinventorypage";    
     }
