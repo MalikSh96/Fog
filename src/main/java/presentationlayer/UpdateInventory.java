@@ -38,7 +38,7 @@ public class UpdateInventory extends Command {
         if(request.getParameter("length").length() > 0){ length = Integer.parseInt(request.getParameter("length"));} 
         if(request.getParameter("unit").length() > 0) { unit = request.getParameter("unit"); }
         if(request.getParameter("status").length() > 0) { status = Integer.parseInt(request.getParameter("status")); }
-        if(request.getParameter("price").length() > 0) {status = Integer.parseInt(request.getParameter("price")); }
+        if(request.getParameter("price").length() > 0) {price = Integer.parseInt(request.getParameter("price")); }
         
         im.UpdateInventory(inventoryId, name, desc, length, unit, status, price);
               return "updateinventorypage";
