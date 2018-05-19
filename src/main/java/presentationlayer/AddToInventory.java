@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
  */
 public class AddToInventory extends Command {
 
-    int userID = 0;
     String name, desc, unit;
     int status, length, price;
     InventoryMapper im = new InventoryMapper();
@@ -43,12 +42,12 @@ public class AddToInventory extends Command {
             unit = request.getParameter("unit");
         }
         if (request.getParameter("price") != null) {
-            unit = request.getParameter("price");
+            price = Integer.parseInt(request.getParameter("price"));
         }
 
         im.addToInventory(name, desc, length, unit, status, price);
 
-        return "addtoinventory";
+        return "adminpage";
     }
 
 }
