@@ -41,7 +41,7 @@ public class UpdateInventory extends Command {
         if(request.getParameter("price").length() > 0) {status = Integer.parseInt(request.getParameter("price")); }
         
         im.UpdateInventory(inventoryId, name, desc, length, unit, status, price);
-              return "inventory";
+              return "updateinventorypage";
     }
 
 }
