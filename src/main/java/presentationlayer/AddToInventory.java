@@ -47,7 +47,7 @@ public class AddToInventory extends Command {
 
         im.addToInventory(name, desc, length, unit, status, price);
 
-        return "adminpage";
+        return "additemtoinventory";
     }
 
 }

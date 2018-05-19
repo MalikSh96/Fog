@@ -41,7 +41,7 @@ abstract class Command extends HttpServlet{
         commands.put( "sendorder", new SendOrder());
         commands.put( "adminpage", new AdminPage());
         commands.put( "showItemlist", new ShowItemlist());
-        commands.put( "addtoinventory", new AddToInventory());
+        commands.put( "additemtoinventory", new AddToInventory());
 
         commands.put( "userprofile", new UserProfile());
 
