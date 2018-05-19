@@ -15,29 +15,29 @@
         <%
             int id = (int) session.getAttribute("id");
             UserMapper um = new UserMapper();
-            User us = um.getUser(id);
+            User usr = um.getUser(id);
         %>
 
 
-        <div class="customerpagepicture">
+
+        
+        <div class="customerpageoverskrift">
+            <h3>
+                Logget ind som: <%= usr.getName()%> 
+            </h3>
+    </div>
+            <div class="customerpageahref">
+            <a href="FrontController?command=userprofile">Min Profil</a><br><br>
+            <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
+            <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
+        </div>
+
+        <div  class="customerpagepicture">
             <img src="Image/flattag.png"/>
         </div>
-        <div class="customerpageahref">
-                
-                    <h3>
-                        Logget ind som: <%= us.getName()%> 
-                    </h3>
-                
 
-                <a href="FrontController?command=userprofile">Min Profil</a><br><br>
-                <a href="FrontController?command=customorder">Skræddersy Ordre</a><br><br>
-                <a href="FrontController?command=myorders">Ordrehistorik</a><br><br>
-           
-
-        </div>
-                 
         <%@include file="../footer/footer.jsp" %>
-</body>
+    </body>
 </html>
 
 

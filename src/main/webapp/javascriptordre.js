@@ -16,13 +16,14 @@ var span_side_view = document.getElementsByClassName("closeone")[0];
 
 btn_birds_eye.onclick = function () {
     modal.style.display = "block";
-
+    modalone.style.display = "none";
 }
 
 btn_side_view.onclick = function () {
     modalone.style.display = "block";
-
+    modal.style.display = "none";
 }
+
 
 span_birds_eye.onclick = function () {
     modal.style.display = "none";
@@ -31,6 +32,8 @@ span_birds_eye.onclick = function () {
 span_side_view.onclick = function () {
     modalone.style.display = "none";
 }
+
+
 
 
 

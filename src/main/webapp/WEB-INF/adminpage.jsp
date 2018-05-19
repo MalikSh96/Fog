@@ -8,6 +8,7 @@
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+<%//check admin role redirect to index%>
     <center>
         <%@include file="../navigation/menu.jsp" %>
 
@@ -19,7 +20,6 @@
             <a href="FrontController?command=allorders">Alle ordrer</a><br><br>
             <a href="FrontController?command=inventory">Lagerstatus</a><br><br>
             <a href="FrontController?command=userlist">Bruger liste</a><br><br>
-
 
 
         </form>

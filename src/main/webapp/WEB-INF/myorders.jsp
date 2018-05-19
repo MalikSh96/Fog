@@ -18,9 +18,17 @@
            
             OrderMapper om = new OrderMapper();
             %>
+            
         
- <%=om.allCustomerOrders(user.getId()).toString().replace("[","").replace("]","").replace(",","").replace("Orderhistory","<br>Orderhistory")+"<br>"%><br>
-                
+            <br><%=om.allCustomerOrdersId(user.getId()).toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
+
+                <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="specificOrder">
+        <br><input type="number" name="chosenid" placeholder="Order ID"/>
+        <input type="submit" value="Se ordre" /><br>
+                </form>
+        
+                 
     </center>
     </body>
 </html>

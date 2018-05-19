@@ -11,25 +11,26 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+            
     <center>
         <h1>Opdater Lager</h1>
 
 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventory">
             <div>
-                <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/><br>
+                <label> Navn</label><br><input type="text" name="name" placeholder="Navn" required/><br>
             </div>            
             <div>
-                <label> Beskrivelse</label><br><input type="text" name="description" placeholder="Beskrivelse"/><br>
+                <label> Beskrivelse</label><br><input type="text" name="description" placeholder="Beskrivelse" required/><br>
             </div>            
             <div>
-                <label> Længde</label><br><input type="number" name="length" placeholder="Længde"/><br>
+                <label> Længde</label><br><input type="number" name="length" placeholder="Længde" required/><br>
             </div>            
             <div>
-                <label> Enhed</label><br><input type="text" name="unit" placeholder="Enhed"/><br>
+                <label> Enhed</label><br><input type="text" name="unit" placeholder="Enhed" required/><br>
             </div>                               
             <div>
-                <label> Status</label><br><input type="number" name="status" placeholder="status"/><br>
+                <label> Status</label><br><input type="number" name="status" placeholder="status" required/><br>
             </div>                 
             <br> <input type="submit" value="Tilføj til Lageret"><br>
             </form>

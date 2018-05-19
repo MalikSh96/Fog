@@ -27,7 +27,7 @@
                         Password:<br>
                         <input type="password" name="password" value="" placeholder="Password">
                         <br>
-                        <input type="submit" value="LOG IND">
+                        <br>  <input type="submit" value="LOG IND">
                     </form>
                 </td>                
             </tr>

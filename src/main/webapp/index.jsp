@@ -25,8 +25,9 @@
 <p>På denne side kan du selv tilpasse 
 din carport og redskabsskur med dine specifikke ønsker om størrelse. </p>
         </div>
-        <div class="indeximagefuglpersketiv">
-            <img src="Image/carportquickbyg.jpg" class="indexsrc"/>      
+        <div class="indeximagecarportquickbyg">
+                  
+            <img src="Image/carportquickbyg.png" class="indexsrc"/>
         </div>
         
         
