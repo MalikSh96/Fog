@@ -19,31 +19,22 @@ import javax.servlet.http.HttpSession;
  */
 public class AddToInventory extends Command {
 
-    String name, desc, unit;
-    int status, length, price;
     InventoryMapper im = new InventoryMapper();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        if (request.getParameter("name") != null) {
-            name = request.getParameter("name");
-        }
-        if (request.getParameter("description") != null) {
-            desc = request.getParameter("description");
-        }
-        if (request.getParameter("status") != null) {
-            status = Integer.parseInt(request.getParameter("status"));
-        }
-        if (request.getParameter("length") != null) {
-            length = Integer.parseInt(request.getParameter("length"));
-        }
-        if (request.getParameter("unit") != null) {
-            unit = request.getParameter("unit");
-        }
-        if (request.getParameter("price") != null) {
-            price = Integer.parseInt(request.getParameter("price"));
-        }
+        String name = request.getParameter("name");
+
+        String desc = request.getParameter("description");
+
+        int status = Integer.parseInt(request.getParameter("status"));
+
+        int length = Integer.parseInt(request.getParameter("length"));
+
+        String unit = request.getParameter("unit");
+
+        int price = Integer.parseInt(request.getParameter("price"));
 
         im.addToInventory(name, desc, length, unit, status, price);
 
