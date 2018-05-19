@@ -6,9 +6,9 @@ USE `FogUsers`;
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `orders`;
-DROP TABLE IF EXISTS `carports`;
 DROP TABLE IF EXISTS `inventory`;
 DROP TABLE IF EXISTS `itemlist`;
+DROP TABLE IF EXISTS `error`;
 
 create table `users` (
 `name` varchar(90),
@@ -34,16 +34,6 @@ FOREIGN KEY (userID) REFERENCES users(`id`),
 `dates` datetime default current_timestamp
 );
 
-CREATE TABLE `carports` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `model` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
-  UNIQUE INDEX `model_UNIQUE` (`model` ASC)
-  );
-
 CREATE TABLE `inventory` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -64,6 +54,12 @@ CREATE TABLE `inventory` (
   `unit` VARCHAR(45),
   `amount` INT,
   `orderid` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+  );
+  
+  CREATE TABLE `error` (
+  `id` INT NOT NULL AUTO_INCREMENT,  
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
