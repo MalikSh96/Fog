@@ -24,7 +24,7 @@
                 <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/><br>
             </div>            
             <div>
-                <label> Beskrivelse</label><br><input type="text" name="description" placeholder="Beskrivelse"/><br>
+                <label> Beskrivelse</label><br><input type="text" name="desc" placeholder="Beskrivelse"/><br>
             </div>            
             <div>
                 <label> Længde</label><br><input type="number" name="length" placeholder="Længde"/><br>
