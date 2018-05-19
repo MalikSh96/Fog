@@ -17,11 +17,13 @@ import javax.servlet.http.HttpSession;
  */
 public class UpdateInventoryPage extends Command {
 
+    int id = 0;
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
     
                 HttpSession session = request.getSession();
-                session.setAttribute("inventoryid", session.getAttribute("choseninventoryid"));
+               id = (int)session.getAttribute("choseninventoryid");
+                session.setAttribute("inventoryid", id);
         return "updateinventorypage";    
     }
     
