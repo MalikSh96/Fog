@@ -17,8 +17,7 @@
         <h1>Opdater Lager</h1>
         
         
-        <%=//im.getSpecificItem((int)session.getAttribute("inventoryid")).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
-        
+      
 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventory">
             <div>
