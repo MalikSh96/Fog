@@ -26,7 +26,7 @@
         </form>
 
 
-        <br><br> <a href="FrontController?command=addtoinventory">Tilføj til Lagerdatabase</a><br><br>
+        <br><br> <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
 
     </center>
     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
