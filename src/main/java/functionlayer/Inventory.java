@@ -8,14 +8,17 @@ public class Inventory
     private String unit;
     private String desc;
     private int status;
+    private int price;
 
-    public Inventory(int id, String name, int length, String unit, String desc, int status) {
+
+    public Inventory(int id, String name, int length, String unit, String desc, int status, int price) {
         this.id = id;
         this.name = name;
         this.length = length;
         this.unit = unit;
         this.desc = desc;
         this.status = status;
+        this.price = price;
     }
     
     public Inventory(int id, String name, int length, String desc) 
@@ -56,6 +59,21 @@ public class Inventory
         return desc;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
     @Override
     public String toString() {
         if(length == 0) { return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>";}

@@ -27,6 +27,8 @@ public class Main {
         User us = um.getUser(1);
         File file = new File("");
         
+        //im.updateStatus(1, 1000);
+        
  //       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
         //System.out.println(System.getProperty("user.home"));
         //System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");

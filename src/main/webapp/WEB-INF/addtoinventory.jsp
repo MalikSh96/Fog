@@ -16,7 +16,7 @@
         <h1>Opdater Lager</h1>
 
 <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="updateinventory">
+            <input type="hidden" name="command" value="addtoinventory">
             <div>
                 <label> Navn</label><br><input type="text" name="name" placeholder="Navn" required/><br>
             </div>            
@@ -35,7 +35,7 @@
             <div>
                 <label> Pris</label><br><input type="number" name="price" placeholder="Pris" required/><br>
             </div>                 
-            <br> <input type="submit" value="Opdater lagerbeholdning"><br>
+            <br> <input type="submit" value="Tilføj til Lageret"><br>
             </form>
         </center>
         <br><br> <a href="FrontController?command=adminpage">Tilbage</a>

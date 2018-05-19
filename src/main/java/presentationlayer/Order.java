@@ -147,7 +147,16 @@ public class Order extends Command {
             ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId());
             ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId());
             ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId());
-            
+            im.updateStatus(11, itemList.postAmount(length, width).get(0));
+            im.updateStatus(10, itemList.raftAmount(length, width).get(0));
+            im.updateStatus(8, itemList.remAmount(length).get(0));
+            im.updateStatus(15, itemList.roofAmount(length, width).get(0));
+            im.updateStatus(17, roofScrewAmount);
+            im.updateStatus(19, universalRightAmount);
+            im.updateStatus(20, universalLeftAmount);
+            im.updateStatus(22, bracketScrewAmount);
+            im.updateStatus(23, carriageBoltAmount);
+            im.updateStatus(24, squareSlicesAmount);
             
             
             List<String> content = ilm.getFullItemlist(om.getOrderId());
