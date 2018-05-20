@@ -137,6 +137,29 @@ public class InventoryMapper {
 
         return unit;
     }
+    
+    public int getId(String name) {
+
+        int id = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT id FROM inventory where name = '" + name + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                id = resultset.getInt("id");
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return id;
+    }
 
     public String getDescription(int id) {
 

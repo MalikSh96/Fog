@@ -137,26 +137,26 @@ public class Order extends Command {
         Orders ord = new Orders(userID, length, width, height);
         om.createPreOrder(ord);        
         
-            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId());
-            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId());
-            ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId());
-            ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId());
-            ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId());
-            ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId());
-            ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId());
-            ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId());
-            ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId());
-            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId());
-            im.updateStatus(11, itemList.postAmount(length, width).get(0));
-            im.updateStatus(10, itemList.raftAmount(length, width).get(0));
-            im.updateStatus(8, itemList.remAmount(length).get(0));
-            im.updateStatus(15, itemList.roofAmount(length, width).get(0));
-            im.updateStatus(17, roofScrewAmount);
-            im.updateStatus(19, universalRightAmount);
-            im.updateStatus(20, universalLeftAmount);
-            im.updateStatus(22, bracketScrewAmount);
-            im.updateStatus(23, carriageBoltAmount);
-            im.updateStatus(24, squareSlicesAmount);
+            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(11)));
+            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(10)));
+            ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId(),im.getId(im.getName(8)));
+            ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(15)));
+            ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId(),im.getId(im.getName(17)));
+            ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId(),im.getId(im.getName(19)));
+            ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId(),im.getId(im.getName(20)));
+            ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId(),im.getId(im.getName(22)));
+            ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(),im.getId(im.getName(23)));
+            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(),im.getId(im.getName(24)));
+//            im.updateStatus(11, itemList.postAmount(length, width).get(0));
+//            im.updateStatus(10, itemList.raftAmount(length, width).get(0));
+//            im.updateStatus(8, itemList.remAmount(length).get(0));
+//            im.updateStatus(15, itemList.roofAmount(length, width).get(0));
+//            im.updateStatus(17, roofScrewAmount);
+//            im.updateStatus(19, universalRightAmount);
+//            im.updateStatus(20, universalLeftAmount);
+//            im.updateStatus(22, bracketScrewAmount);
+//            im.updateStatus(23, carriageBoltAmount);
+//            im.updateStatus(24, squareSlicesAmount);
             
             
             List<String> content = ilm.getFullItemlist(om.getOrderId());
