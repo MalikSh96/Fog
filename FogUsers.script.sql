@@ -54,6 +54,7 @@ CREATE TABLE `inventory` (
   `unit` VARCHAR(45),
   `amount` INT,
   `orderid` INT NOT NULL,
+  `itemId` INT NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );

@@ -6,9 +6,14 @@
 package presentationlayer;
 
 
+import dbaccess.InventoryMapper;
+import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
+import functionlayer.ItemList;
 import functionlayer.LoginSampleException;
 import functionlayer.User;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +26,8 @@ public class SendOrder extends Command {
 
     int id = 0;
     OrderMapper om = new OrderMapper();
+    ItemlistMapper ilm = new ItemlistMapper();
+    InventoryMapper im = new InventoryMapper();
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {    
@@ -28,7 +35,11 @@ public class SendOrder extends Command {
         HttpSession session = request.getSession();
         id = (int)session.getAttribute("ordernumber");
                 
-        om.sendOrder(id);       
+        om.sendOrder(id); 
+        List<Integer> itemIds = ilm.getFullItemlistId(id);
+        for (int i = 0; i < itemIds.size(); i++) {
+            im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)));
+        }
         
         return "adminpage";    
     }

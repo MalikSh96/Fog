@@ -27,6 +27,7 @@ public class Main {
         User us = um.getUser(1);
         File file = new File("");
         
+        System.out.println(im.getId("Vinkelbeslag 35"));
         //im.updateStatus(1, 1000);
         
  //       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
