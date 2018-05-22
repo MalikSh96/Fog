@@ -150,6 +150,8 @@ public class Order extends Command {
         ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId(), im.getId(im.getName(22)));
         ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(), im.getId(im.getName(23)));
         ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(), im.getId(im.getName(24)));
+        
+        totalPrice = 0;
 
         return "order";
     }
