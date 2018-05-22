@@ -28,6 +28,7 @@ public class SendOrder extends Command {
     OrderMapper om = new OrderMapper();
     ItemlistMapper ilm = new ItemlistMapper();
     InventoryMapper im = new InventoryMapper();
+    boolean possible = true;
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {    
@@ -35,11 +36,11 @@ public class SendOrder extends Command {
         HttpSession session = request.getSession();
         id = (int)session.getAttribute("ordernumber");
                 
-        om.sendOrder(id); 
         List<Integer> itemIds = ilm.getFullItemlistId(id);
         for (int i = 0; i < itemIds.size(); i++) {
-            im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)));
+            if(!im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)))) {possible = false;}
         }
+        if(possible){ om.sendOrder(id); } 
         
         return "adminpage";    
     }

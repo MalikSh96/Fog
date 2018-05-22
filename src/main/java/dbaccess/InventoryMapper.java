@@ -263,7 +263,7 @@ public class InventoryMapper {
     }
     
 
-    public void updateStatus(int id, int amount) {
+    public boolean updateStatus(int id, int amount) {
         int result = getStatus(id) - amount;
         if (result > 0) {
             try {
@@ -273,13 +273,14 @@ public class InventoryMapper {
                 PreparedStatement ps = con.prepareStatement(SQL);
 
                 ps.executeUpdate(SQL);
-
+                
                 System.out.println("sql syntax ok? " + SQL);
-
+                return true;
             } catch (SQLException | ClassNotFoundException ex) { //temporary error
                 throw new Error(ex.getMessage());
             }
         }
+        return false;
     }
 
     public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
