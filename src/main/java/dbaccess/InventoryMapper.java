@@ -250,7 +250,7 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 result = resultset.getInt("price");
-
+                return result;
             }
 
             System.out.println("sql syntax ok? " + SQL);
