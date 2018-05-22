@@ -126,9 +126,9 @@ public class Order extends Command {
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
         
-            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(11)));
-            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(10)));
             ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId(),im.getId(im.getName(8)));
+            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(10)));
+            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(11)));
             ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(15)));
             ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId(),im.getId(im.getName(17)));
             ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId(),im.getId(im.getName(19)));
@@ -137,9 +137,9 @@ public class Order extends Command {
             ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(),im.getId(im.getName(23)));
             ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(),im.getId(im.getName(24)));
 
-            totalPrice += im.getPrice(11);
-            totalPrice += im.getPrice(10);
             totalPrice += im.getPrice(8);
+            totalPrice += im.getPrice(10);
+            totalPrice += im.getPrice(11);
             totalPrice += im.getPrice(15);
             totalPrice += im.getPrice(17);
             totalPrice += im.getPrice(19);

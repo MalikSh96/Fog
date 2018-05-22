@@ -28,13 +28,14 @@ public class OrderMapper
         try 
         {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO orders (userID, length, width, height) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO orders (userID, length, width, height, price) VALUES (?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS ); 
             ps.setInt(1, ord.getUserId()); //user id
             ps.setInt(2, ord.getLength());
             ps.setInt(3, ord.getWidth());
             ps.setInt(4, ord.getHeight());
+            ps.setInt(5, ord.getPrice());
 
             System.out.println("Check sql order " + SQL);
 
