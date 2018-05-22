@@ -36,7 +36,7 @@ FOREIGN KEY (userID) REFERENCES users(`id`),
 
 CREATE TABLE `inventory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(150) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `length` INT,
   `unit` VARCHAR(45),  
@@ -49,7 +49,7 @@ CREATE TABLE `inventory` (
   
   CREATE TABLE `itemlist` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(150) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `length` INT,
   `unit` VARCHAR(45),
@@ -71,22 +71,22 @@ insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `p
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'holm@holm.dk', 1234, 'admin');
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Bambo','Bambi','Bambivej',1455,87654321,'bambi@bambi.dk', 1234, 'customer');
 
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt', '360', 'stk.', 'Understernsbrædder til for & bag ende', '1000', '1000');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '1000', '500');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt', '360', 'stk', 'Oversternsbrædder til forenden', '1000', '600');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt', '540', 'stk', 'Understernsbrædder til siderne', '1000', '1250');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt - 360 understern', '360', 'stk.', 'Understernsbrædder til for & bag ende', '1000', '1000');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt - 540 understern', '540', 'stk', 'Understernsbrædder til siderne', '1000', '500');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt - 360 overstern', '360', 'stk', 'Oversternsbrædder til forenden', '1000', '600');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x125 mm. trykimp. bræt - 540 overstern', '540', 'stk', 'Understernsbrædder til siderne', '1000', '1250');
 insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('38x73	mm.	Lægte	ubh.', '420', 'stk', 'Til	z	på	bagside	af	dør', '1000', '1500');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub.', '270', 'stk', 'Løsholter til skur gavle', '1000', '100');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub.', '240', 'stk', 'Løsholter til skur sider', '1000', '700');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Remme i sider, sadles ned i stolper', '1000', '2000');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '480', 'stk', 'Remme i sider, sadles ned i stolper ( skur del, deles)', '1000', '125');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh.', '600', 'stk', 'Spær, monteres på rem', '1000', '765');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub. - 270', '270', 'stk', 'Løsholter til skur gavle', '1000', '100');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x95 mm. Reglar ub. - 240', '240', 'stk', 'Løsholter til skur sider', '1000', '700');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh. - 600 rem', '600', 'stk', 'Remme i sider, sadles ned i stolper', '1000', '2000');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh. - 480', '480', 'stk', 'Remme i sider, sadles ned i stolper ( skur del, deles)', '1000', '125');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('45x195 mm. spærtræ ubh. - 600 spær', '600', 'stk', 'Spær, monteres på rem', '1000', '765');
 insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('97x97 mm. trykimp. Stolpe', '300', 'stk', 'Stolper, nedgraves 90 cm. i jord', '1000', '890');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '210', 'stk', 'Til beklædning af skur 1 på 2', '1000', '442');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '540', 'stk', 'Vandbræt på stern i sider', '1000', '623');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt', '360', 'stk', 'Vandbræt på stern i forende', '1000', '325');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet', '600', 'stk', 'Tagplader monteres på spær', '1000', '1467');
-insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet', '360', 'stk', 'Tagplader monteres på spær', '1000', '2165');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt - 210', '210', 'stk', 'Til beklædning af skur 1 på 2', '1000', '442');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt - 540', '540', 'stk', 'Vandbræt på stern i sider', '1000', '623');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('19x100 mm. trykimp. bræt - 360', '360', 'stk', 'Vandbræt på stern i forende', '1000', '325');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet - 600', '600', 'stk', 'Tagplader monteres på spær', '1000', '1467');
+insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('Plastmo Ecolite blåtonet - 360', '360', 'stk', 'Tagplader monteres på spær', '1000', '2165');
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Plastmo bundskruer 200 stk.', 'pakke', 'Skruer til tagplader', '1000', '200');
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Hulbånd 1x20 mm. 10 mtr.', 'rulle', 'Til vindkryds på spær', '1000', '220');
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Universal 190 mm. højre', 'stk', 'Til montering af spær på rem', '1000', '212');

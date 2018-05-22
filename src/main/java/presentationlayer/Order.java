@@ -24,6 +24,7 @@ public class Order extends Command {
     ItemList itemList = new ItemList();
     InventoryMapper im = new InventoryMapper();
     ItemlistMapper ilm = new ItemlistMapper();
+    int totalPrice = 0;
     
     int userID = 0;
     int length = 0;
@@ -136,7 +137,20 @@ public class Order extends Command {
             ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId(),im.getId(im.getName(20)));
             ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId(),im.getId(im.getName(22)));
             ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(),im.getId(im.getName(23)));
-            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(),im.getId(im.getName(24)));            
+            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(),im.getId(im.getName(24)));
+
+            totalPrice += im.getPrice(11);
+            totalPrice += im.getPrice(10);
+            totalPrice += im.getPrice(8);
+            totalPrice += im.getPrice(15);
+            totalPrice += im.getPrice(17);
+            totalPrice += im.getPrice(19);
+            totalPrice += im.getPrice(20);
+            totalPrice += im.getPrice(22);
+            totalPrice += im.getPrice(23);
+            totalPrice += im.getPrice(24);
+            
+            session.setAttribute("price", totalPrice);
          
         return "order";
     }    
