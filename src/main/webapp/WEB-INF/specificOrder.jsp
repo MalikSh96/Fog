@@ -18,6 +18,7 @@
 
     <%
         int id = (int) session.getAttribute("orderid");
+        int price = (int) session.getAttribute("price");
         session.setAttribute("ordernumber", id);
         UserMapper um = new UserMapper();
         OrderMapper om = new OrderMapper();
