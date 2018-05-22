@@ -20,6 +20,7 @@ create table `users` (
 `id` int auto_increment primary key,
 `password` varchar(45),
 `role` varchar(20) NOT NULL DEFAULT 'customer',
+`newsletter` boolean default false, 
 UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 

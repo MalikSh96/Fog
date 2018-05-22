@@ -8,7 +8,7 @@
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-<%//check admin role redirect to index%>
+        <%//check admin role redirect to index%>
     <center>
         <%@include file="../navigation/menu.jsp" %>
 
@@ -20,6 +20,17 @@
             <a href="FrontController?command=allorders">Alle ordrer</a><br><br>
             <a href="FrontController?command=inventory">Lagerstatus</a><br><br>
             <a href="FrontController?command=userlist">Bruger liste</a><br><br>
+
+
+            <form method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="file">Choose file to upload</label>
+                    <input type="file" id="file" name="file" multiple>
+                </div>
+                <div>
+                    <button>Submit</button>
+                </div>
+            </form>
 
 
         </form>
