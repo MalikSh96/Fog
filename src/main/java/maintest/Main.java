@@ -30,15 +30,15 @@ public class Main {
         System.out.println(im.getId("Vinkelbeslag 35"));
         //im.updateStatus(1, 1000);
         
- //       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+ //       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
         //System.out.println(System.getProperty("user.home"));
-        //System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
+        //System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
 //        System.out.println(om.getUserId(5));
 //        System.out.println(om.getNonSentOrderId());
 //        System.out.println(ilm.getFullItemlist(5));        
 //        System.out.println(System.getProperty("user.home"));
-//        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getOrderId() + " - Stykliste.txt");
-//        System.out.println(om.getOrderId());
+//        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
+//        System.out.println(om.getLatestOrder());
 //        System.out.println(um.getUserRole(2));
 //        im.addToInventory("lars", "er", 4, "tyk", 100);
 //

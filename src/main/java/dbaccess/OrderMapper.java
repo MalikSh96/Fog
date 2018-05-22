@@ -19,18 +19,15 @@ import java.util.List;
  *
  * @author malik
  */
-public class OrderMapper 
-{
-    
-    public int createPreOrder(Orders ord) 
-    {
+public class OrderMapper {
+
+    public int createPreOrder(Orders ord) {
         int orderId = 0;
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (userID, length, width, height, price) VALUES (?, ?, ?, ?, ?)";
 
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS ); 
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, ord.getUserId()); //user id
             ps.setInt(2, ord.getLength());
             ps.setInt(3, ord.getWidth());
@@ -40,236 +37,209 @@ public class OrderMapper
             System.out.println("Check sql order " + SQL);
 
             int check = ps.executeUpdate();
-            if(check == 1)
-            {
+            if (check == 1) {
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
-                orderId = ids.getInt( 1 );
+                orderId = ids.getInt(1);
                 System.out.println("Debug " + orderId);
                 return orderId;
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return orderId;
     }
 
-    public Orders getOrder(int orderId) 
-    {
+    public Orders getOrder(int orderId) {
         Orders ord = null;
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "select * from orders where orderid = ?";
 
-            PreparedStatement ps = con.prepareStatement( SQL); 
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderId);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 int userID = rs.getInt("userID");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int height = rs.getInt("height");
                 boolean conf = rs.getBoolean("orderConfirmed");
-                ord  = new Orders(orderId, userID, length, width, height, conf);
+                ord = new Orders(orderId, userID, length, width, height, conf);
                 System.out.println("Debug " + orderId);
                 return ord;
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return ord;
     }
-    
-    public int getOrderId() 
-    {
+
+    public int getLatestOrder() {
         int id = 0;
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT MAX(orderId) FROM FogUsers.orders;";
 
-            PreparedStatement ps = con.prepareStatement( SQL);             
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 id = rs.getInt("MAX(orderId)");
                 return id;
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return id;
     }
-    
-    public boolean findOrderId(int orderId) 
-    {
-        boolean exists = false;
-        try 
-        {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM FogUsers.orders where orderId = '"+orderId+"';";
 
-            PreparedStatement ps = con.prepareStatement( SQL);             
+    public boolean findOrderId(int orderId) {
+        boolean exists = false;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.orders where orderId = '" + orderId + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 exists = true;
                 return exists;
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return exists;
     }
-    
-    public int getUserId(int orderId) 
-    {
-        int userId = 0;
-        try 
-        {
-            Connection con = Connector.connection();
-            String SQL = "SELECT userId FROM FogUsers.orders where orderId = '"+orderId+"'";
 
-            PreparedStatement ps = con.prepareStatement( SQL);             
+    public int getUserId(int orderId) {
+        int userId = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT userId FROM FogUsers.orders where orderId = '" + orderId + "'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next())
-            {
+
+            if (rs.next()) {
                 userId = rs.getInt("userId");
                 return userId;
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return userId;
     }
 
-    public List<Integer> getNonSentOrderId() 
-    {
+    public List<Integer> getNonSentOrderId() {
         List<Integer> orderNumbers = new ArrayList<>();
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT orderId FROM FogUsers.orders where orderConfirmed=0;";
 
-            PreparedStatement ps = con.prepareStatement( SQL);             
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 int id = rs.getInt("orderId");
                 orderNumbers.add(id);
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return orderNumbers;
     }
-    
-    public List<Integer> getAllOrderIds() 
-    {
+
+    public List<Integer> getAllOrderIds() {
         List<Integer> orderNumbers = new ArrayList<>();
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT orderId FROM FogUsers.orders order by orderId desc;";
 
-            PreparedStatement ps = con.prepareStatement( SQL);             
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             System.out.println("Check sql order " + SQL);
 
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
+
+            while (rs.next()) {
                 int id = rs.getInt("orderId");
                 orderNumbers.add(id);
 
             }
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
         return orderNumbers;
     }
-    
-    public List<Orders> allOrders()
-    {
+
+    public List<Orders> allOrders() {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM orders order by orderId desc";
-            
+
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            
-            while(resultset.next())
-            {   
+
+            while (resultset.next()) {
                 int id = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
-                
-                
-                
+
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-               
+
             }
             System.out.println("sql syntax ok? " + SQL);
-            
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
-        
+
         return orders;
     }
-    
-    public List<Orders> confirmedOrders()
-    {
+
+    public List<Orders> confirmedOrders() {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-        
-        try 
-        {
+
+        try {
             Connection con = Connector.connection();
             String SQL = "select * from FogUsers.orders where orderConfirmed "
                     + "= '1' order by orderId desc;";
-            
+
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            
-            while(resultset.next())
-            {   
+
+            while (resultset.next()) {
                 int id = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
@@ -279,25 +249,22 @@ public class OrderMapper
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-                
+
             }
             System.out.println("sql syntax ok? " + SQL);
-            
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
-        
+
         return orders;
     }
-    
 
-    public List<Orders> pendingOrders()
-    {
+    public List<Orders> pendingOrders() {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
 
-        try 
-        {
+        try {
             Connection con = Connector.connection();
             String SQL = "select * from FogUsers.orders where orderConfirmed "
                     + "= '0' order by orderId desc;";
@@ -305,8 +272,7 @@ public class OrderMapper
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
 
-            while(resultset.next())
-            {
+            while (resultset.next()) {
                 int id = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
@@ -320,125 +286,110 @@ public class OrderMapper
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
 
         return orders;
     }
 
-    public List<Orders> allCustomerOrders(int id)
-    {
+    public List<Orders> allCustomerOrders(int id) {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-        
-        try 
-        {
+
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.orders where userID = " + id;
-            
+
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            
-            while(resultset.next())
-            {   
+
+            while (resultset.next()) {
                 int orderId = resultset.getInt("orderId");
                 int userID = resultset.getByte("userID");
                 int length = resultset.getInt("length");
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
-             
-                if(userID == id)
-                {
+
+                if (userID == id) {
                     ord = new Orders(orderId, userID, length, width, height, conf);
                     orders.add(ord);
                 }
 
             }
             System.out.println("sql syntax ok? " + SQL);
-            
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
-        
+
         return orders;
     }
-    public List<Integer> allCustomerOrdersId(int id)
-    {
+
+    public List<Integer> allCustomerOrdersId(int id) {
         List<Integer> orderIds = new ArrayList<>();
-        
-        try 
-        {
+
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT orderId FROM FogUsers.orders where userID = " + id;
-            
+
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            
-            while(resultset.next())
-            {   
+
+            while (resultset.next()) {
                 int orderId = resultset.getInt("orderId");
-             
+
                 orderIds.add(orderId);
 
             }
             System.out.println("sql syntax ok? " + SQL);
-            
-        } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
         }
-        
+
         return orderIds;
     }
-    
-    public boolean isOrderSent(int orderID) throws ClassNotFoundException 
-    {
+
+    public boolean isOrderSent(int orderID) throws ClassNotFoundException {
         int sent = 0;
-        try 
-        {
+        try {
             Connection con = Connector.connection();
-            String sql = "Select orderConfirmed from orders where orderId= '" + orderID +"'"; 
+            String sql = "Select orderConfirmed from orders where orderId= '" + orderID + "'";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultset = ps.executeQuery(sql);
 
-            while(resultset.next()) 
-            {
-                sent = resultset.getInt("orderConfirmed");                
+            while (resultset.next()) {
+                sent = resultset.getInt("orderConfirmed");
             }
-            if(sent == 1) return true;
-                            
-        } 
-        catch (SQLException e) 
-        {
-             e.printStackTrace();
-        }        
-         return false;
-    } 
-    
-     
-    public void sendOrder(int orderID) 
-    {    
-        try 
-        {
-            Connection con = Connector.connection();
-            String SQL = "update orders set orderConfirmed= '1' where orderId= '" + orderID +"'";
-            
-            PreparedStatement ps = con.prepareStatement( SQL ); 
+            if (sent == 1) {
+                return true;
+            }
 
-            
-            System.out.println("Check sql order " + SQL);
-            
-            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        catch( SQLException | ClassNotFoundException ex) 
-        {
-            throw new Error( ex.getMessage() );
-        } 
-     }
-    
+        return false;
+    }
+
+    public void sendOrder(int orderID) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "update orders set orderConfirmed= '1' where orderId= '" + orderID + "'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new Error(ex.getMessage());
+        }
+    }
+
     public int getPrice(int id) {
 
         int result = 0;
@@ -454,7 +405,7 @@ public class OrderMapper
             }
 
             System.out.println("sql syntax ok? " + SQL);
-                return result;
+            return result;
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
             throw new Error(ex.getMessage());
