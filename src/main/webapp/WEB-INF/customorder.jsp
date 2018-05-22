@@ -106,7 +106,7 @@
                         <br/> 
                 </div>
                 <div class="col-sm-4">
-                    <input type="checkbox" id="toolshed" onclick="myFunction()"> Redskabsskur  
+                    <input type="checkbox" id="toolshed" class="inputstl" onclick="myFunction()"> Redskabsskur  
                     <br/>
 
                     <div id="customordrertoolshed">
