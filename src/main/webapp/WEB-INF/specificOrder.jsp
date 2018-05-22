@@ -28,6 +28,8 @@
 
     <%=om.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
     
+    <%=session.getAttribute("price")%>
+    
     <%if(!us.isAdmin(um.getUserRole(us.getId())) && om.getOrder(id).isOrderConfirmed()|| us.isAdmin(um.getUserRole(us.getId()))) {
     out.println(ilm.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
 
