@@ -125,6 +125,9 @@ public class Order extends Command {
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
+
+        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
+        om.createPreOrder(ord);        
         
             ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId(),im.getId(im.getName(8)));
             ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(10)));
@@ -148,8 +151,6 @@ public class Order extends Command {
             totalPrice += im.getPrice(23);
             totalPrice += im.getPrice(24);
          
-        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
-        om.createPreOrder(ord);        
         return "order";
     }    
 }

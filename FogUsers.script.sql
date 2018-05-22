@@ -29,6 +29,7 @@ userID int not null,
 `length` int not null, 
 `width` int not null, 
 `height` int not null, 
+`price` int not null, 
 `orderConfirmed` boolean default false, 
 FOREIGN KEY (userID) REFERENCES users(`id`),
 `dates` datetime default current_timestamp
