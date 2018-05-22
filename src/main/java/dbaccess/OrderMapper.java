@@ -444,7 +444,7 @@ public class OrderMapper
         int result = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT price FROM orders where id = '" + id + "';";
+            String SQL = "SELECT price FROM orders where orderId = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
