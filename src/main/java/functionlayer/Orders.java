@@ -25,6 +25,13 @@ public class Orders
         this.width = width;
         this.height = height;
     }
+    public Orders(int userId, int length, int width, int height, int price, boolean priceIncluded, String ex) {
+        this.userId = userId;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.price = price;
+    }
 
     public Orders(int userId, int length, int width, int height, boolean orderConfirmed) {
         this.userId = userId;
