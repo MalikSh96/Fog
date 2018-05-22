@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order extends Command {
-    
+
     OrderMapper om = new OrderMapper();
     ItemList itemList = new ItemList();
     InventoryMapper im = new InventoryMapper();
     ItemlistMapper ilm = new ItemlistMapper();
     int totalPrice = 0;
-    
+
     int userID = 0;
     int length = 0;
     int width = 0;
@@ -36,7 +36,7 @@ public class Order extends Command {
     int widthSVG = 0;
     int lengthSVG = 0;
     int widthline = 0;
-    
+
     int lengthline = 0;
     int lengthtextmiddle = 0;
     int widthtextmiddle = 0;
@@ -52,37 +52,37 @@ public class Order extends Command {
     String roofScrewName = im.getName(17);
     String roofScrewDesc = im.getDescription(17);
     int roofScrewAmount = 2;
-    
+
     String universalRightName = im.getName(19);
     String universalRightDesc = im.getDescription(19);
     int universalRightAmount = 20;
-    
+
     String universalLeftName = im.getName(20);
     String universalLeftDesc = im.getDescription(20);
     int universalLeftAmount = 20;
-    
+
     String bracketScrewName = im.getName(22);
     String bracketScrewDesc = im.getDescription(22);
     int bracketScrewAmount = 2;
-    
+
     String carriageBoltName = im.getName(23);
     String carriageBoltDesc = im.getDescription(23);
     int carriageBoltAmount = 14;
-    
+
     String squareSlicesName = im.getName(24);
     String squareSlicesDesc = im.getDescription(24);
     int squareSlicesAmount = 14;
-    
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        
+
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (user == null) {
             request.getParameter("needuser");
             return "loginpage";
         }
-        
+
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
@@ -109,11 +109,11 @@ public class Order extends Command {
         session.setAttribute("redskabsrumlængde", toolshedlength);
         session.setAttribute("redskabsrumbredde", toolshedwidth);
         session.setAttribute("højde", height);
-        
+
         session.setAttribute("længdespær", lengthrafter);
         session.setAttribute("højdespær", heightrafter);
         session.setAttribute("breddespær", widthrafter);
-        
+
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);
@@ -126,31 +126,31 @@ public class Order extends Command {
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
 
-        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
-        om.createPreOrder(ord);        
-        
-            ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId(),im.getId(im.getName(8)));
-            ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(10)));
-            ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(11)));
-            ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId(),im.getId(im.getName(15)));
-            ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId(),im.getId(im.getName(17)));
-            ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId(),im.getId(im.getName(19)));
-            ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId(),im.getId(im.getName(20)));
-            ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId(),im.getId(im.getName(22)));
-            ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(),im.getId(im.getName(23)));
-            ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(),im.getId(im.getName(24)));
+        totalPrice += im.getPrice(8) * itemList.remAmount(length).get(0);
+        totalPrice += im.getPrice(10) * itemList.raftAmount(length, width).get(0);
+        totalPrice += im.getPrice(11) * itemList.postAmount(length, width).get(0);
+        totalPrice += im.getPrice(15) * itemList.roofAmount(length, width).get(0);
+        totalPrice += im.getPrice(17) * roofScrewAmount;
+        totalPrice += im.getPrice(19) * universalRightAmount;
+        totalPrice += im.getPrice(20) * universalLeftAmount;
+        totalPrice += im.getPrice(22) * bracketScrewAmount;
+        totalPrice += im.getPrice(23) * carriageBoltAmount;
+        totalPrice += im.getPrice(24) * squareSlicesAmount;
 
-            totalPrice += im.getPrice(8);
-            totalPrice += im.getPrice(10);
-            totalPrice += im.getPrice(11);
-            totalPrice += im.getPrice(15);
-            totalPrice += im.getPrice(17);
-            totalPrice += im.getPrice(19);
-            totalPrice += im.getPrice(20);
-            totalPrice += im.getPrice(22);
-            totalPrice += im.getPrice(23);
-            totalPrice += im.getPrice(24);
-         
+        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
+        om.createPreOrder(ord);
+
+        ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getOrderId(), im.getId(im.getName(8)));
+        ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(10)));
+        ilm.addToItemlist(im.getName(11), im.getDescription(11), im.getLength(11), itemList.postAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(11)));
+        ilm.addToItemlist(im.getName(15), im.getDescription(15), im.getLength(15), itemList.roofAmount(length, width).get(0), om.getOrderId(), im.getId(im.getName(15)));
+        ilm.addToItemlist(im.getName(17), im.getDescription(17), 0, roofScrewAmount, om.getOrderId(), im.getId(im.getName(17)));
+        ilm.addToItemlist(im.getName(19), im.getDescription(19), 0, universalRightAmount, om.getOrderId(), im.getId(im.getName(19)));
+        ilm.addToItemlist(im.getName(20), im.getDescription(20), 0, universalLeftAmount, om.getOrderId(), im.getId(im.getName(20)));
+        ilm.addToItemlist(im.getName(22), im.getDescription(22), 0, bracketScrewAmount, om.getOrderId(), im.getId(im.getName(22)));
+        ilm.addToItemlist(im.getName(23), im.getDescription(23), 0, carriageBoltAmount, om.getOrderId(), im.getId(im.getName(23)));
+        ilm.addToItemlist(im.getName(24), im.getDescription(24), 0, squareSlicesAmount, om.getOrderId(), im.getId(im.getName(24)));
+
         return "order";
-    }    
+    }
 }

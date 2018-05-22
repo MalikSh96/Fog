@@ -25,7 +25,7 @@ UNIQUE KEY `email_UNIQUE` (`email`)
 
 create table `orders` (
 `orderId` int auto_increment primary key,
-userID int not null,
+`userID` int not null,
 `length` int not null, 
 `width` int not null, 
 `height` int not null, 
