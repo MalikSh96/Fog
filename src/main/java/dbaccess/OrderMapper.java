@@ -438,4 +438,26 @@ public class OrderMapper
             throw new Error( ex.getMessage() );
         } 
      }
+    
+    public int getPrice(int id) {
+
+        int result = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT price FROM orders where id = '" + id + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                result = resultset.getInt("price");
+            }
+
+            System.out.println("sql syntax ok? " + SQL);
+                return result;
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+    }
 }
