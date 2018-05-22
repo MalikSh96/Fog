@@ -1,29 +1,25 @@
-var modaltoolshed = document.getElementById('customordrertoolshed');
+function myFunction() {
+
+    var modaltoolshed = document.getElementById('customordrertoolshed');
+    var checkboxtoolshed = document.getElementById("toolshed");
 
 
-var btn_toolshed = document.getElementById("toolshed");
-
-
-btn_toolshed.onclick = function (event) {
-    event.preventDefault();
-    if (modaltoolshed.style.display === "block") {
-        modaltoolshed.style.display = "none";
-    } else {
-        modaltoolshed.style.display = "block";
-    }
-}
-
-var btn_orderSubmit = document.getElementById('orderSubmit');
-
-var user = '<%(User) session.getAttribute("user"); %>';
-
-//btn_orderSubmit.onclick = function () {
-//    if (user !== null) {
-//        alert("Du skal logge ind for at lave en ordre!");
+//checkboxtoolshed.onclick = function (event) {
+//    event.preventDefault();
+//    if (modaltoolshed.style.display === "block") {
+//        modaltoolshed.style.display = "none";
+//    } else {
+//        modaltoolshed.style.display = "block";
 //    }
-//
 //}
 
+    if (checkboxtoolshed.checked == true) {
+        modaltoolshed.style.display = "block";
+
+    } else {
+        modaltoolshed.style.display = "none";
+    }
+}
 
 
 
