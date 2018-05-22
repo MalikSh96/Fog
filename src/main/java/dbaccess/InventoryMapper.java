@@ -250,16 +250,14 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 result = resultset.getInt("price");
-                return result;
             }
 
             System.out.println("sql syntax ok? " + SQL);
+                return result;
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
             throw new Error(ex.getMessage());
         }
-
-        return result;
     }
 
     public boolean updateStatus(int id, int amount) {
