@@ -18,7 +18,6 @@
 
     <%
         int id = (int) session.getAttribute("orderid");
-        int price = (int) session.getAttribute("price");
         session.setAttribute("ordernumber", id);
         UserMapper um = new UserMapper();
         OrderMapper om = new OrderMapper();
@@ -29,7 +28,7 @@
 
     <%=om.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
     
-    <%out.println(session.getAttribute("price"));%>
+    <%out.println(om.getOrder(id).getPrice());%>
     
     <%if(!us.isAdmin(um.getUserRole(us.getId())) && om.getOrder(id).isOrderConfirmed()|| us.isAdmin(um.getUserRole(us.getId()))) {
     out.println(ilm.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>

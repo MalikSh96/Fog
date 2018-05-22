@@ -11,6 +11,8 @@ public class Orders
     private int length; //length of the house
     private int width; //width of the house
     private int height; //height of the house
+    private int price; //height of the house
+
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
 
     public Orders() {
@@ -78,6 +80,13 @@ public class Orders
         return orderConfirmed;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
     @Override
     public String toString() {
         if(orderConfirmed) return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";

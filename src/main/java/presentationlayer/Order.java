@@ -150,7 +150,7 @@ public class Order extends Command {
             totalPrice += im.getPrice(23);
             totalPrice += im.getPrice(24);
             
-            session.setAttribute("price", totalPrice);
+            ord.setPrice(totalPrice);
          
         return "order";
     }    
