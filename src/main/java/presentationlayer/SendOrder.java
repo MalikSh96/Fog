@@ -37,10 +37,17 @@ public class SendOrder extends Command {
         id = (int)session.getAttribute("ordernumber");
                 
         List<Integer> itemIds = ilm.getFullItemlistId(id);
+        List<Integer> wrongIds = new ArrayList<>();
         for (int i = 0; i < itemIds.size(); i++) {
-            if(!im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)))) {possible = false;}
+            if(!im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)))) {possible = false;
+            wrongIds.add(itemIds.get(i));
+            }
         }
-        if(possible){ om.sendOrder(id); } 
+        if(!possible) {
+        for (int i = 0; i < itemIds.size(); i++) {
+            im.reverseStatusUpdate(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)), wrongIds);
+        }
+        } else { om.sendOrder(id); } 
         
         return "adminpage";    
     }

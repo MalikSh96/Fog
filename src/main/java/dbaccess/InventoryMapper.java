@@ -137,7 +137,7 @@ public class InventoryMapper {
 
         return unit;
     }
-    
+
     public int getId(String name) {
 
         int id = 0;
@@ -261,7 +261,6 @@ public class InventoryMapper {
 
         return result;
     }
-    
 
     public boolean updateStatus(int id, int amount) {
         int result = getStatus(id) - amount;
@@ -273,7 +272,7 @@ public class InventoryMapper {
                 PreparedStatement ps = con.prepareStatement(SQL);
 
                 ps.executeUpdate(SQL);
-                
+
                 System.out.println("sql syntax ok? " + SQL);
                 return true;
             } catch (SQLException | ClassNotFoundException ex) { //temporary error
@@ -281,6 +280,26 @@ public class InventoryMapper {
             }
         }
         return false;
+    }
+
+    public void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) {
+        int result = getStatus(id) + amount;
+        for (int i = 0; i < wrongIds.size(); i++) {
+            if (id != wrongIds.get(i)) {
+                try {
+                    Connection con = Connector.connection();
+                    String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
+
+                    PreparedStatement ps = con.prepareStatement(SQL);
+
+                    ps.executeUpdate(SQL);
+
+                    System.out.println("sql syntax ok? " + SQL);
+                } catch (SQLException | ClassNotFoundException ex) { //temporary error
+                    throw new Error(ex.getMessage());
+                }
+            }
+        }
     }
 
     public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
