@@ -7,7 +7,7 @@ package presentationlayer;
 
 import dbaccess.InventoryMapper;
 import dbaccess.UserMapper;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +22,7 @@ public class AddToInventory extends Command {
     InventoryMapper im = new InventoryMapper();
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         String name = request.getParameter("name");
 

@@ -3,7 +3,7 @@ package presentationlayer;
 
 import functionlayer.LogicFacade;
 
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 public class Login extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         User user = LogicFacade.login(email, password);

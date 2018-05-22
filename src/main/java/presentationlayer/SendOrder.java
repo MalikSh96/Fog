@@ -5,7 +5,7 @@ import dbaccess.InventoryMapper;
 import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
 import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class SendOrder extends Command {
     boolean possible = true;
     
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {    
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {    
 
         HttpSession session = request.getSession();
         id = (int)session.getAttribute("ordernumber");

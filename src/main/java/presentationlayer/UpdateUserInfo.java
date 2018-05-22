@@ -6,7 +6,7 @@
 package presentationlayer;
 
 import dbaccess.UserMapper;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.Orders;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +25,7 @@ public class UpdateUserInfo extends Command {
     UserMapper um = new UserMapper();
     
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();
         userID = (int) session.getAttribute("id");

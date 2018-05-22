@@ -6,7 +6,7 @@
 package presentationlayer;
 
 
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserProfile extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
     
         return "userprofile";    
     }

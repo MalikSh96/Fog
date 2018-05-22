@@ -2,7 +2,7 @@ package presentationlayer;
 
 import dbaccess.UserMapper;
 import functionlayer.LogicFacade;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 public class Register extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+    String execute( HttpServletRequest request, HttpServletResponse response ) throws UniversalExceptions {
 
         String name = request.getParameter( "name" );
         String lastname = request.getParameter( "lastname" );
@@ -32,7 +32,7 @@ public class Register extends Command {
             session.setAttribute( "role", user.getRole() );
             return user.getRole() + "page";
         } else {
-            throw new LoginSampleException( "the two passwords did not match" );
+            throw new UniversalExceptions( "the two passwords did not match" );
         }
         
     }

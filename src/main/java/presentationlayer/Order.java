@@ -4,7 +4,7 @@ import dbaccess.InventoryMapper;
 import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
 import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +15,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Order extends Command {
 
@@ -74,7 +77,7 @@ public class Order extends Command {
     int squareSlicesAmount = 14;
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions, ClassNotFoundException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
@@ -138,7 +141,11 @@ public class Order extends Command {
         totalPrice += im.getPrice(24) * squareSlicesAmount;
 
         Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
-        om.createPreOrder(ord);
+        try {
+            om.createPreOrder(ord);
+        } catch (SQLException ex) {
+            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getLatestOrder(), im.getId(im.getName(8)));
         ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getLatestOrder(), im.getId(im.getName(10)));

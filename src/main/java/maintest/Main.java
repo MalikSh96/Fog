@@ -6,12 +6,14 @@ import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
 import functionlayer.Inventory;
 import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.Orders;
 import functionlayer.User;
 import java.io.File;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import presentationlayer.Order;
 
 /**
  *
@@ -19,20 +21,22 @@ import java.util.List;
  */
 public class Main {
 
-    public static void main(String[] args) throws LoginSampleException, ClassNotFoundException {
+    public static void main(String[] args) throws UniversalExceptions, ClassNotFoundException, SQLException {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
         ItemlistMapper ilm = new ItemlistMapper();
-        User us = um.getUser(1);
-        File file = new File("");
+        Orders ord = new Orders(0, -1, 0);
+        om.createPreOrder(ord);
+//        User us = um.getUser(1);
+//        File file = new File("");
         
-        System.out.println(im.getId("Vinkelbeslag 35"));
-        //im.updateStatus(1, 1000);
+//        System.out.println(im.getId("Vinkelbeslag 35"));
+//        im.updateStatus(1, 1000);
         
- //       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
-        //System.out.println(System.getProperty("user.home"));
-        //System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
+//       System.out.println(file.getAbsolutePath() + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
+//        System.out.println(System.getProperty("user.home"));
+//        System.out.println(System.getProperty("user.home") + File.separator + "Documents" + File.separator +"Stykliste" + File.separator + "order nr " + om.getLatestOrder() + " - Stykliste.txt");
 //        System.out.println(om.getUserId(5));
 //        System.out.println(om.getNonSentOrderId());
 //        System.out.println(ilm.getFullItemlist(5));        

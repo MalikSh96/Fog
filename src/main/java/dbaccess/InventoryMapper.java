@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import functionlayer.Inventory;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import java.sql.Statement;
 
 /**
@@ -55,7 +55,7 @@ public class InventoryMapper {
         return inventory;
     }
 
-    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
+    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = dbaccess.Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
@@ -65,7 +65,7 @@ public class InventoryMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new UniversalExceptions(ex.getMessage());
         }
     }
 
@@ -300,7 +300,7 @@ public class InventoryMapper {
         }
     }
 
-    public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
+    public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = dbaccess.Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
@@ -311,7 +311,7 @@ public class InventoryMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new UniversalExceptions(ex.getMessage());
         }
     }
 }

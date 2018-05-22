@@ -1,7 +1,7 @@
 package presentationlayer;
 
 
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 public class UnknownCommand extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+    String execute( HttpServletRequest request, HttpServletResponse response ) throws UniversalExceptions {
         String msg = "Unknown command. Contact IT";
-        throw new LoginSampleException( msg );
+        throw new UniversalExceptions( msg );
     }
-
+    
 }

@@ -6,7 +6,7 @@
 package presentationlayer;
 
 import dbaccess.OrderMapper;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +25,7 @@ public class CustomOrder extends Command {
     int height;
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
 //        Orders ord = new Orders(length, width, height);
 //        if (ord != null) {

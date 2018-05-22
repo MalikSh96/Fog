@@ -6,6 +6,7 @@
 package dbaccess;
 
 import functionlayer.Orders;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +24,7 @@ import java.util.List;
  */
 public class OrderMapper {
 
-    public int createPreOrder(Orders ord) {
+    public int createPreOrder(Orders ord) throws ClassNotFoundException, SQLException {
         int orderId = 0;
         try {
             Connection con = Connector.connection();
@@ -46,7 +49,13 @@ public class OrderMapper {
 
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            throw new Error("No order created, try again or contact us");
+//            Connection con = Connector.connection();
+//            System.out.println("You are here");
+//            String sql = "select * from FogUsers.error where id = '1'";
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            System.out.println("... " + ps.execute());
         }
         return orderId;
     }

@@ -5,7 +5,7 @@
  */
 package presentationlayer;
 
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +37,7 @@ public class FrontController extends HttpServlet {
             Command action = Command.from( request );
             String view = action.execute( request, response );
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
-        } catch ( LoginSampleException ex ) {
+        } catch ( UniversalExceptions ex ) {
             
             request.setAttribute( "error", "du skrevet noget forkert." );
             request.getRequestDispatcher( "/WEB-INF/loginpage.jsp" ).forward( request, response );
