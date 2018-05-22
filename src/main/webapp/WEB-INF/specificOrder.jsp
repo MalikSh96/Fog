@@ -28,10 +28,11 @@
 
     <%=om.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
     
-    <%out.println(om.getOrder(id).getPrice());%>
     
     <%if(!us.isAdmin(um.getUserRole(us.getId())) && om.getOrder(id).isOrderConfirmed()|| us.isAdmin(um.getUserRole(us.getId()))) {
     out.println(ilm.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
+    
+    <%out.println("Pris: " + om.getOrder(id).getPrice());%>
 
     <% if (us.isAdmin(um.getUserRole(us.getId())) && !om.getOrder(id).isOrderConfirmed()) {%>
     <form action="FrontController" method="POST">
