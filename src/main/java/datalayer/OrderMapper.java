@@ -81,7 +81,7 @@ public class OrderMapper {
         return ord;
     }
 
-    public int getLatestOrder() {
+    public static int getLatestOrder() {
         int id = 0;
         try {
             Connection con = Connector.connection();

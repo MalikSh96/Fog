@@ -1,7 +1,8 @@
 package presentationlayer;
 
+import businesslayer.BusinessFacade;
 import datalayer.UserMapper;
-import businesslayer.DataFacade;
+import datalayer.DataFacade;
 import businesslayer.LoginSampleException;
 import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ public class Register extends Command {
         int phone = Integer.parseInt(phonenr);
         if ( password1.equals( password2 ) ) {
 
-            User user = DataFacade.createUser( name, lastname, address, postal, phone, email, password1 );
+            User user = BusinessFacade.createUser( name, lastname, address, postal, phone, email, password1 );
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute("id", user.getId());

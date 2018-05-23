@@ -1,5 +1,6 @@
 package presentationlayer;
 
+import businesslayer.BusinessFacade;
 import datalayer.InventoryMapper;
 import datalayer.ItemlistMapper;
 import datalayer.OrderMapper;
@@ -19,11 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order extends Command {
-
-    OrderMapper om = new OrderMapper();
+    
     ItemList itemList = new ItemList();
-    InventoryMapper im = new InventoryMapper();
-    ItemlistMapper ilm = new ItemlistMapper();
+    BusinessFacade bf = new BusinessFacade();
     int totalPrice = 0;
 
     int userID = 0;
@@ -125,6 +124,20 @@ public class Order extends Command {
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
+   
+       
+        bf.createItemList(bf.getItemName(8), bf.getItemDesc(8), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(10), bf.getItemDesc(10), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(11), bf.getItemDesc(11), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(15), bf.getItemDesc(15), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(17), bf.getItemDesc(17), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(19), bf.getItemDesc(19), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(20), bf.getItemDesc(20), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(22), bf.getItemDesc(22), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(23), bf.getItemDesc(23), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        bf.createItemList(bf.getItemName(24), bf.getItemDesc(24), bf.getItemLength(8), bf.calculateRemAmount(length), bf.getOrderId(), userID);
+        
+        
 
         totalPrice += im.getPrice(8) * itemList.remAmount(length).get(0);
         totalPrice += im.getPrice(10) * itemList.raftAmount(length, width).get(0);
@@ -137,8 +150,10 @@ public class Order extends Command {
         totalPrice += im.getPrice(23) * carriageBoltAmount;
         totalPrice += im.getPrice(24) * squareSlicesAmount;
 
-        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
+        Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced"); 
         om.createPreOrder(ord);
+        
+        
 
         ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getLatestOrder(), im.getId(im.getName(8)));
         ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getLatestOrder(), im.getId(im.getName(10)));

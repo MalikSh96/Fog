@@ -22,7 +22,7 @@ import java.sql.Statement;
  */
 public class InventoryMapper {
 
-    public List<Inventory> completeInventory() {
+    public static List<Inventory> completeInventory() {
 
         List<Inventory> inventory = new ArrayList<>();
         Inventory inv = null;
@@ -55,7 +55,7 @@ public class InventoryMapper {
         return inventory;
     }
 
-    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
+    public static void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
         try {
             Connection con = datalayer.Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
@@ -69,7 +69,7 @@ public class InventoryMapper {
         }
     }
 
-    public String getName(int id) {
+    public static String getName(int id) {
 
         String name = null;
         try {
@@ -92,7 +92,7 @@ public class InventoryMapper {
         return name;
     }
 
-    public int getLength(int id) {
+    public static int getLength(int id) {
 
         int length = 0;
         try {
@@ -115,7 +115,7 @@ public class InventoryMapper {
         return length;
     }
 
-    public String getUnit(String name) {
+    public static String getUnit(String name) {
 
         String unit = null;
         try {
@@ -138,7 +138,7 @@ public class InventoryMapper {
         return unit;
     }
 
-    public int getId(String name) {
+    public static int getId(String name) {
 
         int id = 0;
         try {
@@ -161,7 +161,7 @@ public class InventoryMapper {
         return id;
     }
 
-    public String getDescription(int id) {
+    public static String getDescription(int id) {
 
         String desc = null;
         try {
@@ -184,7 +184,7 @@ public class InventoryMapper {
         return desc;
     }
 
-    public Inventory getSpecificItem(int id) {
+    public static Inventory getSpecificItem(int id) {
 
         Inventory result = null;
         try {
@@ -214,7 +214,7 @@ public class InventoryMapper {
         return result;
     }
 
-    public int getStatus(int id) {
+    public static int getStatus(int id) {
 
         int result = 0;
         try {
@@ -238,7 +238,7 @@ public class InventoryMapper {
         return result;
     }
 
-    public int getPrice(int id) {
+    public static int getPrice(int id) {
 
         int result = 0;
         try {
@@ -260,7 +260,7 @@ public class InventoryMapper {
         }
     }
 
-    public boolean updateStatus(int id, int amount) {
+    public static boolean updateStatus(int id, int amount) {
         int result = getStatus(id) - amount;
         if (result > 0) {
             try {
@@ -280,7 +280,7 @@ public class InventoryMapper {
         return false;
     }
 
-    public void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) {
+    public static void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) {
         int result = getStatus(id) + amount;
         for (int i = 0; i < wrongIds.size(); i++) {
             if (id != wrongIds.get(i)) {

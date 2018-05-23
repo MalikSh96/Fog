@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ItemlistMapper {
 
-    InventoryMapper im = new InventoryMapper();
+    private static InventoryMapper im = new InventoryMapper();
 
-    public void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) {
+    public static void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) {
 
         try {
             Connection con = Connector.connection();

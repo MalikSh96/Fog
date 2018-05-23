@@ -27,7 +27,7 @@ public class ItemList
     
     //Obs, calculations is based of the biggest items of each category
     
-    public List<Integer> postAmount(int carportLength, int carportWidth)
+    public static List<Integer> postAmount(int carportLength, int carportWidth)
     {
         int postRow = 0;
         postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm
@@ -46,7 +46,7 @@ public class ItemList
         return post;
     }
     
-    public List<Integer> raftAmount(int carportLength, int carportWidth)
+    public static List<Integer> raftAmount(int carportLength, int carportWidth)
     {
         Double raftRow = 0.00;
         raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
@@ -68,7 +68,7 @@ public class ItemList
         return raft;
     }
     
-    public List<Integer> remAmount(int carportLength) 
+    public static List<Integer> remAmount(int carportLength) 
     {
         //Carport only have 2 sides, no middle posts
         if(carportLength <= 6) { remTotal = 2;}
@@ -77,7 +77,7 @@ public class ItemList
         return rem;
     }
     
-    public List<Integer> roofAmount(int carportLength, int carportWidth)
+    public static List<Integer> roofAmount(int carportLength, int carportWidth)
     {
         Double roofPlate = 0.00;
         roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
@@ -99,7 +99,7 @@ public class ItemList
     }
     
     //Work in progress
-    public void Shed(int carportWidth, int shedWidth)
+    public static void Shed(int carportWidth, int shedWidth)
     {
         if(carportWidth == shedWidth)
         {
@@ -113,36 +113,36 @@ public class ItemList
         }
     }
 
-    public List<Integer> getPost() {
+    public static List<Integer> getPost() {
         return post;
     }
 
-    public List<Integer> getRaft() {
+    public static List<Integer> getRaft() {
         return raft;
     }
 
-    public List<Integer> getRem() {
+    public static List<Integer> getRem() {
         return rem;
     }
 
-    public List<Integer> getRoof() {
+    public static List<Integer> getRoof() {
         return roof;
     }
 
     //Getters for the purpose of j-unit testing
-    public int getPostTotal() {
+    public static int getPostTotal() {
         return postTotal;
     }
 
-    public int getRaftTotal() {
+    public static int getRaftTotal() {
         return raftTotal;
     }
 
-    public int getRemTotal() {
+    public static int getRemTotal() {
         return remTotal;
     }
 
-    public int getRoofTotal() {
+    public static int getRoofTotal() {
         return roofTotal;
     }
 }
