@@ -24,10 +24,11 @@ import java.util.logging.Logger;
  */
 public class OrderMapper {
 
-    public int createPreOrder(Orders ord) throws ClassNotFoundException, SQLException {
+    public int createPreOrder(Orders ord) throws  UniversalExceptions {
         int orderId = 0;
-            Connection con = Connector.connection();
+        Connection con;
         try {
+            con = Connector.connection();
             String SQL = "INSERT INTO orders (userID, length, width, height, price) VALUES (?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -48,10 +49,12 @@ public class OrderMapper {
                 return orderId;
 
             }
-        } catch (SQLException ex) { //temporary error
-//            throw new Error(ex.getMessage());
-            throw new Error("No order created, try again or contact us");
+        } catch (SQLException | ClassNotFoundException ex) { 
+
+           UniversalExceptions uex = new UniversalExceptions();
+           uex.NoPreOrderCreated();
         }
+        
         return orderId;
     }
 

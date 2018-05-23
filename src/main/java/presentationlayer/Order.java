@@ -141,11 +141,7 @@ public class Order extends Command {
         totalPrice += im.getPrice(24) * squareSlicesAmount;
 
         Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
-        try {
-            om.createPreOrder(ord);
-        } catch (SQLException ex) {
-            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        om.createPreOrder(ord);
 
         ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getLatestOrder(), im.getId(im.getName(8)));
         ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getLatestOrder(), im.getId(im.getName(10)));

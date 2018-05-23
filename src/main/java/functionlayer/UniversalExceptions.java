@@ -11,71 +11,72 @@ public final class UniversalExceptions extends Exception {
     }
 
     public UniversalExceptions() {
-        NoPreOrderCreated();
+    }
+
+    
+    
+    public void NoPreOrderCreated() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Order did not get created, try again");
     }
     
-    public void NoPreOrderCreated()
+    public void DidNotGetOrder() throws UniversalExceptions
     {
-        throw new Error("Order did not get created, try again");
+        throw new UniversalExceptions("Could not find the order you were looking for, try again");
     }
     
-    public void DidNotGetOrder(String msg)
+    public void LatestOrderDidNotGetFound(String msg) throws UniversalExceptions
     {
-        throw new Error("Could not find the order you were looking for, try again");
+        throw new UniversalExceptions("Latest order could not be found");
     }
     
-    public void LatestOrderDidNotGetFound(String msg)
+    public void DidNotFindTheOrder(String msg) throws UniversalExceptions
     {
-        throw new Error("Latest order could not be found");
+        throw new UniversalExceptions("Did not find the order");
     }
     
-    public void DidNotFindTheOrder(String msg)
+    public void DidNotGetNonSentOrderId(String msg) throws UniversalExceptions
     {
-        throw new Error("Did not find the order");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetNonSentOrderId(String msg)
+    public void DidNotGetAllOrdersId(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllOrdersId(String msg)
+    public void DidNotGetAllOrders(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllOrders(String msg)
+    public void DidNotGetAllConfirmedOrders(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllConfirmedOrders(String msg)
+    public void DidNotGetAllPendingOrders(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllPendingOrders(String msg)
+    public void DidNotGetAllCustomerOrders(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllCustomerOrders(String msg)
+    public void DidNotGetAllCustomerOrdersId(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
     }
     
-    public void DidNotGetAllCustomerOrdersId(String msg)
+    public void CouldNotSendOrder(String msg) throws UniversalExceptions
     {
-        throw new NullPointerException("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Order did not get send. Tr again");
     }
     
-    public void CouldNotSendOrder(String msg)
+    public void DidNotFindThePrice(String msg) throws UniversalExceptions
     {
-        throw new Error("Order did not get send. Tr again");
-    }
-    
-    public void DidNotFindThePrice(String msg)
-    {
-        throw new Error("Not possible to find the price. Try again");
+        throw new UniversalExceptions("Not possible to find the price. Try again");
     }
 }
