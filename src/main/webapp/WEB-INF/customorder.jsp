@@ -55,21 +55,20 @@
                         <input type="hidden" name="command" value="order">
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
-                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="0">
+                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="200" max="1000" required>
 
 
                         </div>            
                         <div class="width">
                             <label>Carport bredde i cm*</label><br>
-                            <input type="number" class="form-control" name="width" placeholder="vælg bredde">
+                            <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="200" max="1000" required>
 
 
                         </div>            
                         <div class="height">
                             <label> Carport højde</label><br>
-                            <select class="form-control" name="height">
-                                <option value="200">Vælg højde</option>
-                                <option value="200">200 cm</option>   
+                            <select class="form-control" name="height" required>
+                                <option value="200">200 cm</option> 
                                 <option value="210">210 cm</option>
                                 <option value="220">220 cm</option>   
                                 <option value="230">230 cm</option>
