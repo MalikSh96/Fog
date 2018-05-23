@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package presentationlayer;
 
 import dbaccess.InventoryMapper;
 import dbaccess.UserMapper;
 import functionlayer.LoginSampleException;
+import functionlayer.Orders;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,33 +15,35 @@ import javax.servlet.http.HttpSession;
  */
 public class UpdateInventory extends Command {
 
-    int userID = 0;
+    int inventoryId = 0;
     String name, desc, unit;
-    int status, length;
+    int length, status, price;
     InventoryMapper im = new InventoryMapper();
-
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        if (request.getParameter("name") != null) {
-            name = request.getParameter("name");
-        }
-        if (request.getParameter("description") != null) {
-            desc = request.getParameter("description");
-        }
-        if (request.getParameter("status") != null) {
-            status = Integer.parseInt(request.getParameter("status"));
-        }
-        if (request.getParameter("length") != null) {
-            length = Integer.parseInt(request.getParameter("length"));
-        }
-        if (request.getParameter("unit") != null) {
-            unit = request.getParameter("unit");
-        }
+        HttpSession session = request.getSession();
+        inventoryId = (int) session.getAttribute("inventoryid");
+        name = im.getName(inventoryId);
+        desc = im.getDescription(inventoryId);
+        length = im.getLength(inventoryId);
+        unit = im.getUnit(name);
+        status = im.getStatus(inventoryId);
+        price = im.getPrice(inventoryId);
+        
 
-        im.addToInventory(name, desc, length, unit, status);
-
-        return "updateinventorypage";
+        if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
+        if(request.getParameter("desc").length() > 0 ){ desc = request.getParameter("desc");}
+        if(request.getParameter("length").length() > 0){ length = Integer.parseInt(request.getParameter("length"));} 
+        if(request.getParameter("unit").length() > 0) { unit = request.getParameter("unit"); }
+        if(request.getParameter("status").length() > 0) { status = Integer.parseInt(request.getParameter("status")); }
+        if(request.getParameter("price").length() > 0) {price = Integer.parseInt(request.getParameter("price")); }
+        
+        im.UpdateInventory(inventoryId, name, desc, length, unit, status, price);
+              return "updateinventorypage";
     }
 
 }
+   //<%=//im.getSpecificItem((int)session.getAttribute("inventoryid")).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+       

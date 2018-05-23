@@ -20,7 +20,7 @@
         Ordre med Skitsetegning.
         <br><br>
 
-        Udfyld nedenstående omhyggeligt og klik på "Ordre"<br>
+        Udfyld nedenstående omhyggeligt og klik på "Placér Ordre"<br>
         Felter markeret * SKAL udfyldes!<br><br>
 
 
@@ -91,7 +91,7 @@
             <br/> 
 
 
-            <button id="toolshed">Redskabsskur</button>  
+            <button id="toolshed">Tilføj Redskabsskur</button>  
             <br/>
 
             <div id="customordrertoolshed">
@@ -134,11 +134,7 @@
             <div>
 
                 <br/> 
-                <input id="orderSubmit" type="submit" value="Order">
-            </div>
-            <div>
-                * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.
-
+                <input id="orderSubmit" type="submit" value="Placér Ordre">
             </div>
         </form> 
 

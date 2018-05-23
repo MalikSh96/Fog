@@ -40,8 +40,9 @@ public class InventoryMapper {
                 String unit = resultset.getString("unit");
                 String desc = resultset.getString("description");
                 int status = resultset.getInt("status");
+                int price = resultset.getInt("price");
 
-                inv = new Inventory(id, name, length, unit, desc, status);
+                inv = new Inventory(id, name, length, unit, desc, status, price);
                 inventory.add(inv);
 
             }
@@ -54,12 +55,12 @@ public class InventoryMapper {
         return inventory;
     }
 
-    public void addToInventory(String name, String desc, int length, String unit, int status) throws LoginSampleException {
+    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
         try {
             Connection con = dbaccess.Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
-                    + "', unit = '" + unit + "', status = '" + status + "';";
+                    + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             ps.executeUpdate();
@@ -113,7 +114,7 @@ public class InventoryMapper {
 
         return length;
     }
-    
+
     public String getUnit(String name) {
 
         String unit = null;
@@ -135,7 +136,30 @@ public class InventoryMapper {
         }
 
         return unit;
-    }    
+    }
+
+    public int getId(String name) {
+
+        int id = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT id FROM inventory where name = '" + name + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                id = resultset.getInt("id");
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return id;
+    }
 
     public String getDescription(int id) {
 
@@ -177,7 +201,8 @@ public class InventoryMapper {
                 int length = resultset.getInt("length");
                 String unit = resultset.getString("unit");
                 int status = resultset.getInt("status");
-                result = new Inventory(id, name, length, unit, desc, status);
+                int price = resultset.getInt("price");
+                result = new Inventory(id, name, length, unit, desc, status, price);
             }
 
             System.out.println("sql syntax ok? " + SQL);
@@ -189,20 +214,104 @@ public class InventoryMapper {
         return result;
     }
 
-    public void updateStatus(int id, int amount) {
+    public int getStatus(int id) {
 
+        int result = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE FogUsers.inventory SET status ='" + amount + "' WHERE id='" + id + "';";
+            String SQL = "SELECT status FROM inventory where id = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
 
-            ps.executeUpdate(SQL);
+            while (resultset.next()) {
+                result = resultset.getInt("status");
+
+            }
 
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
             throw new Error(ex.getMessage());
+        }
+
+        return result;
+    }
+
+    public int getPrice(int id) {
+
+        int result = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT price FROM inventory where id = '" + id + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                result = resultset.getInt("price");
+            }
+
+            System.out.println("sql syntax ok? " + SQL);
+                return result;
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+    }
+
+    public boolean updateStatus(int id, int amount) {
+        int result = getStatus(id) - amount;
+        if (result > 0) {
+            try {
+                Connection con = Connector.connection();
+                String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
+
+                PreparedStatement ps = con.prepareStatement(SQL);
+
+                ps.executeUpdate(SQL);
+
+                System.out.println("sql syntax ok? " + SQL);
+                return true;
+            } catch (SQLException | ClassNotFoundException ex) { //temporary error
+                throw new Error(ex.getMessage());
+            }
+        }
+        return false;
+    }
+
+    public void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) {
+        int result = getStatus(id) + amount;
+        for (int i = 0; i < wrongIds.size(); i++) {
+            if (id != wrongIds.get(i)) {
+                try {
+                    Connection con = Connector.connection();
+                    String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
+
+                    PreparedStatement ps = con.prepareStatement(SQL);
+
+                    ps.executeUpdate(SQL);
+
+                    System.out.println("sql syntax ok? " + SQL);
+                } catch (SQLException | ClassNotFoundException ex) { //temporary error
+                    throw new Error(ex.getMessage());
+                }
+            }
+        }
+    }
+
+    public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
+        try {
+            Connection con = dbaccess.Connector.connection();
+            String SQL = "UPDATE FogUsers.inventory SET name = '" + name
+                    + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
+                    + "', status = '" + status + "', price = '" + price
+                    + "' WHERE id='" + id + "';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
         }
     }
 }
