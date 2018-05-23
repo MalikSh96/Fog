@@ -72,8 +72,14 @@ public class ItemList
     public List<Integer> remAmount(int carportLength) 
     {
         //Carport only have 2 sides, no middle posts
-        if(carportLength <= 6) { remTotal = 2;}
-        else { remTotal = 4;}
+        if(carportLength <= 600) 
+        { 
+            remTotal = 2;
+        }
+        else 
+        { 
+            remTotal = 4;
+        }
         rem.add(remTotal);
         return rem;
     }
@@ -100,16 +106,18 @@ public class ItemList
     }
     
     //Work in progress
-    public void Shed(int carportWidth, int shedWidth)
+    public void ShedPost(int carportWidth, int shedWidth, int shedLength)
     {
+        int extraPost = 0;
+        extraPost = (shedWidth / 200);
         if(carportWidth == shedWidth)
         {
-            int extraPost = 2;
-            post.add(extraPost);  
+            postTotal += (extraPost * 2);
+            post.add(postTotal);  
         }
         if(carportWidth > shedWidth)
         {
-            int extraPost = 3;
+            
             post.add(extraPost);
         }
     }

@@ -50,12 +50,12 @@ public class OrderMapper {
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
 //            throw new Error(ex.getMessage());
-            throw new Error("No order created, try again or contact us");
-//            Connection con = Connector.connection();
-//            System.out.println("You are here");
-//            String sql = "select * from FogUsers.error where id = '1'";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            System.out.println("... " + ps.execute());
+//            throw new Error("No order created, try again or contact us");
+            Connection con = Connector.connection();
+            System.out.println("You are here");
+            String sql = "select * from FogUsers.error where id = '1'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            System.out.println("... " + ps.execute());
         }
         return orderId;
     }

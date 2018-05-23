@@ -98,7 +98,7 @@
                 <div>
                     <label>Redskabsskur længde</label><br/>
                     <select class="form-control" name="toolshedlength">
-                        <option value="0">Ønske ikke redskabsrum</option>
+                        <option value="0">Ønsker ikke redskabsrum</option>
                         <option value="160">160 cm</option>
                         <option value="170">170 cm</option>
                         <option value="180">180 cm</option>
@@ -116,7 +116,7 @@
                 <div>
                     <label>Redskabsskur bredde</label><br/>
                     <select class="form-control" name="toolshedwidth">
-                        <option value="0">Ønske ikke redskabsrum</option>                 
+                        <option value="0">Ønsker ikke redskabsrum</option>                 
                         <option value="160">160 cm</option>
                         <option value="170">170 cm</option>
                         <option value="180">180 cm</option>
