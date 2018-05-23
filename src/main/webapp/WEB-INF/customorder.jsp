@@ -51,7 +51,7 @@
 
                 </div>
                 <div  class="col-sm-4" >
-                    <form action="FrontController" method="POST">
+                    <form name="shedForm" action="FrontController" method="POST" onsubmit="return validateshedform()">
                         <input type="hidden" name="command" value="order">
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
@@ -80,20 +80,55 @@
                         <br/> 
                 </div>
                 <div class="col-sm-4">
-                    <input type="checkbox" id="toolshed" class="inputstl" onclick="shedToggler()"> Redskabsskur  
+                    <input name="toolshed_checkbox" type="checkbox" id="toolshed" class="inputstl" onclick="shedToggler()"> Redskabsskur  
                     <br/>
 
                     <div id="customordrertoolshed">
                         <div>
                             <label>Redskabsskur længde</label><br/>
-                            <input type="number" value="0"class="form-control" name="toolshedlength" min="0">
+                            <select class="form-control" name="toolshedlength">
+                                <option value="0">Ønske ikke redskabsrum</option>
+                                <option value="160">160 cm</option>
+                                <option value="170">170 cm</option>
+                                <option value="180">180 cm</option>
+                                <option value="190">190 cm</option>
+                                <option value="200">200 cm</option>
+                                <option value="210">210 cm</option>
+                                <option value="220">220 cm</option>
+                                <option value="230">230 cm</option>
+                                <option value="240">240 cm</option>
+                                <option value="250">250 cm</option>
+                                <option value="260">260 cm</option>
+                                <option value="270">270 cm</option>
+                                <option value="280">280 cm</option>
+                                <option value="290">290 cm</option>
+                                <option value="300">300 cm</option>
 
+                            </select>
                         </div>
 
                         <br/>
                         <div>
                             <label>Redskabsskur bredde</label><br/>
-                            <input type="numbeer" value="0"  min="0" class="form-control" name="toolshedwidth">
+                            <select class="form-control" name="toolshedwidth">
+                                <option value="0">Ønske ikke redskabsrum</option>                 
+                                <option value="160">160 cm</option>
+                                <option value="170">170 cm</option>
+                                <option value="180">180 cm</option>
+                                <option value="190">190 cm</option>
+                                <option value="200">200 cm</option>
+                                <option value="210">210 cm</option>
+                                <option value="220">220 cm</option>
+                                <option value="230">230 cm</option>
+                                <option value="240">240 cm</option>
+                                <option value="250">250 cm</option>
+                                <option value="260">260 cm</option>
+                                <option value="270">270 cm</option>
+                                <option value="280">280 cm</option>
+                                <option value="290">290 cm</option>
+                                <option value="300">300 cm</option>
+
+                            </select>
 
                         </div>
                     </div>

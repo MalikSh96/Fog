@@ -23,15 +23,39 @@
             OrderMapper om = new OrderMapper();
         %>
 
+        <table>
+            <thead class="table table-striped">
+                <tr>
+                    <th scope="col">#</th> 
+                    <th scope="col">Ordrenummer</th>
+                    <th scope="col">Dato</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+            <form action="FrontController" method="POST">
+                <input type="hidden" name="command" value="specificOrder">
+                <th scope="row"><button name="chosenid">se ordre</button></th>
+            </form>
+            <td>
+                <%=om.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "")%></a>
+            </td>
+            <td>
+                <%= om.getDates(user.getId()).toString()%>
+            </td>
+            </tr>
+            </tbody>
 
-        <br><%=om.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+            <br><br>
 
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificOrder">
-            <br><input type="number" name="chosenid" placeholder="Order ID"/>
-            <input type="submit" value="Se ordre" /><br>
-        </form>
 
+
+            <form action="FrontController" method="POST">
+                <input type="hidden" name="command" value="specificOrder">
+                <br><input type="number" name="chosenid" placeholder="Order ID"/>
+                <input type="submit" value="Se ordre" /><br>
+            </form>
+        </table>
 
     </center>
 </body>
