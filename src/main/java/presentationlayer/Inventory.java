@@ -16,10 +16,8 @@ public class Inventory extends Command {
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        
-
-      
-              return "inventory";
+              
+      return "inventory";
     }
 
 }
