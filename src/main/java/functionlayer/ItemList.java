@@ -97,8 +97,7 @@ public class ItemList
         } 
         else 
         {
-            roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals
-            
+            roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals           
         }        
         
         roof.add(roofTotal);
@@ -108,17 +107,18 @@ public class ItemList
     //Work in progress
     public void ShedPost(int carportWidth, int shedWidth, int shedLength)
     {
-        int extraPost = 0;
-        extraPost = (shedWidth / 200);
+        Double extraPost = 0.00;
+        extraPost = (shedWidth / 200.00);
+        int postExtra = extraPost.intValue();
         if(carportWidth == shedWidth)
         {
-            postTotal += (extraPost * 2);
+            postTotal += (postExtra * 2);
             post.add(postTotal);  
         }
         if(carportWidth > shedWidth)
         {
             
-            post.add(extraPost);
+            post.add(postExtra);
         }
     }
 

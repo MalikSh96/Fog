@@ -26,8 +26,8 @@ public class OrderMapper {
 
     public int createPreOrder(Orders ord) throws ClassNotFoundException, SQLException {
         int orderId = 0;
-        try {
             Connection con = Connector.connection();
+        try {
             String SQL = "INSERT INTO orders (userID, length, width, height, price) VALUES (?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -48,14 +48,9 @@ public class OrderMapper {
                 return orderId;
 
             }
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+        } catch (SQLException ex) { //temporary error
 //            throw new Error(ex.getMessage());
-//            throw new Error("No order created, try again or contact us");
-            Connection con = Connector.connection();
-            System.out.println("You are here");
-            String sql = "select * from FogUsers.error where id = '1'";
-            PreparedStatement ps = con.prepareStatement(sql);
-            System.out.println("... " + ps.execute());
+            throw new Error("No order created, try again or contact us");
         }
         return orderId;
     }
