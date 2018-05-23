@@ -10,73 +10,215 @@ public final class UniversalExceptions extends Exception {
         super(msg);
     }
 
-    public UniversalExceptions() {
+    public UniversalExceptions() 
+    {
+        
+    }
+
+    //Ordermapper exceptions
+    public void ThrowNoPreOrderCreatedException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to create your order. Try again");
+    }
+    
+    public void ThrowDidNotGetOrderException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the order. Try again");
+    }
+    
+    public void ThrowLatestOrderDidNotGetFoundException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to find the latest order. Try again");
+    }
+    
+    public void ThrowDidNotFindTheOrderException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to find the order you were looking for. Try again");
+    }
+    
+    public void ThrowDidNotGetUserIdException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the orders for the user you chose. Try again");
+    }
+    
+    public void ThrowDidNotGetNonSentOrderIdException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list with the non sent order id. Try again");
+    }
+    
+    public void ThrowDidNotGetAllOrdersIdException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list with all the id's of the orders. Try again");
+    }
+    
+    public void ThrowDidNotGetAllOrdersException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list. Try again");
+    }
+    
+    public void ThrowDidNotGetAllConfirmedOrdersException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list the confirmed orders. Try again");
+    }
+    
+    public void ThrowDidNotGetAllPendingOrdersException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list with the pending orders. Try again");
+    }
+    
+    public void ThrowDidNotGetAllCustomerOrdersException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list with all the customer orders. Try again");
+    }
+    
+    public void ThrowDidNotGetAllCustomerOrdersIdException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the list with all the customer orders id. Try again");
+    }
+    
+    public void ThrowCouldNotSendOrderException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to send the order. Try again");
+    }
+    
+    public void ThrowDidNotFindThePriceException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to find the price. Try again");
     }
 
     
-    
-    public void NoPreOrderCreated() throws UniversalExceptions
+    //Usermapper exceptions
+    public void ThrowDidNotCreateUserException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Order did not get created, try again");
+        throw new UniversalExceptions("Was not possible to create a user. Try again");
     }
     
-    public void DidNotGetOrder() throws UniversalExceptions
+    public void ThrowDidNotLoginException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Could not find the order you were looking for, try again");
+        throw new UniversalExceptions("Was not possible to log in. Try again");
     }
     
-    public void LatestOrderDidNotGetFound(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetTheUserIdException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Latest order could not be found");
+        throw new UniversalExceptions("Was not possible to retrieve the user with that id. Try again");
     }
     
-    public void DidNotFindTheOrder(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetTheUserException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Did not find the order");
+        throw new UniversalExceptions("Was not possible to retrieve the user you were looking for. Try again");
     }
     
-    public void DidNotGetNonSentOrderId(String msg) throws UniversalExceptions
+    public void ThrowDidNotUpdateUserInfoException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Was not possible to update the user. Try again");
     }
     
-    public void DidNotGetAllOrdersId(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetUserListException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Was not possible to retrieve the list with all users. Try again");
     }
     
-    public void DidNotGetAllOrders(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetAllUserIdsException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Was not possible to retrieve the list with all users' id. Try again");
     }
     
-    public void DidNotGetAllConfirmedOrders(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetUserRoleException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Was not possible to retirve the role for the desired user. Try again");
     }
     
-    public void DidNotGetAllPendingOrders(String msg) throws UniversalExceptions
+    public void ThrowDidNotFindUserIdException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("Was not possible to find the user you were looking for. Try again");
     }
     
-    public void DidNotGetAllCustomerOrders(String msg) throws UniversalExceptions
+    
+    //InventoryMapper exceptions --- needs some messages to display
+    public void ThrowDidNotGetTheCompleteInventoryException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("");
     }
     
-    public void DidNotGetAllCustomerOrdersId(String msg) throws UniversalExceptions
+    public void ThrowCouldNotAddToInventoryException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Seems like the list didn't come through, possible cause is the list is empty. Try again");
+        throw new UniversalExceptions("");
     }
     
-    public void CouldNotSendOrder(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetTheNameException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Order did not get send. Tr again");
+        throw new UniversalExceptions("");
     }
     
-    public void DidNotFindThePrice(String msg) throws UniversalExceptions
+    public void ThrowDidNotGetTheLengthException() throws UniversalExceptions
     {
-        throw new UniversalExceptions("Not possible to find the price. Try again");
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheUnitException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheIdException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheDescriptionException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheSpecificItemException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheStatusException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetThePriceException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotUpdateTheStatusException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowCouldNotReverseTheStatusUpdateException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowCouldNotUpdateInventoryException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    
+    //ItemListMapper exceptions --- needs some messages to display
+    public void ThrowDidNotAddToItemlistException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheFullItemlistException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheFullItemlisIdtException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
+    }
+    
+    public void ThrowDidNotGetTheAmounttException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("");
     }
 }
