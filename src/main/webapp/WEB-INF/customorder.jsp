@@ -16,8 +16,8 @@
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
-         <style>
+
+        <style>
             input[type=number]::-webkit-inner-spin-button, 
             input[type=number]::-webkit-outer-spin-button { 
                 -webkit-appearance: none;
@@ -56,13 +56,13 @@
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
                             <input type="number" class="form-control" name="length" placeholder="vælg længde" min="0">
-                                
+
 
                         </div>            
                         <div class="width">
                             <label>Carport bredde i cm*</label><br>
                             <input type="number" class="form-control" name="width" placeholder="vælg bredde">
-                                
+
 
                         </div>            
                         <div class="height">
@@ -80,21 +80,21 @@
                         <br/> 
                 </div>
                 <div class="col-sm-4">
-                    <input type="checkbox" id="toolshed" class="inputstl" onclick="myFunction()"> Redskabsskur  
+                    <input type="checkbox" id="toolshed" class="inputstl" onclick="shedToggler()"> Redskabsskur  
                     <br/>
 
                     <div id="customordrertoolshed">
                         <div>
                             <label>Redskabsskur længde</label><br/>
                             <input type="number" value="0"class="form-control" name="toolshedlength" min="0">
-                                
+
                         </div>
 
                         <br/>
                         <div>
                             <label>Redskabsskur bredde</label><br/>
                             <input type="numbeer" value="0"  min="0" class="form-control" name="toolshedwidth">
-                              
+
                         </div>
                     </div>
                     <div>
@@ -110,9 +110,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
         <%@include file="../footer/footer.jsp" %>
         <script src="./javascriptcustomordre.js" type="text/javascript"></script>

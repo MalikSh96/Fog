@@ -1,17 +1,9 @@
 function myFunction() {
 
-    var modaltoolshed = document.getElementById('customordrertoolshed');
     var checkboxtoolshed = document.getElementById("toolshed");
+    var modaltoolshed = document.getElementById('customordrertoolshed');
 
 
-//checkboxtoolshed.onclick = function (event) {
-//    event.preventDefault();
-//    if (modaltoolshed.style.display === "block") {
-//        modaltoolshed.style.display = "none";
-//    } else {
-//        modaltoolshed.style.display = "block";
-//    }
-//}
 
     if (checkboxtoolshed.checked == true) {
         modaltoolshed.style.display = "block";

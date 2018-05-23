@@ -25,6 +25,9 @@
                 <td>
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">
+                        <%if(request.getAttribute("from") != null){ %>
+                        <input type="hidden" name="from" value="<%=request.getAttribute("from")%>">                        
+                        <% }%>
                         Email:<br>
                         <input type="text" name="email" value="" placeholder="Email">
                         <br>

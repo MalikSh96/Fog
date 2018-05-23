@@ -12,11 +12,11 @@ public class ItemlistMapper {
 
     InventoryMapper im = new InventoryMapper();
 
-    public void addToItemlist(String name, String desc, int length, int amount, int orderId) {
+    public void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid) VALUES (?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, name); //user id
@@ -25,6 +25,7 @@ public class ItemlistMapper {
             ps.setString(4, im.getUnit(name));
             ps.setInt(5, amount);
             ps.setInt(6, orderId);
+            ps.setInt(7, itemId);
 
             System.out.println("Check sql order " + SQL);
 
@@ -71,6 +72,54 @@ public class ItemlistMapper {
         }
 
         return itemlist;
+
+    }
+
+    public List<Integer> getFullItemlistId(int orderId) {
+
+        List<Integer> itemIds = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT itemId FROM itemlist where orderid = '" + orderId + "'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            while (resultset.next()) {                
+                itemIds.add(resultset.getInt("itemId"));
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return itemIds;
+
+    }
+
+    public int getAmount(int orderId, int itemId) {
+
+        int amount = 0;
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "' and itemId = '" + itemId +"'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            while (resultset.next()) {                
+                amount = resultset.getInt("amount");
+                
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return amount;
 
     }
 }
