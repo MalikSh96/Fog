@@ -64,7 +64,7 @@
                     </td>
                     <td>
 
-                        <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefon nr."/>
+                        <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefonnr."/>
                     </td>
                 </tr>
                 <tr>
@@ -90,7 +90,7 @@
                 <tr>
 
                     <td colspan="2" style="width: 150px; text-align: center;" > 
-                        <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnummer"/>
+                        <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnr."/>
                     </td>            
                 </tr>
                 <tr>
