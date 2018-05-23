@@ -1,14 +1,14 @@
 package maintest;
 
-import dbaccess.InventoryMapper;
-import dbaccess.ItemlistMapper;
-import dbaccess.OrderMapper;
-import dbaccess.UserMapper;
-import functionlayer.Inventory;
-import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
-import functionlayer.Orders;
-import functionlayer.User;
+import datalayer.InventoryMapper;
+import datalayer.ItemlistMapper;
+import datalayer.OrderMapper;
+import datalayer.UserMapper;
+import businesslayer.Inventory;
+import businesslayer.ItemList;
+import businesslayer.LoginSampleException;
+import businesslayer.Orders;
+import businesslayer.User;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

@@ -5,9 +5,9 @@
  */
 package presentationlayer;
 
-import dbaccess.OrderMapper;
-import functionlayer.LoginSampleException;
-import functionlayer.Orders;
+import datalayer.OrderMapper;
+import businesslayer.LoginSampleException;
+import businesslayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

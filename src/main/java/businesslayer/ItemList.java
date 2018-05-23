@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package functionlayer;
+package businesslayer;
 
-import dbaccess.InventoryMapper;
+import datalayer.InventoryMapper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class ItemList 
 {
-    private InventoryMapper im = new InventoryMapper();
     
     private List<Integer> post = new ArrayList<>();
     private List<Integer> raft = new ArrayList<>();

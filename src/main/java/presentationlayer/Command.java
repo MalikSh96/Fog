@@ -1,7 +1,7 @@
 package presentationlayer;
 
 
-import functionlayer.LoginSampleException;
+import businesslayer.LoginSampleException;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.ServletException;

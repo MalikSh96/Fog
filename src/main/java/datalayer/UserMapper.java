@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbaccess;
+package datalayer;
 
 
 import com.mysql.cj.api.mysqla.result.Resultset;
-import functionlayer.LoginSampleException;
-import functionlayer.User;
+import businesslayer.LoginSampleException;
+import businesslayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +27,7 @@ public class UserMapper
      {
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "INSERT INTO users (name, lastname, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
@@ -55,7 +55,7 @@ public class UserMapper
     {
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT id, role FROM users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -82,7 +82,7 @@ public class UserMapper
         int id = 0;
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users where email = '" + email +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -102,7 +102,7 @@ public class UserMapper
         User u = null;
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users where id = '" + id + "'";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -130,7 +130,7 @@ public class UserMapper
         {
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "UPDATE FogUsers.users SET name = '" +name +
             "', lastname = '" + lastname + "', address = '"+address+"', postalnumber = '"+postalnumber+
                     "', phone = '"+phone+"', email = '"+email+
@@ -149,7 +149,7 @@ public class UserMapper
         List<User> userlist = new ArrayList<>();
 
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -179,7 +179,7 @@ public class UserMapper
         List<Integer> idList = new ArrayList<>();
 
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users order by id asc";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -201,7 +201,7 @@ public class UserMapper
         String role = null;
         try 
         {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "SELECT role FROM FogUsers.users where id = '" + id +"';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 

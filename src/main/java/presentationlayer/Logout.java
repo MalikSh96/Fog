@@ -5,7 +5,7 @@
  */
 package presentationlayer;
 
-import functionlayer.LoginSampleException;
+import businesslayer.LoginSampleException;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

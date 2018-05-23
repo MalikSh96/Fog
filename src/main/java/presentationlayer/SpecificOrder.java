@@ -5,10 +5,10 @@
  */
 package presentationlayer;
 
-import dbaccess.OrderMapper;
-import dbaccess.UserMapper;
-import functionlayer.LoginSampleException;
-import functionlayer.User;
+import datalayer.OrderMapper;
+import datalayer.UserMapper;
+import businesslayer.LoginSampleException;
+import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

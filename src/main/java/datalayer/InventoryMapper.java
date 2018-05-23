@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbaccess;
+package datalayer;
 
-import functionlayer.Orders;
+import businesslayer.Orders;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import functionlayer.Inventory;
-import functionlayer.LoginSampleException;
+import businesslayer.Inventory;
+import businesslayer.LoginSampleException;
 import java.sql.Statement;
 
 /**
@@ -57,7 +57,7 @@ public class InventoryMapper {
 
     public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
@@ -302,7 +302,7 @@ public class InventoryMapper {
 
     public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
                     + "', status = '" + status + "', price = '" + price

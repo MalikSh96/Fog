@@ -1,10 +1,10 @@
 package presentationlayer;
 
-import dbaccess.InventoryMapper;
-import dbaccess.UserMapper;
-import functionlayer.LoginSampleException;
-import functionlayer.Orders;
-import functionlayer.User;
+import datalayer.InventoryMapper;
+import datalayer.UserMapper;
+import businesslayer.LoginSampleException;
+import businesslayer.Orders;
+import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

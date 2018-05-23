@@ -5,7 +5,8 @@
  */
 package dbaccess;
         
-import functionlayer.Orders;
+import datalayer.OrderMapper;
+import businesslayer.Orders;
 import java.util.List;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;

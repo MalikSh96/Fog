@@ -5,6 +5,7 @@
  */
 package functionlayer;
 
+import businesslayer.ItemList;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.jupiter.api.Disabled;

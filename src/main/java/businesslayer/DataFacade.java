@@ -1,13 +1,13 @@
-package functionlayer;
+package businesslayer;
 
-import dbaccess.UserMapper;
+import datalayer.UserMapper;
 
 /**
- * The purpose of LogicFacade is to...
+ * The purpose of DataFacade is to...
  *
  * @author kasper
  */
-public class LogicFacade 
+public class DataFacade 
 {
     public static User login(String email, String password) throws LoginSampleException 
     {

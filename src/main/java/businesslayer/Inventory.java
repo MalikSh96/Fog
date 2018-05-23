@@ -1,4 +1,4 @@
-package functionlayer;
+package businesslayer;
 
 public class Inventory 
 {    

@@ -1,15 +1,15 @@
 package presentationlayer;
 
-import dbaccess.InventoryMapper;
-import dbaccess.ItemlistMapper;
-import dbaccess.OrderMapper;
-import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
-import functionlayer.Orders;
+import datalayer.InventoryMapper;
+import datalayer.ItemlistMapper;
+import datalayer.OrderMapper;
+import businesslayer.ItemList;
+import businesslayer.LoginSampleException;
+import businesslayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import functionlayer.User;
+import businesslayer.User;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

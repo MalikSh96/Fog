@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbaccess;
+package datalayer;
 
-import functionlayer.Orders;
-import functionlayer.User;
+import businesslayer.Orders;
+import businesslayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
