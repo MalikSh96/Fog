@@ -28,6 +28,8 @@ public class Main {
         ItemlistMapper ilm = new ItemlistMapper();
         Orders ord = new Orders(0, -1, 0);
         om.createPreOrder(ord);
+            UniversalExceptions ue = new UniversalExceptions();
+            System.out.println(ue.getErrorMessage(1));
 //        User us = um.getUser(1);
 //        File file = new File("");
         

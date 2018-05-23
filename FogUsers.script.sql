@@ -49,20 +49,18 @@ CREATE TABLE `inventory` (
   );
   
   CREATE TABLE `itemlist` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `orderid` INT NOT NULL,
   `name` VARCHAR(150) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `length` INT,
   `unit` VARCHAR(45),
   `amount` INT,
-  `orderid` INT NOT NULL,
-  `itemId` INT NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+  `itemId` INT NOT NULL DEFAULT '0'
   );
   
   CREATE TABLE `error` (
-  `id` INT NOT NULL AUTO_INCREMENT,  
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `message` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );

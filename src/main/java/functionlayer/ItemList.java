@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class ItemList 
 {
-    private InventoryMapper im = new InventoryMapper();
+ //   private InventoryMapper im = new InventoryMapper();
     
     private List<Integer> post = new ArrayList<>();
     private List<Integer> raft = new ArrayList<>();

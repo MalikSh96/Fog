@@ -23,6 +23,8 @@ import java.util.logging.Logger;
  * @author malik
  */
 public class OrderMapper {
+    
+    UniversalExceptions ue = new UniversalExceptions();
 
     public int createPreOrder(Orders ord) throws ClassNotFoundException, SQLException {
         int orderId = 0;
@@ -49,8 +51,9 @@ public class OrderMapper {
 
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            System.out.println(ue.getErrorMessage(1));
 //            throw new Error(ex.getMessage());
-            throw new Error("No order created, try again or contact us");
+//            throw new Error("No order created, try again or contact us");
 //            Connection con = Connector.connection();
 //            System.out.println("You are here");
 //            String sql = "select * from FogUsers.error where id = '1'";
