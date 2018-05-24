@@ -74,7 +74,7 @@ public class InventoryMapper
         }
     }
 
-    public String getName(int id) throws UniversalExceptions {
+    public String getName(int id) /*throws UniversalExceptions*/ {
 
         String name = null;
         try {
@@ -91,8 +91,8 @@ public class InventoryMapper
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
-            uex.ThrowDidNotGetTheNameException();
+            throw new Error(ex.getMessage());
+//            uex.ThrowDidNotGetTheNameException();
         }
 
         return name;
@@ -170,7 +170,7 @@ public class InventoryMapper
         return id;
     }
 
-    public String getDescription(int id) throws UniversalExceptions {
+    public String getDescription(int id) /*throws UniversalExceptions*/ {
 
         String desc = null;
         try {
@@ -187,8 +187,8 @@ public class InventoryMapper
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
-            uex.ThrowDidNotGetTheDescriptionException();
+            throw new Error(ex.getMessage());
+//            uex.ThrowDidNotGetTheDescriptionException();
         }
 
         return desc;
