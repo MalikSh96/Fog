@@ -46,6 +46,7 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
+    String[] toolshed_checkbox;
     int heightline = 0;
 
     //hardcoding of misc carport stuff
@@ -79,7 +80,7 @@ public class Order extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            request.getParameter("needuser");
+            request.setAttribute("from", "customorder");
             return "loginpage";
         }
 
@@ -90,7 +91,7 @@ public class Order extends Command {
         lengthrafter = Integer.parseInt(request.getParameter("length")) - 6;
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
-        widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
+        widthSVG = width + 60;
         lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
         heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
@@ -101,9 +102,19 @@ public class Order extends Command {
         heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
         heightline = Integer.parseInt(request.getParameter("height"));
-        toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
-        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
-
+//        toolshed_checkbox = request.getParameterValues("toolshed_checkbox");
+//        boolean checked = true;
+//        if(toolshed_checkbox[0].equals(checked)){
+            toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
+            toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
+//        }
+//        else {
+//        toolshedlength = 0;
+//        toolshedwidth = 0;       
+     
+//        }
+//            
+     
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("redskabsrumlængde", toolshedlength);

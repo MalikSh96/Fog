@@ -49,7 +49,7 @@ public class UpdateUserInfo extends Command {
 
         
         um.UpdateUserInfo(userID, name, lastname, address, postal, phone, email, password);
-              return "customerpage";
+              return "updateinfopage";
     }
 
 }
