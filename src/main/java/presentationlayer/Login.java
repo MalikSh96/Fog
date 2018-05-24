@@ -25,6 +25,10 @@ public class Login extends Command {
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());
         session.setAttribute("id", user.getId());
+        if(request.getParameter("from") != null){
+         return request.getParameter("from");
+        } else{
         return user.getRole() + "page";
+        }
     }
 }

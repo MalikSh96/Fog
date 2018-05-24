@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  * @author Joklin
  */
 public class SpecificUser extends Command {
-
+    // String chosenId = 0;
     int chosenId = 0;
     UserMapper um = new UserMapper();
     

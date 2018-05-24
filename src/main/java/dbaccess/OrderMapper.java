@@ -64,6 +64,31 @@ public class OrderMapper
         return orderId;
     }
 
+
+    public String getDates(int id) {
+        
+        String dates = null;
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT dates FROM FogUsers.orders where userID = " + id;
+            
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                 dates = resultset.getString("dates");
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+            throw new Error(ex.getMessage());
+        }
+
+        return dates;
+    }
+
     public Orders getOrder(int orderId) throws UniversalExceptions 
     {
         Orders ord = null;
