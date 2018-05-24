@@ -18,6 +18,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Order extends Command {
 
     OrderMapper om = new OrderMapper();
@@ -46,7 +48,7 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
-    String[] toolshed_checkbox;
+    boolean toolshed_checkbox;
     int heightline = 0;
 
     //hardcoding of misc carport stuff
@@ -102,18 +104,18 @@ public class Order extends Command {
         heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
         heightline = Integer.parseInt(request.getParameter("height"));
-//        toolshed_checkbox = request.getParameterValues("toolshed_checkbox");
-//        boolean checked = true;
-//        if(toolshed_checkbox[0].equals(checked)){
+        toolshed_checkbox = request.getParameter("toolshed_checkbox") != null;
+        
+        if(toolshed_checkbox == true){
             toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
             toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
-//        }
-//        else {
-//        toolshedlength = 0;
-//        toolshedwidth = 0;       
+        }
+        else {
+        toolshedlength = 0;
+        toolshedwidth = 0;       
      
-//        }
-//            
+        }
+            
      
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);

@@ -23,13 +23,10 @@
 
         <div class="indexheading">
             <h1>FOG TRÆLAST & BYGGECENTER</h1>
-<h1>VELKOMMEN TIL QUICK–SELVBYG CARPORTE.</h1>
+
         </div>
-<div class="indextext">
-<p>På denne side kan du selv tilpasse 
-din carport og redskabsskur med dine specifikke ønsker om størrelse. </p>
-        </div>
-        <div class="img-fluid">
+
+        <div class="indeximagecarportquickbyg">
                   
             <img src="Image/carportquickbyg.png" class="indexsrc"/>
         </div>

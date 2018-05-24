@@ -20,7 +20,8 @@ body{
 
     vertical-align: central;
     text-align: center;
-    padding-top: 125px;
+    padding-top: 160px;
+    padding-bottom: 20px;
 }
 .indextext{
     vertical-align: central;
@@ -29,20 +30,13 @@ body{
 
 }
 
-
-
- 
-
-
-
-
 .indeximagecarportquickbyg img{
-    float: left;
-    height: 15%;
+    width: auto;
+    height: 20%;
     display: block;
-    margin-left: 5%;
-    margin-right: 5%;
-
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
 }
 
 /*--------- order -----*/
@@ -195,7 +189,7 @@ h1,h2,h3,h4{
 .loginpagecenter{
     vertical-align: center;
 
-    margin-left:auto; 
+    margin-left: 30%; 
     margin-right:auto;
 
 }
@@ -204,8 +198,9 @@ h1,h2,h3,h4{
     float: left;
     height: 150px;
     display: block;
-    margin-left: 200px;
-    margin-right: auto;
+    margin-left: 25%;
+    margin-right: 10%;
+    margin-top: 100px;
 
 
 }

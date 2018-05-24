@@ -14,6 +14,11 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+
+        <div class="loginpageimg">
+
+            <img src="Image/login.jpg" class="loginpagesrc" />              
+        </div>
         <table class="loginpagecenter">
             <tr>
                 <td>
@@ -21,35 +26,54 @@
                 </td>
             </tr>
 
-            <tr>
-                <td>
-                    <form name="login" action="FrontController" method="POST">
+            <form name="login" action="FrontController" method="POST">
+                <tr>
+                    <td>
                         <input type="hidden" name="command" value="login">
-                        <%if(request.getAttribute("from") != null){ %>
+                        <%if (request.getAttribute("from") != null) {%>
                         <input type="hidden" name="from" value="<%=request.getAttribute("from")%>">                        
+                        <p style="color: red;">Du mangler login eller opret dig som bruger.</p>
+
                         <% }%>
-                        Email:<br>
+                </tr>
+                <tr>
+                    <td>
+                        Email:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <input type="text" name="email" value="" placeholder="Email">
-                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         Password:<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="loginbar">
                         <input type="password" name="password" value="" placeholder="Password">
-                        <br>
-                        <br>  <input type="submit" value="LOG IND">
-                    </form>
-                </td>                
-            </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="LOG IND">
+                    </td>                
+                </tr>
+            </form>
             <tr>
                 <td>
                     <br>
 
                     <a href="FrontController?command=registration">Opret bruger</a>
-                    
+
                 </td>
             </tr>
             <tr>
                 <td>
                     <% String error = (String) request.getAttribute("error");
-                if (error != null) {%>
+                        if (error != null) {%>
                     <H2>Fejl!!</h2>
                     <p><%= error%>
                         <% }
@@ -58,12 +82,9 @@
 
             </tr>
         </table>
-                <div class="loginpageimg">
-                   
-                    <img src="Image/login.jpg" class="loginpagesrc" />              
-                </div>
-                
-                
-                <%@include file="../footer/footer.jsp" %>
+
+
+
+        <%@include file="../footer/footer.jsp" %>
     </body>
 </html>
