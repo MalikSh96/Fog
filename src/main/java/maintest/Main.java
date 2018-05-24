@@ -25,8 +25,13 @@ public class Main {
         OrderMapper om = new OrderMapper();
         InventoryMapper im = new InventoryMapper();
         UserMapper um = new UserMapper();
-        Orders ord = new Orders(0, -1, 0);
-        System.out.println("... " + om.createPreOrder(ord));
+//        Orders ord = new Orders(0, -1, 0);
+//        System.out.println("... " + om.createPreOrder(ord));
+
+        ItemList il = new ItemList();
+        System.out.println("Post: " + il.postAmount(800, 600));
+        System.out.println("Raft: " + il.raftAmount(800, 400));
+        System.out.println("Rem: " + il.remAmount(800));
 
 
     }

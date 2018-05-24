@@ -31,7 +31,7 @@ public class ItemList
     public List<Integer> postAmount(int carportLength, int carportWidth)
     {
         int postRow = 0;
-        postRow = ((carportLength -40) / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
+        postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
 
         if(carportWidth < 800) //max carport width is 8m or 800cm
         {
