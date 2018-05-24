@@ -27,27 +27,13 @@
         <div class="center-text">
             <div class="customerpageoverskrift">
                 <h1>
-                    Logget ind som: <%= usr.getName()%> 
+                    Velkommen <%= usr.getName()%>. 
                 </h1>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>
-                        Min profil
-                    </h3>
-                    Her ser du din profil, hvor du kan opdatere eller redigere dine personlige oplysninger.
-                    <br/>
-                    <h3>"Skræddersyet" ordre</h3>
-                    Her kan du konstruere og "skræddersy" din caport og redskabskur efter dine egne ønskede mål og se det tegnede resultat.
-                    <br/>
-                    <h3>Ordre Historik</h3>
-                    Her kan du se en status på din ordre samt gå tilbage og se tidligere ordre.
-                </div>
-
-
-                <div class="col-sm-4">
+                <div class="text-center">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <a href="FrontController?command=userprofile">Min Profil</a>
