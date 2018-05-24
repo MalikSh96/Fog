@@ -54,15 +54,16 @@ public class ItemList
         
         int raftRowInt = raftRow.intValue();
         
-        if(carportWidth < 800)
+        if(carportWidth < 600)
         {
             raftTotal = raftRowInt +2;
         }
         else
         {
-            int numberOfRows = (carportWidth / 800);
-            numberOfRows++;
-            raftTotal = numberOfRows * raftRowInt;
+            raftTotal = (raftRowInt +2) * 2;
+//            int numberOfRows = (carportWidth / 600);
+//            numberOfRows++;
+//            raftTotal = numberOfRows * raftRowInt;
         }
         
         raft.add(raftTotal);
