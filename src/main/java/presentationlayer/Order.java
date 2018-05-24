@@ -112,16 +112,16 @@ public class Order extends Command {
 
         con.getBf().createOrder(userID, length, width, height);
 
-        con.getBf().addToItemList(con.getBf().getItemName(8), con.getBf().getItemDescription(8), con.getBf().getItemLength(8), remAmount, con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(10), con.getBf().getItemDescription(10), con.getBf().getItemLength(10), raftAmount, con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(11), con.getBf().getItemDescription(11), con.getBf().getItemLength(11), postAmount, con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(15), con.getBf().getItemDescription(15), con.getBf().getItemLength(15), roofAmount, con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(17), con.getBf().getItemDescription(17), con.getBf().getItemLength(17), con.getROOFSCREWAMOUNT(), con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(19), con.getBf().getItemDescription(19), con.getBf().getItemLength(19), con.getUNIVERSALRIGHTAMOUNT(), con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(20), con.getBf().getItemDescription(20), con.getBf().getItemLength(20), con.getUNIVERSALLEFTAMOUNT(), con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(22), con.getBf().getItemDescription(22), con.getBf().getItemLength(22), con.getBRACKETSCREWAMOUNT(), con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(23), con.getBf().getItemDescription(23), con.getBf().getItemLength(23), con.getCARRIAGEBOLTAMOUNT(), con.getBf().getOrderId(), userID);
-        con.getBf().addToItemList(con.getBf().getItemName(24), con.getBf().getItemDescription(24), con.getBf().getItemLength(24), con.getSQUARESLICESAMOUNT(), con.getBf().getOrderId(), userID);
+        con.getBf().addToItemList(con.getBf().getItemName(8), con.getBf().getItemDescription(8), con.getBf().getItemLength(8), remAmount, con.getBf().getOrderId(), 8);
+        con.getBf().addToItemList(con.getBf().getItemName(10), con.getBf().getItemDescription(10), con.getBf().getItemLength(10), raftAmount, con.getBf().getOrderId(), 10);
+        con.getBf().addToItemList(con.getBf().getItemName(11), con.getBf().getItemDescription(11), con.getBf().getItemLength(11), postAmount, con.getBf().getOrderId(), 11);
+        con.getBf().addToItemList(con.getBf().getItemName(15), con.getBf().getItemDescription(15), con.getBf().getItemLength(15), roofAmount, con.getBf().getOrderId(), 15);
+        con.getBf().addToItemList(con.getBf().getItemName(17), con.getBf().getItemDescription(17), con.getBf().getItemLength(17), con.getROOFSCREWAMOUNT(), con.getBf().getOrderId(), 17);
+        con.getBf().addToItemList(con.getBf().getItemName(19), con.getBf().getItemDescription(19), con.getBf().getItemLength(19), con.getUNIVERSALRIGHTAMOUNT(), con.getBf().getOrderId(), 19);
+        con.getBf().addToItemList(con.getBf().getItemName(20), con.getBf().getItemDescription(20), con.getBf().getItemLength(20), con.getUNIVERSALLEFTAMOUNT(), con.getBf().getOrderId(), 20);
+        con.getBf().addToItemList(con.getBf().getItemName(22), con.getBf().getItemDescription(22), con.getBf().getItemLength(22), con.getBRACKETSCREWAMOUNT(), con.getBf().getOrderId(), 22);
+        con.getBf().addToItemList(con.getBf().getItemName(23), con.getBf().getItemDescription(23), con.getBf().getItemLength(23), con.getCARRIAGEBOLTAMOUNT(), con.getBf().getOrderId(), 23);
+        con.getBf().addToItemList(con.getBf().getItemName(24), con.getBf().getItemDescription(24), con.getBf().getItemLength(24), con.getSQUARESLICESAMOUNT(), con.getBf().getOrderId(), 24);
         
         totalPrice += con.getBf().getItemPrice(8) * remAmount;
         totalPrice += con.getBf().getItemPrice(10) * raftAmount;
