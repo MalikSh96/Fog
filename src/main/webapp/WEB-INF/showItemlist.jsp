@@ -1,4 +1,5 @@
-<%@page import="datalayer.ItemlistMapper"%>
+<%@page import="businesslayer.BusinessFacade"%>
+<%@page import="businesslayer.Constants"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,11 +12,12 @@
         
           <%
            int id = (int)session.getAttribute("orderid");
-            ItemlistMapper ilm = new ItemlistMapper();
+           Constants con = new Constants();
+           BusinessFacade bf = con.getBf();
             %>
         
         
-            <%=ilm.getFullItemlist(id).toString().replace("[","").replace("]","").replace(",","<br>")+"<br>"%><br>
+            <%=bf.getFullItemlist(id).toString().replace("[","").replace("]","").replace(",","<br>")+"<br>"%><br>
 
         
     </body>

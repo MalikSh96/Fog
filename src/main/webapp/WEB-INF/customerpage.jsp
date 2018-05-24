@@ -1,4 +1,3 @@
-<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,8 +13,7 @@
         <%@include file="../navigation/menu.jsp" %>
         <%
             int id = (int) session.getAttribute("id");
-            UserMapper um = new UserMapper();
-            User usr = um.getUser(id);
+            User usr = bf.getUser(id);
         %>
 
 

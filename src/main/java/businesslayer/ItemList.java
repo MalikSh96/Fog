@@ -5,7 +5,6 @@
  */
 package businesslayer;
 
-import datalayer.InventoryMapper;
 import java.util.ArrayList;
 import java.util.List;
 

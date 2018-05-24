@@ -13,10 +13,7 @@
     <center>
         <h1>Lagerstatus</h1>
 
-        <% InventoryMapper im = new InventoryMapper();%>
-
-
-        <%=im.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+        <%=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
 
 
         <form action="FrontController" method="POST">

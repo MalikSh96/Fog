@@ -5,7 +5,6 @@
  */
 package datalayer;
 
-import com.mysql.cj.api.mysqla.result.Resultset;
 import businesslayer.LoginSampleException;
 import businesslayer.User;
 import java.sql.Connection;

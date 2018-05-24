@@ -5,13 +5,11 @@
  */
 package presentationlayer;
 
-import datalayer.InventoryMapper;
-import datalayer.UserMapper;
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
 import businesslayer.LoginSampleException;
-import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,8 +17,9 @@ import javax.servlet.http.HttpSession;
  */
 public class AddToInventory extends Command {
 
-    InventoryMapper im = new InventoryMapper();
-
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
@@ -36,7 +35,7 @@ public class AddToInventory extends Command {
 
         int price = Integer.parseInt(request.getParameter("price"));
 
-        im.addToInventory(name, desc, length, unit, status, price);
+        bf.addToInventory(name, desc, length, unit, status, price);
 
         return "adminpage";
     }

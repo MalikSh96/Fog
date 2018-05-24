@@ -14,9 +14,7 @@
         <h1>Alle nuværende ordrer</h1>
         
         
-        <% OrderMapper om = new OrderMapper();%>
-        
-        <br><%=om.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
+        <br><%=bf.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
    
                 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">

@@ -16,9 +16,7 @@
 
         <h1>Bruger liste</h1>
 
-        <% UserMapper um = new UserMapper();%>
-
-        <%=um.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
+        <%=bf.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
 
 
 

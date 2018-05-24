@@ -40,6 +40,7 @@ public class Order extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         HttpSession session = request.getSession();
+        
         //find user
         User user = (User) session.getAttribute("user");
         if (user == null) {

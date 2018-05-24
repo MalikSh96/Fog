@@ -1,6 +1,3 @@
-<%@page import="datalayer.ItemlistMapper"%>
-<%@page import="datalayer.OrderMapper"%>
-<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,29 +16,26 @@
     <%
         int id = (int) session.getAttribute("orderid");
         session.setAttribute("ordernumber", id);
-        UserMapper um = new UserMapper();
-        OrderMapper om = new OrderMapper();
-        ItemlistMapper ilm = new ItemlistMapper();
         User us = (User) session.getAttribute("user");
     %>
 
 
-    <%=om.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
+    <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
     
     
-    <%if(!us.isAdmin(um.getUserRole(us.getId())) && om.getOrder(id).isOrderConfirmed()|| us.isAdmin(um.getUserRole(us.getId()))) {
-    out.println(ilm.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
+    <%if(!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed()|| us.isAdmin(bf.getUserRole(us.getId()))) {
+    out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
     
-    <%out.println("Pris: " + om.getPrice(id));%>
+    <%out.println("Pris: " + bf.getOrderPrice(id));%>
 
-    <% if (us.isAdmin(um.getUserRole(us.getId())) && !om.getOrder(id).isOrderConfirmed()) {%>
+    <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed()) {%>
     <form action="FrontController" method="POST">
         <input type="hidden" name="command" value="sendorder">
         <input type="submit" name="ordernumber" value="Send ordre" />
     </form>
     <%}%>
     </center>
-    <% if(us.isAdmin(um.getUserRole(us.getId()))) { %>
+    <% if(us.isAdmin(bf.getUserRole(us.getId()))) { %>
             <a href="FrontController?command=adminpage">Tilbage</a><br><br>
             <% }%>
 </body>

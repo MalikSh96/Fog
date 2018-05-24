@@ -1,12 +1,10 @@
 package businesslayer;
 
 import datalayer.DataFacade;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessFacade {
     
-    private static Constants con = new Constants();
     
     //usermapper
     
@@ -36,6 +34,13 @@ public class BusinessFacade {
      return DataFacade.getUserRole(id);
     }
     
+    public int getUserId(String email) throws LoginSampleException {
+     return DataFacade.getUserId(email);
+             }
+    public List<Integer> getAllUserIds() throws LoginSampleException {
+        return DataFacade.getAllUserIds();
+    }
+    
     //ordermapper
     
     
@@ -59,6 +64,26 @@ public class BusinessFacade {
 
     public void sendOrder(int id) {
         DataFacade.sendOrder(id);
+    }
+    
+    public static List<Integer> allCustomerOrdersId(int id) {
+        return DataFacade.allCustomerOrdersId(id);
+    }
+    
+    public static List<Integer> getAllOrderIds() {
+        return DataFacade.getAllorderIds();
+    }
+    
+    public static Orders getOrder(int id) {
+        return DataFacade.getOrder(id);
+    }
+    
+    public static int getOrderPrice(int id) {
+        return DataFacade.getOrderPrice(id);
+    }
+    
+    public static List<Integer> getNonSentOrderId() {
+        return DataFacade.getNonSentOrderId();
     }
     //inventorymapper
     
@@ -99,6 +124,14 @@ public class BusinessFacade {
     
     public static void reverseStatusUpdate(int itemId, int amount, List<Integer> wrongId) {
         DataFacade.reverseStatusUpdate(itemId, amount, wrongId);
+    }
+
+    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws LoginSampleException {
+     DataFacade.addToInventory(name, desc, length, unit, price, status);
+    }
+    
+    public static List<Inventory> completeInventory() {
+        return DataFacade.completeInventory();
     }
     
     //itemlistmapper

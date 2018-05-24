@@ -1,6 +1,7 @@
 package datalayer;
 
 import businesslayer.Constants;
+import businesslayer.Inventory;
 import businesslayer.LoginSampleException;
 import businesslayer.Orders;
 import businesslayer.User;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpSession;
  */
 public class DataFacade {
 
-    private static Constants con = new Constants();
+    private static final Constants con = new Constants();
 
     //user
     public static User login(String email, String password) throws LoginSampleException {
@@ -44,6 +45,14 @@ public class DataFacade {
     return con.getUM().getUserRole(id);
     }
 
+    public static int getUserId(String email) throws LoginSampleException {
+        return con.getUM().getUserId(email);
+    }
+
+    public static List<Integer> getAllUserIds() throws LoginSampleException {
+        return con.getUM().getAllUserIds();
+    }
+
     //order
     public static Orders createOrder(Orders ord) throws LoginSampleException {
         OrderMapper.createPreOrder(ord);
@@ -60,6 +69,26 @@ public class DataFacade {
 
     public static void sendOrder(int id) {
         con.getOM().sendOrder(id);
+    }
+    
+        public static List<Integer> allCustomerOrdersId(int id) {
+        return con.getOM().allCustomerOrdersId(id);
+    }
+
+    public static Orders getOrder(int id) {
+        return con.getOM().getOrder(id);
+    }
+
+    public static int getOrderPrice(int id) {
+        return con.getOM().getPrice(id);
+    }
+
+    public static List<Integer> getAllorderIds() {
+        return con.getOM().getAllOrderIds();
+    }
+
+    public static List<Integer> getNonSentOrderId() {
+        return con.getOM().getNonSentOrderId();
     }
 
     //itemlist
@@ -118,6 +147,14 @@ public class DataFacade {
 
     public static void reverseStatusUpdate(int itemId, int amount, List<Integer> wrongId) {
     con.getIM().reverseStatusUpdate(itemId, amount, wrongId); 
+    }
+    
+    public static void addToInventory(String name, String desc, int length, String unit, int price, int status) throws LoginSampleException {
+     con.getIM().addToInventory(name, desc, length, unit, price, status);
+    }
+
+    public static List<Inventory> completeInventory() {
+    return con.getIM().completeInventory();
     }
 
 

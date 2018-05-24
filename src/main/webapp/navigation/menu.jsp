@@ -1,10 +1,13 @@
+<%@page import="businesslayer.BusinessFacade"%>
+<%@page import="businesslayer.Constants"%>
 <%@page import="datalayer.UserMapper"%>
 <nav>
     <div class="container-resposize-header">
         <header>
             <%@page import="businesslayer.User"%>
             <%User user = (User) session.getAttribute("user");
-            UserMapper u = new UserMapper();%>
+            Constants con = new Constants();
+            BusinessFacade bf = con.getBf();%>
             <div class="navwrapper">
 
                 <div class="logo">
@@ -25,10 +28,10 @@
                              
                         </div>
                         <ul>
-                            <% if (user != null && user.isAdmin(u.getUserRole(user.getId()))) { %>
+                            <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
                             <li><a href="FrontController?command=adminpage">admin</a></li>
                                 <% }%>
-                            <% if (user != null && !user.isAdmin(u.getUserRole(user.getId()))) { %>
+                            <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
                             <li><a href="FrontController?command=customerpage">Min Side</a></li>
                                 <% }%>
                                 <% if (user == null) { %>

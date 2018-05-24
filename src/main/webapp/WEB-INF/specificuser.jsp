@@ -1,6 +1,3 @@
-<%@page import="datalayer.OrderMapper"%>
-<%@page import="businesslayer.User"%>
-<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,14 +12,12 @@
     <center>
         <%
             int id = (int) session.getAttribute("specificUserid");
-            UserMapper um = new UserMapper();
-            User bruger = um.getUser(id);
+            User bruger = bf.getUser(id);
             session.setAttribute("brugerID", id);
-            OrderMapper om = new OrderMapper();
         %>
         <h1>Brugerside for: <%= bruger.getName() + " " + bruger.getLastname()%></h1>
 
-        Kunde nr: <%= um.getUserId(bruger.getEmail())%><br>
+        Kunde nr: <%= bf.getUserId(bruger.getEmail())%><br>
         Adresse:  <%= bruger.getAddress()%><br>
         Post nr: <%= bruger.getPostalcode()%><br>
         Telefon nr: <%= bruger.getPhone()%><br>
@@ -30,7 +25,7 @@
 
         Brugerens ordrer:
 
-        <br><%=om.allCustomerOrdersId(id).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+        <br><%=bf.allCustomerOrdersId(id).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
 
           <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
