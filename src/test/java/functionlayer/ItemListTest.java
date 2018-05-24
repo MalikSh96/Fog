@@ -28,7 +28,7 @@ public class ItemListTest {
     @Test
     public void testPostAmount() 
     {
-        int width = 800;
+        int width = 800; //600 ends in the first if
         int length = 800;
         int expected;
         int actual;
@@ -54,7 +54,7 @@ public class ItemListTest {
     @Test
     public void testRaftAmount() 
     {
-        int width = 800;
+        int width = 400;
         int length = 800;
         int expected;
         int actual;
@@ -77,8 +77,27 @@ public class ItemListTest {
     }
 
     @Test
-    @Disabled
-    public void testRemAmount() {
+    public void testRemAmount() 
+    {
+        int length = 800; //600 and less gives 2
+        int expected;
+        int actual;
+        if(length <= 600)
+        {
+            expected = 2;
+            li.remAmount(length);
+            actual = li.getRemTotal();
+            
+            assertEquals(expected, actual);
+        }
+        else
+        {
+            expected = 4;
+            li.remAmount(length);
+            actual = li.getRemTotal();
+            
+            assertEquals(expected, actual);
+        }
     }
 
     @Test

@@ -1,5 +1,6 @@
 package dbaccess;
 
+import functionlayer.UniversalExceptions;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,9 +11,10 @@ import java.util.List;
 
 public class ItemlistMapper {
 
-    InventoryMapper im = new InventoryMapper();
-
-    public void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) {
+    private InventoryMapper im = new InventoryMapper();
+    private UniversalExceptions uex = new UniversalExceptions();
+    
+    public void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
 
         try {
             Connection con = Connector.connection();
@@ -32,11 +34,12 @@ public class ItemlistMapper {
             ps.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            uex.ThrowDidNotAddToItemlistException();
         }
     }
 
-    public List<String> getFullItemlist(int orderId) {
+    public List<String> getFullItemlist(int orderId) throws UniversalExceptions {
 
         List<String> itemlist = new ArrayList<>();
 
@@ -68,14 +71,15 @@ public class ItemlistMapper {
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            uex.ThrowDidNotGetTheFullItemlistException();
         }
 
         return itemlist;
 
     }
 
-    public List<Integer> getFullItemlistId(int orderId) {
+    public List<Integer> getFullItemlistId(int orderId) throws UniversalExceptions {
 
         List<Integer> itemIds = new ArrayList<>();
 
@@ -92,14 +96,15 @@ public class ItemlistMapper {
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            uex.ThrowDidNotGetTheFullItemlisIdtException();
         }
 
         return itemIds;
 
     }
 
-    public int getAmount(int orderId, int itemId) {
+    public int getAmount(int orderId, int itemId) throws UniversalExceptions {
 
         int amount = 0;
 
@@ -116,7 +121,8 @@ public class ItemlistMapper {
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            uex.ThrowDidNotGetTheAmounttException();
         }
 
         return amount;

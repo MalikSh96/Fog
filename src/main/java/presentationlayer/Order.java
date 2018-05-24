@@ -4,19 +4,12 @@ import dbaccess.InventoryMapper;
 import dbaccess.ItemlistMapper;
 import dbaccess.OrderMapper;
 import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.Orders;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import functionlayer.User;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -77,7 +70,7 @@ public class Order extends Command {
     int squareSlicesAmount = 14;
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions, ClassNotFoundException {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

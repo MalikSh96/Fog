@@ -7,7 +7,7 @@ package presentationlayer;
 
 import dbaccess.OrderMapper;
 import dbaccess.UserMapper;
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import functionlayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +24,7 @@ public class SpecificOrder extends Command {
     UserMapper um = new UserMapper();
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();
         User curUs = (User) session.getAttribute("user");

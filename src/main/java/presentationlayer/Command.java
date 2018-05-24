@@ -1,7 +1,7 @@
 package presentationlayer;
 
 
-import functionlayer.LoginSampleException;
+import functionlayer.UniversalExceptions;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.servlet.ServletException;
@@ -17,7 +17,6 @@ abstract class Command extends HttpServlet{
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
-        commands.put( "help", new Help() );
         commands.put( "order", new Order());
         commands.put( "loginpage", new LoginPage());
         commands.put( "registration", new Registration());
@@ -58,6 +57,6 @@ abstract class Command extends HttpServlet{
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
-            throws LoginSampleException, ClassNotFoundException, ServletException;;
+            throws UniversalExceptions, ClassNotFoundException, ServletException;;
 
 }
