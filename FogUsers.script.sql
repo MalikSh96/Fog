@@ -8,16 +8,15 @@ DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `orders`;
 DROP TABLE IF EXISTS `inventory`;
 DROP TABLE IF EXISTS `itemlist`;
-DROP TABLE IF EXISTS `error`;
 
 create table `users` (
+`id` int auto_increment primary key,
 `name` varchar(90),
 `lastname` varchar(90),
 `address` varchar(90),
 `postalnumber` int null,
 `phone` int(8) not null,
 `email` varchar(90),
-`id` int auto_increment primary key,
 `password` varchar(45),
 `role` varchar(20) NOT NULL DEFAULT 'customer',
 UNIQUE KEY `email_UNIQUE` (`email`)
@@ -31,8 +30,8 @@ create table `orders` (
 `height` int not null, 
 `price` int not null, 
 `orderConfirmed` boolean default false, 
-FOREIGN KEY (userID) REFERENCES users(`id`),
-`dates` datetime default current_timestamp
+`dates` datetime default current_timestamp,
+FOREIGN KEY (userID) REFERENCES users(`id`)
 );
 
 CREATE TABLE `inventory` (
@@ -43,23 +42,20 @@ CREATE TABLE `inventory` (
   `unit` VARCHAR(45),  
   `status` INT,
   `price` INT,
-  `itemId` INT NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
   
   CREATE TABLE `itemlist` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `orderid` INT NOT NULL,  
   `name` VARCHAR(150) NOT NULL,
   `description` VARCHAR(100) NOT NULL,
   `length` INT,
   `unit` VARCHAR(45),
   `amount` INT,
-  `orderid` INT NOT NULL,
   `itemId` INT NOT NULL DEFAULT '0',
-  `dates` datetime default current_timestamp,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+  PRIMARY KEY (`id`)
   );
   
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Malik','Sharfo','Somewherevej 25',1455,12345678,'maliksharfo@hotmail.com', 1234, 'admin');

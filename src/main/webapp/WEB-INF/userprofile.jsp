@@ -1,5 +1,5 @@
-<%@page import="functionlayer.User"%>
-<%@page import="dbaccess.UserMapper"%>
+<%@page import="businesslayer.User"%>
+<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,13 +19,12 @@
         <%@include file="../navigation/menu.jsp" %>
         <%
             int id = (int) session.getAttribute("id");
-            UserMapper um = new UserMapper();
-            User us = um.getUser(id);
+            User us = bf.getUser(id);
         %>
     <center>
         <br><h1>Dine informationer:</h1><br><br>       
 
-        Kunde nr: <%= um.getUserId(user.getEmail())%><br>
+        Kunde nr: <%= bf.getUserId(user.getEmail())%><br>
         Navn: <%= us.getName() + " " + us.getLastname()%><br>
         Adresse:  <%= us.getAddress()%><br>
         Post nr: <%= us.getPostalcode()%><br>

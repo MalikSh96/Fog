@@ -1,6 +1,7 @@
-package dbaccess;
+package datalayer;
 
-import functionlayer.UniversalExceptions;
+import businesslayer.Constants;
+import businesslayer.UniversalExceptions;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,11 +12,10 @@ import java.util.List;
 
 public class ItemlistMapper {
 
-    private InventoryMapper im = new InventoryMapper();
-    private UniversalExceptions uex = new UniversalExceptions();
-    
-    public void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
+    private static Constants con = new Constants();
+    private static UniversalExceptions uex = con.getUEX();
 
+    public static void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -24,7 +24,7 @@ public class ItemlistMapper {
             ps.setString(1, name); //user id
             ps.setString(2, desc);
             ps.setInt(3, length);
-            ps.setString(4, im.getUnit(name));
+            ps.setString(4, InventoryMapper.getUnit(name));
             ps.setInt(5, amount);
             ps.setInt(6, orderId);
             ps.setInt(7, itemId);
@@ -39,7 +39,7 @@ public class ItemlistMapper {
         }
     }
 
-    public List<String> getFullItemlist(int orderId) throws UniversalExceptions {
+    public static List<String> getFullItemlist(int orderId) throws UniversalExceptions {
 
         List<String> itemlist = new ArrayList<>();
 
@@ -89,7 +89,7 @@ public class ItemlistMapper {
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            while (resultset.next()) {                
+            while (resultset.next()) {
                 itemIds.add(resultset.getInt("itemId"));
 
             }
@@ -110,13 +110,38 @@ public class ItemlistMapper {
 
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "' and itemId = '" + itemId +"'";
+            String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "' and itemId = '" + itemId + "'";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
-            while (resultset.next()) {                
+            while (resultset.next()) {
                 amount = resultset.getInt("amount");
-                
+
+            }
+            System.out.println("sql syntax ok? " + SQL);
+
+        } catch (SQLException | ClassNotFoundException ex) { //temporary error
+//            throw new Error(ex.getMessage());
+            uex.ThrowDidNotGetTheAmounttException();
+        }
+
+        return amount;
+
+    }
+
+    public List<Integer> getAmountList(int orderId) throws UniversalExceptions {
+
+        List<Integer> amount =  new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "'";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+            while (resultset.next()) {
+                amount.add(resultset.getInt("amount"));
+
             }
             System.out.println("sql syntax ok? " + SQL);
 

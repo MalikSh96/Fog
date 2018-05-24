@@ -1,5 +1,5 @@
-<%@page import="dbaccess.OrderMapper"%>
-<%@page import="functionlayer.User"%>
+<%@page import="datalayer.OrderMapper"%>
+<%@page import="businesslayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,10 +19,6 @@
     <center>
         <h1>Dine Ordrer</h1>
 
-        <%
-            OrderMapper om = new OrderMapper();
-        %>
-
         <table>
             <thead class="table table-striped">
                 <tr>
@@ -33,24 +29,23 @@
             </thead>
             <tbody>
                 <tr>
-            
-            <td>
-                <%=om.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "")%></a>
-            </td>
-            <td>
-                
-            </td>
-            </tr>
+
+                    <td>
+                        <%=bf.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
             </tbody>
 
-            
-        </table>
-            <form action="FrontController" method="POST">
-                <input type="hidden" name="command" value="specificOrder">
-                <br><input type="number" name="chosenid" placeholder="Order ID"/>
-                <input type="submit" value="Se ordre" /><br>
-            </form>
 
+        </table>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="specificOrder">
+            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
+            <input type="submit" value="Se ordre" /><br>
+        </form>
     </center>
 </body>
 </html>

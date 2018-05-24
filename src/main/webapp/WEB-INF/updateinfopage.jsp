@@ -1,5 +1,3 @@
-
-<%@page import="dbaccess.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,8 +32,9 @@
 
         <%
             int id = (int) session.getAttribute("id");
-            UserMapper um = new UserMapper();
-            User us = um.getUser(id);
+            Constants cons = new Constants();
+            BusinessFacade bfs = cons.getBf();
+            User us = bfs.getUser(id);
         %>
 
         <%@include file="../navigation/menu.jsp" %>
@@ -54,7 +53,7 @@
             <table class="updateinfopagetable">
                 <tr>
                     <td colspan="2">
-                        <h1>Update User Info</h1>
+                        <h1>Opdater personlige informationer</h1>
                     </td>
                 </tr>
                 <tr>

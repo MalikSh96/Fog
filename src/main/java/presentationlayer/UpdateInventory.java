@@ -1,36 +1,32 @@
 package presentationlayer;
 
-import dbaccess.InventoryMapper;
-import dbaccess.UserMapper;
-import functionlayer.UniversalExceptions;
-import functionlayer.Orders;
-import functionlayer.User;
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
+import businesslayer.UniversalExceptions;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Joklin
- */
 public class UpdateInventory extends Command {
 
     int inventoryId = 0;
     String name, desc, unit;
     int length, status, price;
-    InventoryMapper im = new InventoryMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();
+        
         inventoryId = (int) session.getAttribute("inventoryid");
-        name = im.getName(inventoryId);
-        desc = im.getDescription(inventoryId);
-        length = im.getLength(inventoryId);
-        unit = im.getUnit(name);
-        status = im.getStatus(inventoryId);
-        price = im.getPrice(inventoryId);
+        name = bf.getItemName(inventoryId);
+        desc = bf.getItemDescription(inventoryId);
+        length = bf.getItemLength(inventoryId);
+        unit = bf.getItemUnit(name);
+        status = bf.getItemStatus(inventoryId);
+        price = bf.getItemPrice(inventoryId);
         
 
         if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
@@ -40,10 +36,9 @@ public class UpdateInventory extends Command {
         if(request.getParameter("status").length() > 0) { status = Integer.parseInt(request.getParameter("status")); }
         if(request.getParameter("price").length() > 0) {price = Integer.parseInt(request.getParameter("price")); }
         
-        im.UpdateInventory(inventoryId, name, desc, length, unit, status, price);
+        bf.updateInventory(inventoryId, name, desc, length, unit, status, price);
+        
               return "updateinventorypage";
     }
 
-}
-   //<%=//im.getSpecificItem((int)session.getAttribute("inventoryid")).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
-       
+}     

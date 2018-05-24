@@ -1,5 +1,3 @@
-<%@page import="presentationlayer.Inventory"%>
-<%@page import="dbaccess.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,8 +13,6 @@
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
-        <%  InventoryMapper im = new InventoryMapper();
-            %>
     <center>
         <h1>Opdater Lager</h1>
         

@@ -1,11 +1,16 @@
-<%@page import="dbaccess.UserMapper"%>
-<%@page import="functionlayer.User"%>
-<%User user = (User) session.getAttribute("user");
-    UserMapper u = new UserMapper();%>
 <header class="bannershow hidden-print">
     <nav>
         <div class="container-resposize-header">
 
+<%@page import="businesslayer.BusinessFacade"%>
+<%@page import="businesslayer.Constants"%>
+<nav>
+    <div class="container-resposize-header">
+        <header>
+            <%@page import="businesslayer.User"%>
+            <%User user = (User) session.getAttribute("user");
+            Constants con = new Constants();
+            BusinessFacade bf = con.getBf();%>
             <div class="navwrapper">
 
                 <div class="logo">
@@ -34,22 +39,19 @@
                             <div class="container">
                                 <div class="row">
                                     <ul class="navigation">
-
-                                        <% if (user != null && user.isAdmin(u.getUserRole(user.getId()))) { %>
-                                        <li class="topviews"><a href="FrontController?command=adminpage">admin</a></li>
-                                            <% }%>
-                                            <% if (user != null && !user.isAdmin(u.getUserRole(user.getId()))) { %>
-                                        <li class="topviews"><a href="FrontController?command=customerpage">Min Side</a></li>
-                                            <% }%>
-
-
-                                        <% if (user == null) { %>
-                                        <li class="topviews"><a href="FrontController?command=loginpage">Login</a></li>
-                                            <% } else { %>
-                                        <li class="topviews"> <a href="FrontController?command=logout">Logout</a></li>
-                                            <% }%>
-                                    </ul>
-
+                        <ul>
+                            <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                            <li><a href="FrontController?command=adminpage">admin</a></li>
+                                <% }%>
+                            <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                            <li><a href="FrontController?command=customerpage">Min Side</a></li>
+                                <% }%>
+                                <% if (user == null) { %>
+                            <li>        <a href="FrontController?command=loginpage">Login</a></li>
+                                <% } else { %>
+                            <li> <a href="FrontController?command=logout">Logout</a></li>
+                                <% }%>
+                        </ul>
                                 </div>
                             </div>
                         </div>

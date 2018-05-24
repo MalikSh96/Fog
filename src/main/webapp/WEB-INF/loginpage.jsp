@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="email" value="" placeholder="Email">
+                        <input type="text" name="email" value="" placeholder="Email" required>
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +53,7 @@
                 </tr>
                 <tr>
                     <td class="loginbar">
-                        <input type="password" name="password" value="" placeholder="Password">
+                        <input type="password" name="password" value="" placeholder="Password" required>
                     </td>
                 </tr>
                 <tr>
