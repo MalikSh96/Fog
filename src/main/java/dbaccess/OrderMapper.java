@@ -65,7 +65,7 @@ public class OrderMapper
     }
 
 
-    public String getDates(int id) {
+    public String getDates(int id) throws UniversalExceptions {
         
         String dates = null;
 
@@ -83,7 +83,8 @@ public class OrderMapper
             System.out.println("sql syntax ok? " + SQL);
 
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
+//            throw new Error(ex.getMessage());
+            uex.ThrowCouldNotFindTheDateException();
         }
 
         return dates;

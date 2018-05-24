@@ -21,6 +21,11 @@ public final class UniversalExceptions extends Exception {
         throw new UniversalExceptions("Was not possible to create your order. Try again");
     }
     
+    public void ThrowCouldNotFindTheDateException() throws UniversalExceptions
+    {
+        throw new UniversalExceptions("Was not possible to retrieve the dates for the given user id. Try again");
+    }
+    
     public void ThrowDidNotGetOrderException() throws UniversalExceptions
     {
         throw new UniversalExceptions("Was not possible to retrieve the order. Try again");
