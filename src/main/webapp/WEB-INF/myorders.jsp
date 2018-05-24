@@ -1,5 +1,5 @@
-<%@page import="dbaccess.OrderMapper"%>
-<%@page import="functionlayer.User"%>
+<%@page import="datalayer.OrderMapper"%>
+<%@page import="businesslayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

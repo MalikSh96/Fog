@@ -1,8 +1,8 @@
-<%@page import="dbaccess.UserMapper"%>
+<%@page import="datalayer.UserMapper"%>
 <nav>
     <div class="container-resposize-header">
         <header>
-            <%@page import="functionlayer.User"%>
+            <%@page import="businesslayer.User"%>
             <%User user = (User) session.getAttribute("user");
             UserMapper u = new UserMapper();%>
             <div class="navwrapper">

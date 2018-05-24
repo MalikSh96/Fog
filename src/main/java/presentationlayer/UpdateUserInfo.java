@@ -5,6 +5,7 @@
  */
 package presentationlayer;
 
+import businesslayer.Constants;
 import datalayer.UserMapper;
 import businesslayer.LoginSampleException;
 import businesslayer.Orders;
@@ -22,14 +23,14 @@ public class UpdateUserInfo extends Command {
     int userID = 0;
     String name, lastname, address, email, password;
     int postal, phone;
-    UserMapper um = new UserMapper();
+    Constants con = new Constants();
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         HttpSession session = request.getSession();
         userID = (int) session.getAttribute("id");
-        User user = um.getUser(userID);
+        User user = con.getBf().getUser(userID);
         name = user.getName();
         lastname = user.getLastname();
         address = user.getAddress();
@@ -47,8 +48,8 @@ public class UpdateUserInfo extends Command {
         if(request.getParameter("phone").length() > 0) {phone = Integer.parseInt(request.getParameter("phone")); }
         if(request.getParameter("password").length() > 0){ password = request.getParameter("password");}
 
+        con.getBf().updateUserInfo(userID, name, lastname, address, postal, phone, email, password);
         
-        um.UpdateUserInfo(userID, name, lastname, address, postal, phone, email, password);
               return "customerpage";
     }
 

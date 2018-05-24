@@ -1,6 +1,6 @@
-<%@page import="functionlayer.User"%>
+<%@page import="businesslayer.User"%>
 <%@page import="java.util.List"%>
-<%@page import="dbaccess.UserMapper"%>
+<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

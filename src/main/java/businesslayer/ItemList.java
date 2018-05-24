@@ -16,14 +16,14 @@ import java.util.List;
 public class ItemList 
 {
     
-    private List<Integer> post = new ArrayList<>();
-    private List<Integer> raft = new ArrayList<>();
-    private List<Integer> rem = new ArrayList<>();
-    private List<Integer> roof = new ArrayList<>();
-    private int postTotal = 0;
-    private int raftTotal = 0;
-    private int remTotal = 0;
-    private int roofTotal = 0;
+    private static List<Integer> post = new ArrayList<>();
+    private static List<Integer> raft = new ArrayList<>();
+    private static List<Integer> rem = new ArrayList<>();
+    private static List<Integer> roof = new ArrayList<>();
+    private static int postTotal = 0;
+    private static int raftTotal = 0;
+    private static int remTotal = 0;
+    private static int roofTotal = 0;
     
     //Obs, calculations is based of the biggest items of each category
     

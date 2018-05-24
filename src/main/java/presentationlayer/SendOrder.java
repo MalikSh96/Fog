@@ -1,6 +1,8 @@
 package presentationlayer;
 
 
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
 import datalayer.InventoryMapper;
 import datalayer.ItemlistMapper;
 import datalayer.OrderMapper;
@@ -16,9 +18,8 @@ import javax.servlet.http.HttpSession;
 public class SendOrder extends Command {
 
     int id = 0;
-    OrderMapper om = new OrderMapper();
-    ItemlistMapper ilm = new ItemlistMapper();
-    InventoryMapper im = new InventoryMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
     boolean possible = true;
     
     @Override
@@ -27,18 +28,18 @@ public class SendOrder extends Command {
         HttpSession session = request.getSession();
         id = (int)session.getAttribute("ordernumber");
                 
-        List<Integer> itemIds = ilm.getFullItemlistId(id);
+        List<Integer> itemIds = bf.getFullItemlistId(id);
         List<Integer> wrongIds = new ArrayList<>();
         for (int i = 0; i < itemIds.size(); i++) {
-            if(!im.updateStatus(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)))) {possible = false;
+            if(!bf.updateStatus(itemIds.get(i), bf.getAmount(id, itemIds.get(i)))) {possible = false;
             wrongIds.add(itemIds.get(i));
             }
         }
         if(!possible) {
         for (int i = 0; i < itemIds.size(); i++) {
-            im.reverseStatusUpdate(itemIds.get(i), ilm.getAmount(id, itemIds.get(i)), wrongIds);
+            bf.reverseStatusUpdate(itemIds.get(i), bf.getAmount(id, itemIds.get(i)), wrongIds);
         }
-        } else { om.sendOrder(id); } 
+        } else { bf.sendOrder(id); } 
         
         return "adminpage";    
     }

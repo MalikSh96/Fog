@@ -5,6 +5,8 @@
  */
 package presentationlayer;
 
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
 import datalayer.OrderMapper;
 import datalayer.UserMapper;
 import businesslayer.LoginSampleException;
@@ -20,7 +22,8 @@ import javax.servlet.http.HttpSession;
 public class SpecificUser extends Command {
 
     int chosenId = 0;
-    UserMapper um = new UserMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
@@ -28,7 +31,7 @@ public class SpecificUser extends Command {
         HttpSession session = request.getSession();
 
         chosenId = Integer.parseInt(request.getParameter("chosenuserid"));
-        if(um.findUserId(chosenId)) {
+        if(bf.UserIdExists(chosenId)) {
         session.setAttribute("specificUserid", chosenId);
         return "specificuser"; }
         

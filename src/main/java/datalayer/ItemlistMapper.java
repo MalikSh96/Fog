@@ -36,7 +36,7 @@ public class ItemlistMapper {
         }
     }
 
-    public List<String> getFullItemlist(int orderId) {
+    public static List<String> getFullItemlist(int orderId) {
 
         List<String> itemlist = new ArrayList<>();
 

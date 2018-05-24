@@ -1,6 +1,6 @@
-<%@page import="dbaccess.ItemlistMapper"%>
-<%@page import="dbaccess.OrderMapper"%>
-<%@page import="dbaccess.UserMapper"%>
+<%@page import="datalayer.ItemlistMapper"%>
+<%@page import="datalayer.OrderMapper"%>
+<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

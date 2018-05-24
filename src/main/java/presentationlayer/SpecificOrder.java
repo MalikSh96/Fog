@@ -5,8 +5,9 @@
  */
 package presentationlayer;
 
-import datalayer.OrderMapper;
-import datalayer.UserMapper;
+
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
 import businesslayer.LoginSampleException;
 import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +21,8 @@ import javax.servlet.http.HttpSession;
 public class SpecificOrder extends Command {
 
     int chosenId = 0;
-    OrderMapper om = new OrderMapper();
-    UserMapper um = new UserMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
@@ -30,9 +31,9 @@ public class SpecificOrder extends Command {
         User curUs = (User) session.getAttribute("user");
 
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
-        if (!curUs.isAdmin(um.getUserRole(curUs.getId())) && om.getUserId(chosenId) != curUs.getId()) {
+        if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && chosenId != curUs.getId()) {
             return "myorders";
-        }else if(curUs.isAdmin(um.getUserRole(curUs.getId())) && !om.findOrderId(chosenId)) {
+        }else if(curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
         return "adminpage";
         }
         session.setAttribute("orderid", chosenId);

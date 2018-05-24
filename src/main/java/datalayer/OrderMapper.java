@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class OrderMapper {
 
-    public int createPreOrder(Orders ord) {
+    public static int createPreOrder(Orders ord) {
         int orderId = 0;
         try {
             Connection con = Connector.connection();
@@ -104,7 +104,7 @@ public class OrderMapper {
         return id;
     }
 
-    public boolean findOrderId(int orderId) {
+    public boolean orderIdExists(int orderId) {
         boolean exists = false;
         try {
             Connection con = Connector.connection();

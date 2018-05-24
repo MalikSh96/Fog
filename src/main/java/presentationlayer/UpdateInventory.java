@@ -1,5 +1,7 @@
 package presentationlayer;
 
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
 import datalayer.InventoryMapper;
 import datalayer.UserMapper;
 import businesslayer.LoginSampleException;
@@ -18,19 +20,21 @@ public class UpdateInventory extends Command {
     int inventoryId = 0;
     String name, desc, unit;
     int length, status, price;
-    InventoryMapper im = new InventoryMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         HttpSession session = request.getSession();
+        
         inventoryId = (int) session.getAttribute("inventoryid");
-        name = im.getName(inventoryId);
-        desc = im.getDescription(inventoryId);
-        length = im.getLength(inventoryId);
-        unit = im.getUnit(name);
-        status = im.getStatus(inventoryId);
-        price = im.getPrice(inventoryId);
+        name = bf.getItemName(inventoryId);
+        desc = bf.getItemDescription(inventoryId);
+        length = bf.getItemLength(inventoryId);
+        unit = bf.getItemUnit(name);
+        status = bf.getItemStatus(inventoryId);
+        price = bf.getItemPrice(inventoryId);
         
 
         if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
@@ -40,7 +44,8 @@ public class UpdateInventory extends Command {
         if(request.getParameter("status").length() > 0) { status = Integer.parseInt(request.getParameter("status")); }
         if(request.getParameter("price").length() > 0) {price = Integer.parseInt(request.getParameter("price")); }
         
-        im.UpdateInventory(inventoryId, name, desc, length, unit, status, price);
+        bf.updateInventory(inventoryId, name, desc, length, unit, status, price);
+        
               return "updateinventorypage";
     }
 

@@ -1,4 +1,4 @@
-<%@page import="functionlayer.ItemList"%>
+<%@page import="businesslayer.ItemList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
