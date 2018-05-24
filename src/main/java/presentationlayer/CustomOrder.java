@@ -5,10 +5,21 @@
  */
 package presentationlayer;
 
+
+import businesslayer.LoginSampleException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author Joklin
  */
-public class CustomOrder {
+public class CustomOrder extends Command {
+
+    @Override
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    
+        return "customorder";    
+    }
     
 }
