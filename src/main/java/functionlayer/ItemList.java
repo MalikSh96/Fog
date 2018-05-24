@@ -31,7 +31,7 @@ public class ItemList
     public List<Integer> postAmount(int carportLength, int carportWidth)
     {
         int postRow = 0;
-        postRow = ((carportLength -40) / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
+        postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
 
         if(carportWidth < 800) //max carport width is 8m or 800cm
         {
@@ -73,7 +73,7 @@ public class ItemList
     public List<Integer> remAmount(int carportLength) 
     {
         //Carport only have 2 sides, no middle posts
-        if(carportLength <= 6) { remTotal = 2;}
+        if(carportLength <= 600) { remTotal = 2;}
         else { remTotal = 4;}
         rem.add(remTotal);
         return rem;

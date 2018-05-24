@@ -58,9 +58,9 @@ public class ItemListTest {
         int length = 800;
         int expected;
         int actual;
-        if(width < 800)
+        if(width < 600)
         {
-            expected = 12;
+            expected = 16;
             li.raftAmount(length, width);
             actual = li.getRaftTotal();
             
@@ -68,7 +68,7 @@ public class ItemListTest {
         }
         else
         {
-            expected = 28;
+            expected = 32;
             li.raftAmount(length, width);
             actual = li.getRaftTotal();
             
