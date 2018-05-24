@@ -1,4 +1,4 @@
-<%@page import="dbaccess.InventoryMapper"%>
+<%@page import="datalayer.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,15 +17,12 @@
     <center>
         <h1>Lagerstatus</h1>
 
-        <% InventoryMapper im = new InventoryMapper();%>
-
-
-        <%=im.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+        <%=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
 
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventorypage">
-            <br><input type="number" name="choseninventoryid" placeholder="Vare id"/>
+            <br><input type="number" name="choseninventoryid" placeholder="Vare id" required/>
             <br><br><input type="submit" value="Opdater lagerbeholdning" /><br>
         </form>
 

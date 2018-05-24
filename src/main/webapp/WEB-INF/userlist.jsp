@@ -1,6 +1,6 @@
-<%@page import="functionlayer.User"%>
+<%@page import="businesslayer.User"%>
 <%@page import="java.util.List"%>
-<%@page import="dbaccess.UserMapper"%>
+<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,16 +20,14 @@
 
         <h1>Bruger liste</h1>
 
-        <% UserMapper um = new UserMapper();%>
-
-        <%=um.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
+        <%=bf.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
 
 
 
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificuser">
-            <br><input type="number" name="chosenuserid" placeholder="Bruger ID"/>
+            <br><input type="number" name="chosenuserid" placeholder="Bruger ID" required/>
             <input type="submit" value="Se bruger" /><br>
         </form>
 

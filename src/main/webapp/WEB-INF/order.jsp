@@ -1,4 +1,4 @@
-<%@page import="functionlayer.ItemList"%>
+<%@page import="businesslayer.ItemList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -447,7 +447,7 @@
                 </div>
             </div> 
         </div>
-        
+
         <%@include file="../footer/footer.jsp" %>
         <script src="./javascriptordre.js" type="text/javascript"></script>
 

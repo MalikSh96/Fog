@@ -1,4 +1,4 @@
-<%@page import="dbaccess.OrderMapper"%>
+<%@page import="datalayer.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,13 +17,11 @@
         <%@include file="../navigation/menu.jsp" %>
         <h1>Alle ordrer</h1>
         
-        <% OrderMapper om = new OrderMapper();%>
-        
-        <%=om.getAllOrderIds().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
+        <%=bf.getAllOrderIds().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
         
                         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
-        <br><input type="number" name="chosenid" placeholder="Order ID"/>
+        <br><input type="number" name="chosenid" placeholder="Order ID" required/>
         <input type="submit" value="Se ordre" /><br>
                 </form>
     </center>

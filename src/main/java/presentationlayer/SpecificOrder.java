@@ -1,27 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package presentationlayer;
 
-import dbaccess.OrderMapper;
-import dbaccess.UserMapper;
-import functionlayer.UniversalExceptions;
-import functionlayer.User;
+import businesslayer.UniversalExceptions;
+import businesslayer.BusinessFacade;
+import businesslayer.Constants;
+import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Joklin
- */
 public class SpecificOrder extends Command {
 
     int chosenId = 0;
-    OrderMapper om = new OrderMapper();
-    UserMapper um = new UserMapper();
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
@@ -30,13 +21,12 @@ public class SpecificOrder extends Command {
         User curUs = (User) session.getAttribute("user");
 
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
-        if (!curUs.isAdmin(um.getUserRole(curUs.getId())) && om.getUserId(chosenId) != curUs.getId()) {
+        if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId)) {
             return "myorders";
-        }else if(curUs.isAdmin(um.getUserRole(curUs.getId())) && !om.findOrderId(chosenId)) {
-        return "adminpage";
+        } else if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
+            return "adminpage";
         }
         session.setAttribute("orderid", chosenId);
         return "specificOrder";
     }
 }
-

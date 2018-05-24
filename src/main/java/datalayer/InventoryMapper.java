@@ -1,31 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package dbaccess;
+package datalayer;
 
-import functionlayer.Orders;
+import businesslayer.Constants;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import functionlayer.Inventory;
-import functionlayer.UniversalExceptions;
+import businesslayer.UniversalExceptions;
+import businesslayer.Inventory;
+import businesslayer.LoginSampleException;
 import java.sql.Statement;
 
-/**
- *
- * @author Joklin
- */
-public class InventoryMapper 
-{
+public class InventoryMapper {
 
-    private UniversalExceptions uex = new UniversalExceptions();
-    
-    public List<Inventory> completeInventory() throws UniversalExceptions {
+    private static Constants con = new Constants();
+    private static UniversalExceptions uex = con.getUEX();
+
+    public static List<Inventory> completeInventory() throws UniversalExceptions {
 
         List<Inventory> inventory = new ArrayList<>();
         Inventory inv = null;
@@ -59,9 +51,9 @@ public class InventoryMapper
         return inventory;
     }
 
-    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public static void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
@@ -74,7 +66,7 @@ public class InventoryMapper
         }
     }
 
-    public String getName(int id) /*throws UniversalExceptions*/ {
+    public static String getName(int id) throws UniversalExceptions {
 
         String name = null;
         try {
@@ -98,7 +90,7 @@ public class InventoryMapper
         return name;
     }
 
-    public int getLength(int id) throws UniversalExceptions {
+    public static int getLength(int id) throws UniversalExceptions {
 
         int length = 0;
         try {
@@ -122,7 +114,7 @@ public class InventoryMapper
         return length;
     }
 
-    public String getUnit(String name) throws UniversalExceptions {
+    public static String getUnit(String name) throws UniversalExceptions {
 
         String unit = null;
         try {
@@ -146,7 +138,7 @@ public class InventoryMapper
         return unit;
     }
 
-    public int getId(String name) throws UniversalExceptions {
+    public static int getId(String name) throws UniversalExceptions {
 
         int id = 0;
         try {
@@ -170,7 +162,7 @@ public class InventoryMapper
         return id;
     }
 
-    public String getDescription(int id) /*throws UniversalExceptions*/ {
+    public static String getDescription(int id) throws UniversalExceptions {
 
         String desc = null;
         try {
@@ -194,7 +186,7 @@ public class InventoryMapper
         return desc;
     }
 
-    public Inventory getSpecificItem(int id) throws UniversalExceptions {
+    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
 
         Inventory result = null;
         try {
@@ -225,7 +217,7 @@ public class InventoryMapper
         return result;
     }
 
-    public int getStatus(int id) throws UniversalExceptions {
+    public static int getStatus(int id) throws UniversalExceptions {
 
         int result = 0;
         try {
@@ -250,7 +242,7 @@ public class InventoryMapper
         return result;
     }
 
-    public int getPrice(int id) throws UniversalExceptions {
+    public static int getPrice(int id) throws UniversalExceptions {
 
         int result = 0;
         try {
@@ -260,8 +252,7 @@ public class InventoryMapper
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
 
-            while (resultset.next()) 
-            {
+            while (resultset.next()) {
                 result = resultset.getInt("price");
             }
 
@@ -271,13 +262,12 @@ public class InventoryMapper
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
 //            throw new Error(ex.getMessage());
             uex.ThrowDidNotGetThePriceException();
-            
+
         }
         return result;
     }
 
-    public boolean updateStatus(int id, int amount) throws UniversalExceptions 
-    {
+    public static boolean updateStatus(int id, int amount) throws UniversalExceptions {
         int result = getStatus(id) - amount;
         if (result > 0) {
             try {
@@ -298,8 +288,7 @@ public class InventoryMapper
         return false;
     }
 
-    public void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) throws UniversalExceptions 
-    {
+    public static void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) throws UniversalExceptions {
         int result = getStatus(id) + amount;
         for (int i = 0; i < wrongIds.size(); i++) {
             if (id != wrongIds.get(i)) {
@@ -321,11 +310,10 @@ public class InventoryMapper
     }
 
     //Custom exception is not applied to this static method
-    public static void UpdateInventory(int id, String name, String desc, int length, String unit, 
-            int status, int price) throws UniversalExceptions 
-    {
+    public static void UpdateInventory(int id, String name, String desc, int length, String unit,
+            int status, int price) throws UniversalExceptions {
         try {
-            Connection con = dbaccess.Connector.connection();
+            Connection con = datalayer.Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
                     + "', status = '" + status + "', price = '" + price
