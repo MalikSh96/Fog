@@ -78,6 +78,10 @@ public class BusinessFacade {
         return DataFacade.getOrder(id);
     }
     
+    public static int getUserId(int id) {
+        return DataFacade.getUserId(id);
+    }
+    
     public static int getOrderPrice(int id) {
         return DataFacade.getOrderPrice(id);
     }

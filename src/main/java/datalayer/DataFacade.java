@@ -91,6 +91,10 @@ public class DataFacade {
         return con.getOM().getNonSentOrderId();
     }
 
+    public static int getUserId(int orderId) {
+        return con.getOM().getUserId(orderId);
+    }
+
     //itemlist
     public static void addToItemList(String name, String desc, int length, int amount, int orderId, int itemId) {
         con.getILM().addToItemlist(name, desc, length, amount, orderId, itemId);
