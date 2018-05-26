@@ -33,8 +33,7 @@ public class ItemlistMapper {
 
             ps.executeUpdate();
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotAddToItemlistException();
         }
     }
@@ -70,8 +69,7 @@ public class ItemlistMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlistException();
         }
 
@@ -95,8 +93,7 @@ public class ItemlistMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlisIdtException();
         }
 
@@ -120,8 +117,7 @@ public class ItemlistMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();
         }
 
@@ -145,8 +141,7 @@ public class ItemlistMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();
         }
 

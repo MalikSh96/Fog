@@ -43,8 +43,7 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheCompleteInventoryException();
         }
 
@@ -61,8 +60,8 @@ public class InventoryMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-//            throw new UniversalExceptions(ex.getMessage());
             uex.ThrowCouldNotAddToInventoryException();
+            throw new UniversalExceptions(ex.getMessage());
         }
     }
 
@@ -82,9 +81,8 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
-//            uex.ThrowDidNotGetTheNameException();
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetTheNameException();
         }
 
         return name;
@@ -106,8 +104,7 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheLengthException();
         }
 
@@ -130,8 +127,7 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheUnitException();
         }
 
@@ -154,8 +150,7 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheIdException();
         }
 
@@ -178,9 +173,8 @@ public class InventoryMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            throw new Error(ex.getMessage());
-//            uex.ThrowDidNotGetTheDescriptionException();
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetTheDescriptionException();
         }
 
         return desc;
@@ -209,8 +203,7 @@ public class InventoryMapper {
 
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheSpecificItemException();
         }
 
@@ -234,8 +227,7 @@ public class InventoryMapper {
 
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheStatusException();
         }
 
@@ -259,8 +251,7 @@ public class InventoryMapper {
             System.out.println("sql syntax ok? " + SQL);
             return result;
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetThePriceException();
 
         }
@@ -280,8 +271,7 @@ public class InventoryMapper {
 
                 System.out.println("sql syntax ok? " + SQL);
                 return true;
-            } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//                throw new Error(ex.getMessage());
+            } catch (SQLException | ClassNotFoundException ex) {
                 uex.ThrowDidNotUpdateTheStatusException();
             }
         }
@@ -301,17 +291,14 @@ public class InventoryMapper {
                     ps.executeUpdate(SQL);
 
                     System.out.println("sql syntax ok? " + SQL);
-                } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//                    throw new Error(ex.getMessage());
+                } catch (SQLException | ClassNotFoundException ex) {
                     uex.ThrowCouldNotReverseTheStatusUpdateException();
                 }
             }
         }
     }
 
-    //Custom exception is not applied to this static method
-    public static void UpdateInventory(int id, String name, String desc, int length, String unit,
-            int status, int price) throws UniversalExceptions {
+    public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = datalayer.Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
@@ -322,8 +309,8 @@ public class InventoryMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowCouldNotUpdateInventoryException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowCouldNotUpdateInventoryException();
         }
     }
 }

@@ -38,8 +38,8 @@ public class UserMapper {
             user.setId(id);
 
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotCreateUserException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotCreateUserException();
         }
     }
 
@@ -62,8 +62,8 @@ public class UserMapper {
                 throw new UniversalExceptions("Could not validate user");
             }
         } catch (ClassNotFoundException | SQLException ex) {
+            uex.ThrowDidNotLoginException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotLoginException();
         }
     }
 
@@ -79,8 +79,8 @@ public class UserMapper {
                 id = rs.getInt("id");
             }
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetTheUserIdException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotGetTheUserIdException();
         }
         return id;
     }
@@ -105,8 +105,8 @@ public class UserMapper {
                 u = new User(name, lastname, address, postal, phone, email, password);
             }
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetTheUserException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotGetTheUserException();
         }
 
         return u;
@@ -123,8 +123,8 @@ public class UserMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotUpdateUserInfoException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotUpdateUserInfoException();
         }
     }
 
@@ -150,8 +150,8 @@ public class UserMapper {
                 userlist.add(new User(id, name, lastname, address, postal, phone, email, password));
             }
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetUserListException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotGetUserListException();
         }
 
         return userlist;
@@ -172,8 +172,8 @@ public class UserMapper {
                 idList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotGetAllUserIdsException();
         }
 
         return idList;
@@ -192,8 +192,8 @@ public class UserMapper {
                     role = rs.getString("role");
                 }
             } catch (SQLException | ClassNotFoundException ex) {
+                uex.ThrowDidNotGetUserRoleException();
                 throw new UniversalExceptions(ex.getMessage());
-//            uex.ThrowDidNotGetUserRoleException();
             }
             return role;
         }
@@ -217,8 +217,8 @@ public class UserMapper {
 
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new UniversalExceptions(ex.getMessage());
             uex.ThrowDidNotFindUserIdException();
+            throw new UniversalExceptions(ex.getMessage());
 
         }
         return exists;
