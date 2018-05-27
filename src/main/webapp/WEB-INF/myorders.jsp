@@ -24,28 +24,8 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Dine Ordrer</h1>
-
-        <!--<table>
-            <thead class="table table-striped">
-                <tr>
-                    <th scope="col">#</th>  
-                    <th scope="col">Dato</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    
-                    <th class="row"> -->
-                        <% out.print(BusinessFacade.allCustomerOrdersId(user.getId())); %>
-                   <!--</th>
-                  
-                     <%// } %>
-                </tr>
-            </tbody> -->
-
-<%//bf.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%>
-        </table>
+<%=bf.combineUserOrderDatesWithId(bf.getAllUserOrderDates(user.getId()),bf.allCustomerOrdersId(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+  
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
             <br><input type="number" name="chosenid" placeholder="Order ID" required/>

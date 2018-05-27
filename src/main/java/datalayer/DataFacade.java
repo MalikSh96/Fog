@@ -93,6 +93,11 @@ public class DataFacade {
         con.getOM().updateTotalPrice(totalPrice, orderId);
     }
     
+    public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
+        return con.getOM().getAllUserOrderDates(userId);
+    }
+            
+    
 
     //itemlist
     public static void addToItemList(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {

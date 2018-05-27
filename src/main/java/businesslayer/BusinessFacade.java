@@ -1,6 +1,7 @@
 package businesslayer;
 
 import datalayer.DataFacade;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessFacade {
@@ -85,6 +86,10 @@ public class BusinessFacade {
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
         DataFacade.updateTotalPrice(totalPrice, orderId);
     }
+    
+    public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
+    return DataFacade.getAllUserOrderDates(userId);
+}
 
     // ***INVENTORYMAPPER***
     public static int getItemId(String name) throws UniversalExceptions {
@@ -178,5 +183,23 @@ public class BusinessFacade {
     public static int calculateRoofAmount(int length, int width) {
         return ItemList.roofAmount(length, width).get(0);
     }
+    
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
+        List<String> result = new ArrayList<>();
+        result.add("<table border=\"1\">");
+        result.add( "<tr>");
+        result.add("<th scope=\"col\">#</th>");  
+        result.add("<th scope=\"col\">Dato</th>");
+        result.add("</tr>");
+        if(dates.size() == ids.size()) 
+            for (int i = 0; i < dates.size(); i++) {
+                result.add("<tr><th><p>"+ids.get(i) + "</th><th><p>" + " "+ dates.get(i) + "</th></tr>");
+               // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
+               // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
+            }
+        result.add("</table>");
+        return result;
+    }
+            
 
 }
