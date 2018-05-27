@@ -21,14 +21,14 @@
         </div>
         <table class="loginpagecenter">
             <tr>
-                <td>
+                <td class="loginheading">
                     <h1>Login</h1>
                 </td>
             </tr>
 
             <form name="login" action="FrontController" method="POST">
                 <tr>
-                    <td>
+                    <td class="loginpagebulder">
                         <input type="hidden" name="command" value="login">
                         <%if (request.getAttribute("from") != null) {%>
                         <input type="hidden" name="from" value="<%=request.getAttribute("from")%>">                        
@@ -37,17 +37,17 @@
                         <% }%>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="loginpagebulder">
                         Email:
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="loginbar">
                         <input type="text" name="email" value="" placeholder="Email" required>
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="loginpagebulder">
                         Password:<br>
                     </td>
                 </tr>
@@ -57,13 +57,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="loginheading">
                         <input type="submit" value="LOG IND">
                     </td>                
                 </tr>
             </form>
             <tr>
-                <td>
+                <td class="loginheading">
                     <br>
 
                     <a href="FrontController?command=registration">Opret bruger</a>
@@ -71,7 +71,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="loginpagebulder">
                     <% String error = (String) request.getAttribute("error");
                         if (error != null) {%>
                     <H2>Fejl!!</h2>

@@ -99,4 +99,6 @@ public class Orders
         if(orderConfirmed) return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";
         return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: ikke sendt<br>";
     }
+    
+    
 }

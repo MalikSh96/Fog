@@ -44,8 +44,8 @@
         <%@include file="../navigation/menu.jsp" %>
 
         <div class="text-center"> 
-            <h1>Order page</h1>
-            <h3>Din ordre blev gennemført!</h3><br>
+
+            <h1>Din ordre blev gennemført!</h1><br>
         </div>
         <div class="container">
             <div class="row">
@@ -76,8 +76,8 @@
                 </table>
             </div>          
             <div class="container">
-                <div class="row">
-                    <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-xs-4 col-centered">
                         <h3>fugleperspektiv</h3>
                         <button id="myBtnbirdseye">Åben model</button>
                         <div id="myFogSVGbirdseye" class="modal">
@@ -318,7 +318,8 @@
                         </div>
 
                     </div>
-                    <div class="col">
+
+                    <div class="col-xs-4 col-centered">
 
                         <h3>Sidebillede</h3>
                         <!-- how big roof_raft are -->
@@ -445,6 +446,15 @@
                         </div>
                     </div>
                 </div>
+                <br/>
+
+                <div class="text-center">
+                    <p>Her kan du se status over din order</p>
+                    <form action="FrontController?command=myorders">
+                        <input type="submit" value="Status" />
+                    </form>
+                </div>
+
             </div> 
         </div>
 

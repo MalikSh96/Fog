@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="businesslayer.Orders"%>
+<%@page import="presentationlayer.Order"%>
 <%@page import="datalayer.OrderMapper"%>
 <%@page import="businesslayer.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,31 +18,33 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
+        
+        <%  User u = (User) session.getAttribute("user"); %>
+           
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Dine Ordrer</h1>
 
-        <table>
+        <!--<table>
             <thead class="table table-striped">
                 <tr>
-                    <th scope="col">#</th> 
-                    <th scope="col">Ordrenummer</th>
+                    <th scope="col">#</th>  
                     <th scope="col">Dato</th>
+                   
                 </tr>
             </thead>
             <tbody>
                 <tr>
-
-                    <td>
-                        <%=bf.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
-                    </td>
-                    <td>
-
-                    </td>
+                    
+                    <th class="row"> -->
+                        <% out.print(BusinessFacade.allCustomerOrdersId(user.getId())); %>
+                   <!--</th>
+                  
+                     <%// } %>
                 </tr>
-            </tbody>
+            </tbody> -->
 
-
+<%//bf.allCustomerOrdersId(user.getId()).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%>
         </table>
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
