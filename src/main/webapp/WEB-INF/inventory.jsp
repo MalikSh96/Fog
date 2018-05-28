@@ -41,7 +41,7 @@
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (bf.getUserRole(usr.getId()) == "storagechief") {%>
+    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())) == "storagechief") {%>
      <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
     <%}%>
 
