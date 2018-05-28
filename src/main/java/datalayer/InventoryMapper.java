@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import businesslayer.UniversalExceptions;
 import businesslayer.Inventory;
-import businesslayer.LoginSampleException;
 import java.sql.Statement;
 
 public class InventoryMapper {
