@@ -23,7 +23,7 @@ public class SpecificOrder extends Command {
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
          if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
-        } else if (bf.getUserRole(curUs.getId()).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
+        } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
             return "storageworkerpage";
         } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storagechief") && !bf.OrderIdExists(chosenId)) {
             return "storagechiefpage";

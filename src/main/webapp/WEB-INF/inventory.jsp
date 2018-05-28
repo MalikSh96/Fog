@@ -41,11 +41,11 @@
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())) == "storagechief") {%>
+    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
      <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (bf.getUserRole(usr.getId()) == "storageworker") {%>
+    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storageworker")) {%>
      <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
 
