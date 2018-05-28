@@ -16,21 +16,40 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Lagerstatus</h1>
+        
+            <%
+        int id = (int) session.getAttribute("orderid");
+        session.setAttribute("ordernumber", id);
+        User usr = (User) session.getAttribute("user");
+    %>
 
         <%=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
 
-
+         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(usr.getId()) == "storagechief") {%>
+    
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventorypage">
             <br><input type="number" name="choseninventoryid" placeholder="Vare id" required/>
             <br><br><input type="submit" value="Opdater lagerbeholdning" /><br>
         </form>
-
+         
 
         <br><br> <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
+    <%}%>
 
     </center>
-    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+
+    <% if (usr.isAdmin(bf.getUserRole(usr.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(usr.getId()) == "storagechief") {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(usr.getId()) == "storageworker") {%>
+     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+    <%}%>
 
 
 </body>
