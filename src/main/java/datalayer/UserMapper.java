@@ -199,6 +199,46 @@ public class UserMapper {
         }
     }
 
+    public static String getUserName(int id) throws UniversalExceptions {
+        {
+            String name = null;
+            try {
+                Connection con = Connector.connection();
+                String SQL = "SELECT name FROM FogUsers.users where id = '" + id + "';";
+                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    name = rs.getString("name");
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                uex.ThrowDidNotGetUserRoleException();
+                throw new UniversalExceptions(ex.getMessage());
+            }
+            return name;
+        }
+    }
+
+    public static String getUserLastname(int id) throws UniversalExceptions {
+        {
+            String lastname = null;
+            try {
+                Connection con = Connector.connection();
+                String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
+                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    lastname = rs.getString("lastname");
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                uex.ThrowDidNotGetUserRoleException();
+                throw new UniversalExceptions(ex.getMessage());
+            }
+            return lastname;
+        }
+    }
+
     public boolean UserIdExists(int userId) throws UniversalExceptions {
         boolean exists = false;
         try {

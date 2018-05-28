@@ -38,6 +38,14 @@ public class DataFacade {
         return con.getUM().getUserRole(id);
     }
 
+    public static String getUserName(int id) throws UniversalExceptions {
+        return con.getUM().getUserName(id);
+    }
+
+    public static String getUserLastname(int id) throws UniversalExceptions {
+        return con.getUM().getUserLastname(id);
+    }
+
     public static int getUserId(String email) throws UniversalExceptions {
         return con.getUM().getUserId(email);
     }
@@ -51,8 +59,7 @@ public class DataFacade {
         OrderMapper.createPreOrder(ord);
         return ord;
     }
-    
-    
+
     public static int getOrderId() throws UniversalExceptions {
         return con.getOM().getLatestOrder();
     }
@@ -85,6 +92,14 @@ public class DataFacade {
         return con.getOM().getNonSentOrderId();
     }
 
+    public static List<String> getNonSentOrderDates() throws UniversalExceptions {
+        return con.getOM().getNonSentOrderDates();
+    }
+
+    public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
+        return con.getOM().getNonSentOrderCustomerIds();
+    }
+
     public static int getUserId(int orderId) throws UniversalExceptions {
         return con.getOM().getUserId(orderId);
     }
@@ -92,12 +107,10 @@ public class DataFacade {
     public static void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
         con.getOM().updateTotalPrice(totalPrice, orderId);
     }
-    
+
     public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
         return con.getOM().getAllUserOrderDates(userId);
     }
-            
-    
 
     //itemlist
     public static void addToItemList(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {

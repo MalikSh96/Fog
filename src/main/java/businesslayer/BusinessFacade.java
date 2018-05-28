@@ -30,6 +30,14 @@ public class BusinessFacade {
         return DataFacade.getUserRole(id);
     }
 
+    public String getUserName(int id) throws UniversalExceptions {
+        return DataFacade.getUserName(id);
+    }
+
+    public String getUserLastname(int id) throws UniversalExceptions {
+        return DataFacade.getUserLastname(id);
+    }
+
     public int getUserId(String email) throws UniversalExceptions {
         return DataFacade.getUserId(email);
     }
@@ -82,6 +90,14 @@ public class BusinessFacade {
 
     public static List<Integer> getNonSentOrderId() throws UniversalExceptions {
         return DataFacade.getNonSentOrderId();
+    }
+
+    public static List<String> getNonSentOrderDates() throws UniversalExceptions {
+        return DataFacade.getNonSentOrderDates();
+    }
+
+    public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
+        return DataFacade.getNonSentOrderCustomerIds();
     }
 
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
@@ -205,17 +221,7 @@ public class BusinessFacade {
         return result;
     }
     
-    public static List<String> allsCurrentOrdes( List<Integer> ids, String name, String lastname, List<String> dates ){
-    
-        String intonames[] = name.split(",");
-        String intolastnames[] = lastname.split(",");
-        
-        // prøvet mig frem 
-        List<String> ln = new ArrayList<>();
-        List<String> na = new ArrayList<>();
-        ln = Arrays.asList(intolastnames);
-        na = Arrays.asList(intonames);
-        // det duer ikke 
+    public static List<String> allsCurrentOrdes( List<Integer> ids, List<String> name, List<String> lastname, List<String> dates){
         
     List<String> result = new ArrayList<>();
     result.add("<table>");
@@ -229,8 +235,8 @@ public class BusinessFacade {
         for (int i = 0; i < ids.size(); i++) {
         result.add("<tr>");
         result.add("<th scope\"row\"><p>" + ids.get(i) + "</th>");
-        result.add("<td><p>" + na.get(i) + "</p></td>");
-        result.add("<td><p>" + ln.get(i) + "</p></td>");
+        result.add("<td><p>" + name.get(i) + "</p></td>");
+        result.add("<td><p>" + lastname.get(i) + "</p></td>");
         result.add("<td><p>" + dates.get(i) + "</p></td>");
         result.add("</tr>");
         }
@@ -238,5 +244,21 @@ public class BusinessFacade {
     return result;
     }
             
-
+    public List<String> allCurrentOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
+        List<String> names = new ArrayList<>();
+        
+        for (int i = 0; i < ids.size(); i++) {
+            names.add(getUserName(i));
+        }
+        return names;
+    }
+            
+    public List<String> allCurrentOrderCustomerLastnames(List<Integer> ids) throws UniversalExceptions {
+        List<String> lastnames = new ArrayList<>();
+        
+        for (int i = 0; i < ids.size(); i++) {
+            lastnames.add(getUserLastname(i));
+        }
+        return lastnames;
+    }
 }
