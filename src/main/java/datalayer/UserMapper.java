@@ -221,7 +221,7 @@ public class UserMapper {
 
     public static String getUserLastname(int id) throws UniversalExceptions {
         {
-            String lastname = null;
+            String lastname = "dav";
             try {
                 Connection con = Connector.connection();
                 String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";

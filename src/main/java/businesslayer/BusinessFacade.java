@@ -221,26 +221,32 @@ public class BusinessFacade {
         return result;
     }
     
-    public static List<String> allsCurrentOrdes( List<Integer> ids, List<String> name, List<String> lastname, List<String> dates){
+    public static List<String> allsCurrentOrdes( List<Integer> idsOrdre,List<Integer> idsUser, List<String> name, List<String> lastname, List<String> dates){
         
     List<String> result = new ArrayList<>();
-    result.add("<table>");
+    result.add("<div class=\"contatiner\">");
+    result.add("<table class=\"table table-hover\">");
     result.add("<tr>");
-    result.add("<th>#</th>");
-    result.add("<th>firstname</th>");
-    result.add("<th>lastname</th>");
-    result.add("<th>Dato</th>");
+    
+    result.add("<th scope=\"col\">OrdreId</th>");
+    result.add("<th scope=\"col\">UserId</th>");
+    result.add("<th scope=\"col\">firstname</th>");
+    result.add("<th scope=\"col\">lastname</th>");
+    result.add("<th scope=\"col\">Dato</th>");
     result.add("</tr>");
     
-        for (int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < idsUser.size(); i++) {    
         result.add("<tr>");
-        result.add("<th scope\"row\"><p>" + ids.get(i) + "</th>");
-        result.add("<td><p>" + name.get(i) + "</p></td>");
+        result.add("<td> <p>" + idsOrdre.get(i) + "</p></td>");
+        result.add("<td> <p>" + idsUser.get(i) + "</p></td>");
+        result.add("<td> <p>" + name.get(i) + "</p></td>");
         result.add("<td><p>" + lastname.get(i) + "</p></td>");
         result.add("<td><p>" + dates.get(i) + "</p></td>");
         result.add("</tr>");
         }
         result.add("</table>");
+        result.add("</div>");
+        
     return result;
     }
             

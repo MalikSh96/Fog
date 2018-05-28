@@ -22,7 +22,7 @@
         
 
         <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
-        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()), bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()), bf.getNonSentOrderDates()) %>
+        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), bf.getNonSentOrderCustomerIds(), bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()), bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()), bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
             <br><input type="number" name="chosenid" placeholder="Order ID" required/>
