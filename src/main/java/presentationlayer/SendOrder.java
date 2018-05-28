@@ -3,6 +3,7 @@ package presentationlayer;
 import businesslayer.UniversalExceptions;
 import businesslayer.BusinessFacade;
 import businesslayer.Constants;
+import businesslayer.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ public class SendOrder extends Command {
 
         HttpSession session = request.getSession();
         id = (int) session.getAttribute("ordernumber");
+        User us = (User) session.getAttribute("user");
 
         List<Integer> itemIds = bf.getFullItemlistId(id);
         List<Integer> wrongIds = new ArrayList<>();
@@ -37,8 +39,9 @@ public class SendOrder extends Command {
         } else {
             bf.sendOrder(id);
         }
-
-        return "adminpage";
+        if (us.isAdmin(bf.getUserRole(us.getId()))) {
+            return "adminpage";
+        }
+        return "storagechief";
     }
-
 }
