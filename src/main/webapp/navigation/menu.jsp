@@ -43,6 +43,12 @@
                             <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
                             <li><a href="FrontController?command=adminpage">admin</a></li>
                                 <% }%>
+                             <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
+                            <li><a href="FrontController?command=storagechiefpage">storage chief</a></li>
+                                <% }%>
+                             <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
+                            <li><a href="FrontController?command=storageworkerpage">storage chief</a></li>
+                                <% }%>
                             <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
                             <li><a href="FrontController?command=customerpage">Min Side</a></li>
                                 <% }%>
