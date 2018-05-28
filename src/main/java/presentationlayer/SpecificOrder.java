@@ -23,11 +23,11 @@ public class SpecificOrder extends Command {
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
          if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
-        } else if (bf.getUserRole(curUs.getId()) == "storageworker" && !bf.OrderIdExists(chosenId)) {
+        } else if (bf.getUserRole(curUs.getId()).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
             return "storageworkerpage";
-        } else if (bf.getUserRole(curUs.getId()) == "storagechief" && !bf.OrderIdExists(chosenId)) {
+        } else if (bf.getUserRole(curUs.getId()).equals("storagechief") && !bf.OrderIdExists(chosenId)) {
             return "storagechiefpage";
-        } else if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId)) {
+        } else if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId) && bf.getUserRole(curUs.getId()) != "storagechief" && bf.getUserRole(curUs.getId()) != "storageworker") {
             return "myorders";
         }
         session.setAttribute("orderid", chosenId);
