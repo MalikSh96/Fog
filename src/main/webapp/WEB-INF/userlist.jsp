@@ -19,7 +19,9 @@
         <%@include file="../navigation/menu.jsp" %>
 
         <h1>Bruger liste</h1>
-
+<%
+        User usrr = (User) session.getAttribute("user");
+    %>
         <%=bf.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
 
 
@@ -31,7 +33,13 @@
             <input type="submit" value="Se bruger" /><br>
         </form>
 
-    </center>
-    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    </center>   
+        <% if (usrr.isAdmin(bf.getUserRole(usrr.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(usr.getId()) == "storagechief") {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
 </body>
 </html>
