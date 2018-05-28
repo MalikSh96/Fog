@@ -25,11 +25,11 @@
                                     <li class="topsviews" ><a href="FrontController?command=customorder">Bygselv Carport</a>
                                     </li>
                                     <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
-                                    <li class="topsviews"><a href="FrontController?command=storagechiefpage">storage chief</a>
+                                    <li class="topsviews"><a href="FrontController?command=storagechiefpage">Storage chief</a>
                                     </li>
                                         <% }%>
                                         <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
-                                    <li class="topsviews"><a href="FrontController?command=storageworkerpage">storage worker</a>
+                                    <li class="topsviews"><a href="FrontController?command=storageworkerpage">Storage worker</a>
                                     </li>
                                         <% }%>
                                         <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller")) { %>

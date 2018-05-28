@@ -16,35 +16,10 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
-<<<<<<< HEAD
         <% 
         User userr = (User) session.getAttribute("user");
         %>
         
-        <br><%=bf.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
-   
-                <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificOrder">
-        <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-        <input type="submit" value="Se ordre" /><br>
-                </form>
-    </center>  
-        <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
-     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    <%}%>
-
-    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storagechief")) {%>
-     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
-    <%}%>
-
-    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
-     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
-    <%}%>
-    </body>
-=======
-
-        
-       
 
         <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
         <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), 
@@ -58,8 +33,17 @@
         </form>
     </center>
     <center>
-        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+       <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storagechief")) {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
+     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+    <%}%>
     </center>
 </body>
->>>>>>> jspSetup
 </html>

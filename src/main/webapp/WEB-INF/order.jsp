@@ -46,6 +46,8 @@
         <div class="text-center"> 
 
             <h1>Din ordre blev gennemført!</h1><br>
+            <h3>Fog vil kontakte dig snarerst</h3>
+            <br/>
         </div>
         <div class="container">
             <div class="row">
@@ -53,7 +55,7 @@
 
 
 
-                <table class="table" border="1">
+                <table class="table">
                     <tr>
                         <th scope="col">Længde</th>
                         <th scope="col">Bredde</th>
@@ -78,7 +80,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xs-4 col-centered">
-                        <h3>fugleperspektiv</h3>
+                        <h3>Fugleperspektiv</h3>
                         <button id="myBtnbirdseye">Åben model</button>
                         <div id="myFogSVGbirdseye" class="modal">
                             <div class="modal-content">
@@ -449,7 +451,8 @@
                 <br/>
 
                 <div class="text-center">
-                    <p>Her kan du se status over din order</p>
+                    
+                    <h4>Her kan du se status over din ordre</h4>
                     <a href="FrontController?command=myorders" class="btn btn-secondary">Status</a>
                 </div>
 
