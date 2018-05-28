@@ -15,8 +15,10 @@
         <%@include file="../navigation/menu.jsp" %>
             
     <center>
-        <h1>Opdater Lager</h1>
-
+        <h1>Tilføj Lager</h1>
+      <%
+        User brugeren = (User) session.getAttribute("user");
+    %>
 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="addtoinventory">
             <div>
@@ -40,7 +42,14 @@
             <br> <input type="submit" value="Tilføj til Lageret"><br>
             </form>
         </center>
-        <br><br> <a href="FrontController?command=adminpage">Tilbage</a>
+    
+    <% if (brugeren.isAdmin(bf.getUserRole(brugeren.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(brugeren.getEmail())).equals("storagechief")) {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
 
     </body>
 </html>

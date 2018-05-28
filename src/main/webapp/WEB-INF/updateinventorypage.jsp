@@ -16,6 +16,9 @@
     <center>
         <h1>Opdater Lager</h1>
         
+              <%
+        User brugere = (User) session.getAttribute("user");
+    %>
         
       
 <form action="FrontController" method="POST">
@@ -40,8 +43,13 @@
             </div>                 
             <br> <input type="submit" value="Opdater lagerbeholdning"><br>
             </form>
-        </center>
-        <br><br> <a href="FrontController?command=adminpage">Tilbage</a>
+        </center>    
+    <% if (brugere.isAdmin(bf.getUserRole(brugere.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
 
+    <% if (bf.getUserRole(bf.getUserId(brugere.getEmail())).equals("storagechief")) {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
     </body>
 </html>
