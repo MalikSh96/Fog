@@ -21,7 +21,7 @@ public class SpecificOrder extends Command {
         User curUs = (User) session.getAttribute("user");
 
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
-        if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId) || bf.getUserRole(curUs.getId()) != "storageworker" || bf.getUserRole(curUs.getId()) != "storagechief") {
+        if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId)) {
             return "myorders";
         } else if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
