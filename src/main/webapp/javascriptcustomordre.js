@@ -19,7 +19,7 @@ function validateshedform() {
     var toolshedwidth = document.forms["shedForm"]["toolshedwidth"].value;
     if (checkboxtoolshed.checked == true) {
         if (toolshedlength == "" || toolshedlength < 100 || toolshedwidth == "" || toolshedwidth < 100) {
-            alert("Du skal angive en længde og bredde på skuret på mindst 100");
+            alert("Du skal angive en længde og bredde på redskabskur på mindst 100");
             return false;
         }
     }

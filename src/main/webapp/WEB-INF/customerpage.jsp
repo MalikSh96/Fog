@@ -31,26 +31,35 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="text-center">
+               
+                <div class="col-sm-4">
+                    <p>Tryk på ”Min Profil” og indsæt dine personlige informationer.</p>
+                    <p>Under ”Ordrehistorik” kan du se din ordre samt tidligere ordre.</p>
+
+                </div>
+
+                <div class="col-sm-4">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <a href="FrontController?command=userprofile">Min Profil</a>
                         </li>
-                        <li class="list-group-item">
+                        <!---<li class="list-group-item">
                             <a href="FrontController?command=customorder">Skræddersy Ordre</a>
-                        </li>
+                        </li> -->
                         <li class="list-group-item">
                             <a href="FrontController?command=myorders">Ordrehistorik</a>
                         </li>
                     </ul>
                 </div>
-                
+
                 <div  class="customerpagepicture">
                     <img src="Image/flattag.png"/>
                 </div>
             </div>
         </div>
-
+                
+                        
+                   
         <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

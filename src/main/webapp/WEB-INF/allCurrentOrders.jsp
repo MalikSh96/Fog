@@ -16,6 +16,7 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
+<<<<<<< HEAD
         <% 
         User userr = (User) session.getAttribute("user");
         %>
@@ -40,4 +41,25 @@
      <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
     </body>
+=======
+
+        
+       
+
+        <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), 
+                bf.getUser(user.getId()).getName(),
+                bf.getUser(user.getId()).getLastname(),
+                bf.getAllUserOrderDates(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") %>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="specificOrder">
+            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
+            <input type="submit" value="Se ordre" /><br>
+        </form>
+    </center>
+    <center>
+        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    </center>
+</body>
+>>>>>>> jspSetup
 </html>

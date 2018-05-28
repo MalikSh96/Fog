@@ -13,8 +13,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-    <%@include file="../navigation/menu.jsp" %>
+        <%@include file="../navigation/menu.jsp" %>
     <center>
+<<<<<<< HEAD
     <h1>Order nr: </h1>
 
 
@@ -56,5 +57,41 @@
      <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
     <%}%>
 
+=======
+        <h1>Order nr: </h1>
+
+
+        <%
+            int id = (int) session.getAttribute("orderid");
+            session.setAttribute("ordernumber", id);
+            User us = (User) session.getAttribute("user");
+        %>
+
+
+        <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
+
+
+        <%if (!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed() || us.isAdmin(bf.getUserRole(us.getId()))) {
+            out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>");
+        }%><br>
+
+        <%out.println("Pris: " + bf.getOrderPrice(id));%>
+
+        <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed()) {%>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="command" value="sendorder">
+            <input type="submit" name="ordernumber" value="Send ordre" />
+        </form>
+        <%}%>
+    </center>
+    <center>
+        <% if (us.isAdmin(bf.getUserRole(us.getId()))) { %>
+        <a href="FrontController?command=adminpage">Tilbage</a><br/><br/>
+        <% }%>
+        <% if (us.isCustomer(bf.getUserRole(us.getId()))) {%>
+        <a href="FrontController?command=customerpage">Tilbage</a><br/><br/>
+        <% }%>
+    </center>
+>>>>>>> jspSetup
 </body>
 </html>

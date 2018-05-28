@@ -44,9 +44,8 @@ abstract class Command extends HttpServlet {
         commands.put("addtoinventory", new AddToInventory());
         commands.put("addtoinventorypage", new AddToInventoryPage());
         commands.put("customorder", new CustomOrder());
-
         commands.put("userprofile", new UserProfile());
-
+        commands.put("kontakt", new Kontakt());
     }
 
     static Command from(HttpServletRequest request) throws ServletException, IOException {

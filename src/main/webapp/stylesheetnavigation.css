@@ -16,11 +16,13 @@ img {
 }
 
 .nav {
-    margin-bottom: 0;
-    padding-left: 0;
+    float:left;
     list-style: none;
+    background-color: #0c2069;
+    width: 100%;
+    display: block;
+    
 }
-
 
 
 
@@ -33,20 +35,22 @@ img {
 
 }
 
+.bar{
+    
+ float:left;
+    
+}
 
-
-
-.topviews a {
+.topsviews a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
     font-family: inherit;
-    font-size: 18px;
+    font-size: 20px;
 }
 
-.topviews a:hover {
+.topsviews a:hover {
     background-color:  	#0000FF;
     color: white;
 }
@@ -62,22 +66,13 @@ ul {
     background-color: #0c2069;
     width: 100%;
     display: block;
-    float: left;
-    top: 0;
+    float:left;
+   
 
 }
 
-header nav .nav_wrapper .nav {
-    float: left;
-    width: 1014px;
-}
 
-header nav .navwrapper {
-    background-color: #0c2069;
-    width: 100%;
-    display: block;
-    float: left;
-}
+
 
 .row {
     margin-left: -15px;
@@ -91,10 +86,6 @@ header nav .mainnavigation {
     margin-right: 15px;
 }
 
-.element {
 
-    width: 100%;
-    height: auto;
-    vertical-align: bottom;
-}
+
 

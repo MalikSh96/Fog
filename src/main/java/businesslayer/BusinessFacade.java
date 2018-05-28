@@ -1,6 +1,8 @@
 package businesslayer;
 
 import datalayer.DataFacade;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BusinessFacade {
@@ -85,6 +87,10 @@ public class BusinessFacade {
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
         DataFacade.updateTotalPrice(totalPrice, orderId);
     }
+    
+    public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
+    return DataFacade.getAllUserOrderDates(userId);
+}
 
     // ***INVENTORYMAPPER***
     public static int getItemId(String name) throws UniversalExceptions {
@@ -178,5 +184,59 @@ public class BusinessFacade {
     public static int calculateRoofAmount(int length, int width) {
         return ItemList.roofAmount(length, width).get(0);
     }
+    
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
+        
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"container\">");
+        result.add("<table class=\"table table-hover\">");
+        result.add( "<tr>");
+        result.add("<th scope=\"col\">#</th>");  
+        result.add("<th scope=\"col\">Dato</th>");
+        result.add("</tr>");
+        if(dates.size() == ids.size()) 
+            for (int i = 0; i < dates.size(); i++) {
+                result.add("<tr><th scope=\"row\"><p>"+ ids.get(i) + "</th><td><p>" + " "+ dates.get(i) + "</td></tr>");
+               // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
+               // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
+            }
+        result.add("</table>");
+        result.add("</div>");
+        return result;
+    }
+    
+    public static List<String> allsCurrentOrdes( List<Integer> ids, String name, String lastname, List<String> dates ){
+    
+        String intonames[] = name.split(",");
+        String intolastnames[] = lastname.split(",");
+        
+        // prøvet mig frem 
+        List<String> ln = new ArrayList<>();
+        List<String> na = new ArrayList<>();
+        ln = Arrays.asList(intolastnames);
+        na = Arrays.asList(intonames);
+        // det duer ikke 
+        
+    List<String> result = new ArrayList<>();
+    result.add("<table>");
+    result.add("<tr>");
+    result.add("<th>#</th>");
+    result.add("<th>firstname</th>");
+    result.add("<th>lastname</th>");
+    result.add("<th>Dato</th>");
+    result.add("</tr>");
+    
+        for (int i = 0; i < ids.size(); i++) {
+        result.add("<tr>");
+        result.add("<th scope\"row\"><p>" + ids.get(i) + "</th>");
+        result.add("<td><p>" + na.get(i) + "</p></td>");
+        result.add("<td><p>" + ln.get(i) + "</p></td>");
+        result.add("<td><p>" + dates.get(i) + "</p></td>");
+        result.add("</tr>");
+        }
+        result.add("</table>");
+    return result;
+    }
+            
 
 }

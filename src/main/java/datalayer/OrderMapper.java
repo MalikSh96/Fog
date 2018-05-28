@@ -172,8 +172,33 @@ public class OrderMapper {
         }
         return userId;
     }
+    
+    public List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
 
+        List<String> dates = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT dates FROM FogUsers.orders where userID = '" + userId + "' order by dates desc";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String date = rs.getString("dates");
+                dates.add(date);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetNonSentOrderIdException();
+        }
+        return dates;
+    }
+    
     public List<Integer> getNonSentOrderId() throws UniversalExceptions {
+
         List<Integer> orderNumbers = new ArrayList<>();
         try {
             Connection con = Connector.connection();

@@ -1,37 +1,21 @@
-<header class="bannershow hidden-print">
-    <nav>
-        <div class="container-resposize-header">
-
 <%@page import="businesslayer.BusinessFacade"%>
-<%@page import="businesslayer.Constants"%>
-<nav>
-    <div class="container-resposize-header">
-        <header>
-            <%@page import="businesslayer.User"%>
-            <%User user = (User) session.getAttribute("user");
-            Constants con = new Constants();
-            BusinessFacade bf = con.getBf();%>
-            <div class="navwrapper">
+<%@page import="businesslayer.Constants"%> 
 
+<%@page import="businesslayer.User"%>
+<%User user = (User) session.getAttribute("user");
+    Constants con = new Constants();
+    BusinessFacade bf = con.getBf();%>
+
+<header class="container-resposize-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navwrapper">
+            <div class="nav">
                 <div class="logo">
                     <img src="Image/logo.png" class="img-responsive">
 
-                </div> 
-                <div class="nav_rapper">
-                    <div class="nav">
+                </div>
 
-                        <div class="topnavgation">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <ul class="logintitems">
-                                            <li class="topviews"><a href="index.jsp">Forside</a></li>
-                                            <li class="topviews"><a href="FrontController?command=customorder">Bygselv Carport</a></li>
-
-
-                                        </ul> 
-                                    </div>
-
+<<<<<<< HEAD
                                 </div>
                             </div>
                         </div>
@@ -62,11 +46,43 @@
                                 <% }%>
                         </ul>
                                 </div>
+=======
+                <div class="bar navbar">
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <ul class="navbar-nav">
+                                    <li class="topsviews" ><a href="index.jsp">Forside</a>
+                                    </li>
+                                    <li class="topsviews" ><a href="FrontController?command=customorder">Bygselv Carport</a>
+                                    </li>
+                                    <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <li class="topsviews"  ><a href="FrontController?command=adminpage">admin</a>
+                                    </li>
+                                    <% }%>
+                                    <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <li class="topsviews" ><a href="FrontController?command=customerpage">Min Side</a>
+                                    </li>
+                                    <% }%>
+                                     <% if (user == null) { %>
+                                    <li class="topsviews" ><a href="FrontController?command=loginpage">Login</a>
+                                    </li>
+                                    <% }  %>
+                                    <li class="topsviews" > <a href="FrontController?command=kontakt">Kontakt</a>
+                                    </li>
+                                   
+                                    <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <li class="topsviews" > <a href="FrontController?command=logout">Logout</a>
+                                    </li>
+                                    <% }%>
+                                </ul> 
+>>>>>>> jspSetup
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </nav>
 </header>
