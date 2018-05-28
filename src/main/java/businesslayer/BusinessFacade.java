@@ -185,20 +185,46 @@ public class BusinessFacade {
     }
     
     public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
+        
         List<String> result = new ArrayList<>();
-        result.add("<table border=\"1\">");
+        result.add("<div class=\"container\">");
+        result.add("<table class=\"table table-hover\">");
         result.add( "<tr>");
         result.add("<th scope=\"col\">#</th>");  
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
         if(dates.size() == ids.size()) 
             for (int i = 0; i < dates.size(); i++) {
-                result.add("<tr><th><p>"+ids.get(i) + "</th><th><p>" + " "+ dates.get(i) + "</th></tr>");
+                result.add("<tr><th scope=\"row\"><p><a href="+ids.get(i) + ">"+ ids.get(i) + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
             }
         result.add("</table>");
+        result.add("</div>");
         return result;
+    }
+    
+    public static List<String> allsCurrentOrdes( List<Integer> ids, List<String> name, List<String> lastname, List<String> dates ){
+    
+    List<String> result = new ArrayList<>();
+    result.add("<table>");
+    result.add("<tr>");
+    result.add("<th>#</th>");
+    result.add("<th>firstname</th>");
+    result.add("<th>lastname</th>");
+    result.add("<th>Dato</th>");
+    result.add("</tr>");
+    
+        for (int i = 0; i < ids.size(); i++) {
+        result.add("<tr>");
+        result.add("<th scope\"row\"><p>" + ids.get(i) + "</th>");
+        result.add("<td><p>" + name.get(i) + "</p></td>");
+        result.add("<td><p>" + lastname.get(i) + "</p></td>");
+        result.add("<td><p>" + dates.get(i) + "</p></td>");
+        result.add("</tr>");
+        }
+        result.add("</table>");
+    return result;
     }
             
 

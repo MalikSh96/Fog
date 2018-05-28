@@ -16,16 +16,18 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
-        
-        
-        <br><%=bf.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
-   
-                <form action="FrontController" method="POST">
+
+
+        <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), bf.getAllUserOrderDates(user.getId()), bf.getAllUserOrderDates(user.getId()), bf.getAllUserOrderDates(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") %>
+        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
-        <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-        <input type="submit" value="Se ordre" /><br>
-                </form>
+            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
+            <input type="submit" value="Se ordre" /><br>
+        </form>
     </center>
+    <center>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    </body>
+    </center>
+</body>
 </html>
