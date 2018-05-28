@@ -10,7 +10,6 @@ import java.util.List;
 import businesslayer.UniversalExceptions;
 import businesslayer.Inventory;
 import businesslayer.LoginSampleException;
-import dbaccess.Connector;
 import java.sql.Statement;
 
 public class InventoryMapper {
