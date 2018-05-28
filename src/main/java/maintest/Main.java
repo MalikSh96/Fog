@@ -15,7 +15,7 @@ public class Main {
         BusinessFacade bf = con.getBf();
         User us = bf.getUser(5);
         
-        if(bf.getUserRole(us.getId()).equals("seller")){ System.out.println(bf.getUserRole(7));}
+        if(bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")){ System.out.println(bf.getUserRole(7));}
         System.out.println(bf.getUserRole(5));
         ItemList il = new ItemList();
         System.out.println("Post: " + il.postAmount(800, 600));

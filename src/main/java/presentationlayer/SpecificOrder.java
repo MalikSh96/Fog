@@ -25,7 +25,7 @@ public class SpecificOrder extends Command {
             return "adminpage";
         } else if (bf.getUserRole(curUs.getId()).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
             return "storageworkerpage";
-        } else if (bf.getUserRole(curUs.getId()).equals("storagechief") && !bf.OrderIdExists(chosenId)) {
+        } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storagechief") && !bf.OrderIdExists(chosenId)) {
             return "storagechiefpage";
         } else if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId) && bf.getUserRole(curUs.getId()) != "storagechief" && bf.getUserRole(curUs.getId()) != "storageworker") {
             return "myorders";
