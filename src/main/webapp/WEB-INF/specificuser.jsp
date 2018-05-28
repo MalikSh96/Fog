@@ -17,7 +17,7 @@
         <%
             int id = (int) session.getAttribute("specificUserid");
             User bruger = bf.getUser(id);            
-        User hans = (User) session.getAttribute("user");
+        User currentuser = (User) session.getAttribute("user");
             session.setAttribute("brugerID", id);
         %>
         <h1>Brugerside for: <%= bruger.getName() + " " + bruger.getLastname()%></h1>
@@ -39,11 +39,11 @@
         </form>
     </center>
 
-    <% if (hans.isAdmin(bf.getUserRole(hans.getId()))) {%>
+    <% if (currentuser.isAdmin(bf.getUserRole(currentuser.getId()))) {%>
     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(hans.getEmail())).equals("seller")) {%>
+    <% if (bf.getUserRole(bf.getUserId(currentuser.getEmail())).equals("seller")) {%>
     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
     <%}%>
 </body>
