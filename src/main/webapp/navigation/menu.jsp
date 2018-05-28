@@ -15,38 +15,6 @@
 
                 </div>
 
-<<<<<<< HEAD
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mainnavigation  ng-scope">
-                            <div class="container">
-                                <div class="row">
-                                    <ul class="navigation">
-                        <ul>
-                            <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
-                            <li><a href="FrontController?command=adminpage">Admin</a></li>
-                                <% }%>
-                             <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
-                            <li><a href="FrontController?command=storagechiefpage">storage chief</a></li>
-                                <% }%>
-                             <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
-                            <li><a href="FrontController?command=storageworkerpage">storage worker</a></li>
-                                <% }%>
-                             <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller")) { %>
-                            <li><a href="FrontController?command=sellerpage">Seller</a></li>
-                                <% }%>
-                            <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId())) && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
-                            <li><a href="FrontController?command=customerpage">Min Side</a></li>
-                                <% }%>
-                                <% if (user == null) { %>
-                            <li>        <a href="FrontController?command=loginpage">Login</a></li>
-                                <% } else { %>
-                            <li> <a href="FrontController?command=logout">Logout</a></li>
-                                <% }%>
-                        </ul>
-                                </div>
-=======
                 <div class="bar navbar">
                     <div class="container">
                         <div class="row">
@@ -56,27 +24,35 @@
                                     </li>
                                     <li class="topsviews" ><a href="FrontController?command=customorder">Bygselv Carport</a>
                                     </li>
-                                    <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
-                                    <li class="topsviews"  ><a href="FrontController?command=adminpage">admin</a>
+                                    <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
+                                    <li class="topsviews"><a href="FrontController?command=storagechiefpage">storage chief</a>
                                     </li>
-                                    <% }%>
-                                    <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
-                                    <li class="topsviews" ><a href="FrontController?command=customerpage">Min Side</a>
+                                        <% }%>
+                                        <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
+                                    <li class="topsviews"><a href="FrontController?command=storageworkerpage">storage worker</a>
                                     </li>
-                                    <% }%>
-                                     <% if (user == null) { %>
+                                        <% }%>
+                                        <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller")) { %>
+                                    <li class="topsviews"><a href="FrontController?command=sellerpage">Seller</a>
+                                    </li>
+                                        <% }%>
+                                        <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId())) && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
+                                    <li class="topsviews"><a href="FrontController?command=customerpage">Min Side</a>
+                                    </li>
+                                        <% }%>                                        
+                                        <% if (user == null) { %>
                                     <li class="topsviews" ><a href="FrontController?command=loginpage">Login</a>
                                     </li>
                                     <% }  %>
                                     <li class="topsviews" > <a href="FrontController?command=kontakt">Kontakt</a>
                                     </li>
-                                   
+
                                     <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
                                     <li class="topsviews" > <a href="FrontController?command=logout">Logout</a>
                                     </li>
                                     <% }%>
                                 </ul> 
->>>>>>> jspSetup
+
                             </div>
                         </div>
                     </div>
