@@ -18,8 +18,6 @@
         <h1>Lagerstatus</h1>
         
             <%
-        int id = (int) session.getAttribute("orderid");
-        session.setAttribute("ordernumber", id);
         User usr = (User) session.getAttribute("user");
     %>
 
