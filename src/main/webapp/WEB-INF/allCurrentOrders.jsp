@@ -16,7 +16,9 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
-        
+        <% 
+        User userr = (User) session.getAttribute("user");
+        %>
         
         <br><%=bf.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
    
@@ -25,7 +27,17 @@
         <br><input type="number" name="chosenid" placeholder="Order ID" required/>
         <input type="submit" value="Se ordre" /><br>
                 </form>
-    </center>
-        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    </center>  
+        <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storagechief")) {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
+     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+    <%}%>
     </body>
 </html>

@@ -23,7 +23,7 @@
 
         <%=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
 
-         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(usr.getId()) == "storagechief") {%>
+         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
     
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventorypage">

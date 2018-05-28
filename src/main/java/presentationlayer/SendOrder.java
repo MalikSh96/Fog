@@ -42,6 +42,6 @@ public class SendOrder extends Command {
         if (us.isAdmin(bf.getUserRole(us.getId()))) {
             return "adminpage";
         }
-        return "storagechief";
+        return "storagechiefpage";
     }
 }

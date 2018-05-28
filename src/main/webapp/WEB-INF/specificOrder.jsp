@@ -52,5 +52,9 @@
      <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
 
+    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {%>
+     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
+    <%}%>
+
 </body>
 </html>

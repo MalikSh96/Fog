@@ -37,6 +37,12 @@
         <input type="submit" value="Se ordre" /><br>
                 </form>
     </center>
-            <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    </body>
+<% if (bruger.isAdmin(bf.getUserRole(bruger.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(bruger.getEmail())).equals("seller")) {%>
+     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
+    <%}%>
+</body>
 </html>
