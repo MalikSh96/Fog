@@ -38,8 +38,8 @@
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (bf.getUserRole(usr.getId()) == "storagechief") {%>
-     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <% if (bf.getUserRole(usrr.getId()) == "sellet") {%>
+     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
     <%}%>
 </body>
 </html>
