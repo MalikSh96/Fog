@@ -450,9 +450,7 @@
 
                 <div class="text-center">
                     <p>Her kan du se status over din order</p>
-                    <form action="FrontController?command=myorders">
-                        <input type="submit" value="Status" />
-                    </form>
+                    <a href="FrontController?command=myorders" class="btn btn-secondary">Status</a>
                 </div>
 
             </div> 

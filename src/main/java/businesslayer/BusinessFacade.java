@@ -2,6 +2,7 @@ package businesslayer;
 
 import datalayer.DataFacade;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BusinessFacade {
@@ -195,7 +196,7 @@ public class BusinessFacade {
         result.add("</tr>");
         if(dates.size() == ids.size()) 
             for (int i = 0; i < dates.size(); i++) {
-                result.add("<tr><th scope=\"row\"><p><a href="+ids.get(i) + ">"+ ids.get(i) + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
+                result.add("<tr><th scope=\"row\"><p>"+ ids.get(i) + "</th><td><p>" + " "+ dates.get(i) + "</td></tr>");
                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
             }
@@ -204,8 +205,18 @@ public class BusinessFacade {
         return result;
     }
     
-    public static List<String> allsCurrentOrdes( List<Integer> ids, List<String> name, List<String> lastname, List<String> dates ){
+    public static List<String> allsCurrentOrdes( List<Integer> ids, String name, String lastname, List<String> dates ){
     
+        String intonames[] = name.split(",");
+        String intolastnames[] = lastname.split(",");
+        
+        // prøvet mig frem 
+        List<String> ln = new ArrayList<>();
+        List<String> na = new ArrayList<>();
+        ln = Arrays.asList(intolastnames);
+        na = Arrays.asList(intonames);
+        // det duer ikke 
+        
     List<String> result = new ArrayList<>();
     result.add("<table>");
     result.add("<tr>");
@@ -218,8 +229,8 @@ public class BusinessFacade {
         for (int i = 0; i < ids.size(); i++) {
         result.add("<tr>");
         result.add("<th scope\"row\"><p>" + ids.get(i) + "</th>");
-        result.add("<td><p>" + name.get(i) + "</p></td>");
-        result.add("<td><p>" + lastname.get(i) + "</p></td>");
+        result.add("<td><p>" + na.get(i) + "</p></td>");
+        result.add("<td><p>" + ln.get(i) + "</p></td>");
         result.add("<td><p>" + dates.get(i) + "</p></td>");
         result.add("</tr>");
         }

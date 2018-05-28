@@ -30,9 +30,11 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">     
+            <div class="row">
+               
                 <div class="col-sm-4">
-
+                    <p>Tryk på ”Min Profil” og indsæt dine personlige informationer.</p>
+                    <p>Under ”Ordrehistorik” kan du se din ordre samt tidligere ordre.</p>
 
                 </div>
 
@@ -55,7 +57,9 @@
                 </div>
             </div>
         </div>
-
+                
+                        
+                   
         <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

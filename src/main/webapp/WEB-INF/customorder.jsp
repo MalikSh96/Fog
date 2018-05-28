@@ -32,17 +32,16 @@
         <div class="customordreheading">
             <h1>Bestil Carport</h1>
         </div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4" >
                     Her kan du tilpasse din ordre efter dine specifikke ønsker og når du har placeret din ordre, kan du få 
                     udskrevet en skitsetegning af en carport. 
                     <br/><br/>Udfyld skemaet og klik på "Placèr Ordre"
-
-
-
-
                 </div>
+
                 <div  class="col-sm-4">
                     <form name="shedForm" action="FrontController" method="POST" onsubmit="return validateshedform()">
                         <input type="hidden" name="command" value="order">
@@ -51,7 +50,8 @@
                             <input type="number" class="form-control" name="length" placeholder="vælg længde" min="200" max="999" required>
 
 
-                        </div>            
+                        </div> 
+
                         <div class="width">
                             <label>Carport bredde i cm*</label><br>
                             <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="100" max="999" required>
@@ -104,10 +104,16 @@
                             <br/>
                             <br/>
                             <br/>
-                           
-                        </div>
-                    </form> 
 
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="customorderimgdiv">
+                    <img src="Image/carcarport.png" class="customorderimg"/>
+                    </div>
                 </div>
             </div>
             <%@include file="../footer/footer.jsp" %>

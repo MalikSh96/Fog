@@ -17,9 +17,14 @@
     <center>
         <h1>Alle nuværende ordrer</h1>
 
+        
+       
 
         <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
-        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), bf.getAllUserOrderDates(user.getId()), bf.getAllUserOrderDates(user.getId()), bf.getAllUserOrderDates(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") %>
+        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(), 
+                bf.getUser(user.getId()).getName(),
+                bf.getUser(user.getId()).getLastname(),
+                bf.getAllUserOrderDates(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") %>
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
             <br><input type="number" name="chosenid" placeholder="Order ID" required/>
