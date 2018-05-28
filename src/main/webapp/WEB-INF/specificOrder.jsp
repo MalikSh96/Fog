@@ -28,20 +28,33 @@
     <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
     
     
-    <%if(!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed()|| us.isAdmin(bf.getUserRole(us.getId()))) {
+    <%if(!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed()|| us.isAdmin(bf.getUserRole(us.getId())) || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {
     out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
     
     <%out.println("Pris: " + bf.getOrderPrice(id));%>
 
-    <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed()) {%>
+    <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed() || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") && !bf.getOrder(id).isOrderConfirmed()) {%>
     <form action="FrontController" method="POST">
         <input type="hidden" name="command" value="sendorder">
         <input type="submit" name="ordernumber" value="Send ordre" />
     </form>
     <%}%>
     </center>
-    <% if(us.isAdmin(bf.getUserRole(us.getId()))) { %>
-            <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-            <% }%>
+    <% if (us.isAdmin(bf.getUserRole(us.getId()))) {%>
+     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief")) {%>
+     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker")) {%>
+     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {%>
+     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
+    <%}%>
+
 </body>
 </html>

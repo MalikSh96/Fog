@@ -66,8 +66,7 @@ public class OrderMapper {
             }
             System.out.println("sql syntax ok? " + SQL);
 
-        } catch (SQLException | ClassNotFoundException ex) { //temporary error
-//            throw new Error(ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotFindTheDateException();
         }
 
@@ -122,7 +121,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowLatestOrderDidNotGetFoundException();
+            uex.ThrowLatestOrderDontExistException();
         }
         return id;
     }
@@ -145,7 +144,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotFindTheOrderException();
+            uex.ThrowOrderDoesNotExistException();
         }
         return exists;
     }

@@ -3,8 +3,10 @@ package presentationlayer;
 import businesslayer.UniversalExceptions;
 import businesslayer.BusinessFacade;
 import businesslayer.Constants;
+import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddToInventory extends Command {
 
@@ -14,6 +16,8 @@ public class AddToInventory extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
+      HttpSession session = request.getSession();
+        User us = (User) session.getAttribute("user");
         String name = request.getParameter("name");
 
         String desc = request.getParameter("description");
@@ -27,8 +31,10 @@ public class AddToInventory extends Command {
         int price = Integer.parseInt(request.getParameter("price"));
 
         bf.addToInventory(name, desc, length, unit, status, price);
-
-        return "adminpage";
+        if (us.isAdmin(bf.getUserRole(us.getId()))) {
+            return "adminpage";
+        }
+        return "storagechiefpage";
     }
 
 }

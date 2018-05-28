@@ -1,5 +1,5 @@
 package presentationlayer;
-
+//blob
 import businesslayer.UniversalExceptions;
 import java.io.IOException;
 import java.util.HashMap;
@@ -23,6 +23,9 @@ abstract class Command extends HttpServlet {
         commands.put("userInfo", new UserInfo());
         commands.put("updateinfopage", new UpdateInfoPage());
         commands.put("customerpage", new CustomerPage());
+        commands.put("sellerpage", new SellerPage());
+        commands.put("storageworkerpage", new StorageWorkerPage());
+        commands.put("storagechiefpage", new StorageChiefPage());
         commands.put("logout", new Logout());
         commands.put("inventory", new Inventory());
         commands.put("allcurrentorders", new CurrentOrders());

@@ -62,6 +62,9 @@ insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `p
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'holm@live.dk', 1234, 'customer');
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'holm@holm.dk', 1234, 'admin');
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Bambo','Bambi','Bambivej',1455,87654321,'bambi@bambi.dk', 1234, 'customer');
+insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'holm@joklin.dk', 1234, 'seller');
+insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'joklin@holm.dk', 1234, 'storagechief');
+insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Dennis','Holm','Somewherevej 26',1455,24681357,'joklin92@holm.dk', 1234, 'storageworker');
 
 insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt - 360 understern', '360', 'stk.', 'Understernsbrædder til for & bag ende', '1000', '1000');
 insert into inventory(`name`, `length`, `unit`, `description`, `status`, `price`) values('25x200 mm. trykimp. bræt - 540 understern', '540', 'stk', 'Understernsbrædder til siderne', '1000', '500');

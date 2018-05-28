@@ -21,10 +21,14 @@ public class SpecificOrder extends Command {
         User curUs = (User) session.getAttribute("user");
 
         chosenId = Integer.parseInt(request.getParameter("chosenid"));
-        if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId)) {
-            return "myorders";
-        } else if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
+         if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
+        } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
+            return "storageworkerpage";
+        } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storagechief") && !bf.OrderIdExists(chosenId)) {
+            return "storagechiefpage";
+        } else if (!curUs.isAdmin(bf.getUserRole(curUs.getId())) && curUs.getId() != bf.getUserId(chosenId) && bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storageworker") && bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storagechief")) {
+            return "myorders";
         }
         session.setAttribute("orderid", chosenId);
         return "specificOrder";
