@@ -34,9 +34,11 @@
         </form>
 
     </center>   
-        <% if (usrr.isAdmin(bf.getUserRole(usrr.getId()))) {%>
+    <% if (usrr.isAdmin(bf.getUserRole(usrr.getId()))) {%>
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    <%} else if (bf.getUserRole(usrr.getId()) == "seller") {%>
+    <%}%>
+
+    <% if (bf.getUserRole(bf.getUserId(usrr.getEmail())).equals("seller")) {%>
      <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
     <%}%>
 </body>
