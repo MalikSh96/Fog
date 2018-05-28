@@ -23,6 +23,11 @@ import java.util.List;
  */
 public class UserMapper 
 {
+    
+    private UniversalExceptions uex = new UniversalExceptions();
+    
+    //Obs! custom exceptions is not applied to the static methods
+    
     public static void createUser(User user) throws UniversalExceptions 
      {
         try 
@@ -48,6 +53,7 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotCreateUserException();
         }
     }
     
@@ -74,6 +80,7 @@ public class UserMapper
         } catch (ClassNotFoundException | SQLException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotLoginException();
         }
     }
     
@@ -93,6 +100,7 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotGetTheUserIdException();
         }
         return id;
     }
@@ -121,13 +129,14 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotGetTheUserException();
         }
         
         return u;
     }
     
-        public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws UniversalExceptions 
-        {
+    public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws UniversalExceptions 
+    {
         try 
         {
             Connection con = dbaccess.Connector.connection();
@@ -141,6 +150,7 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotUpdateUserInfoException();
         }
     }
 
@@ -169,6 +179,7 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotGetUserListException();
         }
 
         return userlist;
@@ -191,13 +202,14 @@ public class UserMapper
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotGetAllUserIdsException();
         }
             
             return idList;
         }
                 
-                public static String getUserRole(int id) throws UniversalExceptions {
-                    {
+    public static String getUserRole(int id) throws UniversalExceptions {
+    {
         String role = null;
         try 
         {
@@ -212,12 +224,13 @@ public class UserMapper
         } catch (SQLException | ClassNotFoundException ex) 
         {
             throw new UniversalExceptions(ex.getMessage());
+//            uex.ThrowDidNotGetUserRoleException();
         }
-        return role;
-                }
-                }
+            return role;
+        }
+    }
                 
-                    public boolean findUserId(int userId) 
+    public boolean findUserId(int userId) throws UniversalExceptions 
     {
         boolean exists = false;
         try 
@@ -238,10 +251,10 @@ public class UserMapper
 
             }
         } catch ( SQLException | ClassNotFoundException ex ) { //temporary error
-            throw new Error( ex.getMessage() );
+//            throw new UniversalExceptions(ex.getMessage());
+            uex.ThrowDidNotFindUserIdException();
         }
         return exists;
     }
-
 }
 

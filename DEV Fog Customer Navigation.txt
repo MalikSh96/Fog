@@ -7,14 +7,14 @@ title = "Fog Customer"
 
 [*] --> index.jsp
 index.jsp --> login
-index.jsp --> products
+
 login --> registration
 login --> loggedInHidden
 registration --> loggedInHidden
 loggedInHidden --> index.jsp
-products --> index.jsp
+
 index.jsp --> orderForm
-products --> orderForm
+orderForm --> index.jsp
 orderForm --> loggedInHidden
 loggedInHidden --> orderForm
 orderForm --> orderConfirmation
@@ -25,8 +25,11 @@ myPage --> loggedInHidden
 loggedInHidden --> login
 loggedInHidden --> myPage
 myPage --> myOrders
-myPage --> changeInfo
+myProfile --> changeInfo
 myOrders --> myPage
-changeInfo --> myPage
+changeInfo --> myProfile
 myPage --> index.jsp
+myPage --> myProfile
+myProfile --> myPage
+
 @enduml

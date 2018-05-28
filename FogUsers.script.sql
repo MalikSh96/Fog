@@ -55,12 +55,18 @@ CREATE TABLE `inventory` (
   `length` INT,
   `unit` VARCHAR(45),
   `amount` INT,
+<<<<<<< HEAD
   `itemId` INT NOT NULL DEFAULT '0'
   );
   
   CREATE TABLE `error` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `message` VARCHAR(150) NOT NULL,
+=======
+  `orderid` INT NOT NULL,
+  `itemId` INT NOT NULL DEFAULT '0',
+  `dates` datetime default current_timestamp,
+>>>>>>> a97b363216b068e742c55f65e28ac06f1f4d3f9e
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
@@ -99,6 +105,7 @@ insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Stalddørsgreb 50x75', 'sæt', 'Til lås på dør i skur', '1000', '180');
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('T hængsel 390 mm.', 'stk', 'Til skurdør', '1000', '10');
 insert into inventory(`name`, `unit`, `description`, `status`, `price`) values('Vinkelbeslag 35', 'stk', 'Til montering af løsholter i skur', '1000', '7');
+
 SET FOREIGN_KEY_CHECKS=1;
 
 

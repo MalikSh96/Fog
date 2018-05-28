@@ -10,16 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import functionlayer.User;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Order extends Command {
 
@@ -49,6 +39,7 @@ public class Order extends Command {
     int heightpost = 0;
     int toolshedlength = 0;
     int toolshedwidth = 0;
+    String[] toolshed_checkbox;
     int heightline = 0;
 
     //hardcoding of misc carport stuff
@@ -82,7 +73,7 @@ public class Order extends Command {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            request.getParameter("needuser");
+            request.setAttribute("from", "customorder");
             return "loginpage";
         }
 
@@ -93,7 +84,7 @@ public class Order extends Command {
         lengthrafter = Integer.parseInt(request.getParameter("length")) - 6;
         widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
         heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
-        widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
+        widthSVG = width + 60;
         lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
         heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
         widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
@@ -104,9 +95,19 @@ public class Order extends Command {
         heightpost = Integer.parseInt(request.getParameter("height")) - 50;
         heightground = Integer.parseInt(request.getParameter("height"));
         heightline = Integer.parseInt(request.getParameter("height"));
-        toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
-        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
-
+//        toolshed_checkbox = request.getParameterValues("toolshed_checkbox");
+//        boolean checked = true;
+//        if(toolshed_checkbox[0].equals(checked)){
+            toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
+            toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
+//        }
+//        else {
+//        toolshedlength = 0;
+//        toolshedwidth = 0;       
+     
+//        }
+//            
+     
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("redskabsrumlængde", toolshedlength);
@@ -141,11 +142,7 @@ public class Order extends Command {
         totalPrice += im.getPrice(24) * squareSlicesAmount;
 
         Orders ord = new Orders(userID, length, width, height, totalPrice, true, "priced");
-        try {
-            om.createPreOrder(ord);
-        } catch (SQLException ex) {
-            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        om.createPreOrder(ord);
 
         ilm.addToItemlist(im.getName(8), im.getDescription(8), im.getLength(8), itemList.remAmount(length).get(0), om.getLatestOrder(), im.getId(im.getName(8)));
         ilm.addToItemlist(im.getName(10), im.getDescription(10), im.getLength(10), itemList.raftAmount(length, width).get(0), om.getLatestOrder(), im.getId(im.getName(10)));
