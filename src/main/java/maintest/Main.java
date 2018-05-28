@@ -14,6 +14,10 @@ public class Main {
         Constants con = new Constants();
         BusinessFacade bf = con.getBf();
         User us = bf.getUser(5);
+        int id = 0;
+        if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed() || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") && !bf.getOrder(id).isOrderConfirmed()) {
+            
+        }
         
         if(bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")){ System.out.println(bf.getUserRole(7));}
         System.out.println(bf.getUserRole(5));
