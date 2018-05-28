@@ -12,11 +12,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-                <%@include file="../navigation/menu.jsp" %>
+        <%@include file="../navigation/menu.jsp" %>
     <center>
         <%
             int id = (int) session.getAttribute("specificUserid");
-            User bruger = bf.getUser(id);
+        User bruger = (User) session.getAttribute("user");
             session.setAttribute("brugerID", id);
         %>
         <h1>Brugerside for: <%= bruger.getName() + " " + bruger.getLastname()%></h1>
@@ -31,18 +31,19 @@
 
         <br><%=bf.allCustomerOrdersId(id).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
 
-          <form action="FrontController" method="POST">
+        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
-        <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-        <input type="submit" value="Se ordre" /><br>
-                </form>
+            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
+            <input type="submit" value="Se ordre" /><br>
+        </form>
     </center>
-<% if (bruger.isAdmin(bf.getUserRole(bruger.getId()))) {%>
-     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+
+    <% if (bruger.isAdmin(bf.getUserRole(bruger.getId()))) {%>
+    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
     <% if (bf.getUserRole(bf.getUserId(bruger.getEmail())).equals("seller")) {%>
-     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
+    <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
     <%}%>
 </body>
 </html>
