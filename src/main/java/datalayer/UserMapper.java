@@ -3,6 +3,7 @@ package datalayer;
 import businesslayer.Constants;
 import businesslayer.UniversalExceptions;
 import businesslayer.User;
+import dbaccess.Connector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ public class UserMapper {
     //Obs! custom exceptions is not applied to the static methods
     public static void createUser(User user) throws UniversalExceptions {
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "INSERT INTO users (name, lastname, address, postalnumber, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -45,7 +46,7 @@ public class UserMapper {
 
     public static User login(String email, String password) throws UniversalExceptions {
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "SELECT id, role FROM users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
@@ -70,7 +71,7 @@ public class UserMapper {
     public static int getUserId(String email) throws UniversalExceptions {
         int id = 0;
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users where email = '" + email + "';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -88,7 +89,7 @@ public class UserMapper {
     public static User getUser(int id) throws UniversalExceptions {
         User u = null;
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users where id = '" + id + "'";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -114,7 +115,7 @@ public class UserMapper {
 
     public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws UniversalExceptions {
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "UPDATE FogUsers.users SET name = '" + name
                     + "', lastname = '" + lastname + "', address = '" + address + "', postalnumber = '" + postalnumber
                     + "', phone = '" + phone + "', email = '" + email
@@ -132,7 +133,7 @@ public class UserMapper {
         List<User> userlist = new ArrayList<>();
 
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -161,7 +162,7 @@ public class UserMapper {
         List<Integer> idList = new ArrayList<>();
 
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users order by id asc";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -183,7 +184,7 @@ public class UserMapper {
         {
             String role = null;
             try {
-                Connection con = datalayer.Connector.connection();
+                Connection con = Connector.connection();
                 String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
                 PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 

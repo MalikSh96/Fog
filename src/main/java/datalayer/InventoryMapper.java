@@ -10,6 +10,7 @@ import java.util.List;
 import businesslayer.UniversalExceptions;
 import businesslayer.Inventory;
 import businesslayer.LoginSampleException;
+import dbaccess.Connector;
 import java.sql.Statement;
 
 public class InventoryMapper {
@@ -52,7 +53,7 @@ public class InventoryMapper {
 
     public static void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
@@ -300,7 +301,7 @@ public class InventoryMapper {
 
     public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
-            Connection con = datalayer.Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
                     + "', status = '" + status + "', price = '" + price
