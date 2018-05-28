@@ -16,7 +16,7 @@
     <center>
         <%@include file="../navigation/menu.jsp" %>
 
-        <h1> Admin page </h1>
+        <h1> Storage Chief page </h1>
 
         <form name="employeepage" action="FrontController" method="POST">
 
