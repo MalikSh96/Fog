@@ -29,11 +29,7 @@
         <br/>
 <%=bf.combineUserOrderDatesWithId(bf.getAllUserOrderDates(user.getId()),bf.allCustomerOrdersId(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificOrder">
-            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-            <input type="submit" value="Se ordre" /><br>
-        </form>
+        
     </center>
 </body>
 </html>

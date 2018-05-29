@@ -248,6 +248,33 @@ public class BusinessFacade {
         
     return result;
     }
+    
+    public static List<String> allsOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
+        
+    List<String> result = new ArrayList<>();
+    result.add("<div class=\"contatiner\">");
+    result.add("<table class=\"table table-hover\">");
+    result.add("<tr>");
+    
+    result.add("<th scope=\"col\">OrdreId</th>");
+    result.add("<th scope=\"col\">firstname</th>");
+    result.add("<th scope=\"col\">lastname</th>");
+    result.add("<th scope=\"col\">Dato</th>");
+    result.add("</tr>");
+    
+        for (int i = 0; i < idsOrdre.size(); i++) {    
+        result.add("<tr>");
+        result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">"+ idsOrdre.get(i) +  "</a></p></td>");
+        result.add("<td> <p>" + name.get(i) + "</p></td>");
+        result.add("<td><p>" + lastname.get(i) + "</p></td>");
+        result.add("<td><p>" + dates.get(i) + "</p></td>");
+        result.add("</tr>");
+        }
+        result.add("</table>");
+        result.add("</div>");
+        
+    return result;
+    }
             
     public List<String> allCurrentOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
