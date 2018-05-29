@@ -134,7 +134,7 @@ public class Order extends Command {
         totalPrice += con.getBf().getItemPrice(23) * con.getCARRIAGEBOLTAMOUNT();
         totalPrice += con.getBf().getItemPrice(24) * con.getSQUARESLICESAMOUNT();        
         
-        //con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
+        con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
         
         return "order";
     }
