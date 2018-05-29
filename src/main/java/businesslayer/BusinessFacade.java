@@ -212,8 +212,8 @@ public class BusinessFacade {
         result.add("</tr>");
         if(dates.size() == ids.size()) 
             for (int i = 0; i < dates.size(); i++) {
-                int is = i + 1;
-                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">"+ is + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
+                
+                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">"+ ids.get(i) + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
             }
