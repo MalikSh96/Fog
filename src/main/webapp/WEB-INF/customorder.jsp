@@ -80,13 +80,13 @@
                         <div id="customordrertoolshed" >
                             <div>
                                 <label>Redskabsskur længde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedlength" placeholder="vælg bredde" min="400" max="1200">
+                                <input type="number" class="form-control" name="toolshedlength" placeholder="vælg bredde" min="0" max="500">
                             </div>
 
                             <br/>
                             <div>
                                 <label>Redskabsskur bredde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedwidth" placeholder="vælg bredde" min="300" max="800">
+                                <input type="number" class="form-control" name="toolshedwidth" placeholder="vælg bredde" min="0" max="500">
                             </div>
                             <div>
                                 * Hvis du f.eks. har valgt en carport med målene

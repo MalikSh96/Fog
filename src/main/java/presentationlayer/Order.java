@@ -54,20 +54,20 @@ public class Order extends Command {
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
         height = Integer.parseInt(request.getParameter("height"));
-        lengthrafter = Integer.parseInt(request.getParameter("length")) - 6;
-        widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
-        heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
+        lengthrafter = length - 6;
+        widthrafter = width - 23 + 30;
+        heightrafter = height - 5;
         widthSVG = width + 60;
-        lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
-        heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
-        widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
-        lengthline = Integer.parseInt(request.getParameter("length")) + 15;
-        lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
-        widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
+        lengthSVG = length + 65;
+        heightSVG = height + 65;
+        widthline = width + 15 + 30;
+        lengthline = length + 15;
+        lengthtextmiddle = length / 2;
+        widthtextmiddle = width / 2 + 30;
         roof_tiles = 110;
-        heightpost = Integer.parseInt(request.getParameter("height")) - 50;
-        heightground = Integer.parseInt(request.getParameter("height"));
-        heightline = Integer.parseInt(request.getParameter("height"));
+        heightpost = height - 50;
+        heightground = height;
+        heightline = height;
         toolshed_checkbox = request.getParameter("toolshed_checkbox") != null;
 
         if (toolshed_checkbox == true) {
@@ -110,7 +110,7 @@ public class Order extends Command {
         int postAmount = con.getBf().calculatePostAmount(length, width);
         int roofAmount = con.getBf().calculateRoofAmount(length, width);
 
-        con.getBf().createOrder(userID, length, width, height);
+       // con.getBf().createOrder(userID, length, width, height);
 
         con.getBf().addToItemList(con.getBf().getItemName(8), con.getBf().getItemDescription(8), con.getBf().getItemLength(8), remAmount, con.getBf().getOrderId(), 8);
         con.getBf().addToItemList(con.getBf().getItemName(10), con.getBf().getItemDescription(10), con.getBf().getItemLength(10), raftAmount, con.getBf().getOrderId(), 10);
@@ -134,7 +134,7 @@ public class Order extends Command {
         totalPrice += con.getBf().getItemPrice(23) * con.getCARRIAGEBOLTAMOUNT();
         totalPrice += con.getBf().getItemPrice(24) * con.getSQUARESLICESAMOUNT();        
         
-        con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
+        //con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
         
         return "order";
     }

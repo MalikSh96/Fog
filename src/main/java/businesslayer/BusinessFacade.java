@@ -212,7 +212,8 @@ public class BusinessFacade {
         result.add("</tr>");
         if(dates.size() == ids.size()) 
             for (int i = 0; i < dates.size(); i++) {
-                result.add("<tr><th scope=\"row\"><p>"+ ids.get(i) + "</th><td><p>" + " "+ dates.get(i) + "</td></tr>");
+                int is = i + 1;
+                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">"+ is + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
             }
@@ -221,7 +222,7 @@ public class BusinessFacade {
         return result;
     }
     
-    public static List<String> allsCurrentOrdes( List<Integer> idsOrdre,List<Integer> idsUser, List<String> name, List<String> lastname, List<String> dates){
+    public static List<String> allsCurrentOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
         
     List<String> result = new ArrayList<>();
     result.add("<div class=\"contatiner\">");
@@ -229,16 +230,14 @@ public class BusinessFacade {
     result.add("<tr>");
     
     result.add("<th scope=\"col\">OrdreId</th>");
-    result.add("<th scope=\"col\">UserId</th>");
     result.add("<th scope=\"col\">firstname</th>");
     result.add("<th scope=\"col\">lastname</th>");
     result.add("<th scope=\"col\">Dato</th>");
     result.add("</tr>");
     
-        for (int i = 0; i < idsUser.size(); i++) {    
+        for (int i = 0; i < idsOrdre.size(); i++) {    
         result.add("<tr>");
-        result.add("<td> <p>" + idsOrdre.get(i) + "</p></td>");
-        result.add("<td> <p>" + idsUser.get(i) + "</p></td>");
+        result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">"+ idsOrdre.get(i) +  "</a></p></td>");
         result.add("<td> <p>" + name.get(i) + "</p></td>");
         result.add("<td><p>" + lastname.get(i) + "</p></td>");
         result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -254,7 +253,7 @@ public class BusinessFacade {
         List<String> names = new ArrayList<>();
         
         for (int i = 0; i < ids.size(); i++) {
-            names.add(getUserName(i));
+            names.add(getUserName(ids.get(i)));
         }
         return names;
     }
@@ -263,7 +262,7 @@ public class BusinessFacade {
         List<String> lastnames = new ArrayList<>();
         
         for (int i = 0; i < ids.size(); i++) {
-            lastnames.add(getUserLastname(i));
+            lastnames.add(getUserLastname(ids.get(i)));
         }
         return lastnames;
     }

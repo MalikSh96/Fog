@@ -100,7 +100,7 @@
                                       width="<%= length%>"         
                                       style = "stroke: black; fill: none;" />
                                 <!---------------> 
-                                <% if (toolshedlength > 150) { %>
+                                <% if (toolshedlength > 0) { %>
                                 <!-- text to toolshef -->
                                 <text x="<%out.print(lengthline);%>" y="<%out.print(width / 6 * 2);%>"
                                       font-size="10px"
@@ -348,7 +348,7 @@
                                 <% }%>
                                 <!------------>
                                 <!--rafter under roof -->
-                                <%if (toolshedlength > 150) { %>
+                                <%if (toolshedlength > 0) { %>
                                 <rect  x = "0" y = "10" height = "15" width = "<% out.print(length - toolshedlength - 10); %>" style="stroke:black; fill: none"/>
                                 <rect  x = "<%out.print(length - 10);  %>" y = "10" height = "15" width = "10" style="stroke:black; fill: none"/>
                                 <%  } else { %>
@@ -363,10 +363,25 @@
                                 <% if (toolshedlength != 0) { %>
                                 <text x="<% out.print((length - 10 - toolshedlength) / 2);%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
-                                      text-anchor="middle"><% out.print(length - 10 - toolshedlength - 25);%> cm</text>
+                                      text-anchor="middle"><% out.print(length -10 - toolshedlength - 25);%> cm</text>
                                 <% } %>
 
-
+                               <% if(toolshedlength == 0) { %>
+                                 <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length - toolshedlength) / 2) / 2 );%>" y="<%out.print(heightline);%>"
+                                      font-size="10px"
+                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
+                                <% } %>
+                                <% }%>
+                                
+                                <% if(toolshedlength == 0) { %>
+                                 <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length - toolshedlength) / 2) * 1.5 );%>" y="<%out.print(heightline);%>"
+                                      font-size="10px"
+                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
+                                <% } %>
+                                <% }%>
+                                
 
                                 <% if (toolshedlength == 0) { %>
                                 <rect x="<%out.print(length - 25);%>" 
@@ -431,7 +446,7 @@
                                           }%>" 
                                       style="stroke:black; fill: none"/>       
                                 <% }%>
-
+                                
 
 
                                 <!--heightground to the carport - 25 roof of ------>
