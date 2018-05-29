@@ -110,7 +110,7 @@ public class Order extends Command {
         int postAmount = con.getBf().calculatePostAmount(length, width);
         int roofAmount = con.getBf().calculateRoofAmount(length, width);
 
-       // con.getBf().createOrder(userID, length, width, height);
+        con.getBf().createOrder(userID, length, width, height);
 
         con.getBf().addToItemList(con.getBf().getItemName(8), con.getBf().getItemDescription(8), con.getBf().getItemLength(8), remAmount, con.getBf().getOrderId(), 8);
         con.getBf().addToItemList(con.getBf().getItemName(10), con.getBf().getItemDescription(10), con.getBf().getItemLength(10), raftAmount, con.getBf().getOrderId(), 10);
