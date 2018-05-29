@@ -60,15 +60,8 @@
                         </div>            
                         <div class="height">
                             <label> Carport højde i cm*</label><br>
-                            <select class="form-control" name="height">
-                                <option value="200">Vælg højde</option>
-                                <option value="200">200</option>   
-                                <option value="210">210</option>
-                                <option value="220">220</option>   
-                                <option value="230">230</option>
-                                <option value="240">240</option>   
-                                <option value="250">250</option>
-                            </select>
+                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="200" max="510" required>
+
                         </div>  
 
 
@@ -112,7 +105,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="customorderimgdiv">
-                    <img src="Image/carcarport.png" class="customorderimg"/>
+                        <img src="Image/carcarport.png" class="customorderimg"/>
                     </div>
                 </div>
             </div>

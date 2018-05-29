@@ -47,7 +47,7 @@
                                     <li class="topsviews" > <a href="FrontController?command=kontakt">Kontakt</a>
                                     </li>
 
-                                    <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <% if (user != null) { %>
                                     <li class="topsviews" > <a href="FrontController?command=logout">Logout</a>
                                     </li>
                                     <% }%>
