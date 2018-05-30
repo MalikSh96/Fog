@@ -12,8 +12,6 @@ public class BusinessFacade {
         return DataFacade.createUser(name, lastname, address, postal, phone, email, password);
     }
 
-
-
     public static User getUser(int id) throws UniversalExceptions {
         return DataFacade.getUser(id);
     }
@@ -44,6 +42,10 @@ public class BusinessFacade {
 
     public List<Integer> getAllUserIds() throws UniversalExceptions {
         return DataFacade.getAllUserIds();
+    }
+
+    public List<String> getAllUserInfo(int userId) throws UniversalExceptions {
+        return DataFacade.getAllUserInfo(userId);
     }
 
     // ***ORDERMAPPER***
@@ -103,10 +105,14 @@ public class BusinessFacade {
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
         DataFacade.updateTotalPrice(totalPrice, orderId);
     }
-    
+
     public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
-    return DataFacade.getAllUserOrderDates(userId);
-}
+        return DataFacade.getAllUserOrderDates(userId);
+    }
+
+    public static int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
+        return DataFacade.getUserIdFromOrderId(orderId);
+    }
 
     // ***INVENTORYMAPPER***
     public static int getItemId(String name) throws UniversalExceptions {
@@ -181,7 +187,7 @@ public class BusinessFacade {
     }
 
     public List<Integer> getAmountList(int orderId) throws UniversalExceptions {
-    return DataFacade.getAmountList(orderId);
+        return DataFacade.getAmountList(orderId);
     }
 
     // ***BUSINESSLAYER***
@@ -200,94 +206,97 @@ public class BusinessFacade {
     public static int calculateRoofAmount(int length, int width) {
         return ItemList.roofAmount(length, width).get(0);
     }
-    
-    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
-        
+
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids) {
+
         List<String> result = new ArrayList<>();
         result.add("<div class=\"container\">");
         result.add("<table class=\"table table-hover\">");
-        result.add( "<tr>");
-        result.add("<th scope=\"col\">#</th>");  
+        result.add("<tr>");
+        result.add("<th scope=\"col\">#</th>");
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
-        if(dates.size() == ids.size()) 
+        if (dates.size() == ids.size()) {
             for (int i = 0; i < dates.size(); i++) {
+
                 
                 result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">"+ ids.get(i) + "</a></th><td><p>" + " "+ dates.get(i) + "</td></tr>");
                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
+
             }
+        }
         result.add("</table>");
         result.add("</div>");
         return result;
     }
-    
-    public static List<String> allsCurrentOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
-        
-    List<String> result = new ArrayList<>();
-    result.add("<div class=\"contatiner\">");
-    result.add("<table class=\"table table-hover\">");
-    result.add("<tr>");
-    
-    result.add("<th scope=\"col\">OrdreId</th>");
-    result.add("<th scope=\"col\">firstname</th>");
-    result.add("<th scope=\"col\">lastname</th>");
-    result.add("<th scope=\"col\">Dato</th>");
-    result.add("</tr>");
-    
-        for (int i = 0; i < idsOrdre.size(); i++) {    
+
+    public static List<String> allsCurrentOrdes(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"contatiner\">");
+        result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-        result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">"+ idsOrdre.get(i) +  "</a></p></td>");
-        result.add("<td> <p>" + name.get(i) + "</p></td>");
-        result.add("<td><p>" + lastname.get(i) + "</p></td>");
-        result.add("<td><p>" + dates.get(i) + "</p></td>");
+
+        result.add("<th scope=\"col\">OrdreId</th>");
+        result.add("<th scope=\"col\">firstname</th>");
+        result.add("<th scope=\"col\">lastname</th>");
+        result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
+
+        for (int i = 0; i < idsOrdre.size(); i++) {
+            result.add("<tr>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p>" + name.get(i) + "</p></td>");
+            result.add("<td><p>" + lastname.get(i) + "</p></td>");
+            result.add("<td><p>" + dates.get(i) + "</p></td>");
+            result.add("</tr>");
         }
         result.add("</table>");
         result.add("</div>");
-        
-    return result;
+
+        return result;
     }
-    
-    public static List<String> allsOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
-        
-    List<String> result = new ArrayList<>();
-    result.add("<div class=\"contatiner\">");
-    result.add("<table class=\"table table-hover\">");
-    result.add("<tr>");
-    
-    result.add("<th scope=\"col\">OrdreId</th>");
-    result.add("<th scope=\"col\">firstname</th>");
-    result.add("<th scope=\"col\">lastname</th>");
-    result.add("<th scope=\"col\">Dato</th>");
-    result.add("</tr>");
-    
-        for (int i = 0; i < idsOrdre.size(); i++) {    
+
+    public static List<String> allsOrdes(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"contatiner\">");
+        result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-        result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">"+ idsOrdre.get(i) +  "</a></p></td>");
-        result.add("<td> <p>" + name.get(i) + "</p></td>");
-        result.add("<td><p>" + lastname.get(i) + "</p></td>");
-        result.add("<td><p>" + dates.get(i) + "</p></td>");
+
+        result.add("<th scope=\"col\">OrdreId</th>");
+        result.add("<th scope=\"col\">firstname</th>");
+        result.add("<th scope=\"col\">lastname</th>");
+        result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
+
+        for (int i = 0; i < idsOrdre.size(); i++) {
+            result.add("<tr>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p>" + name.get(i) + "</p></td>");
+            result.add("<td><p>" + lastname.get(i) + "</p></td>");
+            result.add("<td><p>" + dates.get(i) + "</p></td>");
+            result.add("</tr>");
         }
         result.add("</table>");
         result.add("</div>");
-        
-    return result;
+
+        return result;
     }
-            
+
     public List<String> allCurrentOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
-        
+
         for (int i = 0; i < ids.size(); i++) {
             names.add(getUserName(ids.get(i)));
         }
         return names;
     }
-            
+
     public List<String> allCurrentOrderCustomerLastnames(List<Integer> ids) throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
-        
+
         for (int i = 0; i < ids.size(); i++) {
             lastnames.add(getUserLastname(ids.get(i)));
         }

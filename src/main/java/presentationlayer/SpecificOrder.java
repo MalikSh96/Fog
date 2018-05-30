@@ -20,7 +20,7 @@ public class SpecificOrder extends Command {
         HttpSession session = request.getSession();
         User curUs = (User) session.getAttribute("user");
 
-        chosenId = Integer.parseInt(request.getParameter("chosenid"));
+        if(request.getParameter("chosenid").length() > 0) {chosenId = Integer.parseInt(request.getParameter("chosenid"));}
          if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
         } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
@@ -31,6 +31,7 @@ public class SpecificOrder extends Command {
             return "myorders";
         }
         session.setAttribute("orderid", chosenId);
+       // session.setAttribute("orderuser", bf.getUserIdFromOrderId(chosenId));
         return "specificOrder";
     }
 }
