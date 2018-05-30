@@ -1,0 +1,9 @@
+Brugbart til sekvens diagram:
+
+USER          									DATABASE
+
+loginpage.jsp -request login-> Login.java -request info from database-> BusinessFacade.java-> -request info from database-> DataFacade.java -request info from database-> UserMapper.java
+UserMapper.java -return user info from database-> DataFacade.java -return info from database-> BusinessFacade.java -return info from database-> Login.java -login/loginfail->USER
+
+customorder.jsp -forwards ordre info-> Order.java -creates order, forwards info to database-BusinessFacade -forwards info to database-> DataFacade -forwards info to database-> OrderMapper.java -confirms order-> order.jsp -order confirmer-> USER
+
