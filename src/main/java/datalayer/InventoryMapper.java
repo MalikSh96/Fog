@@ -11,11 +11,20 @@ import businesslayer.UniversalExceptions;
 import businesslayer.Inventory;
 import java.sql.Statement;
 
+/**
+ *
+ * @author malik
+ */
 public class InventoryMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
 
+    /**
+     *
+     * @return completeInventory
+     * @throws UniversalExceptions
+     */
     public static List<Inventory> completeInventory() throws UniversalExceptions {
 
         List<Inventory> inventory = new ArrayList<>();
@@ -49,6 +58,16 @@ public class InventoryMapper {
         return inventory;
     }
 
+    /**
+     *
+     * @param name
+     * @param desc
+     * @param length
+     * @param unit
+     * @param status
+     * @param price
+     * @throws UniversalExceptions
+     */
     public static void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -64,6 +83,12 @@ public class InventoryMapper {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return name
+     * @throws UniversalExceptions
+     */
     public static String getName(int id) throws UniversalExceptions {
 
         String name = null;
@@ -87,6 +112,12 @@ public class InventoryMapper {
         return name;
     }
 
+    /**
+     *
+     * @param id
+     * @return length
+     * @throws UniversalExceptions
+     */
     public static int getLength(int id) throws UniversalExceptions {
 
         int length = 0;
@@ -110,6 +141,12 @@ public class InventoryMapper {
         return length;
     }
 
+    /**
+     *
+     * @param name
+     * @return Unit
+     * @throws UniversalExceptions
+     */
     public static String getUnit(String name) throws UniversalExceptions {
 
         String unit = null;
@@ -133,6 +170,12 @@ public class InventoryMapper {
         return unit;
     }
 
+    /**
+     *
+     * @param name
+     * @return Id
+     * @throws UniversalExceptions
+     */
     public static int getId(String name) throws UniversalExceptions {
 
         int id = 0;
@@ -156,6 +199,12 @@ public class InventoryMapper {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     * @return Description
+     * @throws UniversalExceptions
+     */
     public static String getDescription(int id) throws UniversalExceptions {
 
         String desc = null;
@@ -179,6 +228,12 @@ public class InventoryMapper {
         return desc;
     }
 
+    /**
+     *
+     * @param id
+     * @return result
+     * @throws UniversalExceptions
+     */
     public static Inventory getSpecificItem(int id) throws UniversalExceptions {
 
         Inventory result = null;
@@ -209,6 +264,12 @@ public class InventoryMapper {
         return result;
     }
 
+    /**
+     *
+     * @param id
+     * @return result
+     * @throws UniversalExceptions
+     */
     public static int getStatus(int id) throws UniversalExceptions {
 
         int result = 0;
@@ -233,6 +294,12 @@ public class InventoryMapper {
         return result;
     }
 
+    /**
+     *
+     * @param id
+     * @return result
+     * @throws UniversalExceptions
+     */
     public static int getPrice(int id) throws UniversalExceptions {
 
         int result = 0;
@@ -257,6 +324,13 @@ public class InventoryMapper {
         return result;
     }
 
+    /**
+     *
+     * @param id
+     * @param amount
+     * @return boolean
+     * @throws UniversalExceptions
+     */
     public static boolean updateStatus(int id, int amount) throws UniversalExceptions {
         int result = getStatus(id) - amount;
         if (result > 0) {
@@ -277,6 +351,13 @@ public class InventoryMapper {
         return false;
     }
 
+    /**
+     *
+     * @param id
+     * @param amount
+     * @param wrongIds
+     * @throws UniversalExceptions
+     */
     public static void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) throws UniversalExceptions {
         int result = getStatus(id) + amount;
         for (int i = 0; i < wrongIds.size(); i++) {
@@ -297,6 +378,17 @@ public class InventoryMapper {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param desc
+     * @param length
+     * @param unit
+     * @param status
+     * @param price
+     * @throws UniversalExceptions
+     */
     public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();

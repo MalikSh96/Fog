@@ -11,11 +11,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author malik
+ */
 public class OrderMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
 
+    /**
+     *
+     * @param ord
+     * @return orderId
+     * @Description: To generate an orderid for an order created
+     * @throws UniversalExceptions
+     */
     public static int createPreOrder(Orders ord) throws UniversalExceptions {
         int orderId = 0;
         Connection con;
@@ -49,6 +60,13 @@ public class OrderMapper {
         return orderId;
     }
 
+    /**
+     *
+     * @param id
+     * @return date
+     * @Description: Get the dates from the order table where user id matches
+     * @throws UniversalExceptions
+     */
     public String getDates(int id) throws UniversalExceptions {
 
         String dates = null;
@@ -73,6 +91,13 @@ public class OrderMapper {
         return dates;
     }
 
+    /**
+     *
+     * @param orderId
+     * @return ord
+     * @Description: Get an order from the order table where the id matches then one being searched for 
+     * @throws UniversalExceptions
+     */
     public Orders getOrder(int orderId) throws UniversalExceptions {
         Orders ord = null;
         try {
@@ -103,6 +128,12 @@ public class OrderMapper {
         return ord;
     }
 
+    /**
+     *
+     * @return id
+     * @Description: Getting the latest order
+     * @throws UniversalExceptions
+     */
     public static int getLatestOrder() throws UniversalExceptions {
         int id = 0;
         try {
@@ -126,6 +157,13 @@ public class OrderMapper {
         return id;
     }
 
+    /**
+     *
+     * @param orderId
+     * @return boolean
+     * @Description: See if an order id exists
+     * @throws UniversalExceptions
+     */
     public boolean orderIdExists(int orderId) throws UniversalExceptions {
         boolean exists = false;
         try {
@@ -149,6 +187,13 @@ public class OrderMapper {
         return exists;
     }
 
+    /**
+     *
+     * @param orderId
+     * @return userId
+     * @Description: Getting the user where orderId matches
+     * @throws UniversalExceptions
+     */
     public int getUserId(int orderId) throws UniversalExceptions //shows specifik orders for the chosen user
     {
         int userId = 0;
@@ -173,6 +218,13 @@ public class OrderMapper {
         return userId;
     }
     
+    /**
+     *
+     * @param userId
+     * @return dates
+     * @Description: Return a list of all the dates where a user with a specific id has made orders
+     * @throws UniversalExceptions
+     */
     public List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
 
         List<String> dates = new ArrayList<>();
@@ -197,6 +249,12 @@ public class OrderMapper {
         return dates;
     }
     
+    /**
+     *
+     * @return orderNumbers
+     * @Description: Gets all order id which is not send
+     * @throws UniversalExceptions
+     */
     public List<Integer> getNonSentOrderId() throws UniversalExceptions {
 
         List<Integer> orderNumbers = new ArrayList<>();
@@ -221,6 +279,12 @@ public class OrderMapper {
         return orderNumbers;
     }
     
+    /**
+     *
+     * @return orderDates
+     * @Description: Gets all the dates for orders which is not send
+     * @throws UniversalExceptions
+     */
     public List<String> getNonSentOrderDates() throws UniversalExceptions {
 
         List<String> orderDates = new ArrayList<>();
@@ -245,6 +309,12 @@ public class OrderMapper {
         return orderDates;
     }
     
+    /**
+     *
+     * @return userId
+     * @Description: Gets all non sent order ids for the specific user
+     * @throws UniversalExceptions
+     */
     public List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
 
         List<Integer> userIds = new ArrayList<>();
@@ -269,6 +339,12 @@ public class OrderMapper {
         return userIds;
     }
 
+    /**
+     *
+     * @return orderNumbers
+     * @Description: Gets a list containing all order ids
+     * @throws UniversalExceptions
+     */
     public List<Integer> getAllOrderIds() throws UniversalExceptions {
         List<Integer> orderNumbers = new ArrayList<>();
         try {
@@ -292,6 +368,12 @@ public class OrderMapper {
         return orderNumbers;
     }
 
+    /**
+     *
+     * @return orders
+     * @Description: Gets a list of all the orders
+     * @throws UniversalExceptions
+     */
     public List<Orders> allOrders() throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -323,6 +405,12 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     *
+     * @return orders
+     * @Description: gets all confirmed orders
+     * @throws UniversalExceptions
+     */
     public List<Orders> confirmedOrders() throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -356,6 +444,12 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     *
+     * @return orders
+     * @Description: Gets all pending orders
+     * @throws UniversalExceptions
+     */
     public List<Orders> pendingOrders() throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -389,6 +483,13 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     *
+     * @param id
+     * @return orders
+     * @Description: Gets all the orders for a customer with a specific id
+     * @throws UniversalExceptions
+     */
     public List<Orders> allCustomerOrders(int id) throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
@@ -423,6 +524,13 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     *
+     * @param id
+     * @return orderIds
+     * @Description: Gets all the order ids for a specific user id
+     * @throws UniversalExceptions
+     */
     public List<Integer> allCustomerOrdersId(int id) throws UniversalExceptions {
         List<Integer> orderIds = new ArrayList<>();
 
@@ -446,6 +554,13 @@ public class OrderMapper {
         return orderIds;
     }
 
+    /**
+     *
+     * @param orderID
+     * @return sent
+     * @Description: Checks if an order is sent or not
+     * @throws ClassNotFoundException
+     */
     public boolean isOrderSent(int orderID) throws ClassNotFoundException {
         int sent = 0;
         try {
@@ -469,6 +584,12 @@ public class OrderMapper {
         return false;
     }
 
+    /**
+     *
+     * @param orderID
+     * @Description: Sends an order
+     * @throws UniversalExceptions
+     */
     public void sendOrder(int orderID) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -484,6 +605,13 @@ public class OrderMapper {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return result
+     * @Description: Gets the price for a specific order id
+     * @throws UniversalExceptions
+     */
     public int getPrice(int id) throws UniversalExceptions {
         int result = 0;
         try {

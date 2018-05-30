@@ -11,12 +11,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author malik
+ */
 public class UserMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
 
     //Obs! custom exceptions is not applied to the static methods
+
+    /**
+     *
+     * @param user
+     * @throws UniversalExceptions
+     */
     public static void createUser(User user) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -43,6 +53,13 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @param password
+     * @return user
+     * @throws UniversalExceptions
+     */
     public static User login(String email, String password) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -67,6 +84,12 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @return id
+     * @throws UniversalExceptions
+     */
     public static int getUserId(String email) throws UniversalExceptions {
         int id = 0;
         try {
@@ -85,6 +108,12 @@ public class UserMapper {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     * @return user
+     * @throws UniversalExceptions
+     */
     public static User getUser(int id) throws UniversalExceptions {
         User u = null;
         try {
@@ -112,6 +141,18 @@ public class UserMapper {
         return u;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param lastname
+     * @param address
+     * @param postalnumber
+     * @param phone
+     * @param email
+     * @param password
+     * @throws UniversalExceptions
+     */
     public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -128,6 +169,11 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @return userList
+     * @throws UniversalExceptions
+     */
     public static List<User> getAllUsers() throws UniversalExceptions {
         List<User> userlist = new ArrayList<>();
 
@@ -157,6 +203,11 @@ public class UserMapper {
         return userlist;
     }
 
+    /**
+     *
+     * @return idList
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllUserIds() throws UniversalExceptions {
         List<Integer> idList = new ArrayList<>();
 
@@ -179,26 +230,38 @@ public class UserMapper {
         return idList;
     }
 
+    /**
+     *
+     * @param id
+     * @return role
+     * @throws UniversalExceptions
+     */
     public static String getUserRole(int id) throws UniversalExceptions {
-        {
-            String role = null;
-            try {
-                Connection con = Connector.connection();
-                String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
-                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        
+        String role = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    role = rs.getString("role");
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                uex.ThrowDidNotGetUserRoleException();
-                throw new UniversalExceptions(ex.getMessage());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                role = rs.getString("role");
             }
-            return role;
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetUserRoleException();
+            throw new UniversalExceptions(ex.getMessage());
         }
+        return role;
+        
     }
 
+    /**
+     *
+     * @param id
+     * @return username
+     * @throws UniversalExceptions
+     */
     public static String getUserName(int id) throws UniversalExceptions {
         {
             String name = null;
@@ -219,6 +282,12 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return lastname
+     * @throws UniversalExceptions
+     */
     public static String getUserLastname(int id) throws UniversalExceptions {
         {
             String lastname = "dav";
@@ -239,6 +308,12 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param userId
+     * @return boolean
+     * @throws UniversalExceptions
+     */
     public boolean UserIdExists(int userId) throws UniversalExceptions {
         boolean exists = false;
         try {

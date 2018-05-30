@@ -10,11 +10,25 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author malik
+ */
 public class ItemlistMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
 
+    /**
+     *
+     * @param name
+     * @param desc
+     * @param length
+     * @param amount
+     * @param orderId
+     * @param itemId
+     * @throws UniversalExceptions
+     */
     public static void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -38,6 +52,12 @@ public class ItemlistMapper {
         }
     }
 
+    /**
+     *
+     * @param orderId
+     * @return itemList
+     * @throws UniversalExceptions
+     */
     public static List<String> getFullItemlist(int orderId) throws UniversalExceptions {
 
         List<String> itemlist = new ArrayList<>();
@@ -77,6 +97,12 @@ public class ItemlistMapper {
 
     }
 
+    /**
+     *
+     * @param orderId
+     * @return itemIds
+     * @throws UniversalExceptions
+     */
     public List<Integer> getFullItemlistId(int orderId) throws UniversalExceptions {
 
         List<Integer> itemIds = new ArrayList<>();
@@ -101,6 +127,13 @@ public class ItemlistMapper {
 
     }
 
+    /**
+     *
+     * @param orderId
+     * @param itemId
+     * @return amount
+     * @throws UniversalExceptions
+     */
     public int getAmount(int orderId, int itemId) throws UniversalExceptions {
 
         int amount = 0;
@@ -125,6 +158,12 @@ public class ItemlistMapper {
 
     }
 
+    /**
+     *
+     * @param orderId
+     * @return amount
+     * @throws UniversalExceptions
+     */
     public List<Integer> getAmountList(int orderId) throws UniversalExceptions {
 
         List<Integer> amount =  new ArrayList<>();
