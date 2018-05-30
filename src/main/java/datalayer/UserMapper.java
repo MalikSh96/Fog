@@ -19,9 +19,7 @@ public class UserMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
-
-    //Obs! custom exceptions is not applied to the static methods
-
+    //Obs! custom exceptions is not applied to the static methods, for some reason they can't ne applied to them
     /**
      *
      * @param user
@@ -46,7 +44,6 @@ public class UserMapper {
             ids.next();
             int id = ids.getInt(1);
             user.setId(id);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotCreateUserException();
             throw new UniversalExceptions(ex.getMessage());
@@ -137,7 +134,6 @@ public class UserMapper {
             uex.ThrowDidNotGetTheUserException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return u;
     }
 
@@ -199,7 +195,6 @@ public class UserMapper {
             uex.ThrowDidNotGetUserListException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return userlist;
     }
 
@@ -219,14 +214,12 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
-
                 idList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return idList;
     }
 
@@ -253,7 +246,6 @@ public class UserMapper {
             throw new UniversalExceptions(ex.getMessage());
         }
         return role;
-        
     }
 
     /**
@@ -263,23 +255,21 @@ public class UserMapper {
      * @throws UniversalExceptions
      */
     public static String getUserName(int id) throws UniversalExceptions {
-        {
-            String name = null;
-            try {
-                Connection con = Connector.connection();
-                String SQL = "SELECT name FROM FogUsers.users where id = '" + id + "';";
-                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        String name = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT name FROM FogUsers.users where id = '" + id + "';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    name = rs.getString("name");
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                uex.ThrowDidNotGetUserRoleException();
-                throw new UniversalExceptions(ex.getMessage());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                name = rs.getString("name");
             }
-            return name;
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetUserRoleException();
+            throw new UniversalExceptions(ex.getMessage());
         }
+        return name;
     }
 
     /**
@@ -289,23 +279,21 @@ public class UserMapper {
      * @throws UniversalExceptions
      */
     public static String getUserLastname(int id) throws UniversalExceptions {
-        {
-            String lastname = "dav";
-            try {
-                Connection con = Connector.connection();
-                String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
-                PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        String lastname = "dav";
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    lastname = rs.getString("lastname");
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                uex.ThrowDidNotGetUserRoleException();
-                throw new UniversalExceptions(ex.getMessage());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                lastname = rs.getString("lastname");
             }
-            return lastname;
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetUserRoleException();
+            throw new UniversalExceptions(ex.getMessage());
         }
+        return lastname;
     }
 
     /**
@@ -321,22 +309,16 @@ public class UserMapper {
             String SQL = "SELECT * FROM FogUsers.users where id = '" + userId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 exists = true;
                 return exists;
-
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
             uex.ThrowDidNotFindUserIdException();
             throw new UniversalExceptions(ex.getMessage());
-
         }
         return exists;
-
     }
 }

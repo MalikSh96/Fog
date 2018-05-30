@@ -15,8 +15,7 @@ public class DataFacade {
 
     private static final Constants con = new Constants();
 
-    //user
-
+    //User section
     /**
      *
      * @param email
@@ -40,7 +39,8 @@ public class DataFacade {
      * @return user
      * @throws UniversalExceptions
      */
-    public static User createUser(String name, String lastname, String address, int postalcode, int phone, String email, String password) throws UniversalExceptions {
+    public static User createUser(String name, String lastname, String address, 
+            int postalcode, int phone, String email, String password) throws UniversalExceptions {
         User user = new User(name, lastname, address, postalcode, phone, email, password, "customer");
         con.getUM().createUser(user);
         return user;
@@ -137,8 +137,7 @@ public class DataFacade {
         return con.getUM().getAllUserIds();
     }
 
-    //order
-
+    //Order section
     /**
      *
      * @param ord
@@ -278,8 +277,7 @@ public class DataFacade {
         return con.getOM().getAllUserOrderDates(userId);
     }
 
-    //itemlist
-
+    //itemlist section
     /**
      *
      * @param name
@@ -290,7 +288,8 @@ public class DataFacade {
      * @param itemId
      * @throws UniversalExceptions
      */
-    public static void addToItemList(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
+    public static void addToItemList(String name, String desc, int length, 
+            int amount, int orderId, int itemId) throws UniversalExceptions {
         con.getILM().addToItemlist(name, desc, length, amount, orderId, itemId);
     }
 
@@ -325,8 +324,7 @@ public class DataFacade {
         return con.getILM().getFullItemlistId(orderId);
     }
 
-    //inventory
-
+    //inventory section
     /**
      *
      * @param inventoryId
@@ -338,7 +336,8 @@ public class DataFacade {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void updateInventory(int inventoryId, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public static void updateInventory(int inventoryId, String name, String desc, 
+            int length, String unit, int status, int price) throws UniversalExceptions {
         con.getIM().UpdateInventory(inventoryId, name, desc, length, unit, status, price);
     }
 
@@ -454,7 +453,8 @@ public class DataFacade {
      * @param status
      * @throws UniversalExceptions
      */
-    public static void addToInventory(String name, String desc, int length, String unit, int price, int status) throws UniversalExceptions {
+    public static void addToInventory(String name, String desc, int length, 
+            String unit, int price, int status) throws UniversalExceptions {
         con.getIM().addToInventory(name, desc, length, unit, price, status);
     }
 
@@ -466,5 +466,4 @@ public class DataFacade {
     public static List<Inventory> completeInventory() throws UniversalExceptions {
         return con.getIM().completeInventory();
     }
-
 }
