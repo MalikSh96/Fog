@@ -20,8 +20,8 @@ body{
 
     vertical-align: central;
     text-align: center;
-    padding-top: 160px;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 30px;
 }
 .indextext{
     vertical-align: central;
@@ -69,7 +69,7 @@ body{
 .updateinfopagetable{
     vertical-align: center;
     margin-left: 150px; 
-    margin-right:auto;
+    margin-right: auto;
 
 } 
 
@@ -125,12 +125,31 @@ body{
     vertical-align: central;
 }
 
+
+
+
+
 /*--- order -------*/
 
 .ordretableitemlist{
 
 
     height: 300px;
+}
+
+.jjustify-content-center {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    
+    text-align:left;
+    
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: center;
+    
 }
 
 /*--- regstration ------- */
@@ -185,11 +204,32 @@ h1,h2,h3,h4{
     padding-right: 15px;
 
 }
+
+
+.kontaktphoto{
+    
+    height: 200px;
+    
+}
+
+.kontaktdivphoto{
+    float:right;
+    margin-right: 150px;
+    margin-left: auto;
+}
+
+.customordreheading{
+    
+    margin-left: 38%;
+    margin-right: auto;
+    
+}
+
 /*--- loginpage ---*/
 .loginpagecenter{
     vertical-align: center;
-
-    margin-left: 30%; 
+    padding-left: 10px;
+    margin-left: 5%; 
     margin-right:auto;
 
 }
@@ -199,12 +239,25 @@ h1,h2,h3,h4{
     height: 150px;
     display: block;
     margin-left: 25%;
-    margin-right: 10%;
+    margin-right: 5%;
     margin-top: 100px;
 
 
 }
+.loginbar{
+    
+   
+}
+.loginheading{
+    
+   padding-left: 10px; 
+}
 
+.loginpagebulder {
+    
+    padding-left: 20px;
+    
+}
 
 
 .middle{
@@ -215,5 +268,34 @@ h1,h2,h3,h4{
 
 }
 
+/*--- myorders -------*/
+
+    
+    
+
+.table th {
+    text-align: center;
+}
+
+.table-hover {
+    border-radius: 5px;
+    width: 20%;
+    float: none;
+    table-layout:fixed;
+}
+
+.table td {
+    text-align: center;
+}
+
+.customorderimg{
+    height: 200px;
+    
+}
+.customorderimgdiv{
+    
+    float: right;
+    
+}
 
 

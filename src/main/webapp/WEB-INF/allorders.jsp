@@ -18,7 +18,10 @@
         <h1>Alle ordrer</h1>
         
         <%=bf.getAllOrderIds().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
-        
+        <%//= bf.allsOrdes(bf.getAllOrderIds(),
+              //  bf.allCurrentOrderCustomerNames(bf.getAllOrderIds()),
+                //bf.allCurrentOrderCustomerLastnames(bf.getAllOrderIds()),
+                //bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"  %>
                         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
         <br><input type="number" name="chosenid" placeholder="Order ID" required/>

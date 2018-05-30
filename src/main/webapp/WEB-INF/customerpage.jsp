@@ -25,46 +25,41 @@
         <div class="center-text">
             <div class="customerpageoverskrift">
                 <h1>
-                    Logget ind som: <%= usr.getName()%> 
+                    Velkommen <%= usr.getName()%>. 
                 </h1>
             </div>
         </div>
         <div class="container">
             <div class="row">
+               
                 <div class="col-sm-4">
-                    <h3>
-                        Min profil
-                    </h3>
-                    Her ser du din profil, hvor du kan opdatere eller redigere dine personlige oplysninger.
-                    <br/>
-                    <h3>"Skræddersyet" ordre</h3>
-                    Her kan du konstruere og "skræddersy" din caport og redskabskur efter dine egne ønskede mål og se det tegnede resultat.
-                    <br/>
-                    <h3>Ordre Historik</h3>
-                    Her kan du se en status på din ordre samt gå tilbage og se tidligere ordre.
-                </div>
+                    <p>Tryk på ”Min Profil” og indsæt dine personlige informationer.</p>
+                    <p>Under ”Ordrehistorik” kan du se din ordre samt tidligere ordre.</p>
 
+                </div>
 
                 <div class="col-sm-4">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <a href="FrontController?command=userprofile">Min Profil</a>
                         </li>
-                        <li class="list-group-item">
+                        <!---<li class="list-group-item">
                             <a href="FrontController?command=customorder">Skræddersy Ordre</a>
-                        </li>
+                        </li> -->
                         <li class="list-group-item">
                             <a href="FrontController?command=myorders">Ordrehistorik</a>
                         </li>
                     </ul>
                 </div>
-                
+
                 <div  class="customerpagepicture">
                     <img src="Image/flattag.png"/>
                 </div>
             </div>
         </div>
-
+                
+                        
+                   
         <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

@@ -29,61 +29,86 @@
 
         </style>
         <%@include file="../navigation/menu.jsp" %>                
-        <div class="text-center">
+        <div class="customordreheading">
             <h1>Bestil Carport</h1>
         </div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4" >
-
+                    Her kan du tilpasse din ordre efter dine specifikke ønsker og når du har placeret din ordre, kan du få 
+                    udskrevet en skitsetegning af en carport. 
+                    <br/><br/>Udfyld skemaet og klik på "Placèr Ordre"
                 </div>
-                <div  class="col-sm-4" >
+
+                <div  class="col-sm-4">
                     <form name="shedForm" action="FrontController" method="POST" onsubmit="return validateshedform()">
                         <input type="hidden" name="command" value="order">
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
-                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="300" max="800" required>
+                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="200" max="999" required>
 
 
-                        </div>            
+                        </div> 
+
                         <div class="width">
                             <label>Carport bredde i cm*</label><br>
-                            <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="400" max="1200" required>
+                            <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="100" max="999" required>
 
 
                         </div>            
                         <div class="height">
-                            <label> Carport højde*</label><br>
-                            <input type="number" class="form-control" name="height" placeholder="vælg bredde" min="200" max="510" required>
-                        </div> 
-                        <br/> 
+                            <label> Carport højde i cm*</label><br>
+                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="200" max="510" required>
+
+                        </div>  
+
+
+                        <div>
+                            Felter markeret * SKAL udfyldes!<br><br>
+                        </div>                    
                         <input name="toolshed_checkbox" type="checkbox" id="toolshed" class="inputstl" onclick="shedToggler()"> Redskabsskur  
                         <br/>
-
-                        <div id="customordrertoolshed">
+                        <div id="customordrertoolshed" >
                             <div>
                                 <label>Redskabsskur længde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedlength" placeholder="vælg bredde" min="400" max="1200">
+                                <input type="number" class="form-control" name="toolshedlength" placeholder="vælg bredde" min="0" max="500">
                             </div>
 
                             <br/>
                             <div>
                                 <label>Redskabsskur bredde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedwidth" placeholder="vælg bredde" min="300" max="800">
+                                <input type="number" class="form-control" name="toolshedwidth" placeholder="vælg bredde" min="0" max="500">
+                            </div>
+                            <div>
+                                * Hvis du f.eks. har valgt en carport med målene
+                                <br/>
+                                240x360 cm kan redskabsrummet maksimalt
+                                <br/>måle 210x330 cm. 
+
                             </div>
                         </div>
                         <div>
 
                             <br/> 
                             <input id="orderSubmit" type="submit" value="Placér Ordre">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
                         </div>
-                        <div>
-                            Felter markeret * SKAL udfyldes!<br><br>
-                        </div>
-                    </form> 
+                    </form>
+
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="customorderimgdiv">
+                        <img src="Image/carcarport.png" class="customorderimg"/>
+                    </div>
                 </div>
             </div>
-
             <%@include file="../footer/footer.jsp" %>
             <script src="./javascriptcustomordre.js" type="text/javascript"></script>
     </body>

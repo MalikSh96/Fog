@@ -172,12 +172,37 @@ public class OrderMapper {
         }
         return userId;
     }
+    
+    public List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
 
+        List<String> dates = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT dates FROM FogUsers.orders where userID = '" + userId + "' order by dates desc";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String date = rs.getString("dates");
+                dates.add(date);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetNonSentOrderIdException();
+        }
+        return dates;
+    }
+    
     public List<Integer> getNonSentOrderId() throws UniversalExceptions {
+
         List<Integer> orderNumbers = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT orderId FROM FogUsers.orders where orderConfirmed=0;";
+            String SQL = "SELECT orderId FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -194,6 +219,54 @@ public class OrderMapper {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
         return orderNumbers;
+    }
+    
+    public List<String> getNonSentOrderDates() throws UniversalExceptions {
+
+        List<String> orderDates = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT dates FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String id = rs.getString("dates");
+                orderDates.add(id);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetNonSentOrderIdException();
+        }
+        return orderDates;
+    }
+    
+    public List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
+
+        List<Integer> userIds = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT userID FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("userId");
+                userIds.add(id);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetNonSentOrderIdException();
+        }
+        return userIds;
     }
 
     public List<Integer> getAllOrderIds() throws UniversalExceptions {

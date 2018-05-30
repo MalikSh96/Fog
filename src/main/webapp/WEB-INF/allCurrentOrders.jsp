@@ -20,15 +20,20 @@
         User userr = (User) session.getAttribute("user");
         %>
         
-        <br><%=bf.getNonSentOrderId().toString().replace("[","").replace("]","").replace(",","").replace(" ", "<br>")+"<br>"%><br>
-   
-                <form action="FrontController" method="POST">
+
+        <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
+        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(),              
+        bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()),
+        bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()),
+        bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
+        <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificOrder">
-        <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-        <input type="submit" value="Se ordre" /><br>
-                </form>
-    </center>  
-        <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
+            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
+            <input type="submit" value="Se ordre" /><br>
+        </form>
+    </center>
+    <center>
+       <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
@@ -39,5 +44,6 @@
     <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
      <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
-    </body>
+    </center>
+</body>
 </html>

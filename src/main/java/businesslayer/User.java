@@ -152,6 +152,12 @@ public class User
         return false;
               
     }
+    public boolean isCustomer(String role) {
+    if(role.equals("customer")) {return true;}
+    return false;
+    }
+    
+    
     @Override
     public String toString() 
     {

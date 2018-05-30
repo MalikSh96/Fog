@@ -13,48 +13,58 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-    <%@include file="../navigation/menu.jsp" %>
-    <center>
-    <h1>Order nr: </h1>
+        <%@include file="../navigation/menu.jsp" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+
+                <div class="center-text">
+                    <h1>Order nr: </h1>
 
 
-    <%
-        int id = (int) session.getAttribute("orderid");
-        session.setAttribute("ordernumber", id);
-        User us = (User) session.getAttribute("user");
-    %>
+                    <%
+                        int id = (int) session.getAttribute("orderid");
+                        session.setAttribute("ordernumber", id);
+                        User us = (User) session.getAttribute("user");
+                    %>
+
+                   
+                    <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
+               
+
+                    <%if (!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed() || us.isAdmin(bf.getUserRole(us.getId())) || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {
+                            out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>");
+                        }%><br>
+
+                    <%out.println("Pris: " + bf.getOrderPrice(id));%>
+
+                    <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed() || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") && !bf.getOrder(id).isOrderConfirmed()) {%>
+                    <form action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="sendorder">
+                        <input type="submit" name="ordernumber" value="Send ordre" />
+                    </form>
+                    <%}%>
 
 
-    <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
-    
-    
-    <%if(!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed()|| us.isAdmin(bf.getUserRole(us.getId())) || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {
-    out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"); }%><br>
-    
-    <%out.println("Pris: " + bf.getOrderPrice(id));%>
+                    <% if (us.isAdmin(bf.getUserRole(us.getId()))) {%>
+                    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+                    <%}%>
 
-    <% if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed() || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") && !bf.getOrder(id).isOrderConfirmed()) {%>
-    <form action="FrontController" method="POST">
-        <input type="hidden" name="command" value="sendorder">
-        <input type="submit" name="ordernumber" value="Send ordre" />
-    </form>
-    <%}%>
-    </center>
-    <% if (us.isAdmin(bf.getUserRole(us.getId()))) {%>
-     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    <%}%>
+                    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief")) {%>
+                    <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+                    <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief")) {%>
-     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
-    <%}%>
+                    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker")) {%>
+                    <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+                    <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker")) {%>
-     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
-    <%}%>
-
-    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {%>
-     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
-    <%}%>
-
-</body>
+                    <% if (bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {%>
+                    <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

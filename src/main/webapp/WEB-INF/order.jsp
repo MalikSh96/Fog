@@ -44,8 +44,10 @@
         <%@include file="../navigation/menu.jsp" %>
 
         <div class="text-center"> 
-            <h1>Order page</h1>
-            <h3>Din ordre blev gennemført!</h3><br>
+
+            <h1>Din ordre blev gennemført!</h1><br>
+            <h3>Fog vil kontakte dig snarerst</h3>
+            <br/>
         </div>
         <div class="container">
             <div class="row">
@@ -53,7 +55,7 @@
 
 
 
-                <table class="table" border="1">
+                <table class="table">
                     <tr>
                         <th scope="col">Længde</th>
                         <th scope="col">Bredde</th>
@@ -76,9 +78,9 @@
                 </table>
             </div>          
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h3>fugleperspektiv</h3>
+                <div class="row justify-content-center">
+                    <div class="col-xs-4 col-centered">
+                        <h3>Fugleperspektiv</h3>
                         <button id="myBtnbirdseye">Åben model</button>
                         <div id="myFogSVGbirdseye" class="modal">
                             <div class="modal-content">
@@ -98,7 +100,7 @@
                                       width="<%= length%>"         
                                       style = "stroke: black; fill: none;" />
                                 <!---------------> 
-                                <% if (toolshedlength > 150) { %>
+                                <% if (toolshedlength > 0) { %>
                                 <!-- text to toolshef -->
                                 <text x="<%out.print(lengthline);%>" y="<%out.print(width / 6 * 2);%>"
                                       font-size="10px"
@@ -318,7 +320,8 @@
                         </div>
 
                     </div>
-                    <div class="col">
+
+                    <div class="col-xs-4 col-centered">
 
                         <h3>Sidebillede</h3>
                         <!-- how big roof_raft are -->
@@ -345,7 +348,7 @@
                                 <% }%>
                                 <!------------>
                                 <!--rafter under roof -->
-                                <%if (toolshedlength > 150) { %>
+                                <%if (toolshedlength > 0) { %>
                                 <rect  x = "0" y = "10" height = "15" width = "<% out.print(length - toolshedlength - 10); %>" style="stroke:black; fill: none"/>
                                 <rect  x = "<%out.print(length - 10);  %>" y = "10" height = "15" width = "10" style="stroke:black; fill: none"/>
                                 <%  } else { %>
@@ -360,10 +363,25 @@
                                 <% if (toolshedlength != 0) { %>
                                 <text x="<% out.print((length - 10 - toolshedlength) / 2);%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
-                                      text-anchor="middle"><% out.print(length - 10 - toolshedlength - 25);%> cm</text>
+                                      text-anchor="middle"><% out.print(length -10 - toolshedlength - 25);%> cm</text>
                                 <% } %>
 
-
+                               <% if(toolshedlength == 0) { %>
+                                 <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length - toolshedlength) / 2) / 2 );%>" y="<%out.print(heightline);%>"
+                                      font-size="10px"
+                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
+                                <% } %>
+                                <% }%>
+                                
+                                <% if(toolshedlength == 0) { %>
+                                 <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length - toolshedlength) / 2) * 1.5 );%>" y="<%out.print(heightline);%>"
+                                      font-size="10px"
+                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
+                                <% } %>
+                                <% }%>
+                                
 
                                 <% if (toolshedlength == 0) { %>
                                 <rect x="<%out.print(length - 25);%>" 
@@ -428,7 +446,7 @@
                                           }%>" 
                                       style="stroke:black; fill: none"/>       
                                 <% }%>
-
+                                
 
 
                                 <!--heightground to the carport - 25 roof of ------>
@@ -445,6 +463,14 @@
                         </div>
                     </div>
                 </div>
+                <br/>
+
+                <div class="text-center">
+                    
+                    <h4>Her kan du se status over din ordre</h4>
+                    <a href="FrontController?command=myorders" class="btn btn-secondary">Status</a>
+                </div>
+
             </div> 
         </div>
 
