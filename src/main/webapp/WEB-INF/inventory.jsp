@@ -16,37 +16,41 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Lagerstatus</h1>
-        
-            <%
-        User usr = (User) session.getAttribute("user");
-    %>
 
-        <%=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+        <%
+            User usr = (User) session.getAttribute("user");
+        %>
 
-         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
-    
+        <%= bf.fullInventory(bf.getAllItemIds(), bf.getAllItemNames(), bf.getAllItemDesc(), bf.getAllItemLength(),bf.getAllItemUnit(),bf.getAllItemStatus(), bf.getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+
+
+
+        <%//=bf.completeInventory().toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
+
+        <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
+
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventorypage">
             <br><input type="number" name="choseninventoryid" placeholder="Vare id" required/>
             <br><br><input type="submit" value="Opdater lagerbeholdning" /><br>
         </form>
-         
+
 
         <br><br> <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
-    <%}%>
+        <%}%>
 
     </center>
 
     <% if (usr.isAdmin(bf.getUserRole(usr.getId()))) {%>
-     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
     <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
-     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+    <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
     <%}%>
 
     <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storageworker")) {%>
-     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+    <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
 
 

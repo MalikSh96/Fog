@@ -312,4 +312,159 @@ public class InventoryMapper {
             throw new UniversalExceptions(ex.getMessage());
         }
     }
+
+    public static List<Integer> getAllItemIds() throws UniversalExceptions {
+        List<Integer> idList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT id FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+
+                idList.add(id);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return idList;
+    }
+
+    public static List<Integer> getAllItemLength() throws UniversalExceptions {
+        List<Integer> lengthList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT length FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                int id = rs.getInt("length");
+
+                lengthList.add(id);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return lengthList;
+    }
+
+    public static List<Integer> getAllItemStatus() throws UniversalExceptions {
+        List<Integer> statusList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT status FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                int status = rs.getInt("status");
+
+                statusList.add(status);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return statusList;
+    }
+
+    public static List<Integer> getAllItemPrice() throws UniversalExceptions {
+        List<Integer> priceList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT price FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                int price = rs.getInt("price");
+
+                priceList.add(price);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return priceList;
+    }
+
+    public static List<String> getAllItemNames() throws UniversalExceptions {
+        List<String> nameList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT name FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                String name = rs.getString("name");
+
+                nameList.add(name);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return nameList;
+    }
+
+    public static List<String> getAllItemDesc() throws UniversalExceptions {
+        List<String> descList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT description FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                String desc = rs.getString("description");
+
+                descList.add(desc);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return descList;
+    }
+ 
+    public static List<String> getAllItemUnit() throws UniversalExceptions {
+        List<String> unitList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT unit FROM FogUsers.inventory order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                String unit = rs.getString("unit");
+
+                unitList.add(unit);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return unitList;
+    }
+ 
 }

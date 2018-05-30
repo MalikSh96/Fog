@@ -178,6 +178,34 @@ public class BusinessFacade {
     public static List<Inventory> completeInventory() throws UniversalExceptions {
         return DataFacade.completeInventory();
     }
+    
+    public static List<Integer> getAllItemIds() throws UniversalExceptions {
+        return DataFacade.getAllItemIds();
+    }
+    
+    public static List<Integer> getAllItemLength() throws UniversalExceptions {
+        return DataFacade.getAllItemLength();
+    }
+    
+    public static List<Integer> getAllItemStatus() throws UniversalExceptions {
+        return DataFacade.getAllItemStatus();
+    }
+    
+    public static List<Integer> getAllItemPrice() throws UniversalExceptions {
+        return DataFacade.getAllItemPrice();
+    }
+    
+    public static List<String> getAllItemNames() throws UniversalExceptions {
+        return DataFacade.getAllItemNames();
+    }
+    
+    public static List<String> getAllItemDesc() throws UniversalExceptions {
+        return DataFacade.getAllItemDesc();
+    }
+    
+    public static List<String> getAllItemUnit() throws UniversalExceptions {
+        return DataFacade.getAllItemUnit();
+    }
 
     // ***ITEMLISTMAPPER***
     public static void addToItemList(String name, String desc, int length, int amount, int orderId, int id) throws UniversalExceptions {
@@ -299,6 +327,7 @@ public class BusinessFacade {
 
         return result;
     }
+   
     public static List<String> allUsers(List<Integer> ids, List<String> name, List<String> lastname) {
 
         List<String> result = new ArrayList<>();
@@ -306,7 +335,7 @@ public class BusinessFacade {
         result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
 
-        result.add("<th scope=\"col\">OrdreId</th>");
+        result.add("<th scope=\"col\">Bruger Id</th>");
         result.add("<th scope=\"col\">Navn</th>");
         result.add("<th scope=\"col\">Efternavn</th>");
         result.add("</tr>");
@@ -316,6 +345,39 @@ public class BusinessFacade {
             result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid=" + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
+            result.add("</tr>");
+        }
+        result.add("</table>");
+        result.add("</div>");
+
+        return result;
+    }
+   
+    public static List<String> fullInventory(List<Integer> ids, List<String> name, List<String> description, List<Integer> length, List<String> unit, List<Integer> status, List<Integer> price) {
+
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"contatiner\">");
+        result.add("<table class=\"table table-hover\">");
+        result.add("<tr>");
+
+        result.add("<th scope=\"col\">Vare Id</th>");
+        result.add("<th scope=\"col\">Navn</th>");
+        result.add("<th scope=\"col\">Beskrivelse</th>");
+        result.add("<th scope=\"col\">Længde</th>");
+        result.add("<th scope=\"col\">Enhed</th>");
+        result.add("<th scope=\"col\">Status</th>");
+        result.add("<th scope=\"col\">Pris</th>");
+        result.add("</tr>");
+
+        for (int i = 0; i < ids.size(); i++) {
+            result.add("<tr>");
+            result.add("<td> <p>" + ids.get(i) + "</p></td>");
+            result.add("<td> <p>" + name.get(i) + "</p></td>");
+            result.add("<td><p>" + description.get(i) + "</p></td>");
+            result.add("<td><p>" + length.get(i) + "</p></td>");
+            result.add("<td><p>" + unit.get(i) + "</p></td>");
+            result.add("<td><p>" + status.get(i) + "</p></td>");
+            result.add("<td><p>" + price.get(i) + "</p></td>");
             result.add("</tr>");
         }
         result.add("</table>");

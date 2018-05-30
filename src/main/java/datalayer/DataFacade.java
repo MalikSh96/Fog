@@ -206,4 +206,31 @@ public class DataFacade {
         return con.getIM().completeInventory();
     }
 
+    public static List<String> getAllItemUnit() throws UniversalExceptions {
+            return con.getIM().getAllItemUnit(); 
+    }
+
+    public static List<String> getAllItemDesc() throws UniversalExceptions {
+            return con.getIM().getAllItemDesc();
+    }
+
+    public static List<String> getAllItemNames() throws UniversalExceptions {
+            return con.getIM().getAllItemNames();
+    }
+
+    public static List<Integer> getAllItemIds() throws UniversalExceptions {
+             return con.getIM().getAllItemIds();
+    }
+
+    public static List<Integer> getAllItemLength() throws UniversalExceptions {
+            return con.getIM().getAllItemLength();
+    }
+
+    public static List<Integer> getAllItemStatus() throws UniversalExceptions {
+            return con.getIM().getAllItemLength();
+    }
+
+    public static List<Integer> getAllItemPrice() throws UniversalExceptions {    
+        return con.getIM().getAllItemPrice();
+    }
 }
