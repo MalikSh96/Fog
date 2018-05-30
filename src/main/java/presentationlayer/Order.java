@@ -9,6 +9,10 @@ import businesslayer.User;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author malik
+ */
 public class Order extends Command {
 
     Constants con = new Constants();

@@ -4,6 +4,10 @@ import businesslayer.UniversalExceptions;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author malik
+ */
 public class UserProfile extends Command {
 
     @Override
