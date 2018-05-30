@@ -36,7 +36,7 @@
     <%}%>
 
     </center>
-
+    <center>
     <% if (usr.isAdmin(bf.getUserRole(usr.getId()))) {%>
      <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
@@ -48,7 +48,7 @@
     <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storageworker")) {%>
      <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
     <%}%>
-
+    </center>
 
 </body>
 </html>
