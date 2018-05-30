@@ -100,6 +100,10 @@ public class DataFacade {
         return con.getOM().getNonSentOrderDates();
     }
 
+    public static List<String> getAllOrderDates() throws UniversalExceptions {
+         return con.getOM().getAllOrderDates();
+    }
+
     public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
         return con.getOM().getNonSentOrderCustomerIds();
     }
