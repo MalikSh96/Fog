@@ -116,6 +116,10 @@ public class DataFacade {
         return con.getOM().getNonSentOrderCustomerIds();
     }
 
+    public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
+        return con.getOM().getOrderCustomerIds();
+    }
+    
     public static int getUserId(int orderId) throws UniversalExceptions {
         return con.getOM().getUserId(orderId);
     }

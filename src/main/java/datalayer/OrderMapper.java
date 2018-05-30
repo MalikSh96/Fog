@@ -292,6 +292,33 @@ public class OrderMapper {
         }
         return userIds;
     }
+    
+    public List<Integer> getOrderCustomerIds() throws UniversalExceptions {
+
+        List<Integer> userIds = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT userID FROM FogUsers.orders order by orderId desc;";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            System.out.println("Check sql order " + SQL);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("userId");
+                userIds.add(id);
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetNonSentOrderIdException();
+        }
+        return userIds;
+    }
+    
+    
+    
 
     public List<Integer> getAllOrderIds() throws UniversalExceptions {
         List<Integer> orderNumbers = new ArrayList<>();

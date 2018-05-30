@@ -113,6 +113,10 @@ public class BusinessFacade {
     public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
         return DataFacade.getNonSentOrderCustomerIds();
     }
+    
+    public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
+    return DataFacade.getOrderCustomerIds();
+    }
 
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
         DataFacade.updateTotalPrice(totalPrice, orderId);
@@ -269,7 +273,7 @@ public class BusinessFacade {
         return result;
     }
 
-    public static List<String> allOrders(List<Integer> ids, List<String> name, List<String> lastname, List<String> dates) {
+    public static List<String> allOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -282,9 +286,9 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
 
-        for (int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < idsOrdre.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
