@@ -9,10 +9,7 @@ public class UserProfile extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
-                HttpSession session = request.getSession();
-                int userId = (int) session.getAttribute("usernumber");
-        
+ 
         return "userprofile";
     }
 
