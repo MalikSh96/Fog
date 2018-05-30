@@ -29,10 +29,12 @@
                         session.setAttribute("ordernumber", id);
                         User us = (User) session.getAttribute("user");
                     %>
-
+                    <%if(us.isAdmin(bf.getUserRole(us.getId()))) {%>
+                    <%=bf.getAllUserInfo(bf.getUserIdFromOrderId(id)).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
+                    <%}%>
                    
                     <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
-               
+
 
                     <%if (!us.isAdmin(bf.getUserRole(us.getId())) && bf.getOrder(id).isOrderConfirmed() || us.isAdmin(bf.getUserRole(us.getId())) || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storageworker") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") || bf.getUserRole(bf.getUserId(us.getEmail())).equals("seller")) {
                             out.println(bf.getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>");

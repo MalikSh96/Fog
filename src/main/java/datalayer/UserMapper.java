@@ -179,6 +179,38 @@ public class UserMapper {
         return idList;
     }
 
+    public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
+        List<String> infoList = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM FogUsers.users where id='" + userId + "'";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String lastname = rs.getString("lastname");
+                String address = rs.getString("address");
+                int postal = rs.getInt("postalnumber");
+                int phone = rs.getInt("phone");
+                String email = rs.getString("email");
+                infoList.add("Bruger id: "+id);
+                infoList.add("Navn: " + name + " " + lastname);
+                infoList.add("Adresse: "+address);
+                infoList.add("Post nr: "+postal);
+                infoList.add("Telefon nr: "+phone);
+                infoList.add("Email: "+email);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return infoList;
+    }
+
     public static String getUserRole(int id) throws UniversalExceptions {
         {
             String role = null;

@@ -491,14 +491,14 @@ public class OrderMapper {
             String SQL = "SELECT price FROM orders where orderId = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
+            System.out.println("sql syntax ok? " + SQL);
             ResultSet resultset = ps.executeQuery();
 
             while (resultset.next()) {
                 result = resultset.getInt("price");
+            return result;
             }
 
-            System.out.println("sql syntax ok? " + SQL);
-            return result;
 
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotFindThePriceException();
@@ -506,7 +506,7 @@ public class OrderMapper {
         return result;
     }
 
-    void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
+   public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
      try {
             Connection con = Connector.connection();
             String SQL = "update orders set price= '" + totalPrice + "' where orderId= '" + orderId + "'";
@@ -519,5 +519,26 @@ public class OrderMapper {
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotSendOrderException();
         }
+    }
+
+    public int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
+        int userid = 0;
+     try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT userID FROM orders where orderId = '" + orderId + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            System.out.println("sql syntax ok? " + SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                userid = resultset.getInt("userID");
+            return userid;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowCouldNotSendOrderException();
+        }
+     return userid;
     }
 }

@@ -54,6 +54,10 @@ public class DataFacade {
         return con.getUM().getAllUserIds();
     }
 
+    public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
+        return con.getUM().getAllUserInfo(userId);
+    }
+
     //order
     public static Orders createOrder(Orders ord) throws UniversalExceptions {
         OrderMapper.createPreOrder(ord);
@@ -110,6 +114,10 @@ public class DataFacade {
 
     public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
         return con.getOM().getAllUserOrderDates(userId);
+    }
+    
+    public static int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
+        return con.getOM().getUserIdFromOrderId(orderId);
     }
 
     //itemlist
