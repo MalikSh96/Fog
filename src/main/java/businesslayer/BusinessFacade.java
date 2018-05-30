@@ -231,7 +231,7 @@ public class BusinessFacade {
         return result;
     }
 
-    public static List<String> allsCurrentOrdes(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+    public static List<String> allCurrentOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -258,7 +258,7 @@ public class BusinessFacade {
         return result;
     }
 
-    public static List<String> allsOrdes(List<Integer> ids, List<String> dates) {
+    public static List<String> allOrders(List<Integer> ids, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -306,8 +306,7 @@ public class BusinessFacade {
         result.add("</div>");
         
         return result;
-    }
-    
+    }    
     
     public List<String> allCurrentOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
