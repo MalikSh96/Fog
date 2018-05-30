@@ -33,7 +33,7 @@
             <div class="row">
                
                 <div class="col-sm-4">
-                    <p>Tryk på ”Min Profil” og indsæt dine personlige informationer.</p>
+                    <p>Tryk på ”Min Profil” og se dine personlige informationer.</p>
                     <p>Under ”Ordrehistorik” kan du se din ordre samt tidligere ordre.</p>
 
                 </div>

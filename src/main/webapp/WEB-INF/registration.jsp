@@ -42,7 +42,7 @@
             <table class="Regstrationmiddle">
                 <tr>
                     <td colspan="2">
-                <center>
+           
                         <h1>
                             Opret bruger
                         </h1>
@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td class="Regstrationtext">
-
+                        
                         Navn<br>
                         <input type="text" name="name" value="" placeholder="Navn" required>
                         <br>

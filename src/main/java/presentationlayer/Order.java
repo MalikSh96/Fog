@@ -46,6 +46,7 @@ public class Order extends Command {
         User user = (User) session.getAttribute("user");
         if (user == null) {
             request.setAttribute("from", "customorder");
+            
             return "loginpage";
         }
 

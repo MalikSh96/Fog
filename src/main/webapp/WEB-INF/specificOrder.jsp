@@ -30,7 +30,7 @@
                         User us = (User) session.getAttribute("user");
                     %>
 
-                   
+                    <%//= bf.getOrder(id).  %>
                     <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
                
 
