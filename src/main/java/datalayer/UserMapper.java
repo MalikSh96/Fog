@@ -179,6 +179,50 @@ public class UserMapper {
         return idList;
     }
 
+    public static List<String> getAllUserNames() throws UniversalExceptions {
+        List<String> names = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT name FROM FogUsers.users order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                String id = rs.getString("name");
+
+                names.add(id);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return names;
+    }
+
+    public static List<String> getAllUserLastnames() throws UniversalExceptions {
+        List<String> lastnames = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT lastname FROM FogUsers.users order by id asc";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = ps.executeQuery(SQL);
+            while (rs.next()) {
+                String id = rs.getString("lastname");
+
+                lastnames.add(id);
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowDidNotGetAllUserIdsException();
+            throw new UniversalExceptions(ex.getMessage());
+        }
+
+        return lastnames;
+    }
+
     public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         List<String> infoList = new ArrayList<>();
 

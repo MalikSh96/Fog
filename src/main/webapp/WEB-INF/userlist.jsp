@@ -22,12 +22,10 @@
         <%
             User usrr = (User) session.getAttribute("user");
         %>
-        <%= bf.getAllUserIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%><br>
-        <%//=bf.userlist(bf.getAllUserIds(), 
-               // bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()), 
-               // bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds())).toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "</a><br><br>"%>
 
-
+               <%= bf.allUsers(bf.getAllUserIds(), 
+                       bf.getAllUserNames(), 
+        bf.getAllUserLastnames()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
 
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="specificuser">

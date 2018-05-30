@@ -54,6 +54,14 @@ public class DataFacade {
         return con.getUM().getAllUserIds();
     }
 
+    public static List<String> getAllUserNames() throws UniversalExceptions {
+        return con.getUM().getAllUserNames();
+    }
+
+    public static List<String> getAllUserLastnames() throws UniversalExceptions {
+        return con.getUM().getAllUserLastnames();
+    }
+
     public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         return con.getUM().getAllUserInfo(userId);
     }

@@ -44,6 +44,14 @@ public class BusinessFacade {
         return DataFacade.getAllUserIds();
     }
 
+    public List<String> getAllUserNames() throws UniversalExceptions {
+        return DataFacade.getAllUserNames();
+    }
+
+    public List<String> getAllUserLastnames() throws UniversalExceptions {
+        return DataFacade.getAllUserLastnames();
+    }
+
     public List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         return DataFacade.getAllUserInfo(userId);
     }
@@ -280,6 +288,30 @@ public class BusinessFacade {
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
+            result.add("</tr>");
+        }
+        result.add("</table>");
+        result.add("</div>");
+
+        return result;
+    }
+    public static List<String> allUsers(List<Integer> ids, List<String> name, List<String> lastname) {
+
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"contatiner\">");
+        result.add("<table class=\"table table-hover\">");
+        result.add("<tr>");
+
+        result.add("<th scope=\"col\">OrdreId</th>");
+        result.add("<th scope=\"col\">Navn</th>");
+        result.add("<th scope=\"col\">Efternavn</th>");
+        result.add("</tr>");
+
+        for (int i = 0; i < ids.size(); i++) {
+            result.add("<tr>");
+            result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid=" + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+            result.add("<td> <p>" + name.get(i) + "</p></td>");
+            result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("</tr>");
         }
         result.add("</table>");
