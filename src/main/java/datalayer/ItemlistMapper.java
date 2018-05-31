@@ -29,7 +29,8 @@ public class ItemlistMapper {
      * @param itemId
      * @throws UniversalExceptions
      */
-    public static void addToItemlist(String name, String desc, int length, int amount, int orderId, int itemId) throws UniversalExceptions {
+    public static void addToItemlist(String name, String desc, int length, 
+            int amount, int orderId, int itemId) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -42,8 +43,6 @@ public class ItemlistMapper {
             ps.setInt(5, amount);
             ps.setInt(6, orderId);
             ps.setInt(7, itemId);
-
-            System.out.println("Check sql order " + SQL);
 
             ps.executeUpdate();
 
@@ -87,14 +86,11 @@ public class ItemlistMapper {
                 itemlist.add("");
 
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlistException();
         }
 
         return itemlist;
-
     }
 
     /**
@@ -117,14 +113,11 @@ public class ItemlistMapper {
                 itemIds.add(resultset.getInt("itemId"));
 
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlisIdtException();
         }
 
         return itemIds;
-
     }
 
     /**
@@ -148,14 +141,10 @@ public class ItemlistMapper {
                 amount = resultset.getInt("amount");
 
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();
         }
-
         return amount;
-
     }
 
     /**
@@ -178,13 +167,9 @@ public class ItemlistMapper {
                 amount.add(resultset.getInt("amount"));
 
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();
         }
-
         return amount;
-
     }
 }

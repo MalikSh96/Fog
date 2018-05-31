@@ -40,9 +40,6 @@ public class OrderMapper {
             ps.setInt(3, ord.getWidth());
             ps.setInt(4, ord.getHeight());
             ps.setInt(5, ord.getPrice());
-
-            System.out.println("Check sql order " + SQL);
-
             int check = ps.executeUpdate();
             if (check == 1) {
                 ResultSet ids = ps.getGeneratedKeys();
@@ -53,10 +50,8 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-
             uex.ThrowNoPreOrderCreatedException();
         }
-
         return orderId;
     }
 
@@ -82,12 +77,9 @@ public class OrderMapper {
                 dates = resultset.getString("dates");
 
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotFindTheDateException();
         }
-
         return dates;
     }
 
@@ -106,11 +98,7 @@ public class OrderMapper {
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderId);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 int userID = rs.getInt("userID");
                 int length = rs.getInt("length");
@@ -121,7 +109,6 @@ public class OrderMapper {
                 System.out.println("Debug " + orderId);
                 return ord;
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetOrderException();
         }
@@ -141,16 +128,11 @@ public class OrderMapper {
             String SQL = "SELECT MAX(orderId) FROM FogUsers.orders;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 id = rs.getInt("MAX(orderId)");
                 return id;
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowLatestOrderDontExistException();
         }
@@ -171,16 +153,11 @@ public class OrderMapper {
             String SQL = "SELECT * FROM FogUsers.orders where orderId = '" + orderId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 exists = true;
                 return exists;
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowOrderDoesNotExistException();
         }
@@ -202,16 +179,12 @@ public class OrderMapper {
             String SQL = "SELECT userId FROM FogUsers.orders where orderId = '" + orderId + "'";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 userId = rs.getInt("userId");
                 return userId;
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetUserIdException();
         }
@@ -233,16 +206,11 @@ public class OrderMapper {
             String SQL = "SELECT dates FROM FogUsers.orders where userID = '" + userId + "' order by dates desc";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 String date = rs.getString("dates");
                 dates.add(date);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
@@ -263,16 +231,11 @@ public class OrderMapper {
             String SQL = "SELECT orderId FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 int id = rs.getInt("orderId");
                 orderNumbers.add(id);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
@@ -293,16 +256,11 @@ public class OrderMapper {
             String SQL = "SELECT dates FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 String id = rs.getString("dates");
                 orderDates.add(id);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
@@ -346,16 +304,11 @@ public class OrderMapper {
             String SQL = "SELECT userID FROM FogUsers.orders where orderConfirmed=0 order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
                 int id = rs.getInt("userId");
                 userIds.add(id);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
@@ -402,16 +355,12 @@ public class OrderMapper {
             String SQL = "SELECT orderId FROM FogUsers.orders order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("orderId");
                 orderNumbers.add(id);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllOrdersIdException();
         }
@@ -444,14 +393,10 @@ public class OrderMapper {
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllOrdersException();
         }
-
         return orders;
     }
 
@@ -483,14 +428,10 @@ public class OrderMapper {
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllConfirmedOrdersException();
         }
-
         return orders;
     }
 
@@ -522,14 +463,10 @@ public class OrderMapper {
 
                 ord = new Orders(id, userID, length, width, height, conf);
                 orders.add(ord);
-
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllPendingOrdersException();
         }
-
         return orders;
     }
 
@@ -563,14 +500,10 @@ public class OrderMapper {
                     ord = new Orders(orderId, userID, length, width, height, conf);
                     orders.add(ord);
                 }
-
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllCustomerOrdersException();
         }
-
         return orders;
     }
 
@@ -595,12 +528,9 @@ public class OrderMapper {
                 int orderId = resultset.getInt("orderId");
                 orderIds.add(orderId);
             }
-            System.out.println("sql syntax ok? " + SQL);
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllCustomerOrdersIdException();
         }
-
         return orderIds;
     }
 
@@ -627,7 +557,6 @@ public class OrderMapper {
             if (sent == 1) {
                 return true;
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -646,9 +575,6 @@ public class OrderMapper {
             String SQL = "update orders set orderConfirmed= '1' where orderId= '" + orderID + "'";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotSendOrderException();
@@ -676,8 +602,6 @@ public class OrderMapper {
                 result = resultset.getInt("price");
             return result;
             }
-
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotFindThePriceException();
         }
@@ -690,9 +614,6 @@ public class OrderMapper {
             String SQL = "update orders set price= '" + totalPrice + "' where orderId= '" + orderId + "'";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotSendOrderException();
