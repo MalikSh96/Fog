@@ -30,7 +30,7 @@ public class ItemlistMapper {
      * @throws UniversalExceptions
      */
     public static void addToItemlist(String name, String desc, int length, 
-            int amount, int orderId, int itemId) throws UniversalExceptions {
+        int amount, int orderId, int itemId) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -45,7 +45,6 @@ public class ItemlistMapper {
             ps.setInt(7, itemId);
 
             ps.executeUpdate();
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotAddToItemlistException();
         }
@@ -58,9 +57,7 @@ public class ItemlistMapper {
      * @throws UniversalExceptions
      */
     public static List<String> getFullItemlist(int orderId) throws UniversalExceptions {
-
         List<String> itemlist = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM itemlist where orderid = '" + orderId + "'";
@@ -84,12 +81,10 @@ public class ItemlistMapper {
                 itemlist.add("Enhed: " + unit);
                 itemlist.add("Antal: " + amount);
                 itemlist.add("");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlistException();
         }
-
         return itemlist;
     }
 
@@ -100,9 +95,7 @@ public class ItemlistMapper {
      * @throws UniversalExceptions
      */
     public List<Integer> getFullItemlistId(int orderId) throws UniversalExceptions {
-
         List<Integer> itemIds = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT itemId FROM itemlist where orderid = '" + orderId + "'";
@@ -111,12 +104,10 @@ public class ItemlistMapper {
             ResultSet resultset = ps.executeQuery();
             while (resultset.next()) {
                 itemIds.add(resultset.getInt("itemId"));
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheFullItemlisIdtException();
         }
-
         return itemIds;
     }
 
@@ -130,7 +121,6 @@ public class ItemlistMapper {
     public int getAmount(int orderId, int itemId) throws UniversalExceptions {
 
         int amount = 0;
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "' and itemId = '" + itemId + "'";
@@ -139,7 +129,6 @@ public class ItemlistMapper {
             ResultSet resultset = ps.executeQuery();
             while (resultset.next()) {
                 amount = resultset.getInt("amount");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();
@@ -156,7 +145,6 @@ public class ItemlistMapper {
     public List<Integer> getAmountList(int orderId) throws UniversalExceptions {
 
         List<Integer> amount =  new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "'";
@@ -165,7 +153,6 @@ public class ItemlistMapper {
             ResultSet resultset = ps.executeQuery();
             while (resultset.next()) {
                 amount.add(resultset.getInt("amount"));
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheAmounttException();

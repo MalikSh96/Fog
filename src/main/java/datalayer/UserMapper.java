@@ -19,7 +19,8 @@ public class UserMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
-    //Obs! custom exceptions is not applied to the static methods, for some reason they can't ne applied to them
+    //Obs! custom exceptions is not applied to the static methods, for some reason they can't be applied to them
+    
     /**
      *
      * @param user
@@ -149,7 +150,8 @@ public class UserMapper {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void UpdateUserInfo(int id, String name, String lastname, String address, int postalnumber, int phone, String email, String password) throws UniversalExceptions {
+    public static void UpdateUserInfo(int id, String name, String lastname, String address, 
+            int postalnumber, int phone, String email, String password) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE FogUsers.users SET name = '" + name
@@ -172,12 +174,10 @@ public class UserMapper {
      */
     public static List<User> getAllUsers() throws UniversalExceptions {
         List<User> userlist = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -205,7 +205,6 @@ public class UserMapper {
      */
     public static List<Integer> getAllUserIds() throws UniversalExceptions {
         List<Integer> idList = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users order by id asc";
@@ -230,7 +229,6 @@ public class UserMapper {
      */
     public static List<String> getAllUserNames() throws UniversalExceptions {
         List<String> names = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT name FROM FogUsers.users order by id asc";
@@ -257,7 +255,6 @@ public class UserMapper {
      */
     public static List<String> getAllUserLastnames() throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT lastname FROM FogUsers.users order by id asc";
@@ -273,7 +270,6 @@ public class UserMapper {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return lastnames;
     }
 
@@ -285,12 +281,10 @@ public class UserMapper {
      */
     public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         List<String> infoList = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users where id='" + userId + "'";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -311,7 +305,6 @@ public class UserMapper {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return infoList;
     }
 
@@ -322,13 +315,11 @@ public class UserMapper {
      * @throws UniversalExceptions
      */
     public static String getUserRole(int id) throws UniversalExceptions {
-        
         String role = null;
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 role = rs.getString("role");
@@ -371,7 +362,7 @@ public class UserMapper {
      * @throws UniversalExceptions
      */
     public static String getUserLastname(int id) throws UniversalExceptions {        
-            String lastname = null;          
+        String lastname = null;          
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";

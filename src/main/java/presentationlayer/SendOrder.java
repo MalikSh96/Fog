@@ -23,11 +23,9 @@ public class SendOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         HttpSession session = request.getSession();
         id = (int) session.getAttribute("ordernumber");
         User us = (User) session.getAttribute("user");
-
         List<Integer> itemIds = bf.getFullItemlistId(id);
         List<Integer> wrongIds = new ArrayList<>();
         for (int i = 0; i < itemIds.size(); i++) {

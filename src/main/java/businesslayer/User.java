@@ -21,7 +21,6 @@ public class User
     private String role;    
 
     /**
-     *
      * @param email
      * @param password
      * @param role
@@ -33,7 +32,6 @@ public class User
     }
     
     /**
-     *
      * @param name
      * @param lastname
      * @param address
@@ -55,7 +53,6 @@ public class User
     }
 
     /**
-     *
      * @param id
      * @param email
      * @param password
@@ -69,7 +66,6 @@ public class User
     }
 
     /**
-     *
      * @param id
      * @param name
      * @param lastname
@@ -91,7 +87,6 @@ public class User
     }
 
     /**
-     *
      * @param name
      * @param lastname
      * @param address
@@ -111,7 +106,6 @@ public class User
     }
 
     /**
-     *
      * @return lastname
      */
     public String getLastname() {
@@ -119,7 +113,6 @@ public class User
     }
 
     /**
-     *
      * @param lastname
      */
     public void setLastname(String lastname) {
@@ -127,7 +120,6 @@ public class User
     }
 
     /**
-     *
      * @return email
      */
     public String getEmail() 
@@ -136,7 +128,6 @@ public class User
     }
 
     /**
-     *
      * @param email
      */
     public void setEmail( String email ) 
@@ -145,7 +136,6 @@ public class User
     }
 
     /**
-     *
      * @return password
      */
     public String getPassword() 
@@ -154,7 +144,6 @@ public class User
     }
 
     /**
-     *
      * @param password
      */
     public void setPassword( String password ) 
@@ -163,7 +152,6 @@ public class User
     }
 
     /**
-     *
      * @return role
      */
     public String getRole() 
@@ -172,7 +160,6 @@ public class User
     }
 
     /**
-     *
      * @param role
      */
     public void setRole( String role ) 
@@ -181,7 +168,6 @@ public class User
     }
 
     /**
-     *
      * @return id
      */
     public int getId() 
@@ -190,7 +176,6 @@ public class User
     }
 
     /**
-     *
      * @param id
      */
     public void setId( int id ) 
@@ -199,7 +184,6 @@ public class User
     }
 
     /**
-     *
      * @return name
      */
     public String getName() {
@@ -207,7 +191,6 @@ public class User
     }
 
     /**
-     *
      * @param name
      */
     public void setName(String name) {
@@ -215,7 +198,6 @@ public class User
     }
 
     /**
-     *
      * @return address
      */
     public String getAddress() {
@@ -223,7 +205,6 @@ public class User
     }
 
     /**
-     *
      * @param address
      */
     public void setAddress(String address) {
@@ -231,7 +212,6 @@ public class User
     }
 
     /**
-     *
      * @return postalcode
      */
     public int getPostalcode() {
@@ -239,7 +219,6 @@ public class User
     }
 
     /**
-     *
      * @param postalcode
      */
     public void setPostalcode(int postalcode) {
@@ -247,7 +226,6 @@ public class User
     }
 
     /**
-     *
      * @return phonenumber
      */
     public int getPhone() {
@@ -255,7 +233,6 @@ public class User
     }
 
     /**
-     *
      * @param phone
      */
     public void setPhone(int phone) {
@@ -263,7 +240,6 @@ public class User
     }
     
     /**
-     *
      * @param role
      * @return boolean
      */
@@ -274,7 +250,6 @@ public class User
     }
 
     /**
-     *
      * @param role
      * @return boolean
      */
@@ -283,10 +258,10 @@ public class User
     return false;
     }
     
-    
     @Override
     public String toString() 
     {
-        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password + "<br>Adresse: " + address + "<br>Navn: " + name + " " + lastname + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
+        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password 
+                + "<br>Adresse: " + address + "<br>Navn: " + name + " " + lastname + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
     }    
 }

@@ -20,7 +20,6 @@ public class UpdateUserInfo extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         HttpSession session = request.getSession();
         userID = (int) session.getAttribute("id");
         User user = con.getBf().getUser(userID);
@@ -53,19 +52,8 @@ public class UpdateUserInfo extends Command {
         if (request.getParameter("password").length() > 0) {
             password = request.getParameter("password");
         }
-
         con.getBf().updateUserInfo(userID, name, lastname, address, postal, phone, email, password);
 
         return "customerpage";
     }
-
 }
-
-/*        til order jsp
-
-<th><p>1x2</th>
-<td><p><%out.print(session.getAttribute("længde")); %></td>
-<td><p><%out.print(session.getAttribute("vidde")); %></td>
-<td><p><%out.print(session.getAttribute("bredde")); %></td>
-
- */

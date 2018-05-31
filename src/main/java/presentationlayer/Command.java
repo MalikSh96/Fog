@@ -59,6 +59,4 @@ abstract class Command extends HttpServlet {
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
             throws UniversalExceptions, ClassNotFoundException, ServletException;
-;
-
 }

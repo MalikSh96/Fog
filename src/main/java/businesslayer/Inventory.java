@@ -15,7 +15,6 @@ public class Inventory
     private int price;
 
     /**
-     *
      * @param id
      * @param name
      * @param length
@@ -35,7 +34,6 @@ public class Inventory
     }
     
     /**
-     *
      * @param id
      * @param name
      * @param length
@@ -48,27 +46,8 @@ public class Inventory
         this.length = length;
         this.desc = desc;
     }
-
-    /**
-     *
-     * @param id
-     * @param name
-     * @param length
-     * @param unit
-     * @param desc
-     */
-    public Inventory(int id, String name, int length, String unit, String desc) 
-    {
-        this.id = id;
-        this.name = name;
-        this.length = length;
-        this.unit = unit;
-        this.desc = desc;
-        this.status = status;
-    }
     
     /**
-     *
      * @return id
      */
     public int getId() {
@@ -76,7 +55,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return name
      */
     public String getName() {
@@ -84,7 +62,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return length
      */
     public int getLength() {
@@ -92,7 +69,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return unit
      */
     public String getUnit() {
@@ -100,7 +76,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return description
      */
     public String getDesc() {
@@ -108,7 +83,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return status
      */
     public int getStatus() {
@@ -116,7 +90,6 @@ public class Inventory
     }
 
     /**
-     *
      * @param status
      */
     public void setStatus(int status) {
@@ -124,7 +97,6 @@ public class Inventory
     }
 
     /**
-     *
      * @return price
      */
     public int getPrice() {
@@ -132,7 +104,6 @@ public class Inventory
     }
 
     /**
-     *
      * @param price
      */
     public void setPrice(int price) {
@@ -140,8 +111,10 @@ public class Inventory
     }
     @Override
     public String toString() {
-        if(length == 0) { return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";}
-        return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Længde: " + length + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";
-
+        if(length == 0) { return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "
+                + unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";}
+       
+        return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Længde: " + length 
+                + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";
     }
 }

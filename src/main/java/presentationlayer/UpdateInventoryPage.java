@@ -18,12 +18,8 @@ public class UpdateInventoryPage extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();
-
         id = Integer.parseInt(request.getParameter("choseninventoryid"));
-
         session.setAttribute("inventoryid", id);
         return "updateinventorypage";
-
     }
-
 }
