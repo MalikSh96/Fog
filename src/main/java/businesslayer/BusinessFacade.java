@@ -54,6 +54,10 @@ public class BusinessFacade {
         DataFacade.updateUserInfo(id, name, lastname, address, postal, phone, email, password);
     }
 
+    public static User login(String email, String password) throws UniversalExceptions {
+     return DataFacade.login(email, password);
+    }
+
     /**
      *
      * @param chosenId
