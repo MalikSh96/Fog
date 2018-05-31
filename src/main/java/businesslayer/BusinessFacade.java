@@ -113,14 +113,30 @@ public class BusinessFacade {
         return DataFacade.getAllUserIds();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> getAllUserNames() throws UniversalExceptions {
         return DataFacade.getAllUserNames();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> getAllUserLastnames() throws UniversalExceptions {
         return DataFacade.getAllUserLastnames();
     }
 
+    /**
+     *
+     * @param userId
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         return DataFacade.getAllUserInfo(userId);
     }
@@ -244,6 +260,11 @@ public class BusinessFacade {
         return DataFacade.getNonSentOrderDates();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllOrderDates() throws UniversalExceptions {
         return DataFacade.getAllOrderDates();
     }
@@ -256,6 +277,11 @@ public class BusinessFacade {
         return DataFacade.getNonSentOrderCustomerIds();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
     return DataFacade.getOrderCustomerIds();
     }
@@ -281,6 +307,12 @@ public class BusinessFacade {
         return DataFacade.getAllUserOrderDates(userId);
     }
 
+    /**
+     *
+     * @param orderId
+     * @return UserIdFromOrderId
+     * @throws UniversalExceptions
+     */
     public static int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
         return DataFacade.getUserIdFromOrderId(orderId);
     }
@@ -417,30 +449,65 @@ public class BusinessFacade {
         return DataFacade.completeInventory();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemIds() throws UniversalExceptions {
         return DataFacade.getAllItemIds();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemLength() throws UniversalExceptions {
         return DataFacade.getAllItemLength();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemStatus() throws UniversalExceptions {
         return DataFacade.getAllItemStatus();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemPrice() throws UniversalExceptions {
         return DataFacade.getAllItemPrice();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemNames() throws UniversalExceptions {
         return DataFacade.getAllItemNames();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemDesc() throws UniversalExceptions {
         return DataFacade.getAllItemDesc();
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemUnit() throws UniversalExceptions {
         return DataFacade.getAllItemUnit();
     }
@@ -655,6 +722,13 @@ public class BusinessFacade {
         return result;
     }
 
+    /**
+     *
+     * @param ids
+     * @param name
+     * @param lastname
+     * @return list
+     */
     public static List<String> allUsers(List<Integer> ids, List<String> name, List<String> lastname) {
 
         List<String> result = new ArrayList<>();
@@ -680,6 +754,17 @@ public class BusinessFacade {
         return result;
     }
    
+    /**
+     *
+     * @param ids
+     * @param name
+     * @param description
+     * @param length
+     * @param unit
+     * @param status
+     * @param price
+     * @return list
+     */
     public static List<String> fullInventory(List<Integer> ids, List<String> name, List<String> description, List<Integer> length, List<String> unit, List<Integer> status, List<Integer> price) {
 
         List<String> result = new ArrayList<>();
@@ -758,6 +843,12 @@ public class BusinessFacade {
         return names;
     }
 
+    /**
+     *
+     * @param ids
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> allOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
 
@@ -782,6 +873,12 @@ public class BusinessFacade {
         return lastnames;
     }
 
+    /**
+     *
+     * @param ids
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> allOrderCustomerLastnames(List<Integer> ids) throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
 
