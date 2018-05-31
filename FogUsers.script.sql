@@ -43,6 +43,7 @@ CREATE TABLE `inventory` (
   `status` INT,
   `price` INT,
   PRIMARY KEY (`id`),
+  foreign key (id) references itemlist(itemId),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
   );
   
@@ -55,7 +56,8 @@ CREATE TABLE `inventory` (
   `unit` VARCHAR(45),
   `amount` INT,
   `itemId` INT NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  foreign key (orderid) references orders(orderId)
   );
   
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Malik','Sharfo','Somewherevej 25',1455,12345678,'maliksharfo@hotmail.com', 1234, 'admin');
