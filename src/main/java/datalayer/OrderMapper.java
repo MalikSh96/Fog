@@ -27,7 +27,7 @@ public class OrderMapper {
      * @Description: To generate an orderid for an order created
      * @throws UniversalExceptions
      */
-    public static int createPreOrder(Orders ord) throws UniversalExceptions {
+    public static int CreateOrder(Orders ord) throws UniversalExceptions {
         int orderId = 0;
         Connection con;
         try {

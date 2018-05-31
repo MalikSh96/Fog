@@ -32,7 +32,7 @@ public class OrderMapperTest {
     {      
         Orders ord = new Orders(1, 20, 20, 4);
         
-        int orderId = om.createPreOrder(ord);
+        int orderId = om.CreateOrder(ord);
         
         Orders checkOrder = om.getOrder(orderId);
         assertNotNull(checkOrder);        
@@ -53,7 +53,7 @@ public class OrderMapperTest {
     {       
         int expected = om.allOrders().size()+1;
         Orders ord = new Orders(1, 99, 99, 9);
-        om.createPreOrder(ord);
+        om.CreateOrder(ord);
         int actual = om.allOrders().size();
         
         assertEquals(expected, actual);
@@ -65,7 +65,7 @@ public class OrderMapperTest {
     {
         Orders ord = new Orders(1, 10, 20, 30, true);
         System.out.println("Ord " + ord);
-        om.createPreOrder(ord);
+        om.CreateOrder(ord);
         boolean expected = true;
         System.out.println("Check " + expected);
         System.out.println("Actual " + ord.isOrderConfirmed());
@@ -78,7 +78,7 @@ public class OrderMapperTest {
     {
         Orders ord = new Orders(1, 30, 20, 10, false);
         System.out.println("Ord " + ord);
-        om.createPreOrder(ord);
+        om.CreateOrder(ord);
         boolean expected = false;
         System.out.println("Check " + expected);
         System.out.println("Actual " + ord.isOrderConfirmed());

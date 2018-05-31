@@ -156,7 +156,7 @@ public class DataFacade {
      * @throws UniversalExceptions
      */
     public static Orders createOrder(Orders ord) throws UniversalExceptions {
-        OrderMapper.createPreOrder(ord);
+        OrderMapper.CreateOrder(ord);
         return ord;
     }
 
