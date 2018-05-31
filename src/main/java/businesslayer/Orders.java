@@ -12,7 +12,6 @@ public class Orders
     private int width; //width of the house
     private int height; //height of the house
     private int price; //price of the house
-
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
 
     public Orders() {
