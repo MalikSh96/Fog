@@ -20,7 +20,6 @@ public class SpecificOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         HttpSession session = request.getSession();
         User curUs = (User) session.getAttribute("user");
 
@@ -35,7 +34,6 @@ public class SpecificOrder extends Command {
             return "myorders";
         }
         session.setAttribute("orderid", chosenId);
-       // session.setAttribute("orderuser", bf.getUserIdFromOrderId(chosenId));
         return "specificOrder";
     }
 }

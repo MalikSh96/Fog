@@ -12,8 +12,6 @@ public class SellerPage extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         return "sellerpage";
     }
-
 }

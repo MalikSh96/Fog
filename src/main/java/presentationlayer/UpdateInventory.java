@@ -21,7 +21,6 @@ public class UpdateInventory extends Command {
     
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         HttpSession session = request.getSession();
         
         inventoryId = (int) session.getAttribute("inventoryid");
@@ -31,7 +30,6 @@ public class UpdateInventory extends Command {
         unit = bf.getItemUnit(name);
         status = bf.getItemStatus(inventoryId);
         price = bf.getItemPrice(inventoryId);
-        
 
         if(request.getParameter("name").length() > 0 ){ name = request.getParameter("name");}
         if(request.getParameter("desc").length() > 0 ){ desc = request.getParameter("desc");}
@@ -41,8 +39,6 @@ public class UpdateInventory extends Command {
         if(request.getParameter("price").length() > 0) {price = Integer.parseInt(request.getParameter("price")); }
         
         bf.updateInventory(inventoryId, name, desc, length, unit, status, price);
-        
-              return "updateinventorypage";
+        return "updateinventorypage";
     }
-
 }     

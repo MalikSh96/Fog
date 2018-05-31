@@ -28,7 +28,6 @@ public class Order extends Command {
     int widthSVG = 0;
     int lengthSVG = 0;
     int widthline = 0;
-
     int lengthline = 0;
     int lengthtextmiddle = 0;
     int widthtextmiddle = 0;
@@ -40,14 +39,11 @@ public class Order extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions, ClassNotFoundException {
-
         HttpSession session = request.getSession();
-
         //find user
         User user = (User) session.getAttribute("user");
         if (user == null) {
             request.setAttribute("from", "customorder");
-            
             return "loginpage";
         }
 
@@ -74,11 +70,9 @@ public class Order extends Command {
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
         session.setAttribute("højde", height);
-
         session.setAttribute("længdespær", lengthrafter);
         session.setAttribute("højdespær", heightrafter);
         session.setAttribute("breddespær", widthrafter);
-
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);

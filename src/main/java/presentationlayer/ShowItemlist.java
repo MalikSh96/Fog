@@ -13,10 +13,8 @@ public class ShowItemlist extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         HttpSession session = request.getSession();
         session.setAttribute("orderid", 4);
         return "showItemlist";
     }
-
 }

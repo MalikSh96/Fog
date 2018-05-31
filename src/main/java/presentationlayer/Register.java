@@ -26,8 +26,8 @@ public class Register extends Command {
         String password2 = request.getParameter("password2");
         int postal = Integer.parseInt(postnr);
         int phone = Integer.parseInt(phonenr);
+        
         if (password1.equals(password2)) {
-
             User user = BusinessFacade.createUser(name, lastname, address, postal, phone, email, password1);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
@@ -37,7 +37,5 @@ public class Register extends Command {
         } else {
             throw new UniversalExceptions("the two passwords did not match");
         }
-
     }
-
 }
