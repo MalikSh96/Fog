@@ -29,15 +29,15 @@
                                     </li>
                                         <% }%> 
                                     <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
-                                    <li class="topsviews"><a href="FrontController?command=storagechiefpage">Storage chief</a>
+                                    <li class="topsviews"><a href="FrontController?command=storagechiefpage">Lagerchef</a>
                                     </li>
                                         <% }%>
                                         <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
-                                    <li class="topsviews"><a href="FrontController?command=storageworkerpage">Storage worker</a>
+                                    <li class="topsviews"><a href="FrontController?command=storageworkerpage">Lagerarbejder</a>
                                     </li>
                                         <% }%>
                                         <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller")) { %>
-                                    <li class="topsviews"><a href="FrontController?command=sellerpage">Seller</a>
+                                    <li class="topsviews"><a href="FrontController?command=sellerpage">Sælger</a>
                                     </li>
                                         <% }%>
                                         <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId())) && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
