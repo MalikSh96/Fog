@@ -640,4 +640,24 @@ public class OrderMapper {
         }
      return userid;
     }
+
+    int getOrderIdFromUserId(int userId) throws UniversalExceptions {
+    int orderId = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT orderId FROM orders where userID = '" + orderId + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet resultset = ps.executeQuery();
+
+            while (resultset.next()) {
+                orderId = resultset.getInt("orderId");
+            return orderId;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            uex.ThrowCouldNotSendOrderException();
+        }
+     return orderId;
+    }
 }

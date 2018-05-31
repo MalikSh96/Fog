@@ -291,6 +291,10 @@ public class DataFacade {
         return con.getOM().getOrderCustomerIds();
     }
     
+    public static int getOrderIdFromUserId(int userId) throws UniversalExceptions {
+     return con.getOM().getOrderIdFromUserId(userId);
+    }
+    
     /**
      *
      * @param orderId
@@ -583,4 +587,5 @@ public class DataFacade {
     public static List<Integer> getAllItemPrice() throws UniversalExceptions {    
         return con.getIM().getAllItemPrice();
     }
+
 }

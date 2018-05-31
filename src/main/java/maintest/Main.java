@@ -20,10 +20,12 @@ public class Main {
 //        if (us.isAdmin(bf.getUserRole(us.getId())) && !bf.getOrder(id).isOrderConfirmed() || bf.getUserRole(bf.getUserId(us.getEmail())).equals("storagechief") && !bf.getOrder(id).isOrderConfirmed()) {
 //            
 //        }
-        bf.sendOrder(4);
-        boolean possible = true;
-        List<Integer> itemIds = bf.getFullItemlistId(8);
-        System.out.println(bf.getFullItemlist(8));
+
+//        System.out.println(bf.getUserIdFromOrderId(3));
+//        bf.sendOrder(4);
+//        boolean possible = true;
+//        List<Integer> itemIds = bf.getFullItemlistId(8);
+//        System.out.println(bf.getFullItemlist(8));
 //        List<Integer> wrongIds = new ArrayList<>();
 //       for (int i = 0; i < itemIds.size(); i++) {
 //            if (!bf.updateStatus(itemIds.get(i), bf.getAmount(8, itemIds.get(i)))) {

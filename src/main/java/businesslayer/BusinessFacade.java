@@ -263,6 +263,10 @@ public class BusinessFacade {
     public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
     return DataFacade.getOrderCustomerIds();
     }
+    
+    public int getOrderIdFromUserId(int userId) throws UniversalExceptions {
+        return DataFacade.getOrderIdFromUserId(userId);
+    }
 
     /**
      * @param totalPrice
@@ -437,6 +441,7 @@ public class BusinessFacade {
         return DataFacade.getAllItemStatus();
     }
     
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -789,4 +794,29 @@ public class BusinessFacade {
         }
         return lastnames;
     }
+  
+    /**
+     * @param userId
+     * @return list
+     */
+    public static List<String> allCustomerOrderIds(int userId) throws UniversalExceptions {
+        List<Integer> orderids = DataFacade.allCustomerOrdersId(userId);
+        List<String> result = new ArrayList<>();
+        result.add("<div class=\"contatiner\">");
+        result.add("<table class=\"table table-hover\">");
+        result.add("<tr>");
+        result.add("<th scope=\"col\">Ordre id</th>");
+        result.add("</tr>");
+
+        for (int i = 0; i < orderids.size(); i++) {
+            result.add("<tr>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
+                    orderids.get(i) + "\">" + orderids.get(i) + "</a></p></td>");
+            result.add("</tr>");
+        }
+        result.add("</table>");
+        result.add("</div>");
+        return result;
+    }
 }
+
