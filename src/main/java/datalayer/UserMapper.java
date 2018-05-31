@@ -223,6 +223,11 @@ public class UserMapper {
         return idList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserNames() throws UniversalExceptions {
         List<String> names = new ArrayList<>();
 
@@ -245,6 +250,11 @@ public class UserMapper {
         return names;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserLastnames() throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
 
@@ -267,6 +277,12 @@ public class UserMapper {
         return lastnames;
     }
 
+    /**
+     *
+     * @param userId
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         List<String> infoList = new ArrayList<>();
 
@@ -377,9 +393,7 @@ public class UserMapper {
      * @return boolean
      * @throws UniversalExceptions
      */
-    
-
-public boolean UserIdExists(int userId) throws UniversalExceptions {
+    public boolean UserIdExists(int userId) throws UniversalExceptions {
         boolean exists = false;
         try {
             Connection con = Connector.connection();
