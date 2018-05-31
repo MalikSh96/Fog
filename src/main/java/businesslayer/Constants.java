@@ -11,70 +11,32 @@ import datalayer.UserMapper;
  */
 public class Constants {
 
-    /**
-     *
-     */
     public static final BusinessFacade BF = new BusinessFacade();
 
-    /**
-     *
-     */
     public static final OrderMapper OM = new OrderMapper();
 
-    /**
-     *
-     */
     public static final InventoryMapper IM = new InventoryMapper();
 
-    /**
-     *
-     */
     public static final ItemlistMapper ILM = new ItemlistMapper();
 
-    /**
-     *
-     */
     public static final UserMapper UM = new UserMapper();
 
-    /**
-     *
-     */
     public static final UniversalExceptions UEX = new UniversalExceptions();
 
     //hardcoding of misc carport stuff
-
-    /**
-     *
-     */
     public static final int ROOFSCREWAMOUNT = 2;
 
-    /**
-     *
-     */
     public static final int UNIVERSALRIGHTAMOUNT = 20;
 
-    /**
-     *
-     */
     public static final int UNIVERSALLEFTAMOUNT = 20;
 
-    /**
-     *
-     */
     public static final int BRACKETSCREWAMOUNT = 2;
 
-    /**
-     *
-     */
     public static final int CARRIAGEBOLTAMOUNT = 14;
 
-    /**
-     *
-     */
     public static final int SQUARESLICESAMOUNT = 14;
 
     /**
-     *
      * @return OrderMapper
      */
     public static OrderMapper getOM() {
@@ -82,7 +44,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return InventoryMapper
      */
     public static InventoryMapper getIM() {
@@ -90,7 +51,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return itemListMapper
      */
     public static ItemlistMapper getILM() {
@@ -98,7 +58,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return roofScrewAmount
      */
     public static int getROOFSCREWAMOUNT() {
@@ -106,7 +65,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return UniversalRightAmount
      */
     public static int getUNIVERSALRIGHTAMOUNT() {
@@ -114,7 +72,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return UniversalLeftAmount
      */
     public static int getUNIVERSALLEFTAMOUNT() {
@@ -122,7 +79,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return BracketScrewAmount
      */
     public static int getBRACKETSCREWAMOUNT() {
@@ -130,7 +86,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return CARRIAGEBOLTAMOUNT
      */
     public static int getCARRIAGEBOLTAMOUNT() {
@@ -138,7 +93,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return SQUARESLICESAMOUNT
      */
     public static int getSQUARESLICESAMOUNT() {
@@ -146,7 +100,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return UserMapper
      */
     public static UserMapper getUM() {
@@ -154,7 +107,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return BusinessFacade
      */
     public static BusinessFacade getBf() {
@@ -162,7 +114,6 @@ public class Constants {
     }
 
     /**
-     *
      * @return UniversalExceptions
      */
     public static UniversalExceptions getUEX() {
