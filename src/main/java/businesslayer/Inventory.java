@@ -1,5 +1,9 @@
 package businesslayer;
 
+/**
+ *
+ * @author malik
+ */
 public class Inventory 
 {    
     private int id;
@@ -10,7 +14,16 @@ public class Inventory
     private int status;
     private int price;
 
-
+    /**
+     *
+     * @param id
+     * @param name
+     * @param length
+     * @param unit
+     * @param desc
+     * @param status
+     * @param price
+     */
     public Inventory(int id, String name, int length, String unit, String desc, int status, int price) {
         this.id = id;
         this.name = name;
@@ -21,6 +34,13 @@ public class Inventory
         this.price = price;
     }
     
+    /**
+     *
+     * @param id
+     * @param name
+     * @param length
+     * @param desc
+     */
     public Inventory(int id, String name, int length, String desc) 
     {
         this.id = id;
@@ -29,6 +49,14 @@ public class Inventory
         this.desc = desc;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param length
+     * @param unit
+     * @param desc
+     */
     public Inventory(int id, String name, int length, String unit, String desc) 
     {
         this.id = id;
@@ -39,38 +67,74 @@ public class Inventory
         this.status = status;
     }
     
+    /**
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return length
+     */
     public int getLength() {
         return length;
     }
 
+    /**
+     *
+     * @return unit
+     */
     public String getUnit() {
         return unit;
     }
 
+    /**
+     *
+     * @return description
+     */
     public String getDesc() {
         return desc;
     }
 
+    /**
+     *
+     * @return status
+     */
     public int getStatus() {
         return status;
     }
 
+    /**
+     *
+     * @param status
+     */
     public void setStatus(int status) {
         this.status = status;
     }
 
+    /**
+     *
+     * @return price
+     */
     public int getPrice() {
         return price;
     }
 
+    /**
+     *
+     * @param price
+     */
     public void setPrice(int price) {
         this.price = price;
     }

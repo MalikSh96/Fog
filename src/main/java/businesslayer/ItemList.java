@@ -3,6 +3,10 @@ package businesslayer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author malik
+ */
 public class ItemList {
 
     private static List<Integer> post = new ArrayList<>();
@@ -15,6 +19,13 @@ public class ItemList {
     private static int roofTotal = 0;
 
     //Obs, calculations is based of the biggest items of each category
+
+    /**
+     *
+     * @param carportLength
+     * @param carportWidth
+     * @return list
+     */
     public static List<Integer> postAmount(int carportLength, int carportWidth) {
         int postRow = 0;
         postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
@@ -31,6 +42,12 @@ public class ItemList {
         return post;
     }
 
+    /**
+     *
+     * @param carportLength
+     * @param carportWidth
+     * @return list
+     */
     public static List<Integer> raftAmount(int carportLength, int carportWidth) {
         Double raftRow = 0.00;
         raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
@@ -50,6 +67,11 @@ public class ItemList {
         return raft;
     }
 
+    /**
+     *
+     * @param carportLength
+     * @return list
+     */
     public static List<Integer> remAmount(int carportLength) {
         //Carport only have 2 sides, no middle posts
         if (carportLength <= 600) {
@@ -61,6 +83,12 @@ public class ItemList {
         return rem;
     }
 
+    /**
+     *
+     * @param carportLength
+     * @param carportWidth
+     * @return list
+     */
     public static List<Integer> roofAmount(int carportLength, int carportWidth) {
         Double roofPlate = 0.00;
         roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
@@ -78,6 +106,13 @@ public class ItemList {
     }
 
     //Work in progress
+
+    /**
+     *
+     * @param carportWidth
+     * @param shedWidth
+     * @param shedLength
+     */
     public void ShedPost(int carportWidth, int shedWidth, int shedLength) {
         Double extraPost = 0.00;
         extraPost = (shedWidth / 200.00);
@@ -92,35 +127,68 @@ public class ItemList {
         }
     }
 
+    /**
+     *
+     * @return list
+     */
     public static List<Integer> getPost() {
         return post;
     }
 
+    /**
+     *
+     * @return list
+     */
     public static List<Integer> getRaft() {
         return raft;
     }
 
+    /**
+     *
+     * @return list
+     */
     public static List<Integer> getRem() {
         return rem;
     }
 
+    /**
+     *
+     * @return list
+     */
     public static List<Integer> getRoof() {
         return roof;
     }
 
     //Getters for the purpose of j-unit testing
+
+    /**
+     *
+     * @return PostTotal
+     */
     public static int getPostTotal() {
         return postTotal;
     }
 
+    /**
+     *
+     * @return RaftTotal
+     */
     public static int getRaftTotal() {
         return raftTotal;
     }
 
+    /**
+     *
+     * @return RemTotal
+     */
     public static int getRemTotal() {
         return remTotal;
     }
 
+    /**
+     *
+     * @return RoofTotal
+     */
     public static int getRoofTotal() {
         return roofTotal;
     }
