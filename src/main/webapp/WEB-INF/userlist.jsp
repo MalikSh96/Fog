@@ -27,11 +27,6 @@
                        bf.getAllUserNames(), 
         bf.getAllUserLastnames()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
 
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificuser">
-            <br><input type="number" name="chosenuserid" placeholder="Bruger ID" required/>
-            <input type="submit" value="Se bruger" /><br>
-        </form>
 
     </center> 
     <center>

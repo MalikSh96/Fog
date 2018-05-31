@@ -49,7 +49,7 @@
                         <input type="submit" name="ordernumber" value="Send ordre" />
                     </form>
                     <%}%>
-
+                    <br><br>
 
                     <% if (us.isAdmin(bf.getUserRole(us.getId()))) {%>
                     <a href="FrontController?command=adminpage">Tilbage</a><br><br>

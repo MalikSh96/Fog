@@ -1,3 +1,4 @@
+
 <%@page import="datalayer.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,11 +26,6 @@
         bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()),
         bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()),
         bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificOrder">
-            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-            <input type="submit" value="Se ordre" /><br>
-        </form>
     </center>
     <center>
        <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>

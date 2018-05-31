@@ -24,6 +24,10 @@
                                     </li>
                                     <li class="topsviews" ><a href="FrontController?command=customorder">Bygselv Carport</a>
                                     </li>
+                                    <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <li class="topsviews"><a href="FrontController?command=adminpage">Admin</a>
+                                    </li>
+                                        <% }%> 
                                     <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
                                     <li class="topsviews"><a href="FrontController?command=storagechiefpage">Storage chief</a>
                                     </li>

@@ -592,8 +592,8 @@ public class BusinessFacade {
      * @param dates
      * @return list
      */
-    public static List<String> allsCurrentOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
-        
+    public static List<String> allCurrentOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
         result.add("<table class=\"table table-hover\">");
@@ -615,8 +615,10 @@ public class BusinessFacade {
         }
         result.add("</table>");
         result.add("</div>");
+
         return result;
     }
+
     
     /**
      *
@@ -626,7 +628,7 @@ public class BusinessFacade {
      * @param dates
      * @return list
      */
-    public static List<String> allsOrdes( List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates){
+      public static List<String> allOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -652,7 +654,7 @@ public class BusinessFacade {
 
         return result;
     }
-   
+
     public static List<String> allUsers(List<Integer> ids, List<String> name, List<String> lastname) {
 
         List<String> result = new ArrayList<>();

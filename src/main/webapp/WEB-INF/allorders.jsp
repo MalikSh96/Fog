@@ -16,16 +16,9 @@
     <center>
         <%@include file="../navigation/menu.jsp" %>
         <h1>Alle ordrer</h1>
-       
-        <%//=bf.getAllOrderIds().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
         
-        <!-- er ikke 100% på hvad der i vejen? -->
         <%= bf.allOrders(bf.getAllOrderIds(), bf.allOrderCustomerNames(bf.getOrderCustomerIds()), bf.allOrderCustomerLastnames(bf.getOrderCustomerIds()),bf.getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="specificOrder">
-            <br><input type="number" name="chosenid" placeholder="Order ID" required/>
-            <input type="submit" value="Se ordre" /><br>
-        </form>
+
     </center>
     <center>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
