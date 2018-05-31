@@ -12,8 +12,6 @@ public class CurrentOrders extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-
         return "allCurrentOrders";
     }
-
 }

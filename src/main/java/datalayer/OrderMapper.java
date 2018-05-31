@@ -45,12 +45,11 @@ public class OrderMapper {
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 orderId = ids.getInt(1);
-                System.out.println("Debug " + orderId);
                 return orderId;
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowNoPreOrderCreatedException();
+            uex.ThrowNoOrderCreatedException();
         }
         return orderId;
     }
@@ -63,9 +62,7 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public String getDates(int id) throws UniversalExceptions {
-
         String dates = null;
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT dates FROM FogUsers.orders where userID = " + id;
@@ -75,7 +72,6 @@ public class OrderMapper {
 
             while (resultset.next()) {
                 dates = resultset.getString("dates");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotFindTheDateException();
@@ -106,7 +102,6 @@ public class OrderMapper {
                 int height = rs.getInt("height");
                 boolean conf = rs.getBoolean("orderConfirmed");
                 ord = new Orders(orderId, userID, length, width, height, conf);
-                System.out.println("Debug " + orderId);
                 return ord;
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -199,7 +194,6 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
-
         List<String> dates = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -224,7 +218,6 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public List<Integer> getNonSentOrderId() throws UniversalExceptions {
-
         List<Integer> orderNumbers = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -249,7 +242,6 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public List<String> getNonSentOrderDates() throws UniversalExceptions {
-
         List<String> orderDates = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -273,28 +265,24 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public List<String> getAllOrderDates() throws UniversalExceptions {
-
         List<String> orderDates = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT dates FROM FogUsers.orders order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 String id = rs.getString("dates");
                 orderDates.add(id);
             }
-
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetNonSentOrderIdException();
         }
         return orderDates;
     }
+    
     /**
      *
      * @return userId
@@ -333,9 +321,6 @@ public class OrderMapper {
             String SQL = "SELECT userID FROM FogUsers.orders order by orderId desc;";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-
-            System.out.println("Check sql order " + SQL);
-
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -419,7 +404,6 @@ public class OrderMapper {
     public List<Orders> confirmedOrders() throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-
         try {
             Connection con = Connector.connection();
             String SQL = "select * from FogUsers.orders where orderConfirmed "
@@ -454,7 +438,6 @@ public class OrderMapper {
     public List<Orders> pendingOrders() throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-
         try {
             Connection con = Connector.connection();
             String SQL = "select * from FogUsers.orders where orderConfirmed "
@@ -490,7 +473,6 @@ public class OrderMapper {
     public List<Orders> allCustomerOrders(int id) throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.orders where userID = " + id;
@@ -526,7 +508,6 @@ public class OrderMapper {
      */
     public List<Integer> allCustomerOrdersId(int id) throws UniversalExceptions {
         List<Integer> orderIds = new ArrayList<>();
-
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT orderId FROM FogUsers.orders where userID = " + id;
@@ -558,7 +539,6 @@ public class OrderMapper {
             String sql = "Select orderConfirmed from orders where orderId= '" + orderID + "'";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
             ResultSet resultset = ps.executeQuery(sql);
 
             while (resultset.next()) {
@@ -605,7 +585,6 @@ public class OrderMapper {
             String SQL = "SELECT price FROM orders where orderId = '" + id + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-            System.out.println("sql syntax ok? " + SQL);
             ResultSet resultset = ps.executeQuery();
 
             while (resultset.next()) {
@@ -644,12 +623,11 @@ public class OrderMapper {
      */
     public int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
         int userid = 0;
-     try {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT userID FROM orders where orderId = '" + orderId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
-            System.out.println("sql syntax ok? " + SQL);
             ResultSet resultset = ps.executeQuery();
 
             while (resultset.next()) {

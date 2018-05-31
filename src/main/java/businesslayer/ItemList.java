@@ -19,9 +19,7 @@ public class ItemList {
     private static int roofTotal = 0;
 
     //Obs, calculations is based of the biggest items of each category
-
     /**
-     *
      * @param carportLength
      * @param carportWidth
      * @return list
@@ -43,7 +41,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @param carportLength
      * @param carportWidth
      * @return list
@@ -51,24 +48,18 @@ public class ItemList {
     public static List<Integer> raftAmount(int carportLength, int carportWidth) {
         Double raftRow = 0.00;
         raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
-
         int raftRowInt = raftRow.intValue();
 
         if (carportWidth < 600) {
             raftTotal = raftRowInt + 2;
         } else {
             raftTotal = (raftRowInt + 2) * 2;
-//            int numberOfRows = (carportWidth / 600);
-//            numberOfRows++;
-//            raftTotal = numberOfRows * raftRowInt;
         }
-
         raft.add(raftTotal);
         return raft;
     }
 
     /**
-     *
      * @param carportLength
      * @return list
      */
@@ -84,7 +75,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @param carportLength
      * @param carportWidth
      * @return list
@@ -92,7 +82,6 @@ public class ItemList {
     public static List<Integer> roofAmount(int carportLength, int carportWidth) {
         Double roofPlate = 0.00;
         roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
-
         int roofPlateInt = roofPlate.intValue();
 
         if (carportWidth > 600) {
@@ -100,13 +89,11 @@ public class ItemList {
         } else {
             roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals           
         }
-
         roof.add(roofTotal);
         return roof;
     }
 
     /**
-     *
      * @return list
      */
     public static List<Integer> getPost() {
@@ -114,7 +101,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return list
      */
     public static List<Integer> getRaft() {
@@ -122,7 +108,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return list
      */
     public static List<Integer> getRem() {
@@ -130,7 +115,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return list
      */
     public static List<Integer> getRoof() {
@@ -138,9 +122,7 @@ public class ItemList {
     }
 
     //Getters for the purpose of j-unit testing
-
     /**
-     *
      * @return PostTotal
      */
     public static int getPostTotal() {
@@ -148,7 +130,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return RaftTotal
      */
     public static int getRaftTotal() {
@@ -156,7 +137,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return RemTotal
      */
     public static int getRemTotal() {
@@ -164,7 +144,6 @@ public class ItemList {
     }
 
     /**
-     *
      * @return RoofTotal
      */
     public static int getRoofTotal() {

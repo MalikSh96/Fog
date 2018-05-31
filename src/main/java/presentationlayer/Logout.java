@@ -17,5 +17,4 @@ public class Logout extends Command {
         session.setAttribute("user", null);
         return "../index";
     }
-
 }

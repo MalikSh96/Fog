@@ -12,17 +12,12 @@ public class Orders
     private int width; //width of the house
     private int height; //height of the house
     private int price; //price of the house
-
     private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
 
-    /**
-     *
-     */
     public Orders() {
     }
 
     /**
-     *
      * @param orderId
      * @param userId
      * @param length
@@ -38,7 +33,6 @@ public class Orders
     }
 
     /**
-     *
      * @param userId
      * @param length
      * @param width
@@ -56,7 +50,6 @@ public class Orders
     }
 
     /**
-     *
      * @param userId
      * @param length
      * @param width
@@ -72,7 +65,6 @@ public class Orders
     }
 
     /**
-     *
      * @param orderId
      * @param userId
      * @param length
@@ -90,7 +82,6 @@ public class Orders
     }
     
     /**
-     *
      * @param userId
      * @param length
      * @param width
@@ -104,7 +95,6 @@ public class Orders
     }
 
     /**
-     *
      * @param length
      * @param width
      * @param height
@@ -116,7 +106,6 @@ public class Orders
     }
 
     /**
-     *
      * @return orderId
      */
     public int getOrderId() {
@@ -124,7 +113,6 @@ public class Orders
     }
 
     /**
-     *
      * @return userId
      */
     public int getUserId() {
@@ -132,7 +120,6 @@ public class Orders
     }
 
     /**
-     *
      * @return length
      */
     public int getLength() {
@@ -140,7 +127,6 @@ public class Orders
     }
 
     /**
-     *
      * @return width
      */
     public int getWidth() {
@@ -148,7 +134,6 @@ public class Orders
     }
 
     /**
-     *
      * @return height
      */
     public int getHeight() {
@@ -156,7 +141,6 @@ public class Orders
     }
 
     /**
-     *
      * @return boolean
      */
     public boolean isOrderConfirmed() {
@@ -164,7 +148,6 @@ public class Orders
     }
 
     /**
-     *
      * @return price
      */
     public int getPrice() {
@@ -172,7 +155,6 @@ public class Orders
     }
 
     /**
-     *
      * @param price
      */
     public void setPrice(int price) {
@@ -180,7 +162,12 @@ public class Orders
     }
     @Override
     public String toString() {
-        if(orderConfirmed) return "<br>Ordre Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";
-        return "<br>Ordre: Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: ikke sendt<br>";
+        if(orderConfirmed) return "<br>Ordre Id: " + orderId + "<br><br>Bruger id: " 
+                + userId + "<br>Længde: " + length + "<br>Bredde: " + width 
+                + "<br>Højde: " + height + "<br>Status: sendt<br>";
+        
+        return "<br>Ordre: Id: " + orderId + "<br><br>Bruger id: " + userId 
+                + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " 
+                + height + "<br>Status: ikke sendt<br>";
     }
 }

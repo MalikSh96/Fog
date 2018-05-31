@@ -2,7 +2,6 @@ package businesslayer;
 
 import datalayer.DataFacade;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,9 +11,7 @@ import java.util.List;
 public class BusinessFacade {
 
     // ***USERMAPPER***
-
     /**
-     *
      * @param name
      * @param lastname
      * @param address
@@ -25,11 +22,12 @@ public class BusinessFacade {
      * @return user
      * @throws UniversalExceptions
      */
-    public static User createUser(String name, String lastname, String address, int postal, int phone, String email, String password) throws UniversalExceptions {
+    public static User createUser(String name, String lastname, String address, 
+            int postal, int phone, String email, String password) throws UniversalExceptions {
         return DataFacade.createUser(name, lastname, address, postal, phone, email, password);
     }
+    
     /**
-     *
      * @param id
      * @return user
      * @throws UniversalExceptions
@@ -39,7 +37,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @param name
      * @param lastname
@@ -50,12 +47,16 @@ public class BusinessFacade {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void updateUserInfo(int id, String name, String lastname, String address, int postal, int phone, String email, String password) throws UniversalExceptions {
+    public static void updateUserInfo(int id, String name, String lastname, 
+            String address, int postal, int phone, String email, String password) throws UniversalExceptions {
         DataFacade.updateUserInfo(id, name, lastname, address, postal, phone, email, password);
     }
 
+    public static User login(String email, String password) throws UniversalExceptions {
+        return DataFacade.login(email, password);
+    }
+
     /**
-     *
      * @param chosenId
      * @return boolean
      * @throws UniversalExceptions
@@ -65,7 +66,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return userRole
      * @throws UniversalExceptions
@@ -75,7 +75,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return username
      * @throws UniversalExceptions
@@ -85,7 +84,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return userLastname
      * @throws UniversalExceptions
@@ -95,7 +93,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param email
      * @return userID
      * @throws UniversalExceptions
@@ -105,7 +102,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -114,7 +110,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -123,7 +118,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -132,7 +126,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param userId
      * @return list
      * @throws UniversalExceptions
@@ -142,9 +135,7 @@ public class BusinessFacade {
     }
 
     // ***ORDERMAPPER***
-
     /**
-     *
      * @param id
      * @param length
      * @param width
@@ -157,7 +148,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return orderId
      * @throws UniversalExceptions
      */
@@ -166,7 +156,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return latestOrderId
      * @throws UniversalExceptions
      */
@@ -175,7 +164,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param chosenId
      * @return boolean
      * @throws UniversalExceptions
@@ -185,7 +173,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @throws UniversalExceptions
      */
@@ -194,7 +181,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return list
      * @throws UniversalExceptions
@@ -204,7 +190,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -213,7 +198,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return order
      * @throws UniversalExceptions
@@ -223,7 +207,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return userId
      * @throws UniversalExceptions
@@ -233,7 +216,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return orderPrice
      * @throws UniversalExceptions
@@ -243,7 +225,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -252,7 +233,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -261,15 +241,14 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
     public static List<String> getAllOrderDates() throws UniversalExceptions {
         return DataFacade.getAllOrderDates();
     }
+    
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -278,7 +257,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -287,7 +265,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param totalPrice
      * @param orderId
      * @throws UniversalExceptions
@@ -298,7 +275,6 @@ public class BusinessFacade {
 
     
     /**
-     *
      * @param userId
      * @return list
      * @throws UniversalExceptions
@@ -308,7 +284,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param orderId
      * @return UserIdFromOrderId
      * @throws UniversalExceptions
@@ -318,9 +293,7 @@ public class BusinessFacade {
     }
 
     // ***INVENTORYMAPPER***
-
     /**
-     *
      * @param name
      * @return itemId
      * @throws UniversalExceptions
@@ -330,7 +303,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return itemLength
      * @throws UniversalExceptions
@@ -340,7 +312,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return itemDescription
      * @throws UniversalExceptions
@@ -350,7 +321,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return itemName
      * @throws UniversalExceptions
@@ -360,7 +330,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param name
      * @return itemUnit
      * @throws UniversalExceptions
@@ -370,7 +339,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return itemStatus
      * @throws UniversalExceptions
@@ -380,7 +348,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return itemPrice
      * @throws UniversalExceptions
@@ -390,7 +357,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param inventoryId
      * @param name
      * @param desc
@@ -400,12 +366,12 @@ public class BusinessFacade {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void updateInventory(int inventoryId, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public static void updateInventory(int inventoryId, String name, String desc, 
+            int length, String unit, int status, int price) throws UniversalExceptions {
         DataFacade.updateInventory(inventoryId, name, desc, length, unit, status, price);
     }
 
     /**
-     *
      * @param itemId
      * @param amount
      * @return boolean
@@ -416,7 +382,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param itemId
      * @param amount
      * @param wrongId
@@ -427,7 +392,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param name
      * @param desc
      * @param length
@@ -436,12 +400,12 @@ public class BusinessFacade {
      * @param price
      * @throws UniversalExceptions
      */
-    public void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public void addToInventory(String name, String desc, int length, String unit, 
+            int status, int price) throws UniversalExceptions {
         DataFacade.addToInventory(name, desc, length, unit, price, status);
     }
 
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -450,7 +414,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -459,7 +422,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -468,7 +430,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -477,7 +438,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -486,7 +446,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -495,7 +454,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -504,7 +462,6 @@ public class BusinessFacade {
     }
     
     /**
-     *
      * @return list
      * @throws UniversalExceptions
      */
@@ -513,9 +470,7 @@ public class BusinessFacade {
     }
 
     // ***ITEMLISTMAPPER***
-
     /**
-     *
      * @param name
      * @param desc
      * @param length
@@ -524,13 +479,13 @@ public class BusinessFacade {
      * @param id
      * @throws UniversalExceptions
      */
-    public static void addToItemList(String name, String desc, int length, int amount, int orderId, int id) throws UniversalExceptions {
+    public static void addToItemList(String name, String desc, int length, 
+            int amount, int orderId, int id) throws UniversalExceptions {
         DataFacade.addToItemList(name, desc, length, amount, orderId, id);
         DataFacade.updateStatus(DataFacade.getItemId(name), amount);
     }
 
     /**
-     *
      * @param orderId
      * @return list
      * @throws UniversalExceptions
@@ -540,7 +495,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param price
      * @param amount
      * @return totalPrice
@@ -551,7 +505,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param id
      * @return list
      * @throws UniversalExceptions
@@ -561,7 +514,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param orderId
      * @param itemId
      * @return amount
@@ -572,7 +524,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param orderId
      * @return list
      * @throws UniversalExceptions
@@ -582,9 +533,7 @@ public class BusinessFacade {
     }
 
     // ***BUSINESSLAYER***
-
     /**
-     *
      * @param length
      * @return calculateRemAmount
      */
@@ -593,7 +542,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param length
      * @param width
      * @return calculateRaftAmount
@@ -603,7 +551,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param length
      * @param width
      * @return calculatePostAmount
@@ -613,7 +560,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param length
      * @param width
      * @return calculateRoofAmount
@@ -623,14 +569,11 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param dates
      * @param ids
      * @return list
      */
-    
-        public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
-
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
         List<String> result = new ArrayList<>();
         result.add("<div class=\"container\">");
         result.add("<table class=\"table table-hover\">");
@@ -640,32 +583,29 @@ public class BusinessFacade {
         result.add("</tr>");
         if (dates.size() == ids.size()) {
             for (int i = 0; i < dates.size(); i++) {
-
-                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">" + ids.get(i) + "</a></th><td><p>" + " " + dates.get(i) + "</td></tr>");
-                // result.add("<th><p>"+ids.get(i) + "</th><th><p>" + dates.get(i) + "<th><br>");
-                // result.add(""+ids.get(i) + " " + dates.get(i) + "<br>");
-
+                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" 
+                        + ids.get(i) + "\">" + ids.get(i) + "</a></th><td><p>" + " " + dates.get(i) + "</td></tr>");
             }
         }
         result.add("</table>");
         result.add("</div>");
         return result;
     }
+    
     /**
-     *
      * @param idsOrdre
      * @param name
      * @param lastname
      * @param dates
      * @return list
      */
-    public static List<String> allCurrentOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+    public static List<String> allCurrentOrders(List<Integer> idsOrdre, 
+        List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
         result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-
         result.add("<th scope=\"col\">OrdreId</th>");
         result.add("<th scope=\"col\">Navn</th>");
         result.add("<th scope=\"col\">Efternavn</th>");
@@ -674,7 +614,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < idsOrdre.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
+                    idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -682,26 +623,24 @@ public class BusinessFacade {
         }
         result.add("</table>");
         result.add("</div>");
-
         return result;
     }
 
     
     /**
-     *
      * @param idsOrdre
      * @param name
      * @param lastname
      * @param dates
      * @return list
      */
-      public static List<String> allOrders(List<Integer> idsOrdre, List<String> name, List<String> lastname, List<String> dates) {
+      public static List<String> allOrders(List<Integer> idsOrdre, List<String> name, 
+              List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
         result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-
         result.add("<th scope=\"col\">OrdreId</th>");
         result.add("<th scope=\"col\">Navn</th>");
         result.add("<th scope=\"col\">Efternavn</th>");
@@ -710,7 +649,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < idsOrdre.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
+                    idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -718,12 +658,10 @@ public class BusinessFacade {
         }
         result.add("</table>");
         result.add("</div>");
-
         return result;
     }
 
     /**
-     *
      * @param ids
      * @param name
      * @param lastname
@@ -735,7 +673,6 @@ public class BusinessFacade {
         result.add("<div class=\"contatiner\">");
         result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-
         result.add("<th scope=\"col\">Bruger Id</th>");
         result.add("<th scope=\"col\">Navn</th>");
         result.add("<th scope=\"col\">Efternavn</th>");
@@ -743,19 +680,18 @@ public class BusinessFacade {
 
         for (int i = 0; i < ids.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid=" + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid=" + 
+                    ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("</tr>");
         }
         result.add("</table>");
         result.add("</div>");
-
         return result;
     }
    
     /**
-     *
      * @param ids
      * @param name
      * @param description
@@ -765,13 +701,14 @@ public class BusinessFacade {
      * @param price
      * @return list
      */
-    public static List<String> fullInventory(List<Integer> ids, List<String> name, List<String> description, List<Integer> length, List<String> unit, List<Integer> status, List<Integer> price) {
+    public static List<String> fullInventory(List<Integer> ids, List<String> name, 
+            List<String> description, List<Integer> length, List<String> unit, 
+            List<Integer> status, List<Integer> price) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
         result.add("<table class=\"table table-hover\">");
         result.add("<tr>");
-
         result.add("<th scope=\"col\">Vare Id</th>");
         result.add("<th scope=\"col\">Navn</th>");
         result.add("<th scope=\"col\">Beskrivelse</th>");
@@ -794,42 +731,10 @@ public class BusinessFacade {
         }
         result.add("</table>");
         result.add("</div>");
-
         return result;
     }
 
-//    public static List<String> userlist(List<Integer> ids, List<String> name, List<String> lastname) {
-//
-//        List<String> result = new ArrayList<>();
-//        result.add("<div class=\"contatiner\">");
-//        result.add("<table class=\"table table-hover\">");
-//        result.add("<tr>");
-//
-//        result.add("<th scope=\"col\">OrdreId</th>");
-//        result.add("<th scope=\"col\">firstname</th>");
-//        result.add("<th scope=\"col\">lastname</th>");
-//        result.add("<th scope=\"col\">Dato</th>");
-//        result.add("</tr>");
-//
-//        for (int i = 0; i < ids.size(); i++) {
-//            result.add("<tr>");
-//            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
-//            result.add("<td><p>" + name.get(i) + "</p></td>");
-//            result.add("<td><p>" + lastname.get(i) + "</p></td>");
-//            result.add("</tr>");
-//        }
-//        result.add("</table>");
-//        result.add("</div>");
-//
-//        return result;
-//    }
-//
-//        
-//        return result;
-//    }
-            
     /**
-     *
      * @param ids
      * @return list
      * @throws UniversalExceptions
@@ -844,7 +749,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param ids
      * @return list
      * @throws UniversalExceptions
@@ -859,7 +763,6 @@ public class BusinessFacade {
     }
             
     /**
-     *
      * @param ids
      * @return list
      * @throws UniversalExceptions
@@ -874,7 +777,6 @@ public class BusinessFacade {
     }
 
     /**
-     *
      * @param ids
      * @return list
      * @throws UniversalExceptions

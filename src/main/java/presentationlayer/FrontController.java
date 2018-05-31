@@ -34,7 +34,7 @@ public class FrontController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
         } catch (UniversalExceptions ex) {
 
-            request.setAttribute("error", "du skrevet noget forkert.");
+            request.setAttribute("error", "Enten email eller password stemmer ikke overens. Prøv igen.");
             request.getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);

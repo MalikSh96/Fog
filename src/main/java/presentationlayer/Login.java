@@ -1,5 +1,6 @@
 package presentationlayer;
 
+import businesslayer.BusinessFacade;
 import businesslayer.UniversalExceptions;
 import datalayer.DataFacade;
 import businesslayer.User;
@@ -17,7 +18,7 @@ public class Login extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        User user = DataFacade.login(email, password);
+        User user = BusinessFacade.login(email, password);
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
         session.setAttribute("role", user.getRole());

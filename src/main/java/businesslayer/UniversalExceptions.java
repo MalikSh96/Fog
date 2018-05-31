@@ -7,33 +7,25 @@ package businesslayer;
 public final class UniversalExceptions extends Exception {
 
     /**
-     *
      * @param msg
      */
     public UniversalExceptions(String msg) {
         super(msg);
     }
 
-    /**
-     *
-     */
     public UniversalExceptions() {
-        
     }
 
     //Ordermapper exceptions
-
     /**
-     *
      * @throws UniversalExceptions
      */
-    public void ThrowNoPreOrderCreatedException() throws UniversalExceptions
+    public void ThrowNoOrderCreatedException() throws UniversalExceptions
     {
         throw new UniversalExceptions("Could not create order. Try again.");
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowCouldNotFindTheDateException() throws UniversalExceptions
@@ -42,7 +34,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetOrderException() throws UniversalExceptions
@@ -51,7 +42,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowLatestOrderDontExistException() throws UniversalExceptions
@@ -60,7 +50,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowOrderDoesNotExistException() throws UniversalExceptions
@@ -69,7 +58,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetUserIdException() throws UniversalExceptions
@@ -78,7 +66,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetNonSentOrderIdException() throws UniversalExceptions
@@ -87,7 +74,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllOrdersIdException() throws UniversalExceptions
@@ -96,7 +82,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllOrdersException() throws UniversalExceptions
@@ -105,7 +90,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllConfirmedOrdersException() throws UniversalExceptions
@@ -114,7 +98,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllPendingOrdersException() throws UniversalExceptions
@@ -123,7 +106,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllCustomerOrdersException() throws UniversalExceptions
@@ -132,7 +114,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllCustomerOrdersIdException() throws UniversalExceptions
@@ -141,7 +122,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowCouldNotSendOrderException() throws UniversalExceptions
@@ -150,7 +130,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotFindThePriceException() throws UniversalExceptions
@@ -160,9 +139,7 @@ public final class UniversalExceptions extends Exception {
 
     
     //Usermapper exceptions
-
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotCreateUserException() throws UniversalExceptions
@@ -171,7 +148,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotLoginException() throws UniversalExceptions
@@ -180,7 +156,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheUserIdException() throws UniversalExceptions
@@ -189,7 +164,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheUserException() throws UniversalExceptions
@@ -198,7 +172,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotUpdateUserInfoException() throws UniversalExceptions
@@ -207,7 +180,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetUserListException() throws UniversalExceptions
@@ -216,7 +188,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetAllUserIdsException() throws UniversalExceptions
@@ -225,7 +196,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetUserRoleException() throws UniversalExceptions
@@ -234,7 +204,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotFindUserIdException() throws UniversalExceptions
@@ -244,9 +213,7 @@ public final class UniversalExceptions extends Exception {
     
     
     //InventoryMapper exceptions
-
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheCompleteInventoryException() throws UniversalExceptions
@@ -255,7 +222,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowCouldNotAddToInventoryException() throws UniversalExceptions
@@ -264,7 +230,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheNameException() throws UniversalExceptions
@@ -273,7 +238,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheLengthException() throws UniversalExceptions
@@ -282,7 +246,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheUnitException() throws UniversalExceptions
@@ -291,7 +254,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheIdException() throws UniversalExceptions
@@ -300,7 +262,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheDescriptionException() throws UniversalExceptions
@@ -309,7 +270,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheSpecificItemException() throws UniversalExceptions
@@ -318,7 +278,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheStatusException() throws UniversalExceptions
@@ -327,7 +286,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetThePriceException() throws UniversalExceptions
@@ -336,7 +294,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotUpdateTheStatusException() throws UniversalExceptions
@@ -345,7 +302,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowCouldNotReverseTheStatusUpdateException() throws UniversalExceptions
@@ -354,7 +310,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowCouldNotUpdateInventoryException() throws UniversalExceptions
@@ -363,10 +318,8 @@ public final class UniversalExceptions extends Exception {
     }
     
     
-    //ItemListMapper exceptions --- needs some messages to display
-
+    //ItemListMapper exceptions
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotAddToItemlistException() throws UniversalExceptions
@@ -375,7 +328,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheFullItemlistException() throws UniversalExceptions
@@ -384,7 +336,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheFullItemlisIdtException() throws UniversalExceptions
@@ -393,7 +344,6 @@ public final class UniversalExceptions extends Exception {
     }
     
     /**
-     *
      * @throws UniversalExceptions
      */
     public void ThrowDidNotGetTheAmounttException() throws UniversalExceptions
