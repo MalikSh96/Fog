@@ -76,7 +76,7 @@ public class DataFacade {
     /**
      *
      * @param chosenId
-     * @return 
+     * @return boolean
      * @throws UniversalExceptions
      */
     public static boolean UserIdExists(int chosenId) throws UniversalExceptions {
@@ -137,14 +137,30 @@ public class DataFacade {
         return con.getUM().getAllUserIds();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserNames() throws UniversalExceptions {
         return con.getUM().getAllUserNames();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserLastnames() throws UniversalExceptions {
         return con.getUM().getAllUserLastnames();
     }
 
+    /**
+     *
+     * @param userId
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
         return con.getUM().getAllUserInfo(userId);
     }
@@ -247,6 +263,12 @@ public class DataFacade {
     public static List<String> getNonSentOrderDates() throws UniversalExceptions {
         return con.getOM().getNonSentOrderDates();
     }
+
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllOrderDates() throws UniversalExceptions {
          return con.getOM().getAllOrderDates();
     }
@@ -259,6 +281,11 @@ public class DataFacade {
         return con.getOM().getNonSentOrderCustomerIds();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
         return con.getOM().getOrderCustomerIds();
     }
@@ -293,6 +320,12 @@ public class DataFacade {
         return con.getOM().getAllUserOrderDates(userId);
     }
     
+    /**
+     *
+     * @param orderId
+     * @return userIdFromOrderId
+     * @throws UniversalExceptions
+     */
     public static int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
         return con.getOM().getUserIdFromOrderId(orderId);
     }
@@ -487,30 +520,65 @@ public class DataFacade {
         return con.getIM().completeInventory();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemUnit() throws UniversalExceptions {
             return con.getIM().getAllItemUnit(); 
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemDesc() throws UniversalExceptions {
             return con.getIM().getAllItemDesc();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemNames() throws UniversalExceptions {
             return con.getIM().getAllItemNames();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemIds() throws UniversalExceptions {
              return con.getIM().getAllItemIds();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemLength() throws UniversalExceptions {
             return con.getIM().getAllItemLength();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemStatus() throws UniversalExceptions {
             return con.getIM().getAllItemLength();
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemPrice() throws UniversalExceptions {    
         return con.getIM().getAllItemPrice();
     }

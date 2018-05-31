@@ -380,6 +380,11 @@ public class InventoryMapper {
         }
     }
 
+    /**
+     *
+     * @return
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemIds() throws UniversalExceptions {
         List<Integer> idList = new ArrayList<>();
 
@@ -402,6 +407,11 @@ public class InventoryMapper {
         return idList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemLength() throws UniversalExceptions {
         List<Integer> lengthList = new ArrayList<>();
 
@@ -424,6 +434,11 @@ public class InventoryMapper {
         return lengthList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemStatus() throws UniversalExceptions {
         List<Integer> statusList = new ArrayList<>();
 
@@ -446,6 +461,11 @@ public class InventoryMapper {
         return statusList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<Integer> getAllItemPrice() throws UniversalExceptions {
         List<Integer> priceList = new ArrayList<>();
 
@@ -468,6 +488,11 @@ public class InventoryMapper {
         return priceList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemNames() throws UniversalExceptions {
         List<String> nameList = new ArrayList<>();
 
@@ -490,6 +515,11 @@ public class InventoryMapper {
         return nameList;
     }
 
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemDesc() throws UniversalExceptions {
         List<String> descList = new ArrayList<>();
 
@@ -512,6 +542,11 @@ public class InventoryMapper {
         return descList;
     }
  
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public static List<String> getAllItemUnit() throws UniversalExceptions {
         List<String> unitList = new ArrayList<>();
 

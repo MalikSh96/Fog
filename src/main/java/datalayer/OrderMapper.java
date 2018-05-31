@@ -267,6 +267,11 @@ public class OrderMapper {
         return orderDates;
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<String> getAllOrderDates() throws UniversalExceptions {
 
         List<String> orderDates = new ArrayList<>();
@@ -315,6 +320,11 @@ public class OrderMapper {
         return userIds;
     }
     
+    /**
+     *
+     * @return list
+     * @throws UniversalExceptions
+     */
     public List<Integer> getOrderCustomerIds() throws UniversalExceptions {
 
         List<Integer> userIds = new ArrayList<>();
@@ -608,7 +618,13 @@ public class OrderMapper {
         return result;
     }
 
-   public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
+    /**
+     *
+     * @param totalPrice
+     * @param orderId
+     * @throws UniversalExceptions
+     */
+    public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
      try {
             Connection con = Connector.connection();
             String SQL = "update orders set price= '" + totalPrice + "' where orderId= '" + orderId + "'";
@@ -620,6 +636,12 @@ public class OrderMapper {
         }
     }
 
+    /**
+     *
+     * @param orderId
+     * @return UserIdFromOrderId
+     * @throws UniversalExceptions
+     */
     public int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
         int userid = 0;
      try {
