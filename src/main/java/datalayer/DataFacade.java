@@ -588,4 +588,9 @@ public class DataFacade {
         return con.getIM().getAllItemPrice();
     }
 
+    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
+        return con.getIM().getSpecificItem(id);
+    }
+    
+    
 }

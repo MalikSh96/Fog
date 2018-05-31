@@ -25,14 +25,7 @@
 
         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
 
-        <form action="FrontController" method="POST">
-            <input type="hidden" name="command" value="updateinventorypage">
-            <br><input type="number" name="choseninventoryid" placeholder="Vare id" required/>
-            <br><br><input type="submit" value="Opdater lagerbeholdning" /><br>
-        </form>
-
-
-        <br><br> <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
+        <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
         <%}%>
 
     </center>

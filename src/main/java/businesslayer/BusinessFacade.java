@@ -473,6 +473,10 @@ public class BusinessFacade {
     public static List<String> getAllItemUnit() throws UniversalExceptions {
         return DataFacade.getAllItemUnit();
     }
+    
+    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
+        return DataFacade.getSpecificItem(id);
+    }
 
     // ***ITEMLISTMAPPER***
     /**
@@ -725,7 +729,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < ids.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p>" + ids.get(i) + "</p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=updateinventorypage&choseninventoryid=" + 
+                    ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + description.get(i) + "</p></td>");
             result.add("<td><p>" + length.get(i) + "</p></td>");

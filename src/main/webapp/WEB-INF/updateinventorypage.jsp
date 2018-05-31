@@ -18,9 +18,10 @@
         
               <%
         User brugere = (User) session.getAttribute("user");
+        int itemid = (int) session.getAttribute("inventoryid");
     %>
         
-      
+    <%=bf.getSpecificItem(itemid)%><br><br>
 <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinventory">
             <div>
