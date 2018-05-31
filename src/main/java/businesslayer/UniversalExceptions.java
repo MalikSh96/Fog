@@ -27,7 +27,7 @@ public final class UniversalExceptions extends Exception {
      *
      * @throws UniversalExceptions
      */
-    public void ThrowNoPreOrderCreatedException() throws UniversalExceptions
+    public void ThrowNoOrderCreatedException() throws UniversalExceptions
     {
         throw new UniversalExceptions("Could not create order. Try again.");
     }

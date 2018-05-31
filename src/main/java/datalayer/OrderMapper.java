@@ -50,7 +50,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowNoPreOrderCreatedException();
+            uex.ThrowNoOrderCreatedException();
         }
         return orderId;
     }
