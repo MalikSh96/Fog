@@ -86,10 +86,10 @@ public class OrderMapperTest {
     }
 
     @Test
-    @Disabled
+//    @Disabled
     public void testAllCustomerOrders() throws UniversalExceptions 
     {
-        int expected = 3;
+        int expected = 4;
         int actual;
         actual = om.allCustomerOrders(3).size();
         assertEquals(expected, actual);
@@ -108,7 +108,7 @@ public class OrderMapperTest {
     @Disabled
     public void testIsOrderSentFalse() throws Exception 
     {
-        boolean actual = om.isOrderSent(2);
+        boolean actual = om.isOrderSent(6);
         assertFalse(actual);      
     }
 
@@ -116,8 +116,8 @@ public class OrderMapperTest {
     @Disabled
     public void testSendOrderYes() throws UniversalExceptions, ClassNotFoundException  
     {
-        om.sendOrder(9);
-        assertTrue(om.isOrderSent(9));
+        om.sendOrder(5);
+        assertTrue(om.isOrderSent(5));
         
     }
     
