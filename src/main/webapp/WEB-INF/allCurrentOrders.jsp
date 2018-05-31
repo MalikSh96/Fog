@@ -21,8 +21,7 @@
         %>
         
 
-        <br><%//=bf.getNonSentOrderId().toString().replace("[", "").replace("]", "").replace(",", "").replace(" ", "<br>") + "<br>"%><br>
-        <%= bf.allsCurrentOrdes(bf.getNonSentOrderId(),              
+        <br><%= bf.allCurrentOrders(bf.getNonSentOrderId(),              
         bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()),
         bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()),
         bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>

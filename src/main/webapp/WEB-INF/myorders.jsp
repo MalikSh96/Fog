@@ -27,7 +27,7 @@
     <center>
         <h1>Dine Ordrer</h1>
         <br/>
-<%=bf.combineUserOrderDatesWithId(bf.getAllUserOrderDates(user.getId()),
+<%= bf.combineUserOrderDatesWithId(bf.getAllUserOrderDates(user.getId()),
         bf.allCustomerOrdersId(user.getId())).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
         

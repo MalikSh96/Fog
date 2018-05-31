@@ -54,6 +54,18 @@ public class DataFacade {
         return con.getUM().getAllUserIds();
     }
 
+    public static List<String> getAllUserNames() throws UniversalExceptions {
+        return con.getUM().getAllUserNames();
+    }
+
+    public static List<String> getAllUserLastnames() throws UniversalExceptions {
+        return con.getUM().getAllUserLastnames();
+    }
+
+    public static List<String> getAllUserInfo(int userId) throws UniversalExceptions {
+        return con.getUM().getAllUserInfo(userId);
+    }
+
     //order
     public static Orders createOrder(Orders ord) throws UniversalExceptions {
         OrderMapper.createPreOrder(ord);
@@ -96,10 +108,18 @@ public class DataFacade {
         return con.getOM().getNonSentOrderDates();
     }
 
+    public static List<String> getAllOrderDates() throws UniversalExceptions {
+         return con.getOM().getAllOrderDates();
+    }
+
     public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
         return con.getOM().getNonSentOrderCustomerIds();
     }
 
+    public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
+        return con.getOM().getOrderCustomerIds();
+    }
+    
     public static int getUserId(int orderId) throws UniversalExceptions {
         return con.getOM().getUserId(orderId);
     }
@@ -110,6 +130,10 @@ public class DataFacade {
 
     public static List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
         return con.getOM().getAllUserOrderDates(userId);
+    }
+    
+    public static int getUserIdFromOrderId(int orderId) throws UniversalExceptions {
+        return con.getOM().getUserIdFromOrderId(orderId);
     }
 
     //itemlist
@@ -182,4 +206,31 @@ public class DataFacade {
         return con.getIM().completeInventory();
     }
 
+    public static List<String> getAllItemUnit() throws UniversalExceptions {
+            return con.getIM().getAllItemUnit(); 
+    }
+
+    public static List<String> getAllItemDesc() throws UniversalExceptions {
+            return con.getIM().getAllItemDesc();
+    }
+
+    public static List<String> getAllItemNames() throws UniversalExceptions {
+            return con.getIM().getAllItemNames();
+    }
+
+    public static List<Integer> getAllItemIds() throws UniversalExceptions {
+             return con.getIM().getAllItemIds();
+    }
+
+    public static List<Integer> getAllItemLength() throws UniversalExceptions {
+            return con.getIM().getAllItemLength();
+    }
+
+    public static List<Integer> getAllItemStatus() throws UniversalExceptions {
+            return con.getIM().getAllItemLength();
+    }
+
+    public static List<Integer> getAllItemPrice() throws UniversalExceptions {    
+        return con.getIM().getAllItemPrice();
+    }
 }

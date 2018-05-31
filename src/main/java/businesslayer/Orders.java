@@ -96,8 +96,8 @@ public class Orders
     }
     @Override
     public String toString() {
-        if(orderConfirmed) return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";
-        return "<br>Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: ikke sendt<br>";
+        if(orderConfirmed) return "<br>Ordre Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: sendt<br>";
+        return "<br>Ordre: Id: " + orderId + "<br><br>Bruger id: " + userId + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " + height + "<br>Status: ikke sendt<br>";
     }
     
     

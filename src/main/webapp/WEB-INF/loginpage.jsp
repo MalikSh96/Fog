@@ -33,7 +33,6 @@
                         <%if (request.getAttribute("from") != null) {%>
                         <input type="hidden" name="from" value="<%=request.getAttribute("from")%>">                        
                         <p style="color: red;">Du mangler login eller opret dig som bruger.</p>
-
                         <% }%>
                 </tr>
                 <tr>

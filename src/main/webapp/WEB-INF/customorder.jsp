@@ -60,7 +60,7 @@
                         </div>            
                         <div class="height">
                             <label> Carport højde i cm*</label><br>
-                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="200" max="510" required>
+                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="200" max="500" required>
 
                         </div>  
 

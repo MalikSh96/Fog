@@ -18,7 +18,7 @@ public class SpecificUser extends Command {
 
         HttpSession session = request.getSession();
 
-        chosenId = Integer.parseInt(request.getParameter("chosenuserid"));
+        if(request.getParameter("chosenuserid").length() > 0) {chosenId = Integer.parseInt(request.getParameter("chosenuserid"));}
         if (bf.UserIdExists(chosenId)) {
             session.setAttribute("specificUserid", chosenId);
             return "specificuser";
