@@ -69,7 +69,8 @@ public class DataFacade {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void updateUserInfo(int id, String name, String lastname, String address, int postal, int phone, String email, String password) throws UniversalExceptions {
+    public static void updateUserInfo(int id, String name, String lastname, 
+            String address, int postal, int phone, String email, String password) throws UniversalExceptions {
         con.getUM().UpdateUserInfo(id, name, lastname, address, postal, phone, email, password);
     }
 

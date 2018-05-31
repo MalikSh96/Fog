@@ -47,12 +47,10 @@ public class InventoryMapper {
 
                 inv = new Inventory(id, name, length, unit, desc, status, price);
                 inventory.add(inv);
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheCompleteInventoryException();
         }
-
         return inventory;
     }
 
@@ -66,14 +64,15 @@ public class InventoryMapper {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void addToInventory(String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public static void addToInventory(String name, String desc, int length, 
+            String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
+            
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotAddToInventoryException();
@@ -99,12 +98,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 name = resultset.getString("name");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheNameException();
         }
-
         return name;
     }
 
@@ -126,12 +123,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 length = resultset.getInt("length");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheLengthException();
         }
-
         return length;
     }
 
@@ -153,12 +148,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 unit = resultset.getString("unit");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheUnitException();
         }
-
         return unit;
     }
 
@@ -180,12 +173,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 id = resultset.getInt("id");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheIdException();
         }
-
         return id;
     }
 
@@ -207,12 +198,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 desc = resultset.getString("description");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheDescriptionException();
         }
-
         return desc;
     }
 
@@ -233,7 +222,6 @@ public class InventoryMapper {
             ResultSet resultset = ps.executeQuery();
 
             while (resultset.next()) {
-
                 String name = resultset.getString("name");
                 String desc = resultset.getString("description");
                 int length = resultset.getInt("length");
@@ -245,7 +233,6 @@ public class InventoryMapper {
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheSpecificItemException();
         }
-
         return result;
     }
 
@@ -267,12 +254,10 @@ public class InventoryMapper {
 
             while (resultset.next()) {
                 result = resultset.getInt("status");
-
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetTheStatusException();
         }
-
         return result;
     }
 
@@ -295,7 +280,6 @@ public class InventoryMapper {
             while (resultset.next()) {
                 result = resultset.getInt("price");
             }
-
             return result;
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetThePriceException();
@@ -344,7 +328,6 @@ public class InventoryMapper {
                     String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
 
                     PreparedStatement ps = con.prepareStatement(SQL);
-
                     ps.executeUpdate(SQL);
                 } catch (SQLException | ClassNotFoundException ex) {
                     uex.ThrowCouldNotReverseTheStatusUpdateException();
@@ -372,7 +355,6 @@ public class InventoryMapper {
                     + "', status = '" + status + "', price = '" + price
                     + "' WHERE id='" + id + "';";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotUpdateInventoryException();
@@ -396,14 +378,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
-
                 idList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return idList;
     }
 
@@ -423,14 +403,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("length");
-
                 lengthList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return lengthList;
     }
 
@@ -450,14 +428,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int status = rs.getInt("status");
-
                 statusList.add(status);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return statusList;
     }
 
@@ -477,14 +453,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int price = rs.getInt("price");
-
                 priceList.add(price);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return priceList;
     }
 
@@ -504,14 +478,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 String name = rs.getString("name");
-
                 nameList.add(name);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return nameList;
     }
 
@@ -531,14 +503,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 String desc = rs.getString("description");
-
                 descList.add(desc);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return descList;
     }
  
@@ -558,15 +528,12 @@ public class InventoryMapper {
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 String unit = rs.getString("unit");
-
                 unitList.add(unit);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
-
         return unitList;
     }
- 
 }
