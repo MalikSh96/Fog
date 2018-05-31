@@ -86,7 +86,7 @@ public class OrderMapperTest {
     }
 
     @Test
-//    @Disabled
+    @Disabled
     public void testAllCustomerOrders() throws UniversalExceptions 
     {
         int expected = 4;
