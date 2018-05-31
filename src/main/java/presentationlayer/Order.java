@@ -141,6 +141,7 @@ public class Order extends Command {
         
         con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
         
+        totalPrice = 0;
         return "order";
     }
 }
