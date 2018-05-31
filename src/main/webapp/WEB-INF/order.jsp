@@ -21,8 +21,6 @@
         <%  int roof_tiles = (int) session.getAttribute("tagsten");%>
         <% int roof_raft = 55;%>
         <% int heightground = (int) session.getAttribute("højdejord");%>
-        <% int redskabsrumlængde = (int) session.getAttribute("redskabsrumlængde");%>
-        <% int redskabsrumbredde = (int) session.getAttribute("redskabsrumbredde");%>
         <% int heightpole = (int) session.getAttribute("højdestolpe"); %>
         <% int lengthrafter = (int) session.getAttribute("længdespær");%>
         <% int widthrafter = (int) session.getAttribute("breddespær");%>
@@ -30,16 +28,7 @@
         <% int heightline = (int) session.getAttribute("højdelinje"); %>
         <% int lengthline = (int) session.getAttribute("længdelinje"); %> 
     </head>
-    <body>
-
-        <%int toolshedcross = 0; %>
-        <%int toolshedlength = 0; %>
-        <% int toolshedwidth = 0; %>
-        <%if ((redskabsrumlængde != 0) && (redskabsrumbredde != 0)) {
-                toolshedcross = redskabsrumlængde + 4;
-                toolshedlength = redskabsrumlængde;
-                toolshedwidth = redskabsrumbredde;
-            }%>
+    <body>       
 
         <%@include file="../navigation/menu.jsp" %>
 
@@ -60,20 +49,11 @@
                         <th scope="col">Længde</th>
                         <th scope="col">Bredde</th>
                         <th scope="col">Højde</th>
-                            <%if ((0 != toolshedlength) && (0 != toolshedwidth)) { %>
-                        <th scope="col">Redskabsrum længde</th>
-                        <th scope="col">Redskabsrum bredde</th>
-                            <% } %>
                     </tr>
                     <tr>
                         <td scope="row"><%out.print(session.getAttribute("længde"));%></td>
                         <td><%out.print(session.getAttribute("bredde")); %></td>
                         <td><%out.print(session.getAttribute("højde"));%></td>
-                        <%if ((0 != toolshedlength) && (0 != toolshedwidth)) { %>
-                        <td><%out.print(session.getAttribute("redskabsrumlængde"));%></td>
-                        <td><%out.print(session.getAttribute("redskabsrumbredde"));%></td>
-                        <% } %>
-
                     </tr>
                 </table>
             </div>          
@@ -91,64 +71,20 @@
                                      width="<%out.print(session.getAttribute("længdeSVG"));%>">
                                 <!---------------> 
 
-
-                                <!-- toolshedlength and toolshedwidth -->
-                                <rect x="<%out.print(length - 10 - toolshedlength);%>" y="48" height="<% out.print(toolshedwidth); %>"
-                                      width="<% out.print(toolshedlength);%>" style="stroke:black; fill: none"/>
                                 <!-- length and width of picture -->
                                 <rect x="0" y="30"  height="<%= width%>"
                                       width="<%= length%>"         
                                       style = "stroke: black; fill: none;" />
                                 <!---------------> 
-                                <% if (toolshedlength > 0) { %>
-                                <!-- text to toolshef -->
-                                <text x="<%out.print(lengthline);%>" y="<%out.print(width / 6 * 2);%>"
-                                      font-size="10px"
-                                      text-anchor="middle"
-                                      style="writing-mode: tb;">Skur bredde <%= toolshedwidth%> cm</text>
-
-                                <text x="<%out.print(length / 6 * 4.5);%>" y="<%out.print(widthline);%>"
-                                      font-size="10px"
-                                      text-anchor="middle">Skur længde <%= toolshedlength%> cm</text>
-
-                                <rect x="<%out.print(length - 10 - toolshedlength - 2); %>" y="48" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length - 18 + 2); %>" y="48" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length / 6 * 4.5); %>" y="48" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-
-                                <rect x="<%out.print(length - 10 - toolshedlength - 2); %>" y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length - 18 + 2); %>" y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length / 6 * 4.5); %>" y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-
-                                <rect x="<%out.print(length - 10 - toolshedlength - 2); %>" y="<% out.print(toolshedwidth + 42);%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length - 18 + 2); %>" y="<% out.print(toolshedwidth + 43);%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length / 6 * 4.5); %>" y="<% out.print(toolshedwidth + 43);%>" height="6"
-                                      width="8" style="stroke:black; fill: black"/>
-
-                                <rect x="<%out.print(length - 10 - toolshedlength - 2); %>" y="<% out.print((toolshedwidth / 2) + 42);%>" height="8"
-                                      width="6" style="stroke:black; fill: black"/>
-                                <rect x="<%out.print(length - 18 + 4); %>" y="<% out.print((toolshedwidth / 2) + 43);%>" height="8"
-                                      width="6" style="stroke:black; fill: black"/>
-
-                                <% }%>
                                 <!--------------->
                                 <!-- first and last pole on top -->
 
                                 <rect x="25" y="48" height="6"
                                       width="8" style="stroke:black; fill: black"/>
-                                <% if (toolshedlength == 0) { %>
 
                                 <rect x="<%out.print(length - 31);%>"    
                                       y="48" height="6"
                                       width="8" style="stroke:black; fill: black"/>
-                                <% }%>
                                 <!--------------->
 
 
@@ -157,15 +93,12 @@
                                 <rect x="25" y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
                                       width="8" style="stroke:black; fill: black"/>
 
-                                <% if (toolshedlength == 0) { %>
 
                                 <rect x="<%out.print(length - 31);%>" 
                                       y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
                                       width="8" style="stroke:black; fill: black"/>
-                                <% }%>
                                 <!--------------->
                                 <!-- length 225 to 450 come there middle pole on top -->
-                                <% if (toolshedlength == 0) { %>
                                 <% if ((225 < length) && (450 > length)) {%>
                                 <rect x="<%out.print(length / 2);%>" 
                                       y="48" height="6"
@@ -174,11 +107,9 @@
                                 <!--------------->
                                 <!-- length 225 to 450 come there middle pole on bottom -->
 
-
                                 <rect x="<%out.print(length / 2);%>" 
                                       y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
                                       width="8" style="stroke:black; fill: black"/>                
-                                <% }%>
                                 <% }%>
                                 <!--------------->
                                 <!--if length 450 then come 4 pole on top to 675 -->
@@ -188,22 +119,17 @@
                                       y="48" height="6"
                                       width="8" style="stroke:black; fill: black"/>
 
-                                <% if (toolshedlength == 0) { %> 
-
                                 <rect x="<%out.print(length / 1.5);%>" 
                                       y="48" height="6"
                                       width="8" style="stroke:black; fill: black"/> 
-                                <% }%>
                                 <!--------------->
                                 <!--if length 450 then come 4 pole on bottom to 675 --> 
                                 <rect x="<%out.print(length / 3);%>" 
                                       y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
                                       width="8" style="stroke:black; fill: black"/>
-                                <% if (toolshedlength == 0) { %>
                                 <rect x="<%out.print(length / 1.5);%>" 
                                       y="<%out.print(session.getAttribute("breddespær"));%>" height="6"
                                       width="8" style="stroke:black; fill: black"/>
-                                <% }%>
                                 <% }%>
                                 <!--------------->
                                 <!--if length 675 then come 6 pole to top 1000  -->    
@@ -290,16 +216,14 @@
 
                                 <!--------------->
                                 <!--cross on middle start top left ends bottom right -->
-                                <line stroke-dasharray="5 5" x1="6"  y1="53" 
-
-                                      x2="<%= lengthrafter - toolshedcross%>"   
+                                <line stroke-dasharray="5 5" x1="6"  y1="53"   
                                       y2="<%out.print(session.getAttribute("breddespær"));%>"
                                       style="stroke:#006600;"/>
                                 <!--------------->
                                 <!--cross on middle start bottom left ends top right  -->
                                 <line stroke-dasharray="5 5" x1="6"  
                                       y1="<%out.print(session.getAttribute("breddespær"));%>" 
-                                      x2="<%= lengthrafter - toolshedcross%>" 
+                                      x2="<%= lengthrafter%>" 
                                       y2="53" style="stroke:#006600;"/>
                                 <!--------------->
                                 <!-- text width of picture -->
@@ -347,55 +271,35 @@
                                       style="stroke:black; fill: none"/>       
                                 <% }%>
                                 <!------------>
-                                <!--rafter under roof -->
-                                <%if (toolshedlength > 0) { %>
-                                <rect  x = "0" y = "10" height = "15" width = "<% out.print(length - toolshedlength - 10); %>" style="stroke:black; fill: none"/>
-                                <rect  x = "<%out.print(length - 10);  %>" y = "10" height = "15" width = "10" style="stroke:black; fill: none"/>
-                                <%  } else { %>
+                                <!--rafter under roof -->       
                                 <rect  x = "0" y = "10" height = "15" width = "<% out.print(length); %>" style="stroke:black; fill: none"/>
-                                <% }%>
+                                
                                 <!--------->
                                 <!--first pole and last pole -->
                                 <rect x="25" y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
 
-                                <!-- first pole to toolshed text --->
-                                <% if (toolshedlength != 0) { %>
-                                <text x="<% out.print((length - 10 - toolshedlength) / 2);%>" y="<%out.print(heightline);%>"
-                                      font-size="10px"
-                                      text-anchor="middle"><% out.print(length -10 - toolshedlength - 25);%> cm</text>
-                                <% } %>
-
-                               <% if(toolshedlength == 0) { %>
                                  <% if ((225 < length) && (450 > length)) {%>
-                                <text x="<% out.print(((length - toolshedlength) / 2) / 2 );%>" y="<%out.print(heightline);%>"
+                                <text x="<% out.print(((length) / 2) / 2 );%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
-                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
-                                <% } %>
+                                      text-anchor="middle"><% out.print((length) / 2);%> cm</text>
                                 <% }%>
                                 
-                                <% if(toolshedlength == 0) { %>
                                  <% if ((225 < length) && (450 > length)) {%>
-                                <text x="<% out.print(((length - toolshedlength) / 2) * 1.5 );%>" y="<%out.print(heightline);%>"
+                                <text x="<% out.print(((length) / 2) * 1.5 );%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
-                                      text-anchor="middle"><% out.print((length - toolshedlength) / 2);%> cm</text>
+                                      text-anchor="middle"><% out.print((length) / 2);%> cm</text>
                                 <% } %>
-                                <% }%>
                                 
-
-                                <% if (toolshedlength == 0) { %>
                                 <rect x="<%out.print(length - 25);%>" 
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
-                                <% }%>
                                 <!-------------->
                                 <!--middle pole for 225 to 450 -->
-                                <% if (toolshedlength == 0) { %>
                                 <% if ((225 < length) && (450 > length)) {%>
-                                <rect x="<%out.print((length - toolshedlength) / 2);%>" 
+                                <rect x="<%out.print((length) / 2);%>" 
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>                
-                                <% }%>
                                 <% }%>
                                 <!------------->
                                 <!--if length 450 then come 4 pole to 675  -->
@@ -404,49 +308,22 @@
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
 
-
-                                <% if (toolshedlength == 0) { %>
-                                <rect x="<%out.print((length - toolshedlength) / 1.5);%>" 
+                                <rect x="<%out.print((length) / 1.5);%>" 
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
-
-                                <% }%>
                                 <% }%>
 
                                 <!------------->
                                 <!--if length 675 then come 6 pole to 1000  -->    
                                 <% if ((675 <= length) && (1000 > length)) {%>
                                 <% for (int n = 1; n < 5; n++) { %>
-                                <rect x="<%out.print((length - toolshedlength) / 5 * n);%>" 
+                                <rect x="<%out.print((length) / 5 * n);%>" 
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
                                 <% }%>
                                 <% }%>
 
-                                <!----------------->
-                                <!-- Toolshed --->
-                                <% int endtoolshedwidth = length - 10; %>
-                                <%int toolshedswidth = length - 10 - toolshedlength; %>
-
-                                <rect x="<%out.print(length - 10 - toolshedlength);%>" y="10" 
-                                      height="<%out.print(heightpole + 15); %>"
-                                      width="<% out.print(toolshedlength); %>" style="stroke:black; fill: none"/>
-                                <!------------------------>
-                                <!-- wood toolshed -->
-                                <%int n = 0; %>
-                                <% int toolswood = 6; %>
-                                <% for (int i = 0; i < toolshedlength; i += toolswood) { %>
-                                <rect x="<%out.print(toolshedswidth + i);%>" y="10" height="<%out.print(heightpole + 15); %>" 
-                                      width="<%if (toolshedlength > i + toolswood) {
-                                              out.print(toolswood);
-                                              n = i;
-                                          } else {
-                                              toolswood = toolshedlength % i;
-                                              out.print(toolswood);
-                                          }%>" 
-                                      style="stroke:black; fill: none"/>       
-                                <% }%>
-                                
+                                <!----------------->                     
 
 
                                 <!--heightground to the carport - 25 roof of ------>

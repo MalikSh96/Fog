@@ -35,10 +35,7 @@ public class Order extends Command {
     int roof_tiles = 0;
     int heightSVG = 0;
     int heightground = 0;
-    int heightpost = 0;
-    int toolshedlength = 0;
-    int toolshedwidth = 0;
-    boolean toolshed_checkbox;
+    int heightpost = 0;   
     int heightline = 0;
 
     @Override
@@ -73,24 +70,9 @@ public class Order extends Command {
         heightpost = height - 50;
         heightground = height;
         heightline = height;
-        toolshed_checkbox = request.getParameter("toolshed_checkbox") != null;
-
-        if (toolshed_checkbox == true) {
-            toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
-            toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));
-        } else {
-            toolshedlength = 0;
-            toolshedwidth = 0;
-
-        }
-        if(request.getParameter("toolshedlength").length() > 0) { toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));}
-        if(request.getParameter("toolshedwidth").length() > 0) { toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));}
-
         //put all input into attributes
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
-        session.setAttribute("redskabsrumlængde", toolshedlength);
-        session.setAttribute("redskabsrumbredde", toolshedwidth);
         session.setAttribute("højde", height);
 
         session.setAttribute("længdespær", lengthrafter);
@@ -140,7 +122,7 @@ public class Order extends Command {
         totalPrice += con.getBf().getItemPrice(24) * con.getSQUARESLICESAMOUNT();        
         
         con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
-        
+        totalPrice = 0;
         return "order";
     }
 }

@@ -67,28 +67,7 @@
 
                         <div>
                             Felter markeret * SKAL udfyldes!<br><br>
-                        </div>                    
-                        <input name="toolshed_checkbox" type="checkbox" id="toolshed" class="inputstl" onclick="shedToggler()"> Redskabsskur  
-                        <br/>
-                        <div id="customordrertoolshed" >
-                            <div>
-                                <label>Redskabsskur længde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedlength" placeholder="vælg bredde" min="0" max="500">
-                            </div>
-
-                            <br/>
-                            <div>
-                                <label>Redskabsskur bredde*</label><br/>
-                                <input type="number" class="form-control" name="toolshedwidth" placeholder="vælg bredde" min="0" max="500">
-                            </div>
-                            <div>
-                                * Hvis du f.eks. har valgt en carport med målene
-                                <br/>
-                                240x360 cm kan redskabsrummet maksimalt
-                                <br/>måle 210x330 cm. 
-
-                            </div>
-                        </div>
+                        </div>                       
                         <div>
 
                             <br/> 

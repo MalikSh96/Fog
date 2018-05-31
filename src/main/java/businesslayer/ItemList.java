@@ -105,28 +105,6 @@ public class ItemList {
         return roof;
     }
 
-    //Work in progress
-
-    /**
-     *
-     * @param carportWidth
-     * @param shedWidth
-     * @param shedLength
-     */
-    public void ShedPost(int carportWidth, int shedWidth, int shedLength) {
-        Double extraPost = 0.00;
-        extraPost = (shedWidth / 200.00);
-        int postExtra = extraPost.intValue();
-        if (carportWidth == shedWidth) {
-            postTotal += (postExtra * 2);
-            post.add(postTotal);
-        }
-        if (carportWidth > shedWidth) {
-
-            post.add(postExtra);
-        }
-    }
-
     /**
      *
      * @return list
