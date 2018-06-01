@@ -1,5 +1,5 @@
-var modal = document.getElementById('myFogSVGbirdseye');
-var modalone = document.getElementById('myFogSVGsideview');
+var modelbirdview = document.getElementById('myFogSVGbirdseye');
+var modelsideview = document.getElementById('myFogSVGsideview');
 
 
 
@@ -15,35 +15,38 @@ var span_side_view = document.getElementsByClassName("closeone")[0];
 
 
 btn_birds_eye.onclick = function () {
-    modal.style.display = "block";
-
+    modelbirdview.style.display = "block";
+    modelsideview.style.display = "none";
 }
 
 btn_side_view.onclick = function () {
-    modalone.style.display = "block";
-
+    modelsideview.style.display = "block";
+    modelbirdview.style.display = "none";
 }
 
+
 span_birds_eye.onclick = function () {
-    modal.style.display = "none";
+    modelbirdview.style.display = "none";
 }
 
 span_side_view.onclick = function () {
-    modalone.style.display = "none";
+    modelsideview.style.display = "none";
 }
+
+
 
 
 
 window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == modelbirdview) {
+        modelbirdview.style.display = "none";
 
     }
 }
 
 window.onclick = function (eventone) {
-    if (eventone.target == modalone) {
-        modalone.style.display = "none";
+    if (eventone.target == modelsideview) {
+        modelsideview.style.display = "none";
 
     }
 }

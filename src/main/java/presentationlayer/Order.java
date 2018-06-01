@@ -1,29 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package presentationlayer;
 
-import dbaccess.InventoryMapper;
-import dbaccess.OrderMapper;
-import functionlayer.ItemList;
-import functionlayer.LoginSampleException;
-import functionlayer.Orders;
+import businesslayer.Constants;
+import businesslayer.UniversalExceptions;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import functionlayer.User;
-/**
- *
- * @author Joklin
- */
+import businesslayer.User;
+
 public class Order extends Command {
 
-    OrderMapper om = new OrderMapper();
-        ItemList itemList = new ItemList();
-        InventoryMapper im = new InventoryMapper();
-        
+    Constants con = new Constants();
+
+    int totalPrice = 0;
     int userID = 0;
     int length = 0;
     int width = 0;
@@ -34,7 +22,6 @@ public class Order extends Command {
     int widthSVG = 0;
     int lengthSVG = 0;
     int widthline = 0;
-    
     int lengthline = 0;
     int lengthtextmiddle = 0;
     int widthtextmiddle = 0;
@@ -42,81 +29,41 @@ public class Order extends Command {
     int heightSVG = 0;
     int heightground = 0;
     int heightpost = 0;
-    int toolshedlength = 0;
-    int toolshedwidth = 0;
     int heightline = 0;
-    
-    //hardcoding of misc carport stuff
-    String roofScrewName = im.getName(17);
-    String roofScrewDesc = im.getDescription(17);
-    int roofScrewAmount = 2;
-    
-    String universalRightName = im.getName(19);
-    String universalRightDesc = im.getDescription(19);
-    int universalRightAmount = 20;
-    
-    String universalLeftName = im.getName(20);
-    String universalLeftDesc = im.getDescription(20);
-    int universalLeftAmount = 20;
-    
-    
-    String bracketScrewName = im.getName(22);
-    String bracketScrewDesc = im.getDescription(22);
-    int bracketScrewAmount = 2;
-            
-            
-    String carriageBoltName = im.getName(23);
-    String carriageBoltDesc = im.getDescription(23);
-    int carriageBoltAmount = 14;
-            
-            
-    String squareSlicesName = im.getName(24);
-    String squareSlicesDesc = im.getDescription(24);
-    int squareSlicesAmount = 14;
-            
-            
-   
+
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        
+    String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions, ClassNotFoundException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        if(user == null){
-            request.getParameter("needuser");
-        return "loginpage";
+        if (user == null) {
+            request.setAttribute("from", "customorder");
+            return "loginpage";
         }
         userID = (int) session.getAttribute("id");
         length = Integer.parseInt(request.getParameter("length"));
         width = Integer.parseInt(request.getParameter("width"));
         height = Integer.parseInt(request.getParameter("height"));
-        lengthrafter = Integer.parseInt(request.getParameter("length")) - 6;
-        widthrafter = Integer.parseInt(request.getParameter("width")) - 23 + 30;
-        heightrafter = Integer.parseInt(request.getParameter("height")) - 5;
-        widthSVG = Integer.parseInt(request.getParameter("width")) + 60;
-        lengthSVG = Integer.parseInt(request.getParameter("length")) + 65;
-        heightSVG = Integer.parseInt(request.getParameter("height")) + 65;
-        widthline = Integer.parseInt(request.getParameter("width")) + 15 + 30;
-        lengthline = Integer.parseInt(request.getParameter("length")) + 15 ;
-        lengthtextmiddle = Integer.parseInt(request.getParameter("length")) / 2;
-        widthtextmiddle = Integer.parseInt(request.getParameter("width")) / 2 + 30;
+        lengthrafter = length - 6;
+        widthrafter = width - 23 + 30;
+        heightrafter = height - 5;
+        widthSVG = width + 60;
+        lengthSVG = length + 65;
+        heightSVG = height + 65;
+        widthline = width + 15 + 30;
+        lengthline = length + 15;
+        lengthtextmiddle = length / 2;
+        widthtextmiddle = width / 2 + 30;
         roof_tiles = 110;
-        heightpost = Integer.parseInt(request.getParameter("height")) - 50;
-        heightground = Integer.parseInt(request.getParameter("height"));
-        heightline = Integer.parseInt(request.getParameter("height"));
-        toolshedlength = Integer.parseInt(request.getParameter("toolshedlength"));
-        toolshedwidth = Integer.parseInt(request.getParameter("toolshedwidth"));        
-     //   PreOrder pre = new PreOrder(userID, length, width, height); 
+        heightpost = height - 50;
+        heightground = height;
+        heightline = height;
 
         session.setAttribute("længde", length);
         session.setAttribute("bredde", width);
-        session.setAttribute("redskabsrumlængde", toolshedlength);
-        session.setAttribute("redskabsrumbredde", toolshedwidth);
         session.setAttribute("højde", height);
-        
         session.setAttribute("længdespær", lengthrafter);
         session.setAttribute("højdespær", heightrafter);
         session.setAttribute("breddespær", widthrafter);
-        
         session.setAttribute("breddeSVG", widthSVG);
         session.setAttribute("længdeSVG", lengthSVG);
         session.setAttribute("højdeSVG", heightSVG);
@@ -128,62 +75,38 @@ public class Order extends Command {
         session.setAttribute("breddemidtentekst", widthtextmiddle);
         session.setAttribute("tagsten", roof_tiles);
         session.setAttribute("højdejord", heightground);
-        Orders ord = new Orders(userID, length, width, height);
-        om.createPreOrder(ord);  
-                
-     
-        session.setAttribute("postName", im.getName(11));
-        session.setAttribute("postDesc", im.getDescription(11));
-        session.setAttribute("postLength", im.getLength(11));
-        session.setAttribute("postAmount" , itemList.postAmount(length, width).get(0));
-     
-        session.setAttribute("raftName", im.getName(10));
-        session.setAttribute("raftDesc", im.getDescription(10));
-        session.setAttribute("raftLength", im.getLength(10));
-        session.setAttribute("raftAmount" , itemList.raftAmount(length, width).get(0));
-     
-        session.setAttribute("remName", im.getName(8));
-        session.setAttribute("remDesc", im.getDescription(8));
-        session.setAttribute("remLength", im.getLength(8));
-        session.setAttribute("remAmount" , itemList.remAmount(length).get(0));
-      //  session.setAttribute("remAmount" , itemList.remAmount(length, width).get(0));
-     
-        session.setAttribute("roofName", im.getName(15));
-        session.setAttribute("roofDesc", im.getDescription(15));
-        session.setAttribute("roofLength", im.getLength(15));
-        session.setAttribute( "roofAmount" , itemList.roofAmount(length, width).get(0));
-        
-        session.setAttribute("roofScrewName", im.getName(17));
-        session.setAttribute("roofScrewDesc", im.getDescription(17));
-        session.setAttribute("roofScrewAmount", roofScrewAmount);
-        
-        session.setAttribute("universalRightName", im.getName(19));
-        session.setAttribute("universalRightDesc", im.getDescription(19));
-        session.setAttribute("universalRightAmount", universalRightAmount);
-        
-        session.setAttribute("universalLeftName", im.getName(20));
-        session.setAttribute("universalLeftDesc", im.getDescription(20));
-        session.setAttribute("universalLeftAmount", universalLeftAmount);
-        
-        session.setAttribute("bracketScrewName", im.getName(22));
-        session.setAttribute("bracketScrewDesc", im.getDescription(22));
-        session.setAttribute("bracketScrewAmount", bracketScrewAmount);
-        
-        session.setAttribute("carriageBoltName", im.getName(23));
-        session.setAttribute("carriageBoltDesc", im.getDescription(23));
-        session.setAttribute("carriageBoltAmount", carriageBoltAmount);
-        
-        session.setAttribute("squareSlicesName", im.getName(24));
-        session.setAttribute("squareSlicesDesc", im.getDescription(24));
-        session.setAttribute("squareSlicesAmount", squareSlicesAmount);
-        
-        
-        
-              return "order";
+
+        int remAmount = con.getBf().calculateRemAmount(length);
+        int raftAmount = con.getBf().calculateRaftAmount(length, width);
+        int postAmount = con.getBf().calculatePostAmount(length, width);
+        int roofAmount = con.getBf().calculateRoofAmount(length, width);
+
+        con.getBf().createOrder(userID, length, width, height);
+
+        con.getBf().addToItemList(con.getBf().getItemName(8), con.getBf().getItemDescription(8), con.getBf().getItemLength(8), remAmount, con.getBf().getOrderId(), 8);
+        con.getBf().addToItemList(con.getBf().getItemName(10), con.getBf().getItemDescription(10), con.getBf().getItemLength(10), raftAmount, con.getBf().getOrderId(), 10);
+        con.getBf().addToItemList(con.getBf().getItemName(11), con.getBf().getItemDescription(11), con.getBf().getItemLength(11), postAmount, con.getBf().getOrderId(), 11);
+        con.getBf().addToItemList(con.getBf().getItemName(15), con.getBf().getItemDescription(15), con.getBf().getItemLength(15), roofAmount, con.getBf().getOrderId(), 15);
+        con.getBf().addToItemList(con.getBf().getItemName(17), con.getBf().getItemDescription(17), con.getBf().getItemLength(17), con.getROOFSCREWAMOUNT(), con.getBf().getOrderId(), 17);
+        con.getBf().addToItemList(con.getBf().getItemName(19), con.getBf().getItemDescription(19), con.getBf().getItemLength(19), con.getUNIVERSALRIGHTAMOUNT(), con.getBf().getOrderId(), 19);
+        con.getBf().addToItemList(con.getBf().getItemName(20), con.getBf().getItemDescription(20), con.getBf().getItemLength(20), con.getUNIVERSALLEFTAMOUNT(), con.getBf().getOrderId(), 20);
+        con.getBf().addToItemList(con.getBf().getItemName(22), con.getBf().getItemDescription(22), con.getBf().getItemLength(22), con.getBRACKETSCREWAMOUNT(), con.getBf().getOrderId(), 22);
+        con.getBf().addToItemList(con.getBf().getItemName(23), con.getBf().getItemDescription(23), con.getBf().getItemLength(23), con.getCARRIAGEBOLTAMOUNT(), con.getBf().getOrderId(), 23);
+        con.getBf().addToItemList(con.getBf().getItemName(24), con.getBf().getItemDescription(24), con.getBf().getItemLength(24), con.getSQUARESLICESAMOUNT(), con.getBf().getOrderId(), 24);
+
+        totalPrice += con.getBf().getItemPrice(8) * remAmount;
+        totalPrice += con.getBf().getItemPrice(10) * raftAmount;
+        totalPrice += con.getBf().getItemPrice(11) * postAmount;
+        totalPrice += con.getBf().getItemPrice(15) * roofAmount;
+        totalPrice += con.getBf().getItemPrice(17) * con.getROOFSCREWAMOUNT();
+        totalPrice += con.getBf().getItemPrice(19) * con.getUNIVERSALRIGHTAMOUNT();
+        totalPrice += con.getBf().getItemPrice(20) * con.getUNIVERSALLEFTAMOUNT();
+        totalPrice += con.getBf().getItemPrice(22) * con.getBRACKETSCREWAMOUNT();
+        totalPrice += con.getBf().getItemPrice(23) * con.getCARRIAGEBOLTAMOUNT();
+        totalPrice += con.getBf().getItemPrice(24) * con.getSQUARESLICESAMOUNT();
+
+        con.getBf().updateTotalPrice(totalPrice, con.getBf().getOrderId());
+        totalPrice = 0;
+        return "order";
     }
-
 }
-
-
-
-

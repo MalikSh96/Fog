@@ -7,42 +7,72 @@
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
         <%@include file="../navigation/menu.jsp" %>
+
+        <div class="loginpageimg">
+
+            <img src="Image/login.jpg" class="loginpagesrc" />              
+        </div>
         <table class="loginpagecenter">
             <tr>
-                <td>
+                <td class="loginheading">
                     <h1>Login</h1>
                 </td>
             </tr>
 
-            <tr>
-                <td>
-                    <form name="login" action="FrontController" method="POST">
+            <form name="login" action="FrontController" method="POST">
+                <tr>
+                    <td class="loginpagebulder">
                         <input type="hidden" name="command" value="login">
-                        Email:<br>
-                        <input type="text" name="email" value="" placeholder="Email">
-                        <br>
+                        <%if (request.getAttribute("from") != null) {%>
+                        <input type="hidden" name="from" value="<%=request.getAttribute("from")%>">                        
+                        <p style="color: red;">Du mangler login eller opret dig som bruger.</p>
+                        <% }%>
+                </tr>
+                <tr>
+                    <td class="loginpagebulder">
+                        Email:
+                    </td>
+                </tr>
+                <tr>
+                    <td class="loginbar">
+                        <input type="text" name="email" value="" placeholder="Email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="loginpagebulder">
                         Password:<br>
-                        <input type="password" name="password" value="" placeholder="Password">
-                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="loginbar">
+                        <input type="password" name="password" value="" placeholder="Password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="loginheading">
                         <input type="submit" value="LOG IND">
-                    </form>
-                </td>                
-            </tr>
+                    </td>                
+                </tr>
+            </form>
             <tr>
-                <td>
+                <td class="loginheading">
                     <br>
 
                     <a href="FrontController?command=registration">Opret bruger</a>
-                    
+
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="loginpagebulder">
                     <% String error = (String) request.getAttribute("error");
-                if (error != null) {%>
+                        if (error != null) {%>
                     <H2>Fejl!!</h2>
                     <p><%= error%>
                         <% }
@@ -51,12 +81,11 @@
 
             </tr>
         </table>
-                <div class="loginpageimg">
-                   
-                    <img src="Image/login.jpg" class="loginpagesrc" />              
-                </div>
-                
-                
-                <%@include file="../footer/footer.jsp" %>
+
+
+
+
+
+        <%@include file="../footer/footer.jsp" %>
     </body>
 </html>

@@ -6,55 +6,93 @@ body{
     margin:0;
     padding:0;
     height:100%;
-    
-  
+    font-size: 16px;
+
+}
+.list-group{
+
+    color: black;
+
 }
 
 /*----- index --------*/
 .indexheading{
-    
+
     vertical-align: central;
     text-align: center;
-    padding-top: 125px;
+    padding-top: 40px;
+    padding-bottom: 30px;
 }
 .indextext{
     vertical-align: central;
     text-align: center;
-    
-    
-}
-.indeximagesidepersketiv img{
-    height: 150px ;
-    
-  display: block;
-  margin-left: auto;
-    margin-right: 200px;
-    float: right;
-}
 
 
-.indeximagefuglpersketiv img{
-    float: left;
-    height: 150px;
-  display: block;
-  margin-left: 200px;
+}
+
+.indeximagecarportquickbyg img{
+    width: auto;
+    height: 20%;
+    display: block;
+    margin-left: auto;
     margin-right: auto;
-    
+    margin-top: 25px;
 }
+
+/*--------- order -----*/
+.inputstl { 
+    padding: 9px; 
+    border: solid 1px #0077B0; 
+    outline: 0; 
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #C6ECFF), to(#FFFFFF)); 
+    background: -moz-linear-gradient(top, #FFFFFF, #C6ECFF 1px, #FFFFFF 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+
+}
+
+/*------- updateinfopage ----------*/
+
+.information-text-center-site{
+    padding-top: 50px;
+    float:left;
+    margin-left: 100px;
+    margin-right: 150px;
+
+
+}
+
+/*--- Updateinfopage ---*/
+
+
+.updateinfopagetable{
+    vertical-align: center;
+    margin-left: 150px; 
+    margin-right: auto;
+
+} 
+
+
+
 /*---- customerpage ----*/
 
 .customerpagepicture{
-    float: right;
+
+    padding-left: auto;
+    padding-right: auto;
+    padding-top: auto;
     margin-left: auto;
     margin-right: auto;
-    padding-right: 100px;
+    text-align: center;
+    vertical-align: central;
 }
 
 .customerpageinfomationer{
     background-color: #f1eeee;
-    
+
     padding-right: 15px;
-    
+
     padding-left: 30px;
     margin-left: 45px;
     padding-bottom: 30px;
@@ -62,7 +100,7 @@ body{
     vertical-align: central;
     float: left;
     border-style: none;
-    
+
 }
 
 .cusomerpagetextinformationer{
@@ -70,16 +108,17 @@ body{
     word-spacing:10px;
 }
 .customerpageoverskrift{
-     text-align: center;
+    text-align: center;
     vertical-align: central;
-    padding-right: 80px;
-    
-    
+    padding-bottom: 10px;
+
+
+
 }
 .customerpageahref{
     padding-left: auto;
-    padding-right: 325px;
-   padding-top: 40px;
+    padding-right: auto;
+
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -88,16 +127,67 @@ body{
 
 
 
+
+
+/*--- order -------*/
+
+.ordretableitemlist{
+
+
+    height: 300px;
+}
+
+.jjustify-content-center {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    
+    text-align:left;
+    
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: center;
+    
+}
+
 /*--- regstration ------- */
 
+.Restrationform{
+    margin: 0;
+    padding: 0;
+
+}
 .Regstrationtext{
-    float: top;  
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .Regstrationmiddle{
     vertical-align: center;
     margin-left:auto; 
     margin-right:auto;
+
+}
+
+.registrationimagesidepersketiv img{
+    height: 125px;
+    margin-top: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: 50px;
+    float: right;
+
+}
+
+
+.registrationimagefuglpersketiv img{
+    float: left;
+    height: 125px;
+    display: block;
+    margin-left: 50px;
+    margin-top: 100px;
 
 }
 
@@ -114,24 +204,60 @@ h1,h2,h3,h4{
     padding-right: 15px;
 
 }
+
+
+.kontaktphoto{
+    
+    height: 200px;
+    
+}
+
+.kontaktdivphoto{
+    float:right;
+    margin-right: 150px;
+    margin-left: auto;
+}
+
+.customordreheading{
+    
+    margin-left: 38%;
+    margin-right: auto;
+    
+}
+
 /*--- loginpage ---*/
 .loginpagecenter{
     vertical-align: center;
-
-    margin-left:auto; 
+    padding-left: 10px;
+    margin-left: 5%; 
     margin-right:auto;
 
 }
 
 .loginpageimg img{
-     float: left;
+    float: left;
     height: 150px;
-  display: block;
-  margin-left: 200px;
-    margin-right: auto;
+    display: block;
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 100px;
+
+
+}
+.loginbar{
     
+   
+}
+.loginheading{
+    
+   padding-left: 10px; 
 }
 
+.loginpagebulder {
+    
+    padding-left: 20px;
+    
+}
 
 
 .middle{
@@ -140,6 +266,36 @@ h1,h2,h3,h4{
     margin-left:auto; 
     margin-right:auto;
 
+}
+
+/*--- myorders -------*/
+
+    
+    
+
+.table th {
+    text-align: center;
+}
+
+.table-hover {
+    border-radius: 5px;
+    width: 20%;
+    float: none;
+    table-layout:fixed;
+}
+
+.table td {
+    text-align: center;
+}
+
+.customorderimg{
+    height: 200px;
+    
+}
+.customorderimgdiv{
+    
+    float: right;
+    
 }
 
 

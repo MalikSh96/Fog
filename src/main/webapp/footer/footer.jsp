@@ -1,9 +1,8 @@
-<footer>
-    <div class="less">
-        <div id="footer">
-            <p id="footertext">
-                Adresse: Firskovvej 20, 2800 Kongens Lyngby: 45 87 10 01
-            </p> 
-        </div>
+
+<div>
+    <div id="footer">
+        <p>
+            Adresse: Lyshøjvej 14, 3650 Ølstykke: 47 17 99 44
+        </p> 
     </div>
-</footer>
+</div>
