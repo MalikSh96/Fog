@@ -41,13 +41,6 @@
                     udskrevet en skitsetegning af en carport. 
                     <br/><br/>Udfyld skemaet og klik på "Placèr Ordre"
                 </div>
-            </div>
-            <div>
-                <br>   <input type="submit" value="Order">
-
-            </div>
-            <div>
-                * Hvis du f.eks. har valgt en carport med målene 240x360 cm kan redskabsrummet maksimalt måle 210x330 cm.
 
                 <div  class="col-sm-4">
                     <form name="shedForm" action="FrontController" method="POST" onsubmit="return validateshedform()">
