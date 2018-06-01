@@ -36,7 +36,7 @@ FOREIGN KEY (userID) REFERENCES users(`id`)
 
 CREATE TABLE `inventory` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(150) NOT NULL,
+  `name` VARCHAR(150) NOT NULL UNIQUE,
   `description` VARCHAR(100) NOT NULL,
   `length` INT,
   `unit` VARCHAR(45),  

@@ -7,10 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author malik
- */
 public class Register extends Command {
 
     @Override
@@ -26,7 +22,7 @@ public class Register extends Command {
         String password2 = request.getParameter("password2");
         int postal = Integer.parseInt(postnr);
         int phone = Integer.parseInt(phonenr);
-        
+
         if (password1.equals(password2)) {
             User user = BusinessFacade.createUser(name, lastname, address, postal, phone, email, password1);
             HttpSession session = request.getSession();

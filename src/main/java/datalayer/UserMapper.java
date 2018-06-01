@@ -11,16 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author malik
- */
 public class UserMapper {
 
     private static Constants con = new Constants();
     private static UniversalExceptions uex = con.getUEX();
-    //Obs! custom exceptions is not applied to the static methods, for some reason they can't be applied to them
-    
+
     /**
      *
      * @param user
@@ -150,7 +145,7 @@ public class UserMapper {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void UpdateUserInfo(int id, String name, String lastname, String address, 
+    public static void UpdateUserInfo(int id, String name, String lastname, String address,
             int postalnumber, int phone, String email, String password) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
@@ -294,12 +289,12 @@ public class UserMapper {
                 int postal = rs.getInt("postalnumber");
                 int phone = rs.getInt("phone");
                 String email = rs.getString("email");
-                infoList.add("Bruger id: "+id);
+                infoList.add("Bruger id: " + id);
                 infoList.add("Navn: " + name + " " + lastname);
-                infoList.add("Adresse: "+address);
-                infoList.add("Post nr: "+postal);
-                infoList.add("Telefon nr: "+phone);
-                infoList.add("Email: "+email);
+                infoList.add("Adresse: " + address);
+                infoList.add("Post nr: " + postal);
+                infoList.add("Telefon nr: " + phone);
+                infoList.add("Email: " + email);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotGetAllUserIdsException();
@@ -361,8 +356,8 @@ public class UserMapper {
      * @return lastname
      * @throws UniversalExceptions
      */
-    public static String getUserLastname(int id) throws UniversalExceptions {        
-        String lastname = null;          
+    public static String getUserLastname(int id) throws UniversalExceptions {
+        String lastname = null;
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
@@ -376,7 +371,7 @@ public class UserMapper {
             throw new UniversalExceptions(ex.getMessage());
         }
         return lastname;
-    }   
+    }
 
     /**
      *
@@ -404,4 +399,3 @@ public class UserMapper {
         return exists;
     }
 }
-

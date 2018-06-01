@@ -1,18 +1,14 @@
 package businesslayer;
 
-/**
- *
- * @author malik
- */
-public class Orders 
-{
-    private int orderId; //id of order
-    private int userId; //id of the user
-    private int length; //length of the house
-    private int width; //width of the house
-    private int height; //height of the house
-    private int price; //price of the house
-    private boolean orderConfirmed; //check if the order is confirmed and ready to delivery
+public class Orders {
+
+    private int orderId;
+    private int userId;
+    private int length;
+    private int width;
+    private int height;
+    private int price;
+    private boolean orderConfirmed;
 
     public Orders() {
     }
@@ -80,7 +76,7 @@ public class Orders
         this.height = height;
         this.orderConfirmed = orderConfirmed;
     }
-    
+
     /**
      * @param userId
      * @param length
@@ -160,14 +156,17 @@ public class Orders
     public void setPrice(int price) {
         this.price = price;
     }
+
     @Override
     public String toString() {
-        if(orderConfirmed) return "<br>Ordre Id: " + orderId + "<br><br>Bruger id: " 
-                + userId + "<br>Længde: " + length + "<br>Bredde: " + width 
-                + "<br>Højde: " + height + "<br>Status: sendt<br>";
-        
-        return "<br>Ordre: Id: " + orderId + "<br><br>Bruger id: " + userId 
-                + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: " 
+        if (orderConfirmed) {
+            return "<br>Ordre Id: " + orderId + "<br><br>Bruger id: "
+                    + userId + "<br>Længde: " + length + "<br>Bredde: " + width
+                    + "<br>Højde: " + height + "<br>Status: sendt<br>";
+        }
+
+        return "<br>Ordre: Id: " + orderId + "<br><br>Bruger id: " + userId
+                + "<br>Længde: " + length + "<br>Bredde: " + width + "<br>Højde: "
                 + height + "<br>Status: ikke sendt<br>";
     }
 }

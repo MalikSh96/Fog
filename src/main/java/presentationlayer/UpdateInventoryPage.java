@@ -5,16 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author malik
- */
 public class UpdateInventoryPage extends Command {
 
     int id = 0;
 
     @Override
-
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();

@@ -1,6 +1,3 @@
-<%@page import="businesslayer.User"%>
-<%@page import="java.util.List"%>
-<%@page import="datalayer.UserMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,17 +12,17 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
-    <center>
         <%@include file="../navigation/menu.jsp" %>
+    <center>
 
         <h1>Bruger liste</h1>
         <%
             User usrr = (User) session.getAttribute("user");
-        %>
+        %>  
 
-               <%= bf.allUsers(bf.getAllUserIds(), 
-                       bf.getAllUserNames(), 
-        bf.getAllUserLastnames()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
+        <%= bf.allUsers(bf.getAllUserIds(),
+                bf.getAllUserNames(),
+                bf.getAllUserLastnames()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
 
     </center> 

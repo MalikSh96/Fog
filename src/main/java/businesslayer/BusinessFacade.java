@@ -4,13 +4,8 @@ import datalayer.DataFacade;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author malik
- */
 public class BusinessFacade {
 
-    // ***USERMAPPER***
     /**
      * @param name
      * @param lastname
@@ -22,11 +17,11 @@ public class BusinessFacade {
      * @return user
      * @throws UniversalExceptions
      */
-    public static User createUser(String name, String lastname, String address, 
+    public static User createUser(String name, String lastname, String address,
             int postal, int phone, String email, String password) throws UniversalExceptions {
         return DataFacade.createUser(name, lastname, address, postal, phone, email, password);
     }
-    
+
     /**
      * @param id
      * @return user
@@ -47,7 +42,7 @@ public class BusinessFacade {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void updateUserInfo(int id, String name, String lastname, 
+    public static void updateUserInfo(int id, String name, String lastname,
             String address, int postal, int phone, String email, String password) throws UniversalExceptions {
         DataFacade.updateUserInfo(id, name, lastname, address, postal, phone, email, password);
     }
@@ -134,7 +129,6 @@ public class BusinessFacade {
         return DataFacade.getAllUserInfo(userId);
     }
 
-    // ***ORDERMAPPER***
     /**
      * @param id
      * @param length
@@ -247,7 +241,7 @@ public class BusinessFacade {
     public static List<String> getAllOrderDates() throws UniversalExceptions {
         return DataFacade.getAllOrderDates();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -255,15 +249,15 @@ public class BusinessFacade {
     public static List<Integer> getNonSentOrderCustomerIds() throws UniversalExceptions {
         return DataFacade.getNonSentOrderCustomerIds();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
      */
-    public static List<Integer> getOrderCustomerIds() throws  UniversalExceptions {
-    return DataFacade.getOrderCustomerIds();
+    public static List<Integer> getOrderCustomerIds() throws UniversalExceptions {
+        return DataFacade.getOrderCustomerIds();
     }
-    
+
     public int getOrderIdFromUserId(int userId) throws UniversalExceptions {
         return DataFacade.getOrderIdFromUserId(userId);
     }
@@ -277,7 +271,6 @@ public class BusinessFacade {
         DataFacade.updateTotalPrice(totalPrice, orderId);
     }
 
-    
     /**
      * @param userId
      * @return list
@@ -296,7 +289,6 @@ public class BusinessFacade {
         return DataFacade.getUserIdFromOrderId(orderId);
     }
 
-    // ***INVENTORYMAPPER***
     /**
      * @param name
      * @return itemId
@@ -370,7 +362,7 @@ public class BusinessFacade {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void updateInventory(int inventoryId, String name, String desc, 
+    public static void updateInventory(int inventoryId, String name, String desc,
             int length, String unit, int status, int price) throws UniversalExceptions {
         DataFacade.updateInventory(inventoryId, name, desc, length, unit, status, price);
     }
@@ -404,7 +396,7 @@ public class BusinessFacade {
      * @param price
      * @throws UniversalExceptions
      */
-    public void addToInventory(String name, String desc, int length, String unit, 
+    public void addToInventory(String name, String desc, int length, String unit,
             int status, int price) throws UniversalExceptions {
         DataFacade.addToInventory(name, desc, length, unit, price, status);
     }
@@ -416,7 +408,7 @@ public class BusinessFacade {
     public static List<Inventory> completeInventory() throws UniversalExceptions {
         return DataFacade.completeInventory();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -424,7 +416,7 @@ public class BusinessFacade {
     public static List<Integer> getAllItemIds() throws UniversalExceptions {
         return DataFacade.getAllItemIds();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -432,7 +424,7 @@ public class BusinessFacade {
     public static List<Integer> getAllItemLength() throws UniversalExceptions {
         return DataFacade.getAllItemLength();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -440,7 +432,6 @@ public class BusinessFacade {
     public static List<Integer> getAllItemStatus() throws UniversalExceptions {
         return DataFacade.getAllItemStatus();
     }
-    
 
     /**
      * @return list
@@ -449,7 +440,7 @@ public class BusinessFacade {
     public static List<Integer> getAllItemPrice() throws UniversalExceptions {
         return DataFacade.getAllItemPrice();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -457,7 +448,7 @@ public class BusinessFacade {
     public static List<String> getAllItemNames() throws UniversalExceptions {
         return DataFacade.getAllItemNames();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -465,7 +456,7 @@ public class BusinessFacade {
     public static List<String> getAllItemDesc() throws UniversalExceptions {
         return DataFacade.getAllItemDesc();
     }
-    
+
     /**
      * @return list
      * @throws UniversalExceptions
@@ -473,12 +464,11 @@ public class BusinessFacade {
     public static List<String> getAllItemUnit() throws UniversalExceptions {
         return DataFacade.getAllItemUnit();
     }
-    
+
     public static Inventory getSpecificItem(int id) throws UniversalExceptions {
         return DataFacade.getSpecificItem(id);
     }
 
-    // ***ITEMLISTMAPPER***
     /**
      * @param name
      * @param desc
@@ -488,7 +478,7 @@ public class BusinessFacade {
      * @param id
      * @throws UniversalExceptions
      */
-    public static void addToItemList(String name, String desc, int length, 
+    public static void addToItemList(String name, String desc, int length,
             int amount, int orderId, int id) throws UniversalExceptions {
         DataFacade.addToItemList(name, desc, length, amount, orderId, id);
         DataFacade.updateStatus(DataFacade.getItemId(name), amount);
@@ -541,7 +531,6 @@ public class BusinessFacade {
         return DataFacade.getAmountList(orderId);
     }
 
-    // ***BUSINESSLAYER***
     /**
      * @param length
      * @return calculateRemAmount
@@ -582,7 +571,7 @@ public class BusinessFacade {
      * @param ids
      * @return list
      */
-    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids)  {
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids) {
         List<String> result = new ArrayList<>();
         result.add("<div class=\"container\">");
         result.add("<table class=\"table table-hover\">");
@@ -592,7 +581,7 @@ public class BusinessFacade {
         result.add("</tr>");
         if (dates.size() == ids.size()) {
             for (int i = 0; i < dates.size(); i++) {
-                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid=" 
+                result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid="
                         + ids.get(i) + "\">" + ids.get(i) + "</a></th><td><p>" + " " + dates.get(i) + "</td></tr>");
             }
         }
@@ -600,7 +589,7 @@ public class BusinessFacade {
         result.add("</div>");
         return result;
     }
-    
+
     /**
      * @param idsOrdre
      * @param name
@@ -608,8 +597,8 @@ public class BusinessFacade {
      * @param dates
      * @return list
      */
-    public static List<String> allCurrentOrders(List<Integer> idsOrdre, 
-        List<String> name, List<String> lastname, List<String> dates) {
+    public static List<String> allCurrentOrders(List<Integer> idsOrdre,
+            List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -623,8 +612,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < idsOrdre.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
-                    idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid="
+                    + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -635,7 +624,6 @@ public class BusinessFacade {
         return result;
     }
 
-    
     /**
      * @param idsOrdre
      * @param name
@@ -643,8 +631,8 @@ public class BusinessFacade {
      * @param dates
      * @return list
      */
-      public static List<String> allOrders(List<Integer> idsOrdre, List<String> name, 
-              List<String> lastname, List<String> dates) {
+    public static List<String> allOrders(List<Integer> idsOrdre, List<String> name,
+            List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -658,8 +646,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < idsOrdre.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
-                    idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid="
+                    + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -689,8 +677,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < ids.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid=" + 
-                    ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid="
+                    + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("</tr>");
@@ -699,7 +687,7 @@ public class BusinessFacade {
         result.add("</div>");
         return result;
     }
-   
+
     /**
      * @param ids
      * @param name
@@ -710,8 +698,8 @@ public class BusinessFacade {
      * @param price
      * @return list
      */
-    public static List<String> fullInventory(List<Integer> ids, List<String> name, 
-            List<String> description, List<Integer> length, List<String> unit, 
+    public static List<String> fullInventory(List<Integer> ids, List<String> name,
+            List<String> description, List<Integer> length, List<String> unit,
             List<Integer> status, List<Integer> price) {
 
         List<String> result = new ArrayList<>();
@@ -729,8 +717,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < ids.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=updateinventorypage&choseninventoryid=" + 
-                    ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=updateinventorypage&choseninventoryid="
+                    + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + description.get(i) + "</p></td>");
             result.add("<td><p>" + length.get(i) + "</p></td>");
@@ -771,7 +759,7 @@ public class BusinessFacade {
         }
         return names;
     }
-            
+
     /**
      * @param ids
      * @return list
@@ -799,7 +787,7 @@ public class BusinessFacade {
         }
         return lastnames;
     }
-  
+
     /**
      * @param userId
      * @return list
@@ -815,8 +803,8 @@ public class BusinessFacade {
 
         for (int i = 0; i < orderids.size(); i++) {
             result.add("<tr>");
-            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid=" + 
-                    orderids.get(i) + "\">" + orderids.get(i) + "</a></p></td>");
+            result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid="
+                    + orderids.get(i) + "\">" + orderids.get(i) + "</a></p></td>");
             result.add("</tr>");
         }
         result.add("</table>");
@@ -824,4 +812,3 @@ public class BusinessFacade {
         return result;
     }
 }
-

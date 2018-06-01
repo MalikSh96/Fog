@@ -3,10 +3,6 @@ package businesslayer;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author malik
- */
 public class ItemList {
 
     private static List<Integer> post = new ArrayList<>();
@@ -18,7 +14,7 @@ public class ItemList {
     private static int remTotal = 0;
     private static int roofTotal = 0;
 
-    //Obs, calculations is based of the biggest items of each category
+             //OBS, calculations is based of the biggest items of each category
     /**
      * @param carportLength
      * @param carportWidth
@@ -28,7 +24,7 @@ public class ItemList {
         int postRow = 0;
         postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
 
-        if (carportWidth < 800) //max carport width is 8m or 800cm
+        if (carportWidth <= 800) //max carport width is 8m or 800cm
         {
             postTotal = (postRow * 2) + 2;
         } else {
@@ -121,7 +117,6 @@ public class ItemList {
         return roof;
     }
 
-    //Getters for the purpose of j-unit testing
     /**
      * @return PostTotal
      */

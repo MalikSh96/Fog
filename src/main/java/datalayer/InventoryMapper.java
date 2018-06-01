@@ -11,10 +11,6 @@ import businesslayer.UniversalExceptions;
 import businesslayer.Inventory;
 import java.sql.Statement;
 
-/**
- *
- * @author malik
- */
 public class InventoryMapper {
 
     private static Constants con = new Constants();
@@ -64,14 +60,14 @@ public class InventoryMapper {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void addToInventory(String name, String desc, int length, 
+    public static void addToInventory(String name, String desc, int length,
             String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
-            
+
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -364,8 +360,7 @@ public class InventoryMapper {
 
     /**
      *
-     * @return
-     * @throws UniversalExceptions
+     * @return @throws UniversalExceptions
      */
     public static List<Integer> getAllItemIds() throws UniversalExceptions {
         List<Integer> idList = new ArrayList<>();
@@ -511,7 +506,7 @@ public class InventoryMapper {
         }
         return descList;
     }
- 
+
     /**
      *
      * @return list

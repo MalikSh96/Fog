@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>all Orders</title>
+        <title>Alle Ordre</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -14,9 +14,12 @@
     <body>
     <center>
         <%@include file="../navigation/menu.jsp" %>
+        <%
+            User userr = (User) session.getAttribute("user");
+        %>
         <h1>Alle ordrer</h1>
-        
-        <%= bf.allOrders(bf.getAllOrderIds(), bf.allOrderCustomerNames(bf.getOrderCustomerIds()), bf.allOrderCustomerLastnames(bf.getOrderCustomerIds()),bf.getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+
+        <%= bf.allOrders(bf.getAllOrderIds(), bf.allOrderCustomerNames(bf.getOrderCustomerIds()), bf.allOrderCustomerLastnames(bf.getOrderCustomerIds()), bf.getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
     </center>
     <center>

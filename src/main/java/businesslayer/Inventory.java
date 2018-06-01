@@ -1,11 +1,7 @@
 package businesslayer;
 
-/**
- *
- * @author malik
- */
-public class Inventory 
-{    
+public class Inventory {
+
     private int id;
     private String name;
     private int length;
@@ -32,21 +28,20 @@ public class Inventory
         this.status = status;
         this.price = price;
     }
-    
+
     /**
      * @param id
      * @param name
      * @param length
      * @param desc
      */
-    public Inventory(int id, String name, int length, String desc) 
-    {
+    public Inventory(int id, String name, int length, String desc) {
         this.id = id;
         this.name = name;
         this.length = length;
         this.desc = desc;
     }
-    
+
     /**
      * @return id
      */
@@ -109,12 +104,15 @@ public class Inventory
     public void setPrice(int price) {
         this.price = price;
     }
+
     @Override
     public String toString() {
-        if(length == 0) { return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "
-                + unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";}
-       
-        return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Længde: " + length 
-                + "<br>Enhed: "+ unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";
+        if (length == 0) {
+            return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Enhed: "
+                    + unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";
+        }
+
+        return "<br><br>Id: " + id + "<br>Navn: " + name + "<br>Længde: " + length
+                + "<br>Enhed: " + unit + "<br>Beskrivelse: " + desc + "<br>Status: " + status + "<br>Price: " + price + "<br>";
     }
 }

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Opdater Info</title>
+        <title>Opdater Brugerinfo</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
             Constants cons = new Constants();
             BusinessFacade bfs = cons.getBf();
             User us = bfs.getUser(id);
-            %>
+        %>
 
         <%@include file="../navigation/menu.jsp" %>
         <form action="FrontController" method="POST">
@@ -55,56 +55,56 @@
                 <h1>Opdater personlige oplysninger</h1>
                 <br/>
             </div>
-        <table class="updateinfopagetable">
-            <tr>
-                <td> 
+            <table class="updateinfopagetable">
+                <tr>
+                    <td> 
 
-                    <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
-                </td>
-                <td>
+                        <label> Navn</label><br><input type="text" name="name" placeholder="Navn"/>
+                    </td>
+                    <td>
 
-                    <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefonnr."/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label> Efternavn</label><br><input type="text" name="lastname" placeholder="Efternavn"/>
+                        <label> Telefon nummer</label><br><input type="number" name="phone" max="99999999" min="11111111" placeholder="Telefonnr."/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> Efternavn</label><br><input type="text" name="lastname" placeholder="Efternavn"/>
 
-                </td>
-                <td>
-                    <label> Email</label><br><input type="text" name="email" placeholder="Email"/>
+                    </td>
+                    <td>
+                        <label> Email</label><br><input type="text" name="email" placeholder="Email"/>
 
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
 
-                    <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
-                </td>
-                <td>
-                    <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
-                    <br/>
-                </td>
-            <tr/>
-            <tr>
+                        <label> Password</label><br><input type="text" name="password" placeholder="Password"/><br>
+                    </td>
+                    <td>
+                        <label> Adresse</label><br><input type="text" name="address" placeholder="Adresse"/>
+                        <br/>
+                    </td>
+                <tr/>
+                <tr>
 
-                <td colspan="2" style="width: 150px; text-align: center;" > 
-                    <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnr."/>
-                </td>            
-            </tr>
-            <tr>
+                    <td colspan="2" style="width: 150px; text-align: center;" > 
+                        <label> Postnummer</label><br><input type="number" name="postal" max="9999" min="1111" placeholder="Postnr."/>
+                    </td>            
+                </tr>
+                <tr>
 
-                <td  style="width: 150px; text-align: center; padding-top: 10px;">
-                    <input type="submit" value="Gem Ændringer" class="btn btn-primary" >
-                </td>
-                <td style="width: 150px; text-align: center; padding-top: 10px;">
-                    <a href="FrontController?command=customerpage" class="btn btn-primary" role="button">Gå Tilbage</a>
-                </td>
+                    <td  style="width: 150px; text-align: center; padding-top: 10px;">
+                        <input type="submit" value="Gem Ændringer" class="btn btn-primary" >
+                    </td>
+                    <td style="width: 150px; text-align: center; padding-top: 10px;">
+                        <a href="FrontController?command=customerpage" class="btn btn-primary" role="button">Gå Tilbage</a>
+                    </td>
 
-            </tr>
-        </table>
-    </form>
+                </tr>
+            </table>
+        </form>
 
-    <%@include file="../footer/footer.jsp" %>
-</body>
+        <%@include file="../footer/footer.jsp" %>
+    </body>
 </html>

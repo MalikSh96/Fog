@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Kontakt
-    Created on : 25-05-2018, 15:03:23
-    Author     : Jollys
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

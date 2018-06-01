@@ -1,14 +1,6 @@
 package businesslayer;
 
-import java.util.List;
-
-
-/**
- * The purpose of User is to...
- * @author kasper
- */
-public class User 
-{
+public class User {
 
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String name;
@@ -18,19 +10,19 @@ public class User
     private int phone;
     private String email;
     private String password; // Should be hashed and all
-    private String role;    
+    private String role;
 
     /**
      * @param email
      * @param password
      * @param role
      */
-    public User( String email, String password, String role ) {
+    public User(String email, String password, String role) {
         this.email = email;
         this.password = password;
         this.role = role;
     }
-    
+
     /**
      * @param name
      * @param lastname
@@ -41,7 +33,7 @@ public class User
      * @param password
      * @param role
      */
-    public User( String name, String lastname, String address, int postalcode, int phone, String email, String password, String role ) {
+    public User(String name, String lastname, String address, int postalcode, int phone, String email, String password, String role) {
         this.name = name;
         this.lastname = lastname;
         this.address = address;
@@ -122,64 +114,56 @@ public class User
     /**
      * @return email
      */
-    public String getEmail() 
-    {
+    public String getEmail() {
         return email;
     }
 
     /**
      * @param email
      */
-    public void setEmail( String email ) 
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
     /**
      * @return password
      */
-    public String getPassword() 
-    {
+    public String getPassword() {
         return password;
     }
 
     /**
      * @param password
      */
-    public void setPassword( String password ) 
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     /**
      * @return role
      */
-    public String getRole() 
-    {
+    public String getRole() {
         return role;
     }
 
     /**
      * @param role
      */
-    public void setRole( String role ) 
-    {
+    public void setRole(String role) {
         this.role = role;
     }
 
     /**
      * @return id
      */
-    public int getId() 
-    {
+    public int getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId( int id ) 
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -238,15 +222,17 @@ public class User
     public void setPhone(int phone) {
         this.phone = phone;
     }
-    
+
     /**
      * @param role
      * @return boolean
      */
     public boolean isAdmin(String role) {
-        if (role.equals("admin")) { return true; }
+        if (role.equals("admin")) {
+            return true;
+        }
         return false;
-              
+
     }
 
     /**
@@ -254,14 +240,15 @@ public class User
      * @return boolean
      */
     public boolean isCustomer(String role) {
-    if(role.equals("customer")) {return true;}
-    return false;
+        if (role.equals("customer")) {
+            return true;
+        }
+        return false;
     }
-    
+
     @Override
-    public String toString() 
-    {
-        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password 
+    public String toString() {
+        return "<br><br>Id: " + id + "<br>Email: " + email + "<br>Password: " + password
                 + "<br>Adresse: " + address + "<br>Navn: " + name + " " + lastname + "<br>Post nr.: " + postalcode + "<br>Telefon nr.: " + phone;
-    }    
+    }
 }

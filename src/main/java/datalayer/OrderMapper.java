@@ -11,10 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author malik
- */
 public class OrderMapper {
 
     private static Constants con = new Constants();
@@ -83,7 +79,8 @@ public class OrderMapper {
      *
      * @param orderId
      * @return ord
-     * @Description: Get an order from the order table where the id matches then one being searched for 
+     * @Description: Get an order from the order table where the id matches then
+     * one being searched for
      * @throws UniversalExceptions
      */
     public Orders getOrder(int orderId) throws UniversalExceptions {
@@ -185,12 +182,13 @@ public class OrderMapper {
         }
         return userId;
     }
-    
+
     /**
      *
      * @param userId
      * @return dates
-     * @Description: Return a list of all the dates where a user with a specific id has made orders
+     * @Description: Return a list of all the dates where a user with a specific
+     * id has made orders
      * @throws UniversalExceptions
      */
     public List<String> getAllUserOrderDates(int userId) throws UniversalExceptions {
@@ -210,7 +208,7 @@ public class OrderMapper {
         }
         return dates;
     }
-    
+
     /**
      *
      * @return orderNumbers
@@ -234,7 +232,7 @@ public class OrderMapper {
         }
         return orderNumbers;
     }
-    
+
     /**
      *
      * @return orderDates
@@ -258,7 +256,7 @@ public class OrderMapper {
         }
         return orderDates;
     }
-    
+
     /**
      *
      * @return list
@@ -282,7 +280,7 @@ public class OrderMapper {
         }
         return orderDates;
     }
-    
+
     /**
      *
      * @return userId
@@ -307,7 +305,7 @@ public class OrderMapper {
         }
         return userIds;
     }
-    
+
     /**
      *
      * @return list
@@ -333,9 +331,6 @@ public class OrderMapper {
         }
         return userIds;
     }
-    
-    
-    
 
     /**
      *
@@ -589,7 +584,7 @@ public class OrderMapper {
 
             while (resultset.next()) {
                 result = resultset.getInt("price");
-            return result;
+                return result;
             }
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowDidNotFindThePriceException();
@@ -604,7 +599,7 @@ public class OrderMapper {
      * @throws UniversalExceptions
      */
     public void updateTotalPrice(int totalPrice, int orderId) throws UniversalExceptions {
-     try {
+        try {
             Connection con = Connector.connection();
             String SQL = "update orders set price= '" + totalPrice + "' where orderId= '" + orderId + "'";
 
@@ -632,17 +627,17 @@ public class OrderMapper {
 
             while (resultset.next()) {
                 userid = resultset.getInt("userID");
-            return userid;
+                return userid;
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotSendOrderException();
         }
-     return userid;
+        return userid;
     }
 
     int getOrderIdFromUserId(int userId) throws UniversalExceptions {
-    int orderId = 0;
+        int orderId = 0;
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT orderId FROM orders where userID = '" + orderId + "';";
@@ -652,12 +647,12 @@ public class OrderMapper {
 
             while (resultset.next()) {
                 orderId = resultset.getInt("orderId");
-            return orderId;
+                return orderId;
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
             uex.ThrowCouldNotSendOrderException();
         }
-     return orderId;
+        return orderId;
     }
 }

@@ -10,10 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author malik
- */
 public class ItemlistMapper {
 
     private static Constants con = new Constants();
@@ -29,8 +25,8 @@ public class ItemlistMapper {
      * @param itemId
      * @throws UniversalExceptions
      */
-    public static void addToItemlist(String name, String desc, int length, 
-        int amount, int orderId, int itemId) throws UniversalExceptions {
+    public static void addToItemlist(String name, String desc, int length,
+            int amount, int orderId, int itemId) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -144,7 +140,7 @@ public class ItemlistMapper {
      */
     public List<Integer> getAmountList(int orderId) throws UniversalExceptions {
 
-        List<Integer> amount =  new ArrayList<>();
+        List<Integer> amount = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT amount FROM itemlist where orderid = '" + orderId + "'";

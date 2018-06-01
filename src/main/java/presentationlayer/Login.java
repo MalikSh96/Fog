@@ -2,16 +2,11 @@ package presentationlayer;
 
 import businesslayer.BusinessFacade;
 import businesslayer.UniversalExceptions;
-import datalayer.DataFacade;
 import businesslayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author malik
- */
 public class Login extends Command {
 
     @Override

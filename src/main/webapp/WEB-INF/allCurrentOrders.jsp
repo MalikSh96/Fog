@@ -1,5 +1,3 @@
-
-<%@page import="datalayer.OrderMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,28 +15,28 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
-        <% 
-        User userr = (User) session.getAttribute("user");
+        <%
+            User userr = (User) session.getAttribute("user");
         %>
-        
 
-        <br><%= bf.allCurrentOrders(bf.getNonSentOrderId(),              
-        bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()),
-        bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()),
-        bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>" %>
+
+        <br><%= bf.allCurrentOrders(bf.getNonSentOrderId(),
+                bf.allCurrentOrderCustomerNames(bf.getNonSentOrderCustomerIds()),
+                bf.allCurrentOrderCustomerLastnames(bf.getNonSentOrderCustomerIds()),
+                bf.getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
     </center>
     <center>
-       <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
-     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (userr.isAdmin(bf.getUserRole(userr.getId()))) {%>
+        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+        <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storagechief")) {%>
-     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storagechief")) {%>
+        <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+        <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
-     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (bf.getUserRole(bf.getUserId(userr.getEmail())).equals("storageworker")) {%>
+        <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+        <%}%>
     </center>
 </body>
 </html>

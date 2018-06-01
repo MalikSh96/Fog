@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Specific Order</title>
+        <title>Specifik Ordre sixe</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -22,18 +22,16 @@
 
                 <div class="center-text">
                     <h1>Order nr: </h1>
-
-
                     <%
                         int id = (int) session.getAttribute("orderid");
                         session.setAttribute("ordernumber", id);
                         User us = (User) session.getAttribute("user");
                     %>
 
-                    <%if(us.isAdmin(bf.getUserRole(us.getId()))) {%>
+                    <%if (us.isAdmin(bf.getUserRole(us.getId()))) {%>
                     <%=bf.getAllUserInfo(bf.getUserIdFromOrderId(id)).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
                     <%}%>
-                   
+
                     <%=bf.getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
 
 

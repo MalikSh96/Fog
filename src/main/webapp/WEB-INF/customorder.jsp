@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Custom Order</title>
+        <title>Ordrebestilling</title>
 
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
@@ -47,20 +47,20 @@
                         <input type="hidden" name="command" value="order">
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
-                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="200" max="999" required>
+                            <input type="number" class="form-control" name="length" placeholder="vælg længde" min="400" max="999" required>
 
 
                         </div> 
 
                         <div class="width">
                             <label>Carport bredde i cm*</label><br>
-                            <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="100" max="999" required>
+                            <input type="number" class="form-control" name="width" placeholder="vælg bredde" min="300" max="800" required>
 
 
                         </div>            
                         <div class="height">
                             <label> Carport højde i cm*</label><br>
-                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="200" max="500" required>
+                            <input type="number" class="form-control" name="height" placeholder="vælg højde" min="180" max="210" required>
 
                         </div>  
 

@@ -26,7 +26,8 @@
         <% int widthrafter = (int) session.getAttribute("breddespær");%>
         <% int widthline = (int) session.getAttribute("breddelinje"); %>
         <% int heightline = (int) session.getAttribute("højdelinje"); %>
-        <% int lengthline = (int) session.getAttribute("længdelinje"); %> 
+        <% int lengthline = (int) session.getAttribute("længdelinje");
+            %> 
     </head>
     <body>       
 
@@ -216,7 +217,7 @@
 
                                 <!--------------->
                                 <!--cross on middle start top left ends bottom right -->
-                                <line stroke-dasharray="5 5" x1="6"  y1="53"   
+                                <line stroke-dasharray="5 5" x1="6"  y1="53" x2="<%= lengthrafter%>"
                                       y2="<%out.print(session.getAttribute("breddespær"));%>"
                                       style="stroke:#006600;"/>
                                 <!--------------->
@@ -273,24 +274,24 @@
                                 <!------------>
                                 <!--rafter under roof -->       
                                 <rect  x = "0" y = "10" height = "15" width = "<% out.print(length); %>" style="stroke:black; fill: none"/>
-                                
+
                                 <!--------->
                                 <!--first pole and last pole -->
                                 <rect x="25" y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
 
-                                 <% if ((225 < length) && (450 > length)) {%>
-                                <text x="<% out.print(((length) / 2) / 2 );%>" y="<%out.print(heightline);%>"
+                                <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length) / 2) / 2);%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
                                       text-anchor="middle"><% out.print((length) / 2);%> cm</text>
                                 <% }%>
-                                
-                                 <% if ((225 < length) && (450 > length)) {%>
-                                <text x="<% out.print(((length) / 2) * 1.5 );%>" y="<%out.print(heightline);%>"
+
+                                <% if ((225 < length) && (450 > length)) {%>
+                                <text x="<% out.print(((length) / 2) * 1.5);%>" y="<%out.print(heightline);%>"
                                       font-size="10px"
                                       text-anchor="middle"><% out.print((length) / 2);%> cm</text>
                                 <% } %>
-                                
+
                                 <rect x="<%out.print(length - 25);%>" 
                                       y="25" height="<%out.print(session.getAttribute("højdestolpe"));%>"
                                       width="8" style="stroke:black; fill: none"/>
@@ -343,7 +344,7 @@
                 <br/>
 
                 <div class="text-center">
-                    
+
                     <h4>Her kan du se status over din ordre</h4>
                     <a href="FrontController?command=myorders" class="btn btn-secondary">Status</a>
                 </div>

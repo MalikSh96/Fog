@@ -1,10 +1,9 @@
-<%@page import="datalayer.InventoryMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inventory</title>
+        <title>Lager</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,8 +19,7 @@
         <%
             User usr = (User) session.getAttribute("user");
         %>
-
-        <%= bf.fullInventory(bf.getAllItemIds(), bf.getAllItemNames(), bf.getAllItemDesc(), bf.getAllItemLength(),bf.getAllItemUnit(),bf.getAllItemStatus(), bf.getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+        <%= bf.fullInventory(bf.getAllItemIds(), bf.getAllItemNames(), bf.getAllItemDesc(), bf.getAllItemLength(), bf.getAllItemUnit(), bf.getAllItemStatus(), bf.getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
 
@@ -30,17 +28,17 @@
 
     </center>
     <center>
-    <% if (usr.isAdmin(bf.getUserRole(usr.getId()))) {%>
-    <a href="FrontController?command=adminpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (usr.isAdmin(bf.getUserRole(usr.getId()))) {%>
+        <a href="FrontController?command=adminpage">Tilbage</a><br><br>
+        <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
-    <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
+        <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
+        <%}%>
 
-    <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storageworker")) {%>
-    <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
-    <%}%>
+        <% if (bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storageworker")) {%>
+        <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
+        <%}%>
     </center>
 
 </body>

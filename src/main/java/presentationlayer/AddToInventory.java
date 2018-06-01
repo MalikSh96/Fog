@@ -8,10 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author malik
- */
 public class AddToInventory extends Command {
 
     Constants con = new Constants();
@@ -19,7 +15,7 @@ public class AddToInventory extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
-      HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
         User us = (User) session.getAttribute("user");
         String name = request.getParameter("name");
         String desc = request.getParameter("description");

@@ -7,62 +7,49 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-/**
- *
- * @author malik
- */
 public class OrderMapperTest {
-    
+
     public OrderMapperTest() {
     }
-    
+
     @Before
     public void setUp() {
     }
 
     private OrderMapper om = new OrderMapper();
-    
+
     @Test //works
-    @Disabled
-    public void testCreatePreOrder() throws UniversalExceptions 
-    {      
+    public void testCreatePreOrder() throws UniversalExceptions {
         Orders ord = new Orders(1, 20, 20, 4);
-        
+
         int orderId = om.CreateOrder(ord);
-        
+
         Orders checkOrder = om.getOrder(orderId);
-        assertNotNull(checkOrder);        
+        assertNotNull(checkOrder);
     }
 
     @Test //works
-    @Disabled
-    public void testGetOrder() throws UniversalExceptions 
-    {
+    public void testGetOrder() throws UniversalExceptions {
         Orders checkId = om.getOrder(2);
         int expected = 2;
         assertEquals(expected, checkId.getOrderId());
     }
 
     @Test //works
-    @Disabled
-    public void testAllOrders() throws UniversalExceptions 
-    {       
-        int expected = om.allOrders().size()+1;
+    public void testAllOrders() throws UniversalExceptions {
+        int expected = om.allOrders().size() + 1;
         Orders ord = new Orders(1, 99, 99, 9);
         om.CreateOrder(ord);
         int actual = om.allOrders().size();
-        
+
         assertEquals(expected, actual);
     }
 
     @Test //works
-    @Disabled
-    public void testConfirmedOrders() throws UniversalExceptions 
-    {
+    public void testConfirmedOrders() throws UniversalExceptions {
         Orders ord = new Orders(1, 10, 20, 30, true);
         System.out.println("Ord " + ord);
         om.CreateOrder(ord);
@@ -73,9 +60,7 @@ public class OrderMapperTest {
     }
 
     @Test //works
-    @Disabled
-    public void testPendingOrders() throws UniversalExceptions 
-    {
+    public void testPendingOrders() throws UniversalExceptions {
         Orders ord = new Orders(1, 30, 20, 10, false);
         System.out.println("Ord " + ord);
         om.CreateOrder(ord);
@@ -85,49 +70,42 @@ public class OrderMapperTest {
         assertEquals(expected, ord.isOrderConfirmed());
     }
 
-    @Test
+    @Test //works provided at least 2 orders is made and order 2 is sent
     @Disabled
-    public void testAllCustomerOrders() throws UniversalExceptions 
-    {
+    public void testAllCustomerOrders() throws UniversalExceptions {
         int expected = 4;
         int actual;
-        actual = om.allCustomerOrders(3).size();
+        actual = om.allCustomerOrders(2).size();
         assertEquals(expected, actual);
     }
 
-    @Test //works
+    @Test //works provided at least 2 orders is made and order 2 is sent
     @Disabled
-    public void testIsOrderSentTrue() throws Exception 
-    {
-        boolean actual = om.isOrderSent(1);
-        
+    public void testIsOrderSentTrue() throws Exception {
+        boolean actual = om.isOrderSent(2);
+
         assertTrue(actual);
     }
-    
-    @Test //works
-    @Disabled
-    public void testIsOrderSentFalse() throws Exception 
-    {
+
+    @Test //works provided at least 6 orders is made and order 6 is not sent
+    public void testIsOrderSentFalse() throws Exception {
         boolean actual = om.isOrderSent(6);
-        assertFalse(actual);      
+        assertFalse(actual);
     }
 
-    @Test
+    @Test //works provided at least 5 orders is made and order 5 is not sent
     @Disabled
-    public void testSendOrderYes() throws UniversalExceptions, ClassNotFoundException  
-    {
+    public void testSendOrderYes() throws UniversalExceptions, ClassNotFoundException {
         om.sendOrder(5);
         assertTrue(om.isOrderSent(5));
-        
+
     }
     
-    @Test
+    @Test //works provided at least 10 orders is made and order 10 is not sent
     @Disabled
-    public void testSendOrderNo() throws ClassNotFoundException, UniversalExceptions 
-    {
+    public void testSendOrderNo() throws ClassNotFoundException, UniversalExceptions {
         assertFalse(om.isOrderSent(10));
         om.sendOrder(10);
         assertTrue(om.isOrderSent(10));
     }
 }
-

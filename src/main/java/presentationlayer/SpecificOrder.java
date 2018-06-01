@@ -8,10 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author malik
- */
 public class SpecificOrder extends Command {
 
     int chosenId = 0;
@@ -23,8 +19,10 @@ public class SpecificOrder extends Command {
         HttpSession session = request.getSession();
         User curUs = (User) session.getAttribute("user");
 
-        if(request.getParameter("chosenid").length() > 0) {chosenId = Integer.parseInt(request.getParameter("chosenid"));}
-         if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
+        if (request.getParameter("chosenid").length() > 0) {
+            chosenId = Integer.parseInt(request.getParameter("chosenid"));
+        }
+        if (curUs.isAdmin(bf.getUserRole(curUs.getId())) && !bf.OrderIdExists(chosenId)) {
             return "adminpage";
         } else if (bf.getUserRole(bf.getUserId(curUs.getEmail())).equals("storageworker") && !bf.OrderIdExists(chosenId)) {
             return "storageworkerpage";

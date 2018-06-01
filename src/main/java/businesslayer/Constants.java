@@ -5,10 +5,6 @@ import datalayer.ItemlistMapper;
 import datalayer.OrderMapper;
 import datalayer.UserMapper;
 
-/**
- *
- * @author malik
- */
 public class Constants {
 
     public static final BusinessFacade BF = new BusinessFacade();
@@ -23,7 +19,7 @@ public class Constants {
 
     public static final UniversalExceptions UEX = new UniversalExceptions();
 
-    //hardcoding of misc carport stuff
+                        //hardcoding of misc carport materials for the itemlist
     public static final int ROOFSCREWAMOUNT = 2;
 
     public static final int UNIVERSALRIGHTAMOUNT = 20;

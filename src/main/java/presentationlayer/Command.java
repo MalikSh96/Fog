@@ -1,5 +1,5 @@
 package presentationlayer;
-//blob
+
 import businesslayer.UniversalExceptions;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ abstract class Command extends HttpServlet {
 
     private static void initCommands() throws ServletException, IOException {
         commands = new HashMap<>();
-        
+
         commands.put("login", new Login());
         commands.put("register", new Register());
         commands.put("order", new Order());

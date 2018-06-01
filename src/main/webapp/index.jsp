@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome page</title>
+        <title>Homepage</title>
         <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
         <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
@@ -21,11 +21,11 @@
         </div>
 
         <div class="indeximagecarportquickbyg">
-                  
+
             <img src="Image/carportquickbyg.png" class="indexsrc"/>
         </div>
-        
-        
+
+
         <%@include file="/footer/footer.jsp" %>
 
 
