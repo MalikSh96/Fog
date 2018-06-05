@@ -18,6 +18,7 @@ public class ItemListTest {
     private ItemList li = new ItemList();
 
     @Test
+    @Disabled
     public void testPostAmount() {
         int width = 800; //600 ends in the first if
         int length = 800;
@@ -40,6 +41,7 @@ public class ItemListTest {
     }
 
     @Test
+    @Disabled
     public void testRaftAmount() {
         int width = 400;
         int length = 800;
@@ -61,6 +63,7 @@ public class ItemListTest {
     }
 
     @Test
+    @Disabled
     public void testRemAmount() {
         int length = 800; //600 and less gives 2
         int expected;
@@ -81,6 +84,7 @@ public class ItemListTest {
     }
 
     @Test
+    @Disabled
     public void testRoofAmount() {
         int width = 700;
         int length = 700;

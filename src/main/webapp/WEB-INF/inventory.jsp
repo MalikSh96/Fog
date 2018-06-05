@@ -19,7 +19,8 @@
         <%
             User usr = (User) session.getAttribute("user");
         %>
-        <%= bf.fullInventory(bf.getAllItemIds(), bf.getAllItemNames(), bf.getAllItemDesc(), bf.getAllItemLength(), bf.getAllItemUnit(), bf.getAllItemStatus(), bf.getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+        <%= bf.fullInventory(bf.getAllItemIds(), bf.getAllItemNames(), bf.getAllItemDesc(), 
+                bf.getAllItemLength(), bf.getAllItemUnit(), bf.getAllItemStatus(), bf.getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
         <% if (usr.isAdmin(bf.getUserRole(usr.getId())) || bf.getUserRole(bf.getUserId(usr.getEmail())).equals("storagechief")) {%>
 

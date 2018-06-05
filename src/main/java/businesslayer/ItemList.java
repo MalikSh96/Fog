@@ -29,7 +29,7 @@ public class ItemList {
             postTotal = (postRow * 2) + 2;
         } else {
             int numberOfRows = (carportWidth / 800);
-            numberOfRows += 2; //adds 2, because once the width is over 8, middle posts is needed
+            numberOfRows += 2; //adds 2, because once the width is over 800cm, middle posts is needed
             postTotal = numberOfRows * postRow;
         }
         post.add(postTotal);
@@ -43,7 +43,7 @@ public class ItemList {
      */
     public static List<Integer> raftAmount(int carportLength, int carportWidth) {
         Double raftRow = 0.00;
-        raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
+        raftRow = (carportLength / 55.00); //55cm is length of gap between the rafts
         int raftRowInt = raftRow.intValue();
 
         if (carportWidth < 600) {
@@ -77,7 +77,7 @@ public class ItemList {
      */
     public static List<Integer> roofAmount(int carportLength, int carportWidth) {
         Double roofPlate = 0.00;
-        roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
+        roofPlate = (carportLength / 110.00); //110cm is width of roof plate
         int roofPlateInt = roofPlate.intValue();
 
         if (carportWidth > 600) {

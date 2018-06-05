@@ -19,7 +19,7 @@ public class Constants {
 
     public static final UniversalExceptions UEX = new UniversalExceptions();
 
-                        //hardcoding of misc carport materials for the itemlist
+    //hardcoding of misc carport materials for the itemlist
     public static final int ROOFSCREWAMOUNT = 2;
 
     public static final int UNIVERSALRIGHTAMOUNT = 20;

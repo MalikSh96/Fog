@@ -22,6 +22,7 @@ public class OrderMapperTest {
     private OrderMapper om = new OrderMapper();
 
     @Test //works
+    @Disabled
     public void testCreatePreOrder() throws UniversalExceptions {
         Orders ord = new Orders(1, 20, 20, 4);
 
@@ -32,6 +33,7 @@ public class OrderMapperTest {
     }
 
     @Test //works
+    @Disabled
     public void testGetOrder() throws UniversalExceptions {
         Orders checkId = om.getOrder(2);
         int expected = 2;
@@ -39,6 +41,7 @@ public class OrderMapperTest {
     }
 
     @Test //works
+    @Disabled
     public void testAllOrders() throws UniversalExceptions {
         int expected = om.allOrders().size() + 1;
         Orders ord = new Orders(1, 99, 99, 9);
@@ -49,6 +52,7 @@ public class OrderMapperTest {
     }
 
     @Test //works
+    @Disabled
     public void testConfirmedOrders() throws UniversalExceptions {
         Orders ord = new Orders(1, 10, 20, 30, true);
         System.out.println("Ord " + ord);
@@ -60,6 +64,7 @@ public class OrderMapperTest {
     }
 
     @Test //works
+    @Disabled
     public void testPendingOrders() throws UniversalExceptions {
         Orders ord = new Orders(1, 30, 20, 10, false);
         System.out.println("Ord " + ord);
@@ -88,6 +93,7 @@ public class OrderMapperTest {
     }
 
     @Test //works provided at least 6 orders is made and order 6 is not sent
+    @Disabled
     public void testIsOrderSentFalse() throws Exception {
         boolean actual = om.isOrderSent(6);
         assertFalse(actual);

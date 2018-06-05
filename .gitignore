@@ -82,7 +82,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-#dbaccess
+#datalayer
 
 **/Connector.java
 

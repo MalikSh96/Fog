@@ -19,7 +19,8 @@
         %>
         <h1>Alle ordrer</h1>
 
-        <%= bf.allOrders(bf.getAllOrderIds(), bf.allOrderCustomerNames(bf.getOrderCustomerIds()), bf.allOrderCustomerLastnames(bf.getOrderCustomerIds()), bf.getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
+        <%= bf.allOrders(bf.getAllOrderIds(), bf.allOrderCustomerNames(bf.getOrderCustomerIds()), 
+                bf.allOrderCustomerLastnames(bf.getOrderCustomerIds()), bf.getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
     </center>
     <center>

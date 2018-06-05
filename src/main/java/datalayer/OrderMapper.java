@@ -443,7 +443,7 @@ public class OrderMapper {
 
             while (resultset.next()) {
                 int id = resultset.getInt("orderId");
-                int userID = resultset.getByte("userID");
+                int userID = resultset.getInt("userID");
                 int length = resultset.getInt("length");
                 int width = resultset.getInt("width");
                 int height = resultset.getInt("height");
