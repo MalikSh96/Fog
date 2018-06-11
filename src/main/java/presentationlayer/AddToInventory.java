@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 public class AddToInventory extends Command {
 
     Constants con = new Constants();
-    BusinessFacade bf = con.getBf();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
@@ -24,8 +23,8 @@ public class AddToInventory extends Command {
         String unit = request.getParameter("unit");
         int price = Integer.parseInt(request.getParameter("price"));
 
-        bf.addToInventory(name, desc, length, unit, status, price);
-        if (us.isAdmin(bf.getUserRole(us.getId()))) {
+        con.getBf().addToInventory(name, desc, length, unit, status, price);
+        if (us.isAdmin(con.getBf().getUserRole(us.getId()))) {
             return "adminpage";
         }
         return "storagechiefpage";

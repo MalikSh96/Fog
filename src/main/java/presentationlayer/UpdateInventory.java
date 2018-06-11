@@ -13,19 +13,18 @@ public class UpdateInventory extends Command {
     String name, desc, unit;
     int length, status, price;
     Constants con = new Constants();
-    BusinessFacade bf = con.getBf();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
         HttpSession session = request.getSession();
 
         inventoryId = (int) session.getAttribute("inventoryid");
-        name = bf.getItemName(inventoryId);
-        desc = bf.getItemDescription(inventoryId);
-        length = bf.getItemLength(inventoryId);
-        unit = bf.getItemUnit(name);
-        status = bf.getItemStatus(inventoryId);
-        price = bf.getItemPrice(inventoryId);
+        name = con.getBf().getItemName(inventoryId);
+        desc = con.getBf().getItemDescription(inventoryId);
+        length = con.getBf().getItemLength(inventoryId);
+        unit = con.getBf().getItemUnit(name);
+        status = con.getBf().getItemStatus(inventoryId);
+        price = con.getBf().getItemPrice(inventoryId);
 
         if (request.getParameter("name").length() > 0) {
             name = request.getParameter("name");
@@ -46,7 +45,7 @@ public class UpdateInventory extends Command {
             price = Integer.parseInt(request.getParameter("price"));
         }
 
-        bf.updateInventory(inventoryId, name, desc, length, unit, status, price);
+        con.getBf().updateInventory(inventoryId, name, desc, length, unit, status, price);
         return "adminpage";
     }
 }

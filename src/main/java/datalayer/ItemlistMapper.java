@@ -13,7 +13,6 @@ import java.util.List;
 public class ItemlistMapper {
 
     private static Constants con = new Constants();
-    private static UniversalExceptions uex = con.getUEX();
 
     /**
      *
@@ -31,7 +30,7 @@ public class ItemlistMapper {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO itemlist (name, description, length, unit, amount, orderid, itemId) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, name); //user id
             ps.setString(2, desc);
             ps.setInt(3, length);
@@ -42,7 +41,7 @@ public class ItemlistMapper {
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotAddToItemlistException();
+            con.getUEX().ThrowDidNotAddToItemlistException();
         }
     }
 
@@ -79,7 +78,7 @@ public class ItemlistMapper {
                 itemlist.add("");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheFullItemlistException();
+            con.getUEX().ThrowDidNotGetTheFullItemlistException();
         }
         return itemlist;
     }
@@ -102,7 +101,7 @@ public class ItemlistMapper {
                 itemIds.add(resultset.getInt("itemId"));
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheFullItemlisIdtException();
+            con.getUEX().ThrowDidNotGetTheFullItemlisIdtException();
         }
         return itemIds;
     }
@@ -127,7 +126,7 @@ public class ItemlistMapper {
                 amount = resultset.getInt("amount");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheAmounttException();
+            con.getUEX().ThrowDidNotGetTheAmounttException();
         }
         return amount;
     }
@@ -151,7 +150,7 @@ public class ItemlistMapper {
                 amount.add(resultset.getInt("amount"));
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheAmounttException();
+            con.getUEX().ThrowDidNotGetTheAmounttException();
         }
         return amount;
     }

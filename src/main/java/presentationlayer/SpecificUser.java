@@ -11,7 +11,6 @@ public class SpecificUser extends Command {
 
     int chosenId = 0;
     Constants con = new Constants();
-    BusinessFacade bf = con.getBf();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
@@ -19,7 +18,7 @@ public class SpecificUser extends Command {
         if (request.getParameter("chosenuserid").length() > 0) {
             chosenId = Integer.parseInt(request.getParameter("chosenuserid"));
         }
-        if (bf.UserIdExists(chosenId)) {
+        if (con.getBf().UserIdExists(chosenId)) {
             session.setAttribute("specificUserid", chosenId);
             return "specificuser";
         }

@@ -14,7 +14,6 @@ import java.util.List;
 public class OrderMapper {
 
     private static Constants con = new Constants();
-    private static UniversalExceptions uex = con.getUEX();
 
     /**
      *
@@ -25,9 +24,8 @@ public class OrderMapper {
      */
     public static int CreateOrder(Orders ord) throws UniversalExceptions {
         int orderId = 0;
-        Connection con;
         try {
-            con = Connector.connection();
+            Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (userID, length, width, height, price) VALUES (?, ?, ?, ?, ?)";
 
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -45,35 +43,11 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowNoOrderCreatedException();
+            con.getUEX().ThrowNoOrderCreatedException();
         }
         return orderId;
     }
 
-    /**
-     *
-     * @param id
-     * @return date
-     * @Description: Get the dates from the order table where user id matches
-     * @throws UniversalExceptions
-     */
-    public String getDates(int id) throws UniversalExceptions {
-        String dates = null;
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT dates FROM FogUsers.orders where userID = " + id;
-
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ResultSet resultset = ps.executeQuery();
-
-            while (resultset.next()) {
-                dates = resultset.getString("dates");
-            }
-        } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotFindTheDateException();
-        }
-        return dates;
-    }
 
     /**
      *
@@ -102,7 +76,7 @@ public class OrderMapper {
                 return ord;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetOrderException();
+            con.getUEX().ThrowDidNotGetOrderException();
         }
         return ord;
     }
@@ -126,7 +100,7 @@ public class OrderMapper {
                 return id;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowLatestOrderDontExistException();
+            con.getUEX().ThrowLatestOrderDontExistException();
         }
         return id;
     }
@@ -151,7 +125,7 @@ public class OrderMapper {
                 return exists;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowOrderDoesNotExistException();
+            con.getUEX().ThrowOrderDoesNotExistException();
         }
         return exists;
     }
@@ -178,7 +152,7 @@ public class OrderMapper {
                 return userId;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetUserIdException();
+            con.getUEX().ThrowDidNotGetUserIdException();
         }
         return userId;
     }
@@ -204,7 +178,7 @@ public class OrderMapper {
                 dates.add(date);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return dates;
     }
@@ -228,7 +202,7 @@ public class OrderMapper {
                 orderNumbers.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return orderNumbers;
     }
@@ -252,7 +226,7 @@ public class OrderMapper {
                 orderDates.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return orderDates;
     }
@@ -276,7 +250,7 @@ public class OrderMapper {
                 orderDates.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return orderDates;
     }
@@ -301,7 +275,7 @@ public class OrderMapper {
                 userIds.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return userIds;
     }
@@ -327,7 +301,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetNonSentOrderIdException();
+            con.getUEX().ThrowDidNotGetNonSentOrderIdException();
         }
         return userIds;
     }
@@ -352,7 +326,7 @@ public class OrderMapper {
                 orderNumbers.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllOrdersIdException();
+            con.getUEX().ThrowDidNotGetAllOrdersIdException();
         }
         return orderNumbers;
     }
@@ -385,7 +359,7 @@ public class OrderMapper {
                 orders.add(ord);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllOrdersException();
+            con.getUEX().ThrowDidNotGetAllOrdersException();
         }
         return orders;
     }
@@ -419,7 +393,7 @@ public class OrderMapper {
                 orders.add(ord);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllConfirmedOrdersException();
+            con.getUEX().ThrowDidNotGetAllConfirmedOrdersException();
         }
         return orders;
     }
@@ -453,7 +427,7 @@ public class OrderMapper {
                 orders.add(ord);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllPendingOrdersException();
+            con.getUEX().ThrowDidNotGetAllPendingOrdersException();
         }
         return orders;
     }
@@ -489,7 +463,7 @@ public class OrderMapper {
                 }
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllCustomerOrdersException();
+            con.getUEX().ThrowDidNotGetAllCustomerOrdersException();
         }
         return orders;
     }
@@ -515,7 +489,7 @@ public class OrderMapper {
                 orderIds.add(orderId);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllCustomerOrdersIdException();
+            con.getUEX().ThrowDidNotGetAllCustomerOrdersIdException();
         }
         return orderIds;
     }
@@ -533,7 +507,7 @@ public class OrderMapper {
             Connection con = Connector.connection();
             String sql = "Select orderConfirmed from orders where orderId= '" + orderID + "'";
 
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql);
             ResultSet resultset = ps.executeQuery(sql);
 
             while (resultset.next()) {
@@ -562,7 +536,7 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotSendOrderException();
+            con.getUEX().ThrowCouldNotSendOrderException();
         }
     }
 
@@ -587,7 +561,7 @@ public class OrderMapper {
                 return result;
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotFindThePriceException();
+            con.getUEX().ThrowDidNotFindThePriceException();
         }
         return result;
     }
@@ -606,7 +580,7 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotSendOrderException();
+            con.getUEX().ThrowCouldNotSendOrderException();
         }
     }
 
@@ -631,7 +605,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotSendOrderException();
+            con.getUEX().ThrowCouldNotSendOrderException();
         }
         return userid;
     }
@@ -651,7 +625,7 @@ public class OrderMapper {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotSendOrderException();
+            con.getUEX().ThrowCouldNotSendOrderException();
         }
         return orderId;
     }

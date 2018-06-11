@@ -14,7 +14,6 @@ import java.sql.Statement;
 public class InventoryMapper {
 
     private static Constants con = new Constants();
-    private static UniversalExceptions uex = con.getUEX();
 
     /**
      *
@@ -45,7 +44,7 @@ public class InventoryMapper {
                 inventory.add(inv);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheCompleteInventoryException();
+            con.getUEX().ThrowDidNotGetTheCompleteInventoryException();
         }
         return inventory;
     }
@@ -68,10 +67,10 @@ public class InventoryMapper {
                     + "', description = '" + desc + "', length = '" + length
                     + "', unit = '" + unit + "', status = '" + status + "', price = '" + price + "';";
 
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotAddToInventoryException();
+            con.getUEX().ThrowCouldNotAddToInventoryException();
             throw new UniversalExceptions(ex.getMessage());
         }
     }
@@ -96,7 +95,7 @@ public class InventoryMapper {
                 name = resultset.getString("name");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheNameException();
+            con.getUEX().ThrowDidNotGetTheNameException();
         }
         return name;
     }
@@ -121,7 +120,7 @@ public class InventoryMapper {
                 length = resultset.getInt("length");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheLengthException();
+            con.getUEX().ThrowDidNotGetTheLengthException();
         }
         return length;
     }
@@ -146,7 +145,7 @@ public class InventoryMapper {
                 unit = resultset.getString("unit");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheUnitException();
+            con.getUEX().ThrowDidNotGetTheUnitException();
         }
         return unit;
     }
@@ -171,7 +170,7 @@ public class InventoryMapper {
                 id = resultset.getInt("id");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheIdException();
+            con.getUEX().ThrowDidNotGetTheIdException();
         }
         return id;
     }
@@ -196,7 +195,7 @@ public class InventoryMapper {
                 desc = resultset.getString("description");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheDescriptionException();
+            con.getUEX().ThrowDidNotGetTheDescriptionException();
         }
         return desc;
     }
@@ -227,7 +226,7 @@ public class InventoryMapper {
                 result = new Inventory(id, name, length, unit, desc, status, price);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheSpecificItemException();
+            con.getUEX().ThrowDidNotGetTheSpecificItemException();
         }
         return result;
     }
@@ -252,7 +251,7 @@ public class InventoryMapper {
                 result = resultset.getInt("status");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheStatusException();
+            con.getUEX().ThrowDidNotGetTheStatusException();
         }
         return result;
     }
@@ -278,7 +277,7 @@ public class InventoryMapper {
             }
             return result;
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetThePriceException();
+            con.getUEX().ThrowDidNotGetThePriceException();
         }
         return result;
     }
@@ -302,7 +301,7 @@ public class InventoryMapper {
                 ps.executeUpdate(SQL);
                 return true;
             } catch (SQLException | ClassNotFoundException ex) {
-                uex.ThrowDidNotUpdateTheStatusException();
+                con.getUEX().ThrowDidNotUpdateTheStatusException();
             }
         }
         return false;
@@ -326,7 +325,7 @@ public class InventoryMapper {
                     PreparedStatement ps = con.prepareStatement(SQL);
                     ps.executeUpdate(SQL);
                 } catch (SQLException | ClassNotFoundException ex) {
-                    uex.ThrowCouldNotReverseTheStatusUpdateException();
+                    con.getUEX().ThrowCouldNotReverseTheStatusUpdateException();
                 }
             }
         }
@@ -350,10 +349,10 @@ public class InventoryMapper {
                     + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
                     + "', status = '" + status + "', price = '" + price
                     + "' WHERE id='" + id + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowCouldNotUpdateInventoryException();
+            con.getUEX().ThrowCouldNotUpdateInventoryException();
             throw new UniversalExceptions(ex.getMessage());
         }
     }
@@ -368,7 +367,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -376,7 +375,7 @@ public class InventoryMapper {
                 idList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return idList;
@@ -393,7 +392,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT length FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -401,7 +400,7 @@ public class InventoryMapper {
                 lengthList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return lengthList;
@@ -418,7 +417,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT status FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -426,7 +425,7 @@ public class InventoryMapper {
                 statusList.add(status);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return statusList;
@@ -443,7 +442,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT price FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -451,7 +450,7 @@ public class InventoryMapper {
                 priceList.add(price);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return priceList;
@@ -468,7 +467,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT name FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -476,7 +475,7 @@ public class InventoryMapper {
                 nameList.add(name);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return nameList;
@@ -493,7 +492,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT description FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -501,7 +500,7 @@ public class InventoryMapper {
                 descList.add(desc);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return descList;
@@ -518,7 +517,7 @@ public class InventoryMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT unit FROM FogUsers.inventory order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -526,7 +525,7 @@ public class InventoryMapper {
                 unitList.add(unit);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return unitList;

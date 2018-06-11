@@ -14,7 +14,6 @@ import java.util.List;
 public class UserMapper {
 
     private static Constants con = new Constants();
-    private static UniversalExceptions uex = con.getUEX();
 
     /**
      *
@@ -30,8 +29,8 @@ public class UserMapper {
             ps.setString(1, user.getName());
             ps.setString(2, user.getLastname());
             ps.setString(3, user.getAddress());
-            ps.setString(4, "" + user.getPostalcode());
-            ps.setString(5, "" + user.getPhone());
+            ps.setInt(4, user.getPostalcode());
+            ps.setInt(5, user.getPhone());
             ps.setString(6, user.getEmail());
             ps.setString(7, user.getPassword());
             ps.setString(8, user.getRole());
@@ -41,7 +40,7 @@ public class UserMapper {
             int id = ids.getInt(1);
             user.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotCreateUserException();
+            con.getUEX().ThrowDidNotCreateUserException();
             throw new UniversalExceptions(ex.getMessage());
         }
     }
@@ -72,7 +71,7 @@ public class UserMapper {
                 throw new UniversalExceptions("Could not validate user");
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            uex.ThrowDidNotLoginException();
+            con.getUEX().ThrowDidNotLoginException();
             throw new UniversalExceptions(ex.getMessage());
         }
     }
@@ -88,14 +87,14 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users where email = '" + email + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 id = rs.getInt("id");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheUserIdException();
+            con.getUEX().ThrowDidNotGetTheUserIdException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return id;
@@ -112,7 +111,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users where id = '" + id + "'";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -127,7 +126,7 @@ public class UserMapper {
                 u = new User(name, lastname, address, postal, phone, email, password);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetTheUserException();
+            con.getUEX().ThrowDidNotGetTheUserException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return u;
@@ -153,11 +152,11 @@ public class UserMapper {
                     + "', lastname = '" + lastname + "', address = '" + address + "', postalnumber = '" + postalnumber
                     + "', phone = '" + phone + "', email = '" + email
                     + "', password = '" + password + "' WHERE id='" + id + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotUpdateUserInfoException();
+            con.getUEX().ThrowDidNotUpdateUserInfoException();
             throw new UniversalExceptions(ex.getMessage());
         }
     }
@@ -172,7 +171,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -187,7 +186,7 @@ public class UserMapper {
                 userlist.add(new User(id, name, lastname, address, postal, phone, email, password));
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetUserListException();
+            con.getUEX().ThrowDidNotGetUserListException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return userlist;
@@ -203,7 +202,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT id FROM FogUsers.users order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -211,7 +210,7 @@ public class UserMapper {
                 idList.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return idList;
@@ -227,7 +226,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT name FROM FogUsers.users order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -236,7 +235,7 @@ public class UserMapper {
                 names.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
 
@@ -253,7 +252,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT lastname FROM FogUsers.users order by id asc";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
@@ -262,7 +261,7 @@ public class UserMapper {
                 lastnames.add(id);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return lastnames;
@@ -279,7 +278,7 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM FogUsers.users where id='" + userId + "'";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery(SQL);
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -297,7 +296,7 @@ public class UserMapper {
                 infoList.add("Email: " + email);
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetAllUserIdsException();
+            con.getUEX().ThrowDidNotGetAllUserIdsException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return infoList;
@@ -314,13 +313,13 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 role = rs.getString("role");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetUserRoleException();
+            con.getUEX().ThrowDidNotGetUserRoleException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return role;
@@ -337,14 +336,14 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT name FROM FogUsers.users where id = '" + id + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 name = rs.getString("name");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetUserRoleException();
+            con.getUEX().ThrowDidNotGetUserRoleException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return name;
@@ -361,13 +360,13 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 lastname = rs.getString("lastname");
             }
         } catch (SQLException | ClassNotFoundException ex) {
-            uex.ThrowDidNotGetUserRoleException();
+            con.getUEX().ThrowDidNotGetUserRoleException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return lastname;
@@ -393,7 +392,7 @@ public class UserMapper {
                 return exists;
             }
         } catch (SQLException | ClassNotFoundException ex) { //temporary error
-            uex.ThrowDidNotFindUserIdException();
+            con.getUEX().ThrowDidNotFindUserIdException();
             throw new UniversalExceptions(ex.getMessage());
         }
         return exists;

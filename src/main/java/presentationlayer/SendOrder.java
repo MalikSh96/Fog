@@ -14,7 +14,6 @@ public class SendOrder extends Command {
 
     int id = 0;
     Constants con = new Constants();
-    BusinessFacade bf = con.getBf();
     boolean possible = true;
 
     @Override
@@ -22,22 +21,22 @@ public class SendOrder extends Command {
         HttpSession session = request.getSession();
         id = (int) session.getAttribute("ordernumber");
         User us = (User) session.getAttribute("user");
-        List<Integer> itemIds = bf.getFullItemlistId(id);
+        List<Integer> itemIds = con.getBf().getFullItemlistId(id);
         List<Integer> wrongIds = new ArrayList<>();
         for (int i = 0; i < itemIds.size(); i++) {
-            if (!bf.updateStatus(itemIds.get(i), bf.getAmount(id, itemIds.get(i)))) {
+            if (!con.getBf().updateStatus(itemIds.get(i), con.getBf().getAmount(id, itemIds.get(i)))) {
                 possible = false;
                 wrongIds.add(itemIds.get(i));
             }
         }
         if (!possible) {
             for (int i = 0; i < itemIds.size(); i++) {
-                bf.reverseStatusUpdate(itemIds.get(i), bf.getAmount(id, itemIds.get(i)), wrongIds);
+                con.getBf().reverseStatusUpdate(itemIds.get(i), con.getBf().getAmount(id, itemIds.get(i)), wrongIds);
             }
         } else {
-            bf.sendOrder(id);
+            con.getBf().sendOrder(id);
         }
-        if (us.isAdmin(bf.getUserRole(us.getId()))) {
+        if (us.isAdmin(con.getBf().getUserRole(us.getId()))) {
             return "adminpage";
         }
         return "storagechiefpage";

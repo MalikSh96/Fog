@@ -33,8 +33,8 @@
 //
 //    @Test //works
 //    public void testGetOrder() throws UniversalExceptions {
-//        Orders checkId = om.getOrder(2);
-//        int expected = 2;
+//        Orders checkId = om.getOrder(5);
+//        int expected = 5;
 //        assertEquals(expected, checkId.getOrderId());
 //    }
 //

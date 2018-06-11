@@ -1,10 +1,17 @@
-<%@page import="businesslayer.BusinessFacade"%>
 <%@page import="businesslayer.Constants"%> 
-
 <%@page import="businesslayer.User"%>
 <%User user = (User) session.getAttribute("user");
-    Constants con = new Constants();
-    BusinessFacade bf = con.getBf();%>
+    Constants con = new Constants();%>
+        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
+        <link href="stylesheetjavascript.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <header class="container-resposize-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,23 +31,23 @@
                                     </li>
                                     <li class="topsviews" ><a href="FrontController?command=customorder">Bygselv Carport</a>
                                     </li>
-                                    <% if (user != null && user.isAdmin(bf.getUserRole(user.getId()))) { %>
+                                    <% if (user != null && user.isAdmin(con.getBf().getUserRole(user.getId()))) { %>
                                     <li class="topsviews"><a href="FrontController?command=adminpage">Admin</a>
                                     </li>
                                     <% }%> 
-                                    <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
+                                    <% if (user != null && con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) { %>
                                     <li class="topsviews"><a href="FrontController?command=storagechiefpage">Storage chief</a>
                                     </li>
                                     <% }%>
-                                    <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker")) { %>
+                                    <% if (user != null && con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker")) { %>
                                     <li class="topsviews"><a href="FrontController?command=storageworkerpage">Storage worker</a>
                                     </li>
                                     <% }%>
-                                    <% if (user != null && bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller")) { %>
+                                    <% if (user != null && con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) { %>
                                     <li class="topsviews"><a href="FrontController?command=sellerpage">Seller</a>
                                     </li>
                                     <% }%>
-                                    <% if (user != null && !user.isAdmin(bf.getUserRole(user.getId())) && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("seller") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storageworker") && !bf.getUserRole(bf.getUserId(user.getEmail())).equals("storagechief")) { %>
+                                    <% if (user != null && !user.isAdmin(con.getBf().getUserRole(user.getId())) && !con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller") && !con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker") && !con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) { %>
                                     <li class="topsviews"><a href="FrontController?command=customerpage">Min Side</a>
                                     </li>
                                     <% }%>                                        

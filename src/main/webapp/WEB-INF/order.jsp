@@ -1,20 +1,10 @@
-<%@page import="businesslayer.ItemList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order</title>
-        <link href="stylesheetnavigation.css" rel="stylesheet" type="text/css"/>
-        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
-        <link href="stylesheetjavascript.css" rel="stylesheet" type="text/css"/>
-        <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
-        <link href="stylesheetfooter.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <%  int length = (int) session.getAttribute("længde"); %>
+  <%  int length = (int) session.getAttribute("længde"); %>
 
         <%  int width = (int) session.getAttribute("bredde");%>
         <%  int height = (int) session.getAttribute("højde"); %>
@@ -66,6 +56,9 @@
                         <div id="myFogSVGbirdseye" class="modal">
                             <div class="modal-content">
 
+                                
+                                
+                                <!-- SVG height = bredden af carporten, SVG width = længden af carporten --->
                                 <!-- Picture size of SVG  -->
                                 <span class="close">&times;</span>
                                 <SVG height="<%out.print(session.getAttribute("breddeSVG"));%>" 
@@ -135,7 +128,7 @@
                                 <!--------------->
                                 <!--if length 675 then come 6 pole to top 1000  -->    
                                 <% if ((675 <= length) && (1000 > length)) {%>
-                                <% for (int n = 1; n < 5; n++) { %>
+                                <% for (int n = 1; n < 5; n++) { %> 
                                 <rect x="<%out.print(length / 5 * n);%>" 
                                       y="48" height="6"
                                       width="8" style="stroke:black; fill: black"/>
@@ -191,23 +184,23 @@
                                       text-anchor="middle"><% out.print(roof_tiles); %>cm</text>
                                 <% }%>
                                 <!--------------->
-                                <!--left rafter of 6 cm -->
+                                <!--left end raft of 6 cm -->
                                 <rect x="0" y="30" height="<%= width%>" 
                                       width="6" style="stroke:black; fill: none"/>
                                 <!--------------->
-                                <!--top rafter of 6 cm -->
+                                <!--top rem of 6 cm -->
                                 <rect x="0" y="48" height="6" 
                                       width="<%=length%>"
                                       style="stroke:black; fill: none"/>
                                 <!--------------->
-                                <!--right rafter of 6 cm -->
+                                <!--right end raft of 6 cm -->
                                 <rect x="<%out.print(session.getAttribute("længdespær"));%>" 
                                       y="30" 
                                       height="<%= width%>" 
                                       width="3" 
                                       style="stroke:black; fill: none"/>
                                 <!--------------->
-                                <!--bottom rafter of 6 cm -->
+                                <!--bottom rem of 6 cm -->
                                 <rect x="0" y="<%out.print(session.getAttribute("breddespær"));%>"
                                       height="6" 
                                       width="<%= length%>" 
@@ -324,7 +317,7 @@
                                 <% }%>
                                 <% }%>
 
-                                <!----------------->                     
+                                <!----------------->               
 
 
                                 <!--heightground to the carport - 25 roof of ------>
@@ -334,9 +327,7 @@
                                       font-size="10px"
                                       text-anchor="middle"
                                       style="writing-mode: tb;">Højde <%= height%> cm</text>
-
                                 </SVG>
-
                             </div>
                         </div>
                     </div>
