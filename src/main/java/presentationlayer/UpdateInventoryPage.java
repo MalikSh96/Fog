@@ -7,14 +7,14 @@ import javax.servlet.http.HttpSession;
 
 public class UpdateInventoryPage extends Command {
 
-    int id = 0;
+    int inventoryId = 0;
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalExceptions {
 
         HttpSession session = request.getSession();
-        id = Integer.parseInt(request.getParameter("choseninventoryid"));
-        session.setAttribute("inventoryid", id);
+        inventoryId = Integer.parseInt(request.getParameter("choseninventoryid"));
+        session.setAttribute("inventoryid", inventoryId);
         return "updateinventorypage";
     }
 }

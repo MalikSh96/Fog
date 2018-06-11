@@ -8,9 +8,6 @@
     <body>
     <center>
         <%@include file="../navigation/menu.jsp" %>
-        <%
-            User userr = (User) session.getAttribute("user");
-        %>
         <h1>Alle ordrer</h1>
 
         <%= con.getBf().allOrders(con.getBf().getAllOrderIds(), con.getBf().allOrderCustomerNames(con.getBf().getOrderCustomerIds()), con.getBf().allOrderCustomerLastnames(con.getBf().getOrderCustomerIds()), con.getBf().getAllOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>

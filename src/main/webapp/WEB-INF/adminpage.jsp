@@ -9,10 +9,7 @@
     <center>
         
         <%@include file="../navigation/menu.jsp" %>     
-        <%
-            User usrrs = (User) session.getAttribute("user");
-        %>
-        <%if (!usrrs.isAdmin(con.getBf().getUserRole(usrrs.getId()))) {
+        <%if (!user.isAdmin(con.getBf().getUserRole(user.getId()))) {
             response.sendRedirect("index.jsp");
         }%>
         <h1> Admin side </h1>

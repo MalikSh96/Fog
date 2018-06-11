@@ -11,7 +11,6 @@
         <%
             int id = (int) session.getAttribute("specificUserid");
             User bruger = con.getBf().getUser(id);
-            User currentuser = (User) session.getAttribute("user");
             session.setAttribute("brugerID", id);
         %> 
         <h1>Brugerside for: <%= bruger.getName() + " " + bruger.getLastname()%></h1>
@@ -27,11 +26,11 @@
         <br><%=con.getBf().allCustomerOrderIds(id).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%><br>
     </center>
     <center>
-        <% if (currentuser.isAdmin(con.getBf().getUserRole(currentuser.getId()))) {%>
+        <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(currentuser.getEmail())).equals("seller")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) {%>
         <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
         <%}%>
     </center>

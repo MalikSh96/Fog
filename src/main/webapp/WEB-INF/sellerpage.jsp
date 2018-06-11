@@ -8,10 +8,8 @@
     <body>
     <center>
         <%@include file="../navigation/menu.jsp" %>
-            <%
-                User usrrs = (User) session.getAttribute("user");
-            %>
-            <%if (!con.getBf().getUserRole(con.getBf().getUserId(usrrs.getEmail())).equals("seller")) {
+
+            <%if (!con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) {
                 response.sendRedirect("index.jsp");
             }%>
         <h1> Sælger side </h1>

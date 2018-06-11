@@ -10,7 +10,6 @@
         <%@include file="../navigation/menu.jsp" %>
         <%
             int id = (int) session.getAttribute("id");
-            User usr = con.getBf().getUser(id);
         %>
 
 
@@ -18,7 +17,7 @@
         <div class="center-text">
             <div class="customerpageoverskrift">
                 <h1>
-                    Velkommen <%= usr.getName()%>. 
+                    Velkommen <%= user.getName()%>. 
                 </h1>
             </div>
         </div>

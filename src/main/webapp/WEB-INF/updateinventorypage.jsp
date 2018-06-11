@@ -11,9 +11,8 @@
         <h1>Opdater Lager</h1>
 
         <%
-            User brugere = (User) session.getAttribute("user");
             int itemid = (int) session.getAttribute("inventoryid");
-        %> <%if(con.getBf().getUserRole(con.getBf().getUserId(brugere.getEmail())).equals("storageworker")) {
+        %> <%if(con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker")) {
             response.sendRedirect("index.jsp"); }%>
         <%=con.getBf().getSpecificItem(itemid)%><br><br>
         <form action="FrontController" method="POST">
@@ -39,11 +38,11 @@
             <br> <input type="submit" value="Opdater lagerbeholdning"><br>
         </form>
     </center>    
-    <% if (brugere.isAdmin(con.getBf().getUserRole(brugere.getId()))) {%>
+    <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
     <%}%>
 
-    <% if (con.getBf().getUserRole(con.getBf().getUserId(brugere.getEmail())).equals("storagechief")) {%>
+    <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {%>
     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
     <%}%>
 </body>

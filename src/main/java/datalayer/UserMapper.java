@@ -102,15 +102,15 @@ public class UserMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return user
      * @throws UniversalExceptions
      */
-    public static User getUser(int id) throws UniversalExceptions {
+    public static User getUser(int userId) throws UniversalExceptions {
         User u = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM FogUsers.users where id = '" + id + "'";
+            String SQL = "SELECT * FROM FogUsers.users where id = '" + userId + "'";
             PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery(SQL);
@@ -134,7 +134,7 @@ public class UserMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @param name
      * @param lastname
      * @param address
@@ -144,14 +144,14 @@ public class UserMapper {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void UpdateUserInfo(int id, String name, String lastname, String address,
+    public static void UpdateUserInfo(int userId, String name, String lastname, String address,
             int postalnumber, int phone, String email, String password) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE FogUsers.users SET name = '" + name
                     + "', lastname = '" + lastname + "', address = '" + address + "', postalnumber = '" + postalnumber
                     + "', phone = '" + phone + "', email = '" + email
-                    + "', password = '" + password + "' WHERE id='" + id + "';";
+                    + "', password = '" + password + "' WHERE id='" + userId + "';";
             PreparedStatement ps = con.prepareStatement(SQL);
 
             ps.executeUpdate();
@@ -304,15 +304,15 @@ public class UserMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return role
      * @throws UniversalExceptions
      */
-    public static String getUserRole(int id) throws UniversalExceptions {
+    public static String getUserRole(int userId) throws UniversalExceptions {
         String role = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT role FROM FogUsers.users where id = '" + id + "';";
+            String SQL = "SELECT role FROM FogUsers.users where id = '" + userId + "';";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -327,15 +327,15 @@ public class UserMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return username
      * @throws UniversalExceptions
      */
-    public static String getUserName(int id) throws UniversalExceptions {
+    public static String getUserName(int userId) throws UniversalExceptions {
         String name = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT name FROM FogUsers.users where id = '" + id + "';";
+            String SQL = "SELECT name FROM FogUsers.users where id = '" + userId + "';";
             PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery();
@@ -351,15 +351,15 @@ public class UserMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return lastname
      * @throws UniversalExceptions
      */
-    public static String getUserLastname(int id) throws UniversalExceptions {
+    public static String getUserLastname(int userId) throws UniversalExceptions {
         String lastname = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT lastname FROM FogUsers.users where id = '" + id + "';";
+            String SQL = "SELECT lastname FROM FogUsers.users where id = '" + userId + "';";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

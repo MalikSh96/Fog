@@ -10,9 +10,6 @@
     <center>
 
         <h1>Bruger liste</h1>
-        <%
-            User usrr = (User) session.getAttribute("user");
-        %>  
 
         <%= con.getBf().allUsers(con.getBf().getAllUserIds(),
                 con.getBf().getAllUserNames(),
@@ -21,11 +18,11 @@
 
     </center> 
     <center>
-        <% if (usrr.isAdmin(con.getBf().getUserRole(usrr.getId()))) {%>
+        <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(usrr.getEmail())).equals("seller")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) {%>
         <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
         <%}%>
     </center>

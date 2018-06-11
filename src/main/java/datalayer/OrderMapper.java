@@ -434,17 +434,17 @@ public class OrderMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return orders
      * @Description: Gets all the orders for a customer with a specific id
      * @throws UniversalExceptions
      */
-    public List<Orders> allCustomerOrders(int id) throws UniversalExceptions {
+    public List<Orders> allCustomerOrders(int userId) throws UniversalExceptions {
         List<Orders> orders = new ArrayList<>();
         Orders ord = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM FogUsers.orders where userID = " + id;
+            String SQL = "SELECT * FROM FogUsers.orders where userID = " + userId;
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -457,7 +457,7 @@ public class OrderMapper {
                 int height = resultset.getInt("height");
                 boolean conf = resultset.getBoolean("orderConfirmed");
 
-                if (userID == id) {
+                if (userID == userId) {
                     ord = new Orders(orderId, userID, length, width, height, conf);
                     orders.add(ord);
                 }
@@ -470,16 +470,16 @@ public class OrderMapper {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return orderIds
      * @Description: Gets all the order ids for a specific user id
      * @throws UniversalExceptions
      */
-    public List<Integer> allCustomerOrdersId(int id) throws UniversalExceptions {
+    public List<Integer> allCustomerOrdersId(int userId) throws UniversalExceptions {
         List<Integer> orderIds = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT orderId FROM FogUsers.orders where userID = " + id;
+            String SQL = "SELECT orderId FROM FogUsers.orders where userID = " + userId;
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -542,16 +542,16 @@ public class OrderMapper {
 
     /**
      *
-     * @param id
+     * @param orderId
      * @return result
      * @Description: Gets the price for a specific order id
      * @throws UniversalExceptions
      */
-    public int getPrice(int id) throws UniversalExceptions {
+    public int getPrice(int orderId) throws UniversalExceptions {
         int result = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT price FROM orders where orderId = '" + id + "';";
+            String SQL = "SELECT price FROM orders where orderId = '" + orderId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();

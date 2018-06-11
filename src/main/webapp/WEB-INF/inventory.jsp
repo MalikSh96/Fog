@@ -10,27 +10,24 @@
     <center>
         <h1>Lagerstatus</h1>
 
-        <%
-            User usr = (User) session.getAttribute("user");
-        %>
         <%= con.getBf().fullInventory(con.getBf().getAllItemIds(), con.getBf().getAllItemNames(), con.getBf().getAllItemDesc(), con.getBf().getAllItemLength(), con.getBf().getAllItemUnit(), con.getBf().getAllItemStatus(), con.getBf().getAllItemPrice()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
 
-        <% if (usr.isAdmin(con.getBf().getUserRole(usr.getId())) || con.getBf().getUserRole(con.getBf().getUserId(usr.getEmail())).equals("storagechief")) {%>
+        <% if (user.isAdmin(con.getBf().getUserRole(user.getId())) || con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {%>
 
         <a href="FrontController?command=addtoinventorypage">Tilføj til Lagerdatabase</a><br><br>
         <%}%>
 
     </center>
     <center>
-        <% if (usr.isAdmin(con.getBf().getUserRole(usr.getId()))) {%>
+        <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(usr.getEmail())).equals("storagechief")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {%>
         <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(usr.getEmail())).equals("storageworker")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker")) {%>
         <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
         <%}%>
     </center>

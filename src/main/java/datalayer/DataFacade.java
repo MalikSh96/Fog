@@ -43,18 +43,18 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return user
      * @Description: Return as user with specific id
      * @throws UniversalExceptions
      */
-    public static User getUser(int id) throws UniversalExceptions {
-        return con.getUM().getUser(id);
+    public static User getUser(int userId) throws UniversalExceptions {
+        return con.getUM().getUser(userId);
     }
 
     /**
      *
-     * @param id
+     * @param userId
      * @param name
      * @param lastname
      * @param address
@@ -64,9 +64,9 @@ public class DataFacade {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void updateUserInfo(int id, String name, String lastname,
+    public static void updateUserInfo(int userId, String name, String lastname,
             String address, int postal, int phone, String email, String password) throws UniversalExceptions {
-        con.getUM().UpdateUserInfo(id, name, lastname, address, postal, phone, email, password);
+        con.getUM().UpdateUserInfo(userId, name, lastname, address, postal, phone, email, password);
     }
 
     /**
@@ -81,35 +81,35 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param userId
      * @return userRole
      * @Description: Gets the role of a specific user
      * @throws UniversalExceptions
      */
-    public static String getUserRole(int id) throws UniversalExceptions {
-        return con.getUM().getUserRole(id);
+    public static String getUserRole(int userId) throws UniversalExceptions {
+        return con.getUM().getUserRole(userId);
     }
 
     /**
      *
-     * @param id
+     * @param userId
      * @return username
      * @Description: Gets name of a user with specific id
      * @throws UniversalExceptions
      */
-    public static String getUserName(int id) throws UniversalExceptions {
-        return con.getUM().getUserName(id);
+    public static String getUserName(int userId) throws UniversalExceptions {
+        return con.getUM().getUserName(userId);
     }
 
     /**
      *
-     * @param id
+     * @param userId
      * @return lastname
      * @Description: Gets the lastname for a user with a specific id
      * @throws UniversalExceptions
      */
-    public static String getUserLastname(int id) throws UniversalExceptions {
-        return con.getUM().getUserLastname(id);
+    public static String getUserLastname(int userId) throws UniversalExceptions {
+        return con.getUM().getUserLastname(userId);
     }
 
     /**
@@ -196,42 +196,42 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param orderId
      * @Description: Send the order for the specific id
      * @throws UniversalExceptions
      */
-    public static void sendOrder(int id) throws UniversalExceptions {
-        con.getOM().sendOrder(id);
+    public static void sendOrder(int orderId) throws UniversalExceptions {
+        con.getOM().sendOrder(orderId);
     }
 
     /**
      *
-     * @param id
+     * @param userId
      * @return customerOrderId
      * @throws UniversalExceptions
      */
-    public static List<Integer> allCustomerOrdersId(int id) throws UniversalExceptions {
-        return con.getOM().allCustomerOrdersId(id);
+    public static List<Integer> allCustomerOrdersId(int userId) throws UniversalExceptions {
+        return con.getOM().allCustomerOrdersId(userId);
     }
 
     /**
      *
-     * @param id
+     * @param orderId
      * @return order
      * @throws UniversalExceptions
      */
-    public static Orders getOrder(int id) throws UniversalExceptions {
-        return con.getOM().getOrder(id);
+    public static Orders getOrder(int orderId) throws UniversalExceptions {
+        return con.getOM().getOrder(orderId);
     }
 
     /**
      *
-     * @param id
+     * @param orderId
      * @return price
      * @throws UniversalExceptions
      */
-    public static int getOrderPrice(int id) throws UniversalExceptions {
-        return con.getOM().getPrice(id);
+    public static int getOrderPrice(int orderId) throws UniversalExceptions {
+        return con.getOM().getPrice(orderId);
     }
 
     /**
@@ -349,23 +349,23 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param orderId
      * @return fullItemListId
      * @throws UniversalExceptions
      */
-    public static List<Integer> getFullItemlistId(int id) throws UniversalExceptions {
-        return con.getILM().getFullItemlistId(id);
+    public static List<Integer> getFullItemlistId(int orderId) throws UniversalExceptions {
+        return con.getILM().getFullItemlistId(orderId);
     }
 
     /**
      *
-     * @param id
-     * @param id2
+     * @param orderId
+     * @param itemId
      * @return amount
      * @throws UniversalExceptions
      */
-    public static int getAmount(int id, int id2) throws UniversalExceptions {
-        return con.getILM().getAmount(id, id2);
+    public static int getAmount(int orderId, int itemId) throws UniversalExceptions {
+        return con.getILM().getAmount(orderId, itemId);
     }
 
     /**
@@ -416,42 +416,42 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return itemLength
      * @throws UniversalExceptions
      */
-    public static int getItemLength(int id) throws UniversalExceptions {
-        return con.getIM().getLength(id);
+    public static int getItemLength(int itemId) throws UniversalExceptions {
+        return con.getIM().getLength(itemId);
     }
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return ItemDescription
      * @throws UniversalExceptions
      */
-    public static String getItemDesc(int id) throws UniversalExceptions {
-        return con.getIM().getDescription(id);
+    public static String getItemDesc(int itemId) throws UniversalExceptions {
+        return con.getIM().getDescription(itemId);
     }
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return itemName
      * @throws UniversalExceptions
      */
-    public static String getItemName(int id) throws UniversalExceptions {
-        return con.getIM().getName(id);
+    public static String getItemName(int itemId) throws UniversalExceptions {
+        return con.getIM().getName(itemId);
     }
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return itemPrice
      * @throws UniversalExceptions
      */
-    public static int getItemPrice(int id) throws UniversalExceptions {
-        return con.getIM().getPrice(id);
+    public static int getItemPrice(int itemId) throws UniversalExceptions {
+        return con.getIM().getPrice(itemId);
     }
 
     /**
@@ -466,12 +466,12 @@ public class DataFacade {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return itemStatus
      * @throws UniversalExceptions
      */
-    public static int getItemStatus(int id) throws UniversalExceptions {
-        return con.getIM().getStatus(id);
+    public static int getItemStatus(int itemId) throws UniversalExceptions {
+        return con.getIM().getStatus(itemId);
     }
 
     /**
@@ -583,8 +583,8 @@ public class DataFacade {
         return con.getIM().getAllItemPrice();
     }
 
-    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
-        return con.getIM().getSpecificItem(id);
+    public static Inventory getSpecificItem(int itemId) throws UniversalExceptions {
+        return con.getIM().getSpecificItem(itemId);
     }
 
 }

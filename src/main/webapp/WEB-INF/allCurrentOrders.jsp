@@ -9,9 +9,6 @@
         <%@include file="../navigation/menu.jsp" %>
     <center>
         <h1>Alle nuværende ordrer</h1>
-        <%
-            User userr = (User) session.getAttribute("user");
-        %>
 
 
         <br><%= con.getBf().allCurrentOrders(con.getBf().getNonSentOrderId(),
@@ -20,15 +17,15 @@
                 con.getBf().getNonSentOrderDates()).toString().replace("[", "").replace("]", "").replace(",", "") + "<br>"%>
     </center>
     <center>
-        <% if (userr.isAdmin(con.getBf().getUserRole(userr.getId()))) {%>
+        <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
         <a href="FrontController?command=adminpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(userr.getEmail())).equals("storagechief")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {%>
         <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
         <%}%>
 
-        <% if (con.getBf().getUserRole(con.getBf().getUserId(userr.getEmail())).equals("storageworker")) {%>
+        <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker")) {%>
         <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
         <%}%>
     </center>

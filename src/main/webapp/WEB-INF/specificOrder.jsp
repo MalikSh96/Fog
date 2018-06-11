@@ -18,23 +18,22 @@
                     <%
                         int id = (int) session.getAttribute("orderid");
                         session.setAttribute("ordernumber", id);
-                        User us = (User) session.getAttribute("user");
                     %>
 
-                    <%if (us.isAdmin(con.getBf().getUserRole(us.getId()))) {%>
+                    <%if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
                     <%=con.getBf().getAllUserInfo(con.getBf().getUserIdFromOrderId(id)).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
                     <%}%>
 
                     <%=con.getBf().getOrder(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>"%><br>
 
 
-                    <%if (!us.isAdmin(con.getBf().getUserRole(us.getId())) && con.getBf().getOrder(id).isOrderConfirmed() || us.isAdmin(con.getBf().getUserRole(us.getId())) || con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("storageworker") || con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("storagechief") || con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("seller")) {
+                    <%if (!user.isAdmin(con.getBf().getUserRole(user.getId())) && con.getBf().getOrder(id).isOrderConfirmed() || user.isAdmin(con.getBf().getUserRole(user.getId())) || con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker") || con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief") || con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) {
                             out.println(con.getBf().getFullItemlist(id).toString().replace("[", "").replace("]", "").replace(",", "<br>") + "<br>");
                         }%><br>
 
                     <%out.println("Pris: " + con.getBf().getOrderPrice(id));%>
 
-                    <% if (us.isAdmin(con.getBf().getUserRole(us.getId())) && !con.getBf().getOrder(id).isOrderConfirmed() || con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("storagechief") && !con.getBf().getOrder(id).isOrderConfirmed()) {%>
+                    <% if (user.isAdmin(con.getBf().getUserRole(user.getId())) && !con.getBf().getOrder(id).isOrderConfirmed() || con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief") && !con.getBf().getOrder(id).isOrderConfirmed()) {%>
                     <form action="FrontController" method="POST">
                         <input type="hidden" name="command" value="sendorder">
                         <input type="submit" name="ordernumber" value="Send ordre" />
@@ -42,19 +41,19 @@
                     <%}%>
                     <br><br>
 
-                    <% if (us.isAdmin(con.getBf().getUserRole(us.getId()))) {%>
+                    <% if (user.isAdmin(con.getBf().getUserRole(user.getId()))) {%>
                     <a href="FrontController?command=adminpage">Tilbage</a><br><br>
                     <%}%>
 
-                    <% if (con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("storagechief")) {%>
+                    <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {%>
                     <a href="FrontController?command=storagechiefpage">Tilbage</a><br><br>
                     <%}%>
 
-                    <% if (con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("storageworker")) {%>
+                    <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storageworker")) {%>
                     <a href="FrontController?command=storageworkerpage">Tilbage</a><br><br>
                     <%}%>
 
-                    <% if (con.getBf().getUserRole(con.getBf().getUserId(us.getEmail())).equals("seller")) {%>
+                    <% if (con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("seller")) {%>
                     <a href="FrontController?command=sellerpage">Tilbage</a><br><br>
                     <%}%>
                 </div>

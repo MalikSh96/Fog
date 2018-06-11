@@ -77,16 +77,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return name
      * @throws UniversalExceptions
      */
-    public static String getName(int id) throws UniversalExceptions {
+    public static String getName(int itemId) throws UniversalExceptions {
 
         String name = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT name FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT name FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -102,16 +102,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return length
      * @throws UniversalExceptions
      */
-    public static int getLength(int id) throws UniversalExceptions {
+    public static int getLength(int itemId) throws UniversalExceptions {
 
         int length = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT length FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT length FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -177,16 +177,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return Description
      * @throws UniversalExceptions
      */
-    public static String getDescription(int id) throws UniversalExceptions {
+    public static String getDescription(int itemId) throws UniversalExceptions {
 
         String desc = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT description FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT description FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -202,16 +202,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return result
      * @throws UniversalExceptions
      */
-    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
+    public static Inventory getSpecificItem(int itemId) throws UniversalExceptions {
 
         Inventory result = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT * FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -223,7 +223,7 @@ public class InventoryMapper {
                 String unit = resultset.getString("unit");
                 int status = resultset.getInt("status");
                 int price = resultset.getInt("price");
-                result = new Inventory(id, name, length, unit, desc, status, price);
+                result = new Inventory(itemId, name, length, unit, desc, status, price);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             con.getUEX().ThrowDidNotGetTheSpecificItemException();
@@ -233,16 +233,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return result
      * @throws UniversalExceptions
      */
-    public static int getStatus(int id) throws UniversalExceptions {
+    public static int getStatus(int itemId) throws UniversalExceptions {
 
         int result = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT status FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT status FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -258,16 +258,16 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @return result
      * @throws UniversalExceptions
      */
-    public static int getPrice(int id) throws UniversalExceptions {
+    public static int getPrice(int itemId) throws UniversalExceptions {
 
         int result = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT price FROM inventory where id = '" + id + "';";
+            String SQL = "SELECT price FROM inventory where id = '" + itemId + "';";
 
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet resultset = ps.executeQuery();
@@ -284,17 +284,17 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @param amount
      * @return boolean
      * @throws UniversalExceptions
      */
-    public static boolean updateStatus(int id, int amount) throws UniversalExceptions {
-        int result = getStatus(id) - amount;
+    public static boolean updateStatus(int itemId, int amount) throws UniversalExceptions {
+        int result = getStatus(itemId) - amount;
         if (result > 0) {
             try {
                 Connection con = Connector.connection();
-                String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
+                String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + itemId + "';";
 
                 PreparedStatement ps = con.prepareStatement(SQL);
 
@@ -309,18 +309,18 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @param amount
      * @param wrongIds
      * @throws UniversalExceptions
      */
-    public static void reverseStatusUpdate(int id, int amount, List<Integer> wrongIds) throws UniversalExceptions {
-        int result = getStatus(id) + amount;
+    public static void reverseStatusUpdate(int itemId, int amount, List<Integer> wrongIds) throws UniversalExceptions {
+        int result = getStatus(itemId) + amount;
         for (int i = 0; i < wrongIds.size(); i++) {
-            if (id != wrongIds.get(i)) {
+            if (itemId != wrongIds.get(i)) {
                 try {
                     Connection con = Connector.connection();
-                    String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + id + "';";
+                    String SQL = "UPDATE FogUsers.inventory SET status ='" + result + "' WHERE id='" + itemId + "';";
 
                     PreparedStatement ps = con.prepareStatement(SQL);
                     ps.executeUpdate(SQL);
@@ -333,7 +333,7 @@ public class InventoryMapper {
 
     /**
      *
-     * @param id
+     * @param itemId
      * @param name
      * @param desc
      * @param length
@@ -342,13 +342,13 @@ public class InventoryMapper {
      * @param price
      * @throws UniversalExceptions
      */
-    public static void UpdateInventory(int id, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
+    public static void UpdateInventory(int itemId, String name, String desc, int length, String unit, int status, int price) throws UniversalExceptions {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE FogUsers.inventory SET name = '" + name
                     + "', description = '" + desc + "', length = '" + length + "', unit = '" + unit
                     + "', status = '" + status + "', price = '" + price
-                    + "' WHERE id='" + id + "';";
+                    + "' WHERE id='" + itemId + "';";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {

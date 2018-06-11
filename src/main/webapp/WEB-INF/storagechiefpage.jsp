@@ -8,10 +8,7 @@
     <body>
     <center>
         <%@include file="../navigation/menu.jsp" %>
-            <%
-                User usrrs = (User) session.getAttribute("user");
-            %>
-            <%if (!con.getBf().getUserRole(con.getBf().getUserId(usrrs.getEmail())).equals("storagechief")) {
+            <%if (!con.getBf().getUserRole(con.getBf().getUserId(user.getEmail())).equals("storagechief")) {
                 response.sendRedirect("index.jsp");
             }%>
         <h1> Lagerchef side </h1>

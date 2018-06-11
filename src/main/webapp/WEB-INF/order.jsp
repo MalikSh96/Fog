@@ -4,8 +4,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order</title>
-  <%  int length = (int) session.getAttribute("længde"); %>
 
+        <%  int length = (int) session.getAttribute("længde"); %>
         <%  int width = (int) session.getAttribute("bredde");%>
         <%  int height = (int) session.getAttribute("højde"); %>
         <%  int roof_tiles = (int) session.getAttribute("tagsten");%>
@@ -17,7 +17,7 @@
         <% int widthline = (int) session.getAttribute("breddelinje"); %>
         <% int heightline = (int) session.getAttribute("højdelinje"); %>
         <% int lengthline = (int) session.getAttribute("længdelinje");
-            %> 
+        %> 
     </head>
     <body>       
 
@@ -56,8 +56,8 @@
                         <div id="myFogSVGbirdseye" class="modal">
                             <div class="modal-content">
 
-                                
-                                
+
+
                                 <!-- SVG height = bredden af carporten, SVG width = længden af carporten --->
                                 <!-- Picture size of SVG  -->
                                 <span class="close">&times;</span>

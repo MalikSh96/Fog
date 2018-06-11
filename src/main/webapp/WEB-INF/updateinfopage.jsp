@@ -23,21 +23,16 @@
         </style>
         <%@include file="../navigation/menu.jsp" %>
 
-        <%
-            int id = (int) session.getAttribute("id");
-            User us = con.getBf().getUser(id);
-        %>
-
         <form action="FrontController" method="POST">
             <input type="hidden" name="command" value="updateinfo">
             <div class="information-text-center-site">   
 
                 <h3>Information</h3>
-                Navn: <%= us.getName() + " " + us.getLastname()%><br>
-                Adresse:  <%= us.getAddress()%><br>
-                Post nr: <%= us.getPostalcode()%><br>
-                Telefon nr: <%= us.getPhone()%><br>
-                Email: <%= us.getEmail()%><br><br> 
+                Navn: <%= user.getName() + " " + user.getLastname()%><br>
+                Adresse:  <%= user.getAddress()%><br>
+                Post nr: <%= user.getPostalcode()%><br>
+                Telefon nr: <%= user.getPhone()%><br>
+                Email: <%= user.getEmail()%><br><br> 
             </div> 
 
 

@@ -23,16 +23,16 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param userId
      * @return user
      * @throws UniversalExceptions
      */
-    public static User getUser(int id) throws UniversalExceptions {
-        return DataFacade.getUser(id);
+    public static User getUser(int userId) throws UniversalExceptions {
+        return DataFacade.getUser(userId);
     }
 
     /**
-     * @param id
+     * @param userId
      * @param name
      * @param lastname
      * @param address
@@ -42,9 +42,9 @@ public class BusinessFacade {
      * @param password
      * @throws UniversalExceptions
      */
-    public static void updateUserInfo(int id, String name, String lastname,
+    public static void updateUserInfo(int userId, String name, String lastname,
             String address, int postal, int phone, String email, String password) throws UniversalExceptions {
-        DataFacade.updateUserInfo(id, name, lastname, address, postal, phone, email, password);
+        DataFacade.updateUserInfo(userId, name, lastname, address, postal, phone, email, password);
     }
 
     public static User login(String email, String password) throws UniversalExceptions {
@@ -61,30 +61,30 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param userId
      * @return userRole
      * @throws UniversalExceptions
      */
-    public String getUserRole(int id) throws UniversalExceptions {
-        return DataFacade.getUserRole(id);
+    public String getUserRole(int userId) throws UniversalExceptions {
+        return DataFacade.getUserRole(userId);
     }
 
     /**
-     * @param id
+     * @param userId
      * @return username
      * @throws UniversalExceptions
      */
-    public String getUserName(int id) throws UniversalExceptions {
-        return DataFacade.getUserName(id);
+    public String getUserName(int userId) throws UniversalExceptions {
+        return DataFacade.getUserName(userId);
     }
 
     /**
-     * @param id
+     * @param userId
      * @return userLastname
      * @throws UniversalExceptions
      */
-    public String getUserLastname(int id) throws UniversalExceptions {
-        return DataFacade.getUserLastname(id);
+    public String getUserLastname(int userId) throws UniversalExceptions {
+        return DataFacade.getUserLastname(userId);
     }
 
     /**
@@ -130,14 +130,14 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param orderId
      * @param length
      * @param width
      * @param height
      * @throws UniversalExceptions
      */
-    public static void createOrder(int id, int length, int width, int height) throws UniversalExceptions {
-        Orders ord = new Orders(id, length, width, height);
+    public static void createOrder(int orderId, int length, int width, int height) throws UniversalExceptions {
+        Orders ord = new Orders(orderId, length, width, height);
         DataFacade.createOrder(ord);
     }
 
@@ -167,20 +167,20 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param orderId
      * @throws UniversalExceptions
      */
-    public void sendOrder(int id) throws UniversalExceptions {
-        DataFacade.sendOrder(id);
+    public void sendOrder(int orderId) throws UniversalExceptions {
+        DataFacade.sendOrder(orderId);
     }
 
     /**
-     * @param id
+     * @param orderId
      * @return list
      * @throws UniversalExceptions
      */
-    public static List<Integer> allCustomerOrdersId(int id) throws UniversalExceptions {
-        return DataFacade.allCustomerOrdersId(id);
+    public static List<Integer> allCustomerOrdersId(int orderId) throws UniversalExceptions {
+        return DataFacade.allCustomerOrdersId(orderId);
     }
 
     /**
@@ -192,30 +192,30 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param orderId
      * @return order
      * @throws UniversalExceptions
      */
-    public static Orders getOrder(int id) throws UniversalExceptions {
-        return DataFacade.getOrder(id);
+    public static Orders getOrder(int orderId) throws UniversalExceptions {
+        return DataFacade.getOrder(orderId);
     }
 
     /**
-     * @param id
+     * @param orderId
      * @return userId
      * @throws UniversalExceptions
      */
-    public static int getUserId(int id) throws UniversalExceptions {
-        return DataFacade.getUserId(id);
+    public static int getUserId(int orderId) throws UniversalExceptions {
+        return DataFacade.getUserId(orderId);
     }
 
     /**
-     * @param id
+     * @param orderId
      * @return orderPrice
      * @throws UniversalExceptions
      */
-    public static int getOrderPrice(int id) throws UniversalExceptions {
-        return DataFacade.getOrderPrice(id);
+    public static int getOrderPrice(int orderId) throws UniversalExceptions {
+        return DataFacade.getOrderPrice(orderId);
     }
 
     /**
@@ -299,30 +299,30 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param itemId
      * @return itemLength
      * @throws UniversalExceptions
      */
-    public static int getItemLength(int id) throws UniversalExceptions {
-        return DataFacade.getItemLength(id);
+    public static int getItemLength(int itemId) throws UniversalExceptions {
+        return DataFacade.getItemLength(itemId);
     }
 
     /**
-     * @param id
+     * @param itemId
      * @return itemDescription
      * @throws UniversalExceptions
      */
-    public static String getItemDescription(int id) throws UniversalExceptions {
-        return DataFacade.getItemDesc(id);
+    public static String getItemDescription(int itemId) throws UniversalExceptions {
+        return DataFacade.getItemDesc(itemId);
     }
 
     /**
-     * @param id
+     * @param itemId
      * @return itemName
      * @throws UniversalExceptions
      */
-    public static String getItemName(int id) throws UniversalExceptions {
-        return DataFacade.getItemName(id);
+    public static String getItemName(int itemId) throws UniversalExceptions {
+        return DataFacade.getItemName(itemId);
     }
 
     /**
@@ -335,21 +335,21 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param itemId
      * @return itemStatus
      * @throws UniversalExceptions
      */
-    public int getItemStatus(int id) throws UniversalExceptions {
-        return DataFacade.getItemStatus(id);
+    public int getItemStatus(int itemId) throws UniversalExceptions {
+        return DataFacade.getItemStatus(itemId);
     }
 
     /**
-     * @param id
+     * @param itemId
      * @return itemPrice
      * @throws UniversalExceptions
      */
-    public static int getItemPrice(int id) throws UniversalExceptions {
-        return DataFacade.getItemPrice(id);
+    public static int getItemPrice(int itemId) throws UniversalExceptions {
+        return DataFacade.getItemPrice(itemId);
     }
 
     /**
@@ -465,8 +465,8 @@ public class BusinessFacade {
         return DataFacade.getAllItemUnit();
     }
 
-    public static Inventory getSpecificItem(int id) throws UniversalExceptions {
-        return DataFacade.getSpecificItem(id);
+    public static Inventory getSpecificItem(int itemId) throws UniversalExceptions {
+        return DataFacade.getSpecificItem(itemId);
     }
 
     /**
@@ -475,12 +475,12 @@ public class BusinessFacade {
      * @param length
      * @param amount
      * @param orderId
-     * @param id
+     * @param itemId
      * @throws UniversalExceptions
      */
     public static void addToItemList(String name, String desc, int length,
-            int amount, int orderId, int id) throws UniversalExceptions {
-        DataFacade.addToItemList(name, desc, length, amount, orderId, id);
+            int amount, int orderId, int itemId) throws UniversalExceptions {
+        DataFacade.addToItemList(name, desc, length, amount, orderId, itemId);
         DataFacade.updateStatus(DataFacade.getItemId(name), amount);
     }
 
@@ -504,12 +504,12 @@ public class BusinessFacade {
     }
 
     /**
-     * @param id
+     * @param itemlistId
      * @return list
      * @throws UniversalExceptions
      */
-    public List<Integer> getFullItemlistId(int id) throws UniversalExceptions {
-        return DataFacade.getFullItemlistId(id);
+    public List<Integer> getFullItemlistId(int itemlistId) throws UniversalExceptions {
+        return DataFacade.getFullItemlistId(itemlistId);
     }
 
     /**
@@ -568,10 +568,10 @@ public class BusinessFacade {
 
     /**
      * @param dates
-     * @param ids
+     * @param orderId
      * @return list
      */
-    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> ids) {
+    public static List<String> combineUserOrderDatesWithId(List<String> dates, List<Integer> orderId) {
         List<String> result = new ArrayList<>();
         result.add("<div class=\"container\">");
         result.add("<table class=\"table table-hover\">");
@@ -579,10 +579,10 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">#</th>");
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
-        if (dates.size() == ids.size()) {
+        if (dates.size() == orderId.size()) {
             for (int i = 0; i < dates.size(); i++) {
                 result.add("<tr><th scope=\"row\"><p><a href=\"FrontController?command=specificOrder&chosenid="
-                        + ids.get(i) + "\">" + ids.get(i) + "</a></th><td><p>" + " " + dates.get(i) + "</td></tr>");
+                        + orderId.get(i) + "\">" + orderId.get(i) + "</a></th><td><p>" + " " + dates.get(i) + "</td></tr>");
             }
         }
         result.add("</table>");
@@ -591,13 +591,13 @@ public class BusinessFacade {
     }
 
     /**
-     * @param idsOrdre
+     * @param orderId
      * @param name
      * @param lastname
      * @param dates
      * @return list
      */
-    public static List<String> allCurrentOrders(List<Integer> idsOrdre,
+    public static List<String> allCurrentOrders(List<Integer> orderId,
             List<String> name, List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
@@ -610,10 +610,10 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
 
-        for (int i = 0; i < idsOrdre.size(); i++) {
+        for (int i = 0; i < orderId.size(); i++) {
             result.add("<tr>");
             result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid="
-                    + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+                    + orderId.get(i) + "\">" + orderId.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -625,13 +625,13 @@ public class BusinessFacade {
     }
 
     /**
-     * @param idsOrdre
+     * @param orderId
      * @param name
      * @param lastname
      * @param dates
      * @return list
      */
-    public static List<String> allOrders(List<Integer> idsOrdre, List<String> name,
+    public static List<String> allOrders(List<Integer> orderId, List<String> name,
             List<String> lastname, List<String> dates) {
 
         List<String> result = new ArrayList<>();
@@ -644,10 +644,10 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">Dato</th>");
         result.add("</tr>");
 
-        for (int i = 0; i < idsOrdre.size(); i++) {
+        for (int i = 0; i < orderId.size(); i++) {
             result.add("<tr>");
             result.add("<td> <p><a href=\"FrontController?command=specificOrder&chosenid="
-                    + idsOrdre.get(i) + "\">" + idsOrdre.get(i) + "</a></p></td>");
+                    + orderId.get(i) + "\">" + orderId.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("<td><p>" + dates.get(i) + "</p></td>");
@@ -659,12 +659,12 @@ public class BusinessFacade {
     }
 
     /**
-     * @param ids
+     * @param userId
      * @param name
      * @param lastname
      * @return list
      */
-    public static List<String> allUsers(List<Integer> ids, List<String> name, List<String> lastname) {
+    public static List<String> allUsers(List<Integer> userId, List<String> name, List<String> lastname) {
 
         List<String> result = new ArrayList<>();
         result.add("<div class=\"contatiner\">");
@@ -675,10 +675,10 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">Efternavn</th>");
         result.add("</tr>");
 
-        for (int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < userId.size(); i++) {
             result.add("<tr>");
             result.add("<td> <p><a href=\"FrontController?command=specificuser&chosenuserid="
-                    + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+                    + userId.get(i) + "\">" + userId.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + lastname.get(i) + "</p></td>");
             result.add("</tr>");
@@ -689,7 +689,7 @@ public class BusinessFacade {
     }
 
     /**
-     * @param ids
+     * @param itemId
      * @param name
      * @param description
      * @param length
@@ -698,7 +698,7 @@ public class BusinessFacade {
      * @param price
      * @return list
      */
-    public static List<String> fullInventory(List<Integer> ids, List<String> name,
+    public static List<String> fullInventory(List<Integer> itemId, List<String> name,
             List<String> description, List<Integer> length, List<String> unit,
             List<Integer> status, List<Integer> price) {
 
@@ -715,10 +715,10 @@ public class BusinessFacade {
         result.add("<th scope=\"col\">Pris</th>");
         result.add("</tr>");
 
-        for (int i = 0; i < ids.size(); i++) {
+        for (int i = 0; i < itemId.size(); i++) {
             result.add("<tr>");
             result.add("<td> <p><a href=\"FrontController?command=updateinventorypage&choseninventoryid="
-                    + ids.get(i) + "\">" + ids.get(i) + "</a></p></td>");
+                    + itemId.get(i) + "\">" + itemId.get(i) + "</a></p></td>");
             result.add("<td> <p>" + name.get(i) + "</p></td>");
             result.add("<td><p>" + description.get(i) + "</p></td>");
             result.add("<td><p>" + length.get(i) + "</p></td>");
@@ -733,57 +733,57 @@ public class BusinessFacade {
     }
 
     /**
-     * @param ids
+     * @param userId
      * @return list
      * @throws UniversalExceptions
      */
-    public List<String> allCurrentOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
+    public List<String> allCurrentOrderCustomerNames(List<Integer> userId) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
 
-        for (int i = 0; i < ids.size(); i++) {
-            names.add(getUserName(ids.get(i)));
+        for (int i = 0; i < userId.size(); i++) {
+            names.add(getUserName(userId.get(i)));
         }
         return names;
     }
 
     /**
-     * @param ids
+     * @param userId
      * @return list
      * @throws UniversalExceptions
      */
-    public List<String> allOrderCustomerNames(List<Integer> ids) throws UniversalExceptions {
+    public List<String> allOrderCustomerNames(List<Integer> userId) throws UniversalExceptions {
         List<String> names = new ArrayList<>();
 
-        for (int i = 0; i < ids.size(); i++) {
-            names.add(getUserName(ids.get(i)));
+        for (int i = 0; i < userId.size(); i++) {
+            names.add(getUserName(userId.get(i)));
         }
         return names;
     }
 
     /**
-     * @param ids
+     * @param userId
      * @return list
      * @throws UniversalExceptions
      */
-    public List<String> allCurrentOrderCustomerLastnames(List<Integer> ids) throws UniversalExceptions {
+    public List<String> allCurrentOrderCustomerLastnames(List<Integer> userId) throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
 
-        for (int i = 0; i < ids.size(); i++) {
-            lastnames.add(getUserLastname(ids.get(i)));
+        for (int i = 0; i < userId.size(); i++) {
+            lastnames.add(getUserLastname(userId.get(i)));
         }
         return lastnames;
     }
 
     /**
-     * @param ids
+     * @param userId
      * @return list
      * @throws UniversalExceptions
      */
-    public List<String> allOrderCustomerLastnames(List<Integer> ids) throws UniversalExceptions {
+    public List<String> allOrderCustomerLastnames(List<Integer> userId) throws UniversalExceptions {
         List<String> lastnames = new ArrayList<>();
 
-        for (int i = 0; i < ids.size(); i++) {
-            lastnames.add(getUserLastname(ids.get(i)));
+        for (int i = 0; i < userId.size(); i++) {
+            lastnames.add(getUserLastname(userId.get(i)));
         }
         return lastnames;
     }
