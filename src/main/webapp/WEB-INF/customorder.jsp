@@ -34,7 +34,6 @@
                 </div>
 
                 <div  class="col-sm-4">
-                    <form name="shedForm" action="FrontController" method="POST" onsubmit="return validateshedform()">
                         <input type="hidden" name="command" value="order">
                         <div class="length">
                             <label>Carport længde i cm*</label><br>
