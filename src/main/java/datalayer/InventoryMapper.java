@@ -71,7 +71,6 @@ public class InventoryMapper {
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             con.getUEX().ThrowCouldNotAddToInventoryException();
-            throw new UniversalExceptions(ex.getMessage());
         }
     }
 

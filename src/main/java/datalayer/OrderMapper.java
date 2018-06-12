@@ -629,4 +629,18 @@ public class OrderMapper {
         }
         return orderId;
     }
+    
+    public void deleteOrder(int orderId) throws UniversalExceptions {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "DELETE FROM FogUsers.orders WHERE orderId='" + orderId + "';";
+
+            PreparedStatement ps = con.prepareStatement(SQL);
+                 ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            con.getUEX().ThrowCouldNotSendOrderException();
+        }
+    }
+
 }

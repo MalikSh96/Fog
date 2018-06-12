@@ -508,7 +508,7 @@ public class DataFacade {
      */
     public static void addToInventory(String name, String desc, int length,
             String unit, int price, int status) throws UniversalExceptions {
-        con.getIM().addToInventory(name, desc, length, unit, price, status);
+        con.getIM().addToInventory(name, desc, length, unit, status, price);
     }
 
     /**
@@ -586,5 +586,11 @@ public class DataFacade {
     public static Inventory getSpecificItem(int itemId) throws UniversalExceptions {
         return con.getIM().getSpecificItem(itemId);
     }
+    
+    public static void deleteOrder(int orderId) throws UniversalExceptions{
+        
+       con.getOM().deleteOrder(orderId);
+    }
+
 
 }

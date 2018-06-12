@@ -398,7 +398,7 @@ public class BusinessFacade {
      */
     public void addToInventory(String name, String desc, int length, String unit,
             int status, int price) throws UniversalExceptions {
-        DataFacade.addToInventory(name, desc, length, unit, price, status);
+        DataFacade.addToInventory(name, desc, length, unit, status, price);
     }
 
     /**
@@ -811,4 +811,10 @@ public class BusinessFacade {
         result.add("</div>");
         return result;
     }
+    
+    public static void deleteOrder(int orderId) throws UniversalExceptions{
+    DataFacade.deleteOrder(orderId);
+    
+    }
+
 }
