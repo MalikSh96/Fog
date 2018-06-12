@@ -31,8 +31,8 @@ create table `orders` (
 `price` int not null, 
 `orderConfirmed` boolean default false, 
 `dates` datetime default current_timestamp,
-FOREIGN KEY (userID) REFERENCES users(`id`)
-);
+FOREIGN KEY (userID) REFERENCES users(`id`) 
+)AUTO_INCREMENT=1;
 
 CREATE TABLE `inventory` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -44,7 +44,7 @@ CREATE TABLE `inventory` (
   `price` INT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC)
-  );
+  )AUTO_INCREMENT=1;
   
   CREATE TABLE `itemlist` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -56,7 +56,7 @@ CREATE TABLE `inventory` (
   `amount` INT,
   `itemId` INT NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-  );
+  )AUTO_INCREMENT=1;
   
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Admin','Admin','Somewherevej 25',1455,12345678,'admin@admin.com', 1234, 'admin');
 insert into users(`name`,`lastname`,`address`,`postalnumber`,`phone`,`email`, `password`, `role`) values('Customer','Customer','Somewherevej 26',1455,24681357,'customer@customer.com', 1234, 'customer');
