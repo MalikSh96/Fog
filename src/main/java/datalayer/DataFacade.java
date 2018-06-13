@@ -571,7 +571,7 @@ public class DataFacade {
      * @throws UniversalExceptions
      */
     public static List<Integer> getAllItemStatus() throws UniversalExceptions {
-        return con.getIM().getAllItemLength();
+        return con.getIM().getAllItemStatus();
     }
 
     /**
