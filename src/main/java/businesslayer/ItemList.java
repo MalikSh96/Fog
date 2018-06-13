@@ -20,7 +20,7 @@ public class ItemList {
      * @param carportWidth
      * @return list
      */
-    public static List<Integer> postAmount(int carportLength, int carportWidth) {
+    public static int postAmount(int carportLength, int carportWidth) {
         int postRow = 0;
         postRow = (carportLength / 200); //divide by 2 because we want a post for every 2m/200cm, -40 to support the extra hangout
 
@@ -33,7 +33,7 @@ public class ItemList {
             postTotal = numberOfRows * postRow;
         }
         post.add(postTotal);
-        return post;
+        return postTotal;
     }
 
     /**
@@ -41,7 +41,7 @@ public class ItemList {
      * @param carportWidth
      * @return list
      */
-    public static List<Integer> raftAmount(int carportLength, int carportWidth) {
+    public static int raftAmount(int carportLength, int carportWidth) {
         Double raftRow = 0.00;
         raftRow = (carportLength / 55.00); //0.55 is length of gap between the rafts
         int raftRowInt = raftRow.intValue();
@@ -52,14 +52,14 @@ public class ItemList {
             raftTotal = (raftRowInt + 2) * 2;
         }
         raft.add(raftTotal);
-        return raft;
+        return raftTotal;
     }
 
     /**
      * @param carportLength
      * @return list
      */
-    public static List<Integer> remAmount(int carportLength) {
+    public static int remAmount(int carportLength) {
         //Carport only have 2 sides, no middle posts
         if (carportLength <= 600) {
             remTotal = 2;
@@ -67,7 +67,7 @@ public class ItemList {
             remTotal = 4;
         }
         rem.add(remTotal);
-        return rem;
+        return remTotal;
     }
 
     /**
@@ -75,7 +75,7 @@ public class ItemList {
      * @param carportWidth
      * @return list
      */
-    public static List<Integer> roofAmount(int carportLength, int carportWidth) {
+    public static int roofAmount(int carportLength, int carportWidth) {
         Double roofPlate = 0.00;
         roofPlate = (carportLength / 110.00); //1.1 is width of roof plate
         int roofPlateInt = roofPlate.intValue();
@@ -86,7 +86,7 @@ public class ItemList {
             roofTotal += roofPlateInt + 1; //add +1 because working with int, results in one less because int cuts decimals           
         }
         roof.add(roofTotal);
-        return roof;
+        return roofTotal;
     }
 
     /**

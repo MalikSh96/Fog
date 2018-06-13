@@ -536,7 +536,7 @@ public class BusinessFacade {
      * @return calculateRemAmount
      */
     public static int calculateRemAmount(int length) {
-        return ItemList.remAmount(length).get(0);
+        return ItemList.remAmount(length);
     }
 
     /**
@@ -545,7 +545,7 @@ public class BusinessFacade {
      * @return calculateRaftAmount
      */
     public static int calculateRaftAmount(int length, int width) {
-        return ItemList.raftAmount(length, width).get(0);
+        return ItemList.raftAmount(length, width);
     }
 
     /**
@@ -554,7 +554,7 @@ public class BusinessFacade {
      * @return calculatePostAmount
      */
     public static int calculatePostAmount(int length, int width) {
-        return ItemList.postAmount(length, width).get(0);
+        return ItemList.postAmount(length, width);
     }
 
     /**
@@ -563,7 +563,7 @@ public class BusinessFacade {
      * @return calculateRoofAmount
      */
     public static int calculateRoofAmount(int length, int width) {
-        return ItemList.roofAmount(length, width).get(0);
+        return ItemList.roofAmount(length, width);
     }
 
     /**
