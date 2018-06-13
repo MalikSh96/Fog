@@ -507,7 +507,7 @@ public class DataFacade {
      * @throws UniversalExceptions
      */
     public static void addToInventory(String name, String desc, int length,
-            String unit, int price, int status) throws UniversalExceptions {
+            String unit, int status, int price) throws UniversalExceptions {
         con.getIM().addToInventory(name, desc, length, unit, status, price);
     }
 
